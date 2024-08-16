@@ -1,0 +1,112 @@
+.talent-container {
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking of content */
+    padding-top: 120px;
+}
+
+.talent-card-wrapper {
+    width: 80%; /* Adjust width as needed to match the navbar logo and navlinks */
+    max-width: 1200px; /* Set a maximum width for responsiveness */
+    margin: 0 auto;
+}
+
+.talent-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-and-description {
+    display: flex;
+}
+
+.photo-card {
+    position: relative;
+    width: 300px; /* Width of the photo section */
+}
+
+.photo-overlay {
+    position: relative;
+}
+
+.talent-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.view-more-button {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 10; /* Ensure buttons are above other content */
+}
+
+.view-more-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.view-more-button:hover .arrow-icon {
+    transform: scale(1.1); /* Example hover effect */
+}
+
+/* Position left and right icons */
+.left-button {
+    top: 80%;
+    left: 10px; /* Edge of the photo */
+    transform: translateY(-50%);
+}
+
+.right-button {
+    top: 80%;
+    right: 10px; /* Edge of the photo */
+    transform: translateY(-50%);
+}
+
+.description {
+    padding: 15px;
+    flex: 1;
+    text-align: left;
+}
+
+.body-details {
+    margin-top: 10px;
+}
+
+/* New section styling */
+.talent-nav-section {
+    padding: 20px 0; /* Add padding to separate from content above */
+
+}
+
+.talent-nav {
+    display: flex;
+    justify-content: center; /* Center navigation items */
+   
+}
+
+.nav-link1 {
+    color: #007bff; /* Primary color */
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+    background-color: #A9C47F;
+}
+
+.nav-link1:hover {
+    background-color: #A9C47F; /* Light background on hover */
+    color: #0056b3; /* Darker color on hover */
+}

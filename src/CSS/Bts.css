@@ -1,0 +1,161 @@
+.content-with-scrollable-images {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh; /* Menggunakan tinggi viewport penuh */
+    overflow: hidden; /* Mencegah scroll di luar section */
+  }
+  
+  .description {
+    flex: 1;
+    padding-right: 20px;
+    overflow-y: auto; /* Memungkinkan scroll jika konten melebihi tinggi */
+  }
+  
+  .description p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .scrollable-images {
+    flex: 1;
+    overflow-y: scroll; /* Memungkinkan scroll vertikal */
+    padding-left: 20px;
+    /* Menyembunyikan scrollbar untuk WebKit browsers */
+    scrollbar-width: none; /* Untuk Firefox */
+    -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+  }
+  
+  .scrollable-images::-webkit-scrollbar {
+    display: none; /* Untuk WebKit browsers */
+  }
+  
+  .scrollable-images img {
+    /* width: 100%; */
+    margin-bottom: 15px;
+    border-radius: 8px; /* Opsional: memberikan sudut bulat pada gambar */
+  }
+  .description .more{
+    color: black;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 49.5px;
+  }
+  .description .studio{
+    color: #AB2328;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+  }
+  .description .photographer{
+    color: #B9975B;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+  }
+  .description .makeup{
+    color: #A9C47F;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+  }
+  .description .editor{
+    color: #AB2328;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+  }
+  .description .creative{
+    color: #A9C47F;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+  }
+  .description .graphic{
+    color: #B9975B;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+  }
+  .bts-photo-talent{
+    width: 212px;
+    height: auto;
+  }
+  .project-gallery-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.project-gallery-section {
+  margin-bottom: 30px;
+}
+
+.project-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.project-card {
+  width: calc(33.33% - 20px);
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.project-description {
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    width: 100%;
+  }
+}
+  
+  /* Responsivitas */
+  @media screen and (max-width: 768px) {
+    .content-with-scrollable-images {
+      flex-direction: column;
+    }
+  
+    .description, .scrollable-images {
+      flex: none;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+  
+    .scrollable-images {
+      height: 300px; /* Atau sesuaikan sesuai kebutuhan */
+    }
+  }

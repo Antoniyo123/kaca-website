@@ -1,0 +1,99 @@
+.home-container {
+    padding: 20px;
+    padding-top: 150PX;
+    text-align: left;
+max-width: 100%;
+
+  }
+
+  .introduction {
+    width: 1280px; /* Sesuaikan lebar untuk menyelaraskan dengan navbar */
+    margin: 0 auto; /* Mengatur margin agar elemen berada di tengah */
+    padding: 0 20px; /* Menambahkan padding untuk memastikan konten tidak menyentuh tepi */
+    box-sizing: border-box; /* Memastikan padding dan border termasuk dalam lebar total */
+}
+
+.introduction p {
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 62.7px;
+    letter-spacing: -0.25px;
+    margin: 0; /* Menghilangkan margin default untuk paragraf */
+}
+
+.text-introduction {
+    width: 1280px; /* Sesuaikan lebar untuk menyelaraskan dengan navbar */
+    margin: 0 auto; /* Mengatur margin agar elemen berada di tengah */
+    padding: 0 20px; /* Menambahkan padding untuk memastikan konten tidak menyentuh tepi */
+    box-sizing: border-box; /* Memastikan padding dan border termasuk dalam lebar total */
+    margin-top: 20px;
+}
+
+.text-introduction p {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 35px;
+    color: #AB2328;
+    margin: 0; /* Menghilangkan margin default untuk paragraf */
+}
+.full-width-photos-container {
+  width: 80%;
+  padding-top: 15rem;
+  /* overflow-x: auto; */
+  -webkit-overflow-scrolling: touch;
+}
+
+.full-width-photos {
+  display: flex;
+  width: 1280px; /* 1280px * 3 */
+}
+
+.photo-container {
+  /* flex: 0 0 1280px; */
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-container img {
+  width: 530px;
+  height: auto;
+  object-fit: cover;
+  display: flex;
+}
+
+@media screen and (max-width: 1279px) {
+  .full-width-photos-container {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Untuk memastikan gambar responsif pada tampilan kecil */
+@media (max-width: 1280px) {
+  .wide-photo {
+      width: calc(50% - 20px); /* Dua gambar per baris pada tampilan yang lebih kecil */
+  }
+}
+
+@media (max-width: 768px) {
+  .wide-photo {
+      width: calc(100% - 20px); /* Satu gambar per baris pada tampilan kecil */
+  }
+}
+
+.section-2{
+  background-color: white;
+}
+
+  @media (max-width: 768px) {
+    .photo-gallery {
+      flex-direction: column;
+    }
+  
+    .wide-photo {
+      width: 100%;
+    }
+  }

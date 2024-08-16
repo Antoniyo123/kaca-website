@@ -1,0 +1,125 @@
+.new-section {
+    background-color: white;
+    padding-top: 40px;
+
+  }
+  .content-container {
+    padding: 40px;
+ }
+  
+  .new-section {
+    text-align: center;
+    color: #fff; /* Pastikan teks tetap terlihat di background hitam */
+  }
+  
+  .new-section h2, .new-section p {
+    margin-bottom: 20px;
+  }
+  
+  .photo-gallery-container {
+    background-color: #212322; /* Background hitam untuk container galeri foto */
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    margin-top: 20px; /* Memberi sedikit jarak dari konten sebelumnya */
+    color: #fff; /* Teks putih */
+  }
+  
+  .photo-gallery-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .photo-gallery-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff; /* Pastikan judul terlihat di background hitam */
+  }
+  
+  .photo-gallery-talent {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+  }
+  
+  .wide-photo-talent {
+    width: 18%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .wide-photo-talent:hover {
+    transform: scale(1.05);
+  }
+
+  .see-more-button {
+    background-color: #B9975B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .see-more-button:hover {
+    background-color: white;
+    transform: scale(1.05);
+    color: #212322;
+  }
+  
+  .arrow-icon {
+    margin-left: 10px;
+    font-size: 1.2em;
+  }
+  .see-more-button-container {
+    position: absolute;
+    margin-top: 3rem;
+    bottom: 0;
+    right: 10px;
+    padding: 10px;
+}
+
+.video-hover {
+    max-width: 1065px; /* Restricts max width of content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space between centered-content and next-text */
+    text-align: center; /* Center text horizontally */
+}
+
+.video-hover p {
+    font-size: 57px;
+    font-weight: 400;
+    line-height: 62.7px;
+    margin: 5px 0;
+    letter-spacing: -0.25;
+    max-width: 100%;
+    color: #FFFFFF;
+    text-align: center;
+}
+.title-text-video {
+    margin-bottom: 0; 
+    font-size: 24px; /* Sesuaikan ukuran teks */
+    font-weight: bold; /* Agar terlihat lebih menonjol */
+}
+
+.video-hover.underline-text{
+    margin-top: 5px; /* Mengatur jarak antara teks dan garis bawah */
+    font-size: 24px; /* Sesuaikan ukuran garis agar sesuai dengan teks */
+    font-weight: 800;
+    line-height: 0; /* Menghilangkan jarak vertikal */
+    color: #B9975B;
+}
+  
+  

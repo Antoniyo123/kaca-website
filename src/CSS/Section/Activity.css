@@ -1,0 +1,140 @@
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* Width to align with your layout needs */
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding-top: 120px;
+}
+
+.centered-content {
+    max-width: 1065px; /* Restricts max width of content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space between centered-content and next-text */
+    text-align: center; /* Center text horizontally */
+}
+
+.centered-content p {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 5px 0;
+    max-width: 100%;
+}
+.centered-content-next {
+    text-align: center;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.25;
+    margin: 5px 0;
+    max-width: 100%;
+}
+.centered-content-next p {
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 49.5px;
+    margin: 5px 0;
+    max-width: 100%;
+    color: #AB2328;
+    
+}
+
+.scrolling-text {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 49.5px;
+    text-align: center;
+    color: #AB2328;
+
+}
+.scrolling-text p {
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 49.5px;
+    margin: 5px 0;
+    max-width: 100%;
+    color: #AB2328;
+    
+}
+
+.centered-content-text {
+    max-width: 1065px; /* Restricts max width of content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px; /* Space between centered-content and next-text */
+    text-align: center; /* Center text horizontally */
+}
+.centered-content-text p {
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 49.5px;
+    margin: 5px 0;
+    max-width: 100%;
+    color: #212322;
+    
+}
+.title-text {
+    margin-bottom: 0; 
+    font-size: 24px; /* Sesuaikan ukuran teks */
+    font-weight: bold; /* Agar terlihat lebih menonjol */
+}
+
+.centered-content-text .underline{
+    margin-top: 5px; /* Mengatur jarak antara teks dan garis bawah */
+    font-size: 24px; /* Sesuaikan ukuran garis agar sesuai dengan teks */
+    font-weight: 800;
+    line-height: 0; /* Menghilangkan jarak vertikal */
+    color: #B9975B;
+}
+
+.animated-text::after {
+    content: '|';
+    color: #AB2328;
+
+    animation: blink 3ms step-end infinite;
+}
+
+/* @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+} */
+
+
+  /* Responsivitas */
+  @media screen and (max-width: 1200px) {
+    .centered-content p {
+      font-size: 28px;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .centered-content p {
+      font-size: 24px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .centered-content p {
+      font-size: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .centered-content p {
+      font-size: 16px;
+    }
+  }
