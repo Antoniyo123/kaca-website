@@ -2,14 +2,18 @@
 import React from 'react';
 import '../CSS/Home.css';
 import NewSection from './NewSection';
-import Activity from './Activity';
-import Bts from'./Bts';
+// import Activity from './Activity';
+// import Bts from'./Bts';
 import LastProjects from './LastProjects';
+import KacaActivity from './KacaActivity';
+import AchievementSection from './AchievementSection';
+import KacaLandingPage from './KacaLandingPage';
 
 const Home = () => {
   return (
     <div className="home-container">
-      <div className="introduction">
+      <KacaLandingPage />
+      {/* <div className="introduction">
           <p>Your one stop creative solution providing top</p>
           <p>leading talents and digital marketing needs.</p>
       </div>
@@ -23,21 +27,24 @@ const Home = () => {
       <div className="full-width-photos-container">
   <div className="full-width-photos">
     <div className="photo-container">
-      <img src={require('../img/talent2.png')} alt="Foto 1" />
+      <img src={require('../img/aqsa.png')} alt="Foto 1" />
     </div>
     <div className="photo-container">
-      <img src={require('../img/talent3.png')} alt="Foto 2" />
+      <img src={require('../img/nazla.png')} alt="Foto 2" />
     </div>
     <div className="photo-container">
-      <img src={require('../img/talent4.png')} alt="Foto 3" />
+      <img src={require('../img/agatha.png')} alt="Foto 3" />
     </div>
   </div>
-</div>
+
+</div> */}
 
       <div className='section-2'>
-      <Activity />
+        <KacaActivity />
+        <AchievementSection/>
+      {/* <Activity /> */}
       <NewSection />
-      <Bts />
+      {/* <Bts /> */}
       <LastProjects />
 
       </div>

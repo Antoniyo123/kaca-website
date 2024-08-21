@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
-import './App.css';
+import './index.css';
+// import './App.css';
 import Navbar from './component/Navbar';
 import Home from './component/Home'
 import Talent from './component/Talent';

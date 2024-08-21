@@ -1,0 +1,79 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .kaca-landing-page {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 120px;
+    padding: 20px;
+  }
+  
+  
+  h1 {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 38px;
+    padding-top: 120px;
+  }
+  
+  .description {
+    font-weight: 400;
+    color: #AB2328;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    margin-bottom: 38px;
+    padding-top: 2rem;
+  }
+  
+  .full-width-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+  }
+  
+  .image-gallery {
+    display: flex;
+    width: 100%;
+    height: 400px; /* Adjust this value as needed */
+  }
+  
+  .image-gallery img {
+    flex: 1;
+    object-fit: cover;
+    width: 25%;
+    height: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .image-gallery {
+      flex-wrap: wrap;
+      height: auto;
+    }
+  
+    .image-gallery img {
+      width: 50%;
+      height: 200px; /* Adjust this value for mobile */
+    }
+  }
+  
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 100;
+    /* Add more styling for menu items */
+  }

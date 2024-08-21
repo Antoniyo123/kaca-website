@@ -1,8 +1,19 @@
 .new-section {
     background-color: white;
     padding-top: 40px;
+    background-color: #212322;
+    color: white;
+    max-width: 1200px;
+    height: 644px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
 
   }
+  
   .content-container {
     padding: 40px;
  }
@@ -45,7 +56,7 @@
   .wide-photo-talent {
     width: 18%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     transition: transform 0.3s ease;
@@ -108,18 +119,12 @@
     color: #FFFFFF;
     text-align: center;
 }
+
 .title-text-video {
     margin-bottom: 0; 
     font-size: 24px; /* Sesuaikan ukuran teks */
     font-weight: bold; /* Agar terlihat lebih menonjol */
 }
 
-.video-hover.underline-text{
-    margin-top: 5px; /* Mengatur jarak antara teks dan garis bawah */
-    font-size: 24px; /* Sesuaikan ukuran garis agar sesuai dengan teks */
-    font-weight: 800;
-    line-height: 0; /* Menghilangkan jarak vertikal */
-    color: #B9975B;
-}
   
   

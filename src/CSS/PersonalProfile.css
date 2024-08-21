@@ -1,0 +1,86 @@
+.profile-container {
+    background-color: #1e1e1e;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .main-content {
+    display: flex;
+    padding: 1rem;
+    flex: 1;
+  }
+  
+  .profile-info {
+    flex: 2;
+    display: flex;
+  }
+  
+  .profile-image {
+    flex: 1;
+    padding-right: 1rem;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .profile-details {
+    flex: 2;
+  }
+  
+  .sidebar {
+    flex: 1;
+    padding-left: 1rem;
+  }
+  
+  .article-list {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .article-item {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+  }
+  
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #2B5547;
+  }
+  
+  .bottom-nav button {
+    background: none;
+    border: none;
+    color: #183028;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  
+  .bottom-nav button.active {
+    background-color: #4a4a4a;
+    border-radius: 5px;
+  }
+  
+  .show-more {
+    background-color: #4a4a4a;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  /* Tambahkan styling lainnya sesuai kebutuhan */

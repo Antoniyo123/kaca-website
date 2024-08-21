@@ -1,112 +1,142 @@
-.talent-container {
-    display: flex;
-    flex-direction: column; /* Ensure vertical stacking of content */
-    padding-top: 120px;
+.talent-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
 }
 
-.talent-card-wrapper {
-    width: 80%; /* Adjust width as needed to match the navbar logo and navlinks */
-    max-width: 1200px; /* Set a maximum width for responsiveness */
-    margin: 0 auto;
+.talent-section h1{
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+  font-weight: 400;
+  font-size: 57px;
+  line-height: 62.7px;
+  letter-spacing: -0.25px;
 }
 
-.talent-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.talent-slider-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+  transition: transform 1500ms ease-out; /* Pastikan transisi animasi di sini */
 }
 
-.photo-and-description {
-    display: flex;
+.talent-slider-wrapper.animate {
+  transform: translateY(-50px); /* Efek animasi saat scroll */
 }
 
-.photo-card {
-    position: relative;
-    width: 300px; /* Width of the photo section */
+.talent-slider {
+  overflow: hidden;
+  width: 100%;
 }
 
-.photo-overlay {
-    position: relative;
+.talent-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-.talent-photo {
-    width: 100%;
-    height: auto;
-    display: block;
+.slide-page {
+  display: flex;
+  width: 100%;
 }
 
-.view-more-button {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    z-index: 10; /* Ensure buttons are above other content */
+.talent-slide {
+  flex: 1;
+  max-width: 19%; /* Menampilkan lima gambar sekaligus */
+  position: relative;
 }
 
-.view-more-button:hover {
-    background: rgba(0, 0, 0, 0.7);
+.talent-slide img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.arrow-icon {
-    transition: transform 0.3s ease;
+.talent-name-overlay {
+  position: absolute;
+  bottom: -100%; /* Awalnya tersembunyi di bawah */
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Putih transparan */
+  color: #000;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 0 0 10px 10px;
+  transition: bottom 0.3s ease-in-out;
 }
 
-.view-more-button:hover .arrow-icon {
-    transform: scale(1.1); /* Example hover effect */
+.talent-image-container:hover img {
+  transform: scale(1.05);
 }
 
-/* Position left and right icons */
-.left-button {
-    top: 80%;
-    left: 10px; /* Edge of the photo */
-    transform: translateY(-50%);
+.talent-image-container:hover .talent-name-overlay {
+  bottom: 0; /* Geser overlay ke atas ketika di-hover */
 }
 
-.right-button {
-    top: 80%;
-    right: 10px; /* Edge of the photo */
-    transform: translateY(-50%);
+.slider-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.description {
-    padding: 15px;
-    flex: 1;
-    text-align: left;
+.slider-arrow.left {
+  position: absolute;
+  right: 60px;
+  bottom: -30px;
 }
 
-.body-details {
-    margin-top: 10px;
+.slider-arrow.right {
+  position: absolute;
+  right: 20px;
+  bottom: -30px;
 }
 
-/* New section styling */
-.talent-nav-section {
-    padding: 20px 0; /* Add padding to separate from content above */
-
+.slider-dots {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  left: 20px;
+  bottom: -30px;
 }
 
-.talent-nav {
-    display: flex;
-    justify-content: center; /* Center navigation items */
-   
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
-.nav-link1 {
-    color: #007bff; /* Primary color */
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
-    background-color: #A9C47F;
+.dot.active {
+  background-color: #333;
 }
 
-.nav-link1:hover {
-    background-color: #A9C47F; /* Light background on hover */
-    color: #0056b3; /* Darker color on hover */
+.talent-content {
+  margin-top: 20px;
+}
+
+.know-more {
+  cursor: pointer;
+  transition: opacity 1500ms ease-out;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.know-more.animate {
+  opacity: 1;
+}
+
+.personal-profile {
+  position: fixed; /* Menutupi halaman Talent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white; /* Gaya latar belakang sesuai kebutuhan */
+  z-index: 10001; /* Pastikan ini berada di atas elemen lain */
 }

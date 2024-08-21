@@ -40,7 +40,11 @@ const Activity = () => {
 
     return (
         <div className="container">
-            <div className="centered-content">
+            <div className="introduction">
+          <p>We Can Help You to,</p>
+
+      </div>
+            {/* <div className="centered-content">
                 <p>We are a talent management and influencer marketing company that</p>
                 <p>has set an exemplary standard for delivering astute, sharp-focused</p>
                 <p>and individualized representation that ensures success at all stages of</p>
@@ -55,7 +59,7 @@ const Activity = () => {
             <div className="centered-content-text">
                 <p className="title-text">Dynamic Faces Of Style</p>
                 <p className="underline">______________________</p>
-            </div>
+            </div> */}
 
         </div>
     );

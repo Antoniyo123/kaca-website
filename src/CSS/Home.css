@@ -1,8 +1,7 @@
 .home-container {
     padding: 20px;
-    padding-top: 150PX;
     text-align: left;
-max-width: 100%;
+    max-width: 100%;
 
   }
 
@@ -38,7 +37,7 @@ max-width: 100%;
 }
 .full-width-photos-container {
   width: 80%;
-  padding-top: 15rem;
+  padding-top: 4.85rem;
   /* overflow-x: auto; */
   -webkit-overflow-scrolling: touch;
 }
