@@ -7,13 +7,8 @@ const AchievementSection = () => {
       
       <div className="content">
         <div className="image-grid">
-      {/* <img src={require('../img/achivement/aliya.png')} className='main-image' /> */}
-
-          {/* <img src= alt="LazBeauty" className="main-image" /> */}
-          <img src= {require('../img/achivement/aliya.png')} alt="Woman with product" />
-          {/* <img src={require('../img/achivement/aliya.png')} alt="Selfie" />
-          <img src={require('../img/achivement/aliya.png')} alt="Group photo" /> */}
-        </div>
+          <img src= {require('../img/achivement/galery.png')} alt="Woman with product" />
+          </div>
         
         <div className="text-content">
           <h1>What we already achieve,</h1>
@@ -38,8 +33,6 @@ const AchievementSection = () => {
               <p>Brand Collaboration</p>
             </div>
           </div>
-          
-          <h2 className="talents-title">Our Talents</h2>
         </div>
       </div>
     </div>

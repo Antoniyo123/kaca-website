@@ -27,7 +27,7 @@ const KacaActivity = () => {
 
   return (
     <div className="services-section">
-      <h1>We Can Help You to,</h1>
+      <h1>We Can Help You to</h1>
       <div className="services-container">
         <div className="services-list">
           {services.map((service, index) => (
@@ -41,7 +41,6 @@ const KacaActivity = () => {
           ))}
         </div>
         <div className="service-content">
-          {/* <p>{services[activeService].content.split(' ').slice(0, services[activeService].content.split(' ').length / 2).join(' ')}</p> */}
           <img src={services[activeService].image} alt={services[activeService].title} />
           <p>{services[activeService].content.split(' ').slice(services[activeService].content.split(' ').length / 2).join(' ')}</p>
         </div>

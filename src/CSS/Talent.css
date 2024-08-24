@@ -1,17 +1,32 @@
-.talent-section {
-  margin: 0 auto;
-  max-width: 1200px;
+.talent-container {
   position: relative;
+  overflow: hidden;
+  padding-top: 63px;
+  background-color: #FFFFFF66;
 }
 
-.talent-section h1{
+.talent-section {
+  background-color: #FFFFFF66;
   margin: 0 auto;
   max-width: 1200px;
   position: relative;
-  font-weight: 400;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.talent-section.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.talent-section h1 {
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+  font-weight: 500;
   font-size: 57px;
   line-height: 62.7px;
   letter-spacing: -0.25px;
+  text-transform: uppercase;
 }
 
 .talent-slider-wrapper {
@@ -19,11 +34,20 @@
   align-items: center;
   position: relative;
   margin: 20px 0;
-  transition: transform 1500ms ease-out; /* Pastikan transisi animasi di sini */
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .talent-slider-wrapper.animate {
-  transform: translateY(-50px); /* Efek animasi saat scroll */
+  animation: slideIn 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .talent-slider {
@@ -39,30 +63,32 @@
 .slide-page {
   display: flex;
   width: 100%;
+  gap: 16px;
+  
 }
 
 .talent-slide {
   flex: 1;
-  max-width: 19%; /* Menampilkan lima gambar sekaligus */
+  max-width: 19%;
   position: relative;
 }
 
 .talent-slide img {
   width: 100%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   transition: transform 0.3s ease-in-out;
 }
 
 .talent-name-overlay {
   position: absolute;
-  bottom: -100%; /* Awalnya tersembunyi di bawah */
-  left: 0;
+  bottom: -100%;
+  /* left: 0; */
   width: 100%;
-  background: rgba(255, 255, 255, 0.8); /* Putih transparan */
+  background: rgba(255, 255, 255, 0.8);
   color: #000;
   text-align: center;
-  padding: 10px 0;
-  border-radius: 0 0 10px 10px;
+  padding: 12px 0;
+  /* border-radius: 0 0 10px 10px; */
   transition: bottom 0.3s ease-in-out;
 }
 
@@ -71,7 +97,7 @@
 }
 
 .talent-image-container:hover .talent-name-overlay {
-  bottom: 0; /* Geser overlay ke atas ketika di-hover */
+  bottom: 0;
 }
 
 .slider-arrow {
@@ -103,40 +129,138 @@
 }
 
 .dot {
-  width: 10px;
+  margin-top: 3rem;
+
   height: 10px;
-  border-radius: 50%;
-  background-color: #ccc;
+  width: 10px;
   margin: 0 5px;
+  border-radius: 50%;
+  background-color: #bbb;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .dot.active {
-  background-color: #333;
+  background-color: #717171;
+}
+.talent-slider-wrapper {
+  position: relative; /* Make the wrapper relative to position the arrows correctly */
 }
 
-.talent-content {
-  margin-top: 20px;
+.slider-arrows {
+  position: absolute;
+  bottom: -20px; /* Adjust this value to move the arrows below the slider. */
+  left: 50%;
+  transform: translateX(-50%); /* Center the arrows horizontally */
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ensure the arrows are centered across the full width of the slider */
+}
+
+.slider-arrow {
+  color: #292D32;
+  background-color: #f0f0f0; /* Example background color */
+  border: none;
+  /* border-radius: 50%; */
+  cursor: pointer;
+  font-size: 24px; /* Adjust the size of the arrows */
+  width: 40px; /* Adjust the width of the arrow buttons */
+  height: 40px; /* Adjust the height of the arrow buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  margin: 0 10px; /* Add space between the arrows */
+}
+
+.slider-arrow:hover {
+  background-color: #ccc; /* Change the background color on hover */
 }
 
 .know-more {
-  cursor: pointer;
-  transition: opacity 1500ms ease-out;
-  opacity: 0;
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  background-color: #212322; /* Atur warna latar belakang sesuai keinginan Anda */
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 13.8rem;
 }
 
-.know-more.animate {
-  opacity: 1;
+
+
+.know-more .arrow-down {
+  font-size: 24px;
+  display: block;
+  margin-top: 10px;
+  color: #A9C47F; /* Atur warna panah sesuai keinginan Anda */
+}
+.know-more p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #A9C47F;
 }
 
-.personal-profile {
-  position: fixed; /* Menutupi halaman Talent */
+/* .arrow-down {
+  margin-left: 10px;
+  color: #A9C47F;
+} */
+
+.profile-container {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* .profile-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+.personal-profile {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 100%;
-  background: white; /* Gaya latar belakang sesuai kebutuhan */
-  z-index: 10001; /* Pastikan ini berada di atas elemen lain */
+  background-color: white; /* Background putih untuk menutupi area */
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(100%);
+  z-index: 10; /* Pastikan di atas konten lain */
+}
+
+
+
+/* .personal-profile-content {
+  padding: 20px;
+  color: #fff;
+} */
+
+
+
+.full-profile-container {
+  width: 100%; /* Full width for the profile section */
+  
+  background-color: #fff; /* Background color */
+}
+
+.talent-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.talent-section {
+  flex: 1;
+}
+
+.full-profile-container {
+  margin-top: auto; /* Pushes the profile section to the bottom */
 }

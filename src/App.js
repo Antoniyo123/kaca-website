@@ -6,6 +6,13 @@ import Home from './component/Home'
 import Talent from './component/Talent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+const sections = [
+  { selector: '#hero', bgColor: 'transparent' },
+  { selector: '#about', bgColor: '#f0f0f0' },
+  { selector: '#services', bgColor: '#e0e0e0' },
+  // ... tambahkan section lain sesuai kebutuhan
+];
+
 function App() {
   return (
     <Router>

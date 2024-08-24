@@ -4,6 +4,7 @@
     margin: 0 auto;
     padding: 20px;
     padding-top: 120px;
+    padding-bottom: 100px;
   }
   
   /* header {
@@ -31,6 +32,7 @@
   }
   
   .image-grid {
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -38,7 +40,9 @@
   }
   
   .image-grid img {
-    width: 100%;
+    width: 427px;
+    height: 644px;
+    /* width: 100%; */
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -52,19 +56,23 @@
     flex: 1;
   }
   
-  h1 {
+  .text-content h1 {
+    text-transform: uppercase;
     font-size: 57px;
     margin-bottom: 20px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 62.7px;
     letter-spacing: -0.25px;
+    color: #183028;
   }
   
-  p {
+  .text-content p {
     line-height: 30px;
     margin-bottom: 30px;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #183028;
   }
   
   .stats {

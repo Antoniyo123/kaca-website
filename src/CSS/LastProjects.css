@@ -1,155 +1,104 @@
+.project-section {
+  background-color: #212322; /* Latar belakang hitam */
+  color: #fff;
+  width: 100vw; /* Lebar penuh viewport dari kiri ke kanan */
+  height: 100vh; /* Tinggi penuh viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Pusatkan secara vertikal dan horizontal */
+  box-sizing: border-box; /* Sertakan padding dalam perhitungan lebar */
+  margin-left: calc(-50vw + 50%); /* Menyesuaikan margin untuk menghindari spasi di kiri */
+  margin-right: calc(-50vw + 50%); /* Menyesuaikan margin untuk menghindari spasi di kanan */
+}
 
-  .wrapper {
-    background-color: #212322;
-    color: white;
-    max-width: 1200px;
-    height: 644px;
-    margin: 0 auto;
-    padding: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-  }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: 400;
-    font-size: 45px;
-    line-height: 49.5px;
-  }
-  
-  .content-container {
-    flex-grow: 1;
-    overflow-y: hidden;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
-  }
-  
-  .project-gallery-section {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .project-gallery {
-    display: flex;
-    gap: 20px;
-    padding: 10px;
-    min-width: max-content;
-    transition: transform 0.3s ease;
-  }
-  
-  .project-card {
-    width: 250px;
-    height: 350px;
-    background-color: #A9C47F;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .project-card.hover {
-    transform: scale(1.05);
-    z-index: 2;
-  }
-  
-  .project-card.shrink {
-    transform: scale(0.95);
-  }
-  
-  .project-image {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-  }
-  
-  .project-description {
-    padding: 15px;
-    text-align: center;
-    font-size: 22px;
-    flex-grow: 1;
-    line-height: 28.6px;
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    justify-content: center;
-  }
-  
-  /* Scrollbar Styles */
-  .content-container::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .content-container::-webkit-scrollbar-track {
-    background: #333;
-  }
-  
-  .content-container::-webkit-scrollbar-thumb {
-    background: #666;
-    border-radius: 4px;
-  }
-  
-  .content-container::-webkit-scrollbar-thumb:hover {
-    background: #888;
-  }
-  
-  /* Animation for horizontal scroll */
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-270px * 5)); /* Adjusted for gap */
-    }
-  }
-  
-  .project-gallery.animate {
-    animation: scroll 30s linear infinite;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 1066px) {
-    .wrapper {
-      width: 100%;
-      height: auto;
-      min-height: 644px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .project-card {
-      width: 200px;
-      height: 300px;
-    }
-  
-    .project-image {
-      height: 230px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .wrapper {
-      padding: 10px;
-    }
-  
-    .project-card {
-      width: 150px;
-      height: 250px;
-    }
-  
-    .project-image {
-      height: 180px;
-    }
-  
-    .project-description {
-      font-size: 12px;
-    }
-  }
-  
-  
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  /* margin: 0 auto; */
+  color: #fff;
+}
+
+.title {
+  margin-bottom: 5rem;
+  font-weight: 500;
+  /* margin: 0; */
+  font-size: 45px;
+  color: #fff;
+  align-items: center;
+  line-height: 49.5px; /* Menambahkan ini untuk menghilangkan spasi ekstra */
+}
+
+.see-more-btn {
+  width: 202px; /* Lebar yang diminta */
+  height: 64px; /* Tinggi yang diminta */
+  margin-top: 3rem;
+  background-color: #FFFFFFCC;
+  border: 2px solid #fff;
+  color: #AB2328;
+  padding: 16px, 24px, 16px, 24px;
+  gap: 16px;
+  font-weight: 400;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 30px; /* Menambahkan ini untuk menyelaraskan dengan judul */
+  height: 40px; /* Menetapkan tinggi yang sama dengan judul */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.see-more-btn:hover {
+  background-color: #fff;
+  color: #212322;
+}
+.project-cards-container {
+  display: flex;
+  justify-content: center; /* Memusatkan container */
+  overflow-x: auto; /* Scroll horizontal jika konten melampaui lebar */
+  width: 100vw; /* Lebar penuh viewport */
+  padding: 0; /* Hapus padding jika ada */
+  box-sizing: border-box; /* Sertakan padding dalam perhitungan lebar */
+}
+
+.project-cards {
+  display: flex;
+  width: max-content; /* Menghindari lebar container yang lebih besar dari konten */
+}
+
+.project-card {
+  background-color: #333;
+  position: relative;
+  width: 400px; /* Lebar tetap */
+  height: 500px; /* Tinggi tetap */
+  margin-right: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFFFFFCC; /* Latar belakang deskripsi dengan transparansi */
+  color: #183028; /* Warna teks deskripsi */
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover .project-description {
+  transform: translateY(0);
+}

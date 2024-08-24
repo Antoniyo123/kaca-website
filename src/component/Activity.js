@@ -44,22 +44,6 @@ const Activity = () => {
           <p>We Can Help You to,</p>
 
       </div>
-            {/* <div className="centered-content">
-                <p>We are a talent management and influencer marketing company that</p>
-                <p>has set an exemplary standard for delivering astute, sharp-focused</p>
-                <p>and individualized representation that ensures success at all stages of</p>
-                <p>its collaborators.</p>
-            </div>
-            <div className="centered-content-next">
-                <p>We can bring your ideas to life in ways that</p>
-            </div>
-            <div className="scrolling-text">
-                <p className="animated-text">{displayedWord}</p>
-            </div>
-            <div className="centered-content-text">
-                <p className="title-text">Dynamic Faces Of Style</p>
-                <p className="underline">______________________</p>
-            </div> */}
 
         </div>
     );

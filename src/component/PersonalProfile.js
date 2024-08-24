@@ -1,105 +1,99 @@
 import React, { useState } from 'react';
 import '../CSS/PersonalProfile.css';
-
-const influencers = {
-  Nazla: {
-    name: 'Nazla Alifa',
-    instagram: 'nazlaalifa',
-    tiktok: 'nazlaalifas',
-    followers: '1.9 m',
-    impression: '5.21 m',
-    bio: 'Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations',
-
-    image: require('../img/profile/nazla-profile.png')
-   
-  },
-  Aaliyah: {
-    name: 'Aaliyah Massaid',
-    instagram: 'aaliyah.massaid',
-    tiktok: 'aaliyahmassaid',
-    followers: '1.5 m',
-    impression: '4.8 m',
-    bio: 'Aaliyah Massaid is a rising star in the Indonesian fashion scene...',
-    image: require('../img/profile/nazla-profile.png')
-
-  },
-  // Tambahkan data untuk influencer lainnya
-};
-
-const articles = [
-  { title: 'Inspirasi Kreasi Es Kopi Ala Content Creator', date: '01 August 2024' },
-  { title: '5 Ide Mix and Match Skirt ala Selebgram', date: '01 August 2024' },
-  { title: '10 Potret Romantis Influencer', date: '01 August 2024' },
-  // Tambahkan artikel lainnya
-];
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import icons for slide buttons
 
 const PersonalProfile = () => {
-  const [currentInfluencer, setCurrentInfluencer] = useState('Nazla');
   const [showMore, setShowMore] = useState(false);
 
-  const handleInfluencerChange = (name) => {
-    setCurrentInfluencer(name);
-    setShowMore(false);
+  const handleShowMore = () => {
+    setShowMore(!showMore);
   };
 
-  const influencer = influencers[currentInfluencer];
-
   return (
-    <div className="profile-container">
-      <main className="main-content">
-        <div className="profile-info">
-          <div className="profile-image">
-            <img src={influencer.image} alt={influencer.name} />
-          </div>
-          <div className="profile-details">
-            <h1>{influencer.name}</h1>
-            <div className="social-links">
-              <span>Instagram: {influencer.instagram}</span>
-              <span>TikTok: {influencer.tiktok}</span>
-            </div>
-            <div className="stats">
-              <div className="stat-item">
-                <span>Follower</span>
-                <strong>{influencer.followers}</strong>
-              </div>
-              <div className="stat-item">
-                <span>impression</span>
-                <strong>{influencer.impression}</strong>
-              </div>
-            </div>
-            <p className="bio">
-              {showMore ? influencer.bio : `${influencer.bio.substring(0, 100)}...`}
-            </p>
-            <button className="show-more" onClick={() => setShowMore(!showMore)}>
-              {showMore ? 'Show Less' : 'Show More'}
+    <div className="personal-profile-container">
+      <div className="profile-content">
+        <div className="profile-left">
+          <div className="image-container">
+            <img src={require('../img/profile/nazla-profile.png')} alt="Nazla Alifa" />
+            <button className="slide-button left">
+              <FaArrowLeft />
+            </button>
+            <button className="slide-button right">
+              <FaArrowRight />
             </button>
           </div>
         </div>
-        
-        <aside className="sidebar">
-          <h2>Recent Articles</h2>
-          <div className="article-list">
-            {articles.map((article, index) => (
-              <div key={index} className="article-item">
-                <h3>{article.title}</h3>
-                <p>{article.date}</p>
-              </div>
-            ))}
+        <div className="profile-center">
+          <h2>Nazla Alifa</h2>
+          <div className="social-links">
+            <a href="https://instagram.com/nazlaalifa" target="_blank" rel="noopener noreferrer">Instagram: @nazlaalifa</a>
+            <a href="https://tiktok.com/@nazlaalifa" target="_blank" rel="noopener noreferrer">TikTok: @nazlaalifa</a>
           </div>
-        </aside>
-      </main>
-      
-      <nav className="bottom-nav">
-        {Object.keys(influencers).map(name => (
-          <button
-            key={name}
-            className={currentInfluencer === name ? 'active' : ''}
-            onClick={() => handleInfluencerChange(name)}
-          >
-            {name}
+          <div className="stats">
+            <div className="stat">
+              <p className="stat-label">Followers</p>
+              <p className="stat-value">100K</p>
+            </div>
+            <div className="stat">
+              <p className="stat-label">Impressions</p>
+              <p className="stat-value">500K</p>
+            </div>
+            <div className="stat">
+              <p className="stat-label">Followers</p>
+              <p className="stat-value">80K</p>
+            </div>
+            <div className="stat">
+              <p className="stat-label">Likes</p>
+              <p className="stat-value">200K</p>
+            </div>
+          </div>
+          <div className={`description-text ${showMore ? 'show-more' : ''}`}>
+            <p>
+              Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
+            </p>
+            <p>
+              Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her adventures through her social media, especially her passion for travel, fashion, and food.
+            </p>
+          </div>
+          <button onClick={handleShowMore}>
+            {showMore ? 'Show Less' : 'Show More'}
           </button>
-        ))}
-      </nav>
+        </div>
+        <div className="profile-right">
+          <h3>Articles</h3>
+          <div className="article-content">
+            <div className="article">
+              <h4>Article 1</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+            <div className="article">
+              <h4>Article 2</h4>
+              <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper aliquet.</p>
+            </div>
+            <div className="article">
+              <h4>Article 3</h4>
+              <p>Vestibulum viverra dui nec justo ultricies, nec tempor libero dictum. Etiam cursus leo at sapien malesuada, vel tristique nisi malesuada.</p>
+            </div>
+            <div className="article">
+              <h4>Article 4</h4>
+              <p>Vestibulum viverra dui nec justo ultricies, nec tempor libero dictum. Etiam cursus leo at sapien malesuada, vel tristique nisi malesuada.</p>
+            </div>
+            <div className="article">
+              <h4>Article 5</h4>
+              <p>Vestibulum viverra dui nec justo ultricies, nec tempor libero dictum. Etiam cursus leo at sapien malesuada, vel tristique nisi malesuada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="tab-container">
+        <div className="tab-container-inner">
+          <div className="tab">Nazla</div>
+          <div className="tab">Aaliyah</div>
+          <div className="tab">Agatha</div>
+          <div className="tab">Aqsa</div>
+          <div className="tab">Rachel</div>
+        </div>
+      </div>
     </div>
   );
 };

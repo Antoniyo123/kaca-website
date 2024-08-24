@@ -1,130 +1,207 @@
+/* Container for the entire section */
+.content-container {
+  padding: 20px;
+  background-color: #212322;
+  width: 100%;
+}
+
+/* Main container for new section */
 .new-section {
-    background-color: white;
-    padding-top: 40px;
-    background-color: #212322;
-    color: white;
-    max-width: 1200px;
-    height: 644px;
-    margin: 0 auto;
-    padding: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  max-width: 1116px;
+  margin: 0 auto;
+}
 
-  }
-  
-  .content-container {
-    padding: 40px;
- }
-  
-  .new-section {
-    text-align: center;
-    color: #fff; /* Pastikan teks tetap terlihat di background hitam */
-  }
-  
-  .new-section h2, .new-section p {
-    margin-bottom: 20px;
-  }
-  
-  .photo-gallery-container {
-    background-color: #212322; /* Background hitam untuk container galeri foto */
-    padding: 40px;
-    border-radius: 8px;
-    position: relative;
-    margin-top: 20px; /* Memberi sedikit jarak dari konten sebelumnya */
-    color: #fff; /* Teks putih */
-  }
-  
-  .photo-gallery-section {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .photo-gallery-section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #fff; /* Pastikan judul terlihat di background hitam */
-  }
-  
-  .photo-gallery-talent {
-    display: flex;
-    /* justify-content: space-between; */
-    flex-wrap: wrap;
-  }
-  
-  .wide-photo-talent {
-    width: 18%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-  }
-  
-  .wide-photo-talent:hover {
-    transform: scale(1.05);
-  }
+/* Existing photo gallery container */
+.photo-gallery-container {
+  margin-bottom: 40px; 
+  width: 100%;/* Space below the existing photo gallery */
+}
 
-  .see-more-button {
-    background-color: #B9975B;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .see-more-button:hover {
-    background-color: white;
-    transform: scale(1.05);
-    color: #212322;
-  }
-  
-  .arrow-icon {
-    margin-left: 10px;
-    font-size: 1.2em;
-  }
-  .see-more-button-container {
-    position: absolute;
-    margin-top: 3rem;
-    bottom: 0;
-    right: 10px;
-    padding: 10px;
+.photo-gallery-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .video-hover {
-    max-width: 1065px; /* Restricts max width of content */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; /* Space between centered-content and next-text */
-    text-align: center; /* Center text horizontally */
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.video-hover p {
-    font-size: 57px;
-    font-weight: 400;
-    line-height: 62.7px;
-    margin: 5px 0;
-    letter-spacing: -0.25;
-    max-width: 100%;
-    color: #FFFFFF;
-    text-align: center;
+.title-text-video{
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 49.5px;
+  color: #FFFFFF;
+  text-transform: uppercase;
 }
 
-.title-text-video {
-    margin-bottom: 0; 
-    font-size: 24px; /* Sesuaikan ukuran teks */
-    font-weight: bold; /* Agar terlihat lebih menonjol */
+.see-more-button-container {
+  display: flex;
+  align-items: center;
+  width: 202px;
+  height: 64px;
+  padding: 16px, 24px, 16px, 24px;
 }
 
-  
-  
+.see-more-button {
+  background-color: #FFFFFFCC;
+  color: #AB2328;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  align-items: center;
+}
+
+.arrow-icon {
+  margin-left: 5px;
+}
+
+/* Photo gallery styles */
+.photo-gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 1200px;
+}
+
+.wide-photo-talent {
+  width: 210.5px;
+  height: 276px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Wrapper for new content and horizontal gallery */
+.new-content-wrapper {
+  max-width: 1067px;
+  margin: 0 auto;
+}
+
+/* New content styles */
+.new-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping of elements */
+}
+
+/* Prevent new-content-text from shrinking */
+.new-content-text {
+  width: 216px;
+  margin-right: 20px;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Horizontal gallery wrapper */
+
+.new-content-text p{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+}
+.horizontal-gallery-wrapper {
+  width: 827px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; /* Prevent shrinking */
+  overflow: hidden; /* Hide overflow */
+  position: relative; 
+  margin-top: 15px;
+}
+
+.horizontal-gallery {
+  display: flex;
+  overflow-x: hidden;
+  gap: 8px;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.horizontal-photo {
+  width: 114px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Controls for the gallery */
+.gallery-controls {
+  display: flex;
+  justify-content: space-between; /* Dots di kiri, arrows di kanan */
+  align-items: center;
+  width: 100%;
+  margin-top: 10px; /* Space between gallery and controls */
+}
+
+.dots-container {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* background-color: #A9C47F; */
+}
+
+.dot.active {
+  background-color: #A9C47F;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: space-between; /* Dots di kiri, arrows di kanan */
+  align-items: center;
+  width: 100%;
+  margin-top: 22px; /* Space between gallery and controls */
+}
+
+.dots-container {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #AB2328;
+}
+
+.dot.active {
+  background-color: #FFF;
+}
+
+.slider-arrow {
+  background-color: #FFFFFFCC;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #AB2328;
+  position: relative;
+  margin-left: 0; /* Menghapus jarak antara tombol left dan right */
+}
+
+.slider-arrow.left-slide {
+  margin-left: auto; /* Menempel ke tepi kanan dots */
+}
+
+.slider-arrow.right-slide {
+  margin-left: 0; /* Menempel langsung ke tombol left */
+  margin-right: 0; /* Menempel ke tepi kanan kontainer */
+}
+

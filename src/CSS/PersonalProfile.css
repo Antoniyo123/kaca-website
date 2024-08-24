@@ -1,86 +1,232 @@
-.profile-container {
-    background-color: #1e1e1e;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-  }
-  
-  .main-content {
-    display: flex;
-    padding: 1rem;
-    flex: 1;
-  }
-  
-  .profile-info {
-    flex: 2;
-    display: flex;
-  }
-  
-  .profile-image {
-    flex: 1;
-    padding-right: 1rem;
-  }
-  
-  .profile-image img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .profile-details {
-    flex: 2;
-  }
-  
-  .sidebar {
-    flex: 1;
-    padding-left: 1rem;
-  }
-  
-  .article-list {
-    max-height: 400px;
-    overflow-y: auto;
-  }
-  
-  .article-item {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background-color: #2a2a2a;
-    border-radius: 5px;
-  }
-  
-  .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    background-color: #2B5547;
-  }
-  
-  .bottom-nav button {
-    background: none;
-    border: none;
-    color: #183028;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-  }
-  
-  .bottom-nav button.active {
-    background-color: #4a4a4a;
-    border-radius: 5px;
-  }
-  
-  .show-more {
-    background-color: #4a4a4a;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  
-  /* Tambahkan styling lainnya sesuai kebutuhan */
+.personal-profile-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #212322;
+  padding-top: 120px; /* Background color for better contrast */
+  padding-bottom: 120px;
+}
+
+.profile-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 20px; /* Spasi antara bagian */
+  padding-bottom: 80px;
+}
+
+.profile-left, .profile-center, .profile-right {
+  flex: 1;
+}
+
+.image-container {
+  position: relative;
+  width: 280px;
+  height: 422px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.slide-button {
+  position: absolute;
+  bottom: 10px; /* Jarak dari bawah gambar */
+  background: #FFFFFFCC;
+  color: #292D32;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.slide-button.left {
+  left: 10px; /* Jarak dari kiri gambar */
+}
+
+.slide-button.right {
+  right: 10px; /* Jarak dari kanan gambar */
+}
+
+.profile-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 422px; /* Sama dengan tinggi gambar */
+}
+
+.profile-center h2 {
+  margin: 0;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 49.5px;
+  letter-spacing: -0.25px;
+  text-transform: uppercase;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Full width of the container */
+  max-width: 280px; /* Match the width of the image */
+  margin: 10px 0; /* Space below the links */
+}
+
+.social-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+  width: 100%; /* Full width of the container */
+  max-width: 280px; /* Match the width of the image */
+  margin: 12px 0; /* Space below the links */
+}
+
+/* .stat {
+  text-align: center;
+} */
+
+.stat-label {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+.stat-value {
+  color: #E6E6E6;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.description-text {
+  color: #FFFFFF;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  max-height: 80px; /* Adjust to fit visible portion */
+}
+
+.description-text.show-more {
+  max-height: 300px; /* Adjust to fit full content */
+}
+
+button {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  background-color: #212322;
+  color: #A9C47F;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  max-height: 422px; /* Sama dengan tinggi gambar */
+  overflow-y: auto;
+  border-left: 1px solid #99CCBB;
+  padding-left: 20px;
+}
+
+
+.profile-right::-webkit-scrollbar {
+  width: 8px; /* Lebar scroll bar */
+}
+
+.profile-right::-webkit-scrollbar-thumb {
+  background-color: #E6E6E6; /* Warna scroll bar */
+  border-radius: 4px; /* Radius scroll bar */
+}
+
+.profile-right::-webkit-scrollbar-track {
+  background:  #212322; /* Latar belakang track scroll bar */
+}
+
+.profile-right h3 {
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
+.article-content {
+  padding-right: 10px;
+}
+
+.article {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #99CCBB;
+
+}
+
+.article h4 {
+  margin-bottom: 5px;
+  color: #FFFFFF;
+}
+
+.article p {
+  margin: 0;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+/* Existing styles... */
+
+.tab-container {
+  display: flex;
+  justify-content: center; /* Center tabs horizontally */
+  width: 100%;
+  height: 88px;
+  margin-top: 3rem;
+   /* Same width as profile-content */
+  position: fixed; /* Fix tabs to the bottom of the screen */
+  bottom: 0;
+  background-color: #FFFFFFCC; /* Background color for the tabs */
+  border-top: 1px solid #99CCBB; /* Border above the tab-container */
+  z-index: 1000; /* Ensure tabs are above other content */
+}
+
+.tab-container-inner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  color: #183028;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  cursor: pointer;
+  border-right: 1px solid #99CCBB; /* Border between tabs */
+}
+
+.tab:last-child {
+  border-right: none; /* Remove border from the last tab */
+}
+
+.tab:hover {
+  background-color: #A9C47F; /* Change background on hover */
+}
+
+.tab.active {
+  background-color: #183028; /* Highlight the active tab */
+  color: #183028; /* Change text color for the active tab */
+}
