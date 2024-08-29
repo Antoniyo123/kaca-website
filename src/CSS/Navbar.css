@@ -20,7 +20,7 @@
   padding: 1rem;
 }
 .navbar.scrolled{
-  background-color: #FFFFFFCC; 
+  background-color: rgba(255, 255, 255, 0.8); 
 }
 /* Styles for scrolled state */
 .navbar.scrolled .logo-image {
@@ -115,7 +115,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: #FFFFFFE5;
+  background-color: rgba(255, 255, 255, 0.95);
   z-index: 999;
   display: flex;
   transform: scaleX(0);
@@ -125,7 +125,8 @@
 
 .menu-overlay.open {
   transform: scaleX(1);
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.9); 
+  
 }
 
 .menu-items {
@@ -135,6 +136,7 @@
   top: 99px;
   left: 105px;
   gap: 40px;
+  
 }
 
 .menu-items li {
@@ -144,7 +146,17 @@
   letter-spacing: -0.25px;
   margin: 20px 0;
   cursor: pointer;
-  
+  text-transform: uppercase;
+  text-decoration: none;
+
+}
+.menu-items li a {
+  text-decoration: none;
+  color: black;
+}
+.menu-items li.active a {
+  font-weight: bold; /* Highlight the active link */
+  color: #AB2328; /* Or any other color you prefer */
 }
 
 .close-menu {

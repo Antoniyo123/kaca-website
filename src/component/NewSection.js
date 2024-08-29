@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import '../CSS/Section/Section.css';
+import { Link } from 'react-router-dom';
 
 const NewSection = () => {
     const galleryRef = useRef(null);
@@ -22,11 +23,12 @@ const NewSection = () => {
                             <p className="title-text-video">Our Talents</p>
                         </div>
                         <div className="see-more-button-container">
-                            <button className="see-more-button">
+                            <Link to="/talent" className="see-more-button">
                                 See More 
                                 <span className="arrow-icon">→</span>
-                            </button>
+                            </Link>
                         </div>
+
                     </div>
                     <div className="photo-gallery">
                         <img src={require('../img/talent/nazla-talent.png')} alt="Photo 1" className="wide-photo-talent" />
@@ -51,7 +53,7 @@ const NewSection = () => {
                             <img src={require('../img/talent/artis2.png')} alt="Photo 8" className="horizontal-photo" />
                             <img src={require('../img/talent/artis3.png')} alt="Photo 9" className="horizontal-photo" />
                             <img src={require('../img/talent/randy.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/image.png')} alt="Photo 9" className="horizontal-photo" />
+                            <img src={require('../img/talent/gamers.png')} alt="Photo 9" className="horizontal-photo" />
                             <img src={require('../img/talent/jeje.png')} alt="Photo 9" className="horizontal-photo" />
                             <img src={require('../img/talent/jerome.png')} alt="Photo 9" className="horizontal-photo" />
                             <img src={require('../img/talent/randy.png')} alt="Photo 9" className="horizontal-photo" />

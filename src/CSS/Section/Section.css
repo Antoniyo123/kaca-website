@@ -48,6 +48,7 @@
 }
 
 .see-more-button {
+  text-decoration: none;
   background-color: #FFFFFFCC;
   color: #AB2328;
   border: none;
@@ -57,6 +58,12 @@
   font-weight: 400;
   line-height: 30px;
   align-items: center;
+  transition: all 0.3s ease;
+
+}
+.see-more-button:hover{
+  background: #121211;
+  transform: translateY(-5px); 
 }
 
 .arrow-icon {

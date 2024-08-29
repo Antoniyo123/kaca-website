@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; 
 import '../CSS/Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
+  const location = useLocation();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +21,16 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  useEffect(() => {
+    // Update active link on route change and close menu
+    setActiveLink(location.pathname);
+    setIsMenuOpen(false);
+  }, [location]);
+
+  const handleMenuItemClick = (path) => {
+    setActiveLink(path);
+    setIsMenuOpen(false); // Close the menu after clicking
+  };
 
   return (
     <div className="kaca-landing-page">
@@ -36,10 +50,18 @@ const Navbar = () => {
       </nav>
       <div className={`menu-overlay ${isMenuOpen ? 'open' : ''}`}>
         <ul className="menu-items">
-          <li><Link to="/talent">Talents</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/articles">Articles</Link></li>
-          <li><Link to="/contact-us">Contact Us</Link></li>
+          <li className={activeLink === '/talent' ? 'active' : ''}>
+            <Link to="/talent" onClick={() => handleMenuItemClick('/talent')}>Talents</Link>
+          </li>
+          <li className={activeLink === '/projects' ? 'active' : ''}>
+            <Link to="/deskripsiproject" onClick={() => handleMenuItemClick('/deskripsiproject')}>Projects</Link>
+          </li>
+          <li className={activeLink === '/articles' ? 'active' : ''}>
+            <Link to="/articles" onClick={() => handleMenuItemClick('/articles')}>Articles</Link>
+          </li>
+          <li className={activeLink === '/contact-us' ? 'active' : ''}>
+            <Link to="/contact-us" onClick={() => handleMenuItemClick('/contact-us')}>Contact Us</Link>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,0 +1,136 @@
+.contactus-container-utama {
+    padding: 20px;
+    background-color: #212322;
+    width: 100%;
+    padding-top: 110px;
+    padding-bottom: 80px;
+    background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  }
+  
+  .contactus-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    max-width: 1200px;
+    max-height: 500px;
+
+    margin: 0 auto;
+  }
+  
+  .contact-form {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .contact-form h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group textarea {
+    height: 100px;
+  }
+  
+  .submit-button {
+    background-color: #1a4731;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 2rem;
+  }
+  
+  .address,
+  .social-links {
+    flex: 1;
+  }
+  .social-links h2 {
+    font-weight: 400;
+  }
+  .social-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .social-links ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-us-container {
+      flex-direction: column;
+    }
+  
+    .contact-form {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+  
+    .info-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .address,
+    .social-links {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  }
+  

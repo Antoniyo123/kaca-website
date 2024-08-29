@@ -4,7 +4,7 @@
   width: 100%;
   padding: 20px;
   background-color: #212322;
-  padding-top: 120px; /* Background color for better contrast */
+  padding-top: 120px;
   padding-bottom: 120px;
 }
 
@@ -12,7 +12,7 @@
   display: flex;
   width: 100%;
   max-width: 1200px;
-  gap: 20px; /* Spasi antara bagian */
+  gap: 20px;
   padding-bottom: 80px;
 }
 
@@ -30,12 +30,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-
 }
 
 .slide-button {
   position: absolute;
-  bottom: 10px; /* Jarak dari bawah gambar */
+  bottom: 10px;
   background: #FFFFFFCC;
   color: #292D32;
   border: none;
@@ -45,18 +44,18 @@
 }
 
 .slide-button.left {
-  left: 10px; /* Jarak dari kiri gambar */
+  left: 10px;
 }
 
 .slide-button.right {
-  right: 10px; /* Jarak dari kanan gambar */
+  right: 10px;
 }
 
 .profile-center {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 422px; /* Sama dengan tinggi gambar */
+  height: 422px;
 }
 
 .profile-center h2 {
@@ -72,9 +71,9 @@
 .social-links {
   display: flex;
   justify-content: space-between;
-  width: 100%; /* Full width of the container */
-  max-width: 280px; /* Match the width of the image */
-  margin: 10px 0; /* Space below the links */
+  width: 100%;
+  max-width: 280px;
+  margin: 10px 0;
 }
 
 .social-links a {
@@ -86,15 +85,11 @@
 
 .stats {
   display: flex;
-  justify-content: space-between; /* Align items horizontally */
-  width: 100%; /* Full width of the container */
-  max-width: 280px; /* Match the width of the image */
-  margin: 12px 0; /* Space below the links */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 280px;
+  margin: 12px 0;
 }
-
-/* .stat {
-  text-align: center;
-} */
 
 .stat-label {
   color: #FFFFFF;
@@ -113,11 +108,11 @@
   color: #FFFFFF;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  max-height: 80px; /* Adjust to fit visible portion */
+  max-height: 80px;
 }
 
 .description-text.show-more {
-  max-height: 300px; /* Adjust to fit full content */
+  max-height: 300px;
 }
 
 button {
@@ -131,28 +126,26 @@ button {
   border-radius: 5px;
 }
 
-
 .profile-right {
   display: flex;
   flex-direction: column;
-  max-height: 422px; /* Sama dengan tinggi gambar */
+  max-height: 422px;
   overflow-y: auto;
   border-left: 1px solid #99CCBB;
   padding-left: 20px;
 }
 
-
 .profile-right::-webkit-scrollbar {
-  width: 8px; /* Lebar scroll bar */
+  width: 8px;
 }
 
 .profile-right::-webkit-scrollbar-thumb {
-  background-color: #E6E6E6; /* Warna scroll bar */
-  border-radius: 4px; /* Radius scroll bar */
+  background-color: #E6E6E6;
+  border-radius: 4px;
 }
 
 .profile-right::-webkit-scrollbar-track {
-  background:  #212322; /* Latar belakang track scroll bar */
+  background: #212322;
 }
 
 .profile-right h3 {
@@ -167,7 +160,6 @@ button {
 .article {
   margin-bottom: 20px;
   border-bottom: 1px solid #99CCBB;
-
 }
 
 .article h4 {
@@ -183,50 +175,64 @@ button {
   line-height: 24px;
   letter-spacing: 0.15px;
 }
-/* Existing styles... */
 
 .tab-container {
   display: flex;
-  justify-content: center; /* Center tabs horizontally */
+  justify-content: center;
   width: 100%;
   height: 88px;
   margin-top: 3rem;
-   /* Same width as profile-content */
-  position: fixed; /* Fix tabs to the bottom of the screen */
+  position: fixed;
   bottom: 0;
-  background-color: #FFFFFFCC; /* Background color for the tabs */
-  border-top: 1px solid #99CCBB; /* Border above the tab-container */
-  z-index: 1000; /* Ensure tabs are above other content */
+  background-color: #FFFFFFCC;
+  border-top: 1px solid #99CCBB;
+  z-index: 1000;
 }
 
 .tab-container-inner {
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   text-align: center;
 }
 
 .tab {
+  width: 1200px;
+  max-width:  214px;
+  text-transform: uppercase;
   flex: 1;
   text-align: center;
   padding: 10px;
   color: #183028;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 22px;
+  line-height: 28.6px;
   cursor: pointer;
-  border-right: 1px solid #99CCBB; /* Border between tabs */
+  border-right: 1px solid #99CCBB;
 }
 
 .tab:last-child {
-  border-right: none; /* Remove border from the last tab */
+  border-right: none;
 }
 
 .tab:hover {
-  background-color: #A9C47F; /* Change background on hover */
+  background-color: #A9C47F;
 }
 
 .tab.active {
-  background-color: #183028; /* Highlight the active tab */
-  color: #183028; /* Change text color for the active tab */
+  background-color: #183028;
+  color: #FFFFFF;
+}
+.kaca-network-tab {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28.6px;
+  text-transform: none;
+  background-color: #f0f0f0; /* Background color for .KACA Network tab */
+  color: #333; /* Text color for .KACA Network tab */
+}
+
+.kaca-network-tab.active {
+  background-color: #183028;
+  color:#f0f0f0; /* Different background color for active .KACA Network tab */
 }

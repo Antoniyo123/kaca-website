@@ -1,79 +1,83 @@
-body, html {
-    margin: 0;
-    padding: 0;
+/* body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+} */
+
+.container {
+  display: flex;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  max-width: 1280px; /* Total width of the container */
+  margin: 0 auto; /* Center the container */
+  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+  radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+  radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+  linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  ;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.text-content {
+  width: 746px; /* Width for the text section */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;/* Optional: Add background color */
+}
+
+.intro-content{
+ width: 600px;
+}
+.intro-content h2{
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  color: #436548;
+ }
+ .intro-content p{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+ }
+.right-section {
+  width: 534px; /* Width of the image section */
+  height: 100vh; /* Full viewport height */
+  position: relative;
+}
+
+.background-image {
+  width: 534px; /* Width of the image section */
+  height: 100vh; /* Full viewport height */
+  background-image: url('../img/intro.png'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute; /* Position absolutely to ensure it sticks to the right edge */
+  right: 0; /* Align with the right edge of the viewport */
+  top: 0; /* Align with the top of the viewport */
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .text-content, .right-section {
     width: 100%;
-    overflow-x: hidden;
+    height: auto;
   }
-  
-  .kaca-landing-page {
-    font-family: Arial, sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 120px;
-    padding: 20px;
+
+  .right-section {
+    height: 200px; /* Adjust for smaller screens */
   }
-  
-  
-  h1 {
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 40px;
-    margin-bottom: 38px;
-    padding-top: 120px;
-  }
-  
-  .description {
-    font-weight: 400;
-    color: #AB2328;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
-    margin-bottom: 38px;
-    padding-top: 2rem;
-  }
-  
-  .full-width-container {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    overflow: hidden;
-  }
-  
-  .image-gallery {
-    display: flex;
-    width: 100%;
-    height: 400px; /* Adjust this value as needed */
-  }
-  
-  .image-gallery img {
-    flex: 1;
-    object-fit: cover;
-    width: 25%;
-    height: 100%;
-  }
-  
-  @media (max-width: 768px) {
-    .image-gallery {
-      flex-wrap: wrap;
-      height: auto;
-    }
-  
-    .image-gallery img {
-      width: 50%;
-      height: 200px; /* Adjust this value for mobile */
-    }
-  }
-  
-  .menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    z-index: 100;
-    /* Add more styling for menu items */
-  }
+}
