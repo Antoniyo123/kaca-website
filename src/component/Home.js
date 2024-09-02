@@ -9,7 +9,7 @@ import KacaLandingPage from './KacaLandingPage';
 const Home = () => {
   return (
     <div>
-      <section id="hero" className="home-container">
+      <section id="hero">
         <KacaLandingPage />
       </section>
 

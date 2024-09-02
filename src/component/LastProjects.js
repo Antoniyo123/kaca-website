@@ -30,31 +30,31 @@ const LastProjects = () => {
           </div>
           {/* Project Cards */}
           <div className="project-gallery">
-            <div className="project-card">
+            <div className="project-card-view">
               <img src={require('../img/projects/aqsavivo.png')} alt="Project 1" className="project-card-image" />
               <div className="card-hover">
                 <p>Project 1 Description</p>
               </div>
             </div>
-            <div className="project-card">
-              <img src={require('../img/projects/bts2.png')} alt="Project 2" className="project-card-image" />
+            <div className="project-card-view">
+              <img src={require('../img/projects/bts2.png')} alt="Project 2" className="-view-image" />
               <div className="card-hover">
                 <p>Project 2 Description</p>
               </div>
             </div>
-            <div className="project-card">
+            <div className="project-card-view">
               <img src={require('../img/projects/disney.png')} alt="Project 3" className="project-card-image" />
               <div className="card-hover">
                 <p>Project 3 Description</p>
               </div>
             </div>
-            <div className="project-card">
+            <div className="project-card-view">
               <img src={require('../img/talent/aalyah-talent.png')} alt="Project 4" className="project-card-image" />
               <div className="card-hover">
                 <p>Project 4 Description</p>
               </div>
             </div>
-            <div className="project-card">
+            <div className="project-card-view">
               <img src={require('../img/talent/rachel-talent.png')} alt="Project 5" className="project-card-image" />
               <div className="card-hover">
                 <p>Project 5 Description</p>

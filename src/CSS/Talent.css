@@ -1,266 +1,122 @@
-.talent-container {
+.talent-carousel-container {
   position: relative;
-  overflow: hidden;
-  padding-top: 180px;
-  background-color: #FFFFFF66;
-}
-
-.talent-section {
-  background-color: #FFFFFF66;
+  width: 1200px;
   margin: 0 auto;
-  max-width: 1200px;
-  position: relative;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.talent-section.hidden {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-.talent-section h1 {
-  margin: 0 auto;
-  max-width: 1200px;
-  position: relative;
-  font-weight: 500;
-  font-size: 57px;
-  line-height: 62.7px;
-  letter-spacing: -0.25px;
-  text-transform: uppercase;
-}
-
-.talent-slider-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 20px 0;
-  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.talent-slider-wrapper.animate {
-  animation: slideIn 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.talent-slider {
   overflow: hidden;
-  width: 100%;
-}
-
-.talent-slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide-page {
-  display: flex;
-  width: 100%;
-  gap: 16px;
+  padding-top: 200px;
   
 }
 
-.talent-slide {
-  flex: 1;
-  max-width: 19%;
-  position: relative;
+.talent-carousel-wrapper {
+  overflow: hidden;
+  padding-bottom: 20px; /* Adjust padding as needed */
 }
 
-.talent-slide img {
-  width: 100%;
-  /* border-radius: 10px; */
+.talent-carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: calc(1200px * 2); /* Adjust this if needed */
+}
+
+.talent-carousel-item {
+  flex: 0 0 200px; /* Adjust this based on your requirements */
+  height: 276px;
+  position: relative;
+  margin-right: 20px; 
   transition: transform 0.3s ease-in-out;
 }
 
-.talent-name-overlay {
-  position: absolute;
-  bottom: -100%;
-  /* left: 0; */
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-  text-align: center;
-  padding: 12px 0;
-  /* border-radius: 0 0 10px 10px; */
-  transition: bottom 0.3s ease-in-out;
-}
-
-.talent-image-container:hover img {
+.talent-carousel-item:hover img {
   transform: scale(1.05);
 }
 
-.talent-image-container:hover .talent-name-overlay {
-  bottom: 0;
-}
-
-.slider-arrow {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.slider-arrow.left {
-  position: absolute;
-  right: 60px;
-  bottom: -30px;
-}
-
-.slider-arrow.right {
-  position: absolute;
-  right: 20px;
-  bottom: -30px;
-}
-
-.slider-dots {
-  display: flex;
-  justify-content: flex-start;
-  position: absolute;
-  left: 20px;
-  bottom: -30px;
-}
-
-.dot {
-  margin-top: 3rem;
-
-  height: 10px;
-  width: 10px;
-  margin: 0 5px;
-  border-radius: 50%;
-  background-color: #bbb;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.dot.active {
-  background-color: #717171;
-}
-.talent-slider-wrapper {
-  position: relative; /* Make the wrapper relative to position the arrows correctly */
-}
-
-.slider-arrows {
-  position: absolute;
-  bottom: -20px; /* Adjust this value to move the arrows below the slider. */
-  left: 50%;
-  transform: translateX(-50%); /* Center the arrows horizontally */
-  display: flex;
-  justify-content: center;
-  width: 100%; /* Ensure the arrows are centered across the full width of the slider */
-}
-
-.slider-arrow {
-  color: #292D32;
-  background-color: #f0f0f0; /* Example background color */
-  border: none;
-  /* border-radius: 50%; */
-  cursor: pointer;
-  font-size: 24px; /* Adjust the size of the arrows */
-  width: 40px; /* Adjust the width of the arrow buttons */
-  height: 40px; /* Adjust the height of the arrow buttons */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-  margin: 0 10px; /* Add space between the arrows */
-}
-
-.slider-arrow:hover {
-  background-color: #ccc; /* Change the background color on hover */
-}
-
-.know-more {
-  width: 100%;
-  background-color: #212322; /* Atur warna latar belakang sesuai keinginan Anda */
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 13.8rem;
-}
-
-
-
-.know-more .arrow-down {
-  font-size: 24px;
-  display: block;
-  margin-top: 10px;
-  color: #A9C47F; /* Atur warna panah sesuai keinginan Anda */
-}
-.know-more p {
-  margin: 0;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  color: #A9C47F;
-}
-
-/* .arrow-down {
-  margin-left: 10px;
-  color: #A9C47F;
-} */
-
-.profile-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-/* .profile-container.visible {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
-.personal-profile {
-  position: fixed;
-  top: 0;
-  right: 0;
+.talent-carousel-item img {
   width: 100%;
   height: 100%;
-  background-color: white; /* Background putih untuk menutupi area */
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.talent-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(16, 13, 13, 0.7);
+  color: white;
+  padding: 10px;
   transform: translateY(100%);
-  z-index: 10; /* Pastikan di atas konten lain */
+  transition: transform 0.3s ease;
 }
 
-
-
-/* .personal-profile-content {
-  padding: 20px;
-  color: #fff;
-} */
-
-
-
-.full-profile-container {
-  width: 100%; /* Full width for the profile section */
-  
-  background-color: #fff; /* Background color */
+.talent-carousel-item:hover .talent-description {
+  transform: translateY(0);
+  background-color: rgba(241, 236, 236, 0.7);
+  color: rgb(7, 7, 7);
+  padding: 10px;
+  transition: transform 0.3s ease;
 }
 
-.talent-container {
+/* Adjust controls to be below the carousel */
+.talent-carousel-controls {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px; /* Adjust the spacing as needed */
 }
 
-.talent-section {
-  flex: 1;
+.talent-dot-indicators {
+  display: flex;
+  gap: 8px;
 }
 
-.full-profile-container {
-  margin-top: auto; /* Pushes the profile section to the bottom */
+.talent-indicator {
+  width: 16px;
+  height: 16px;
+  background-color: #A9C47F;
+}
+
+.talent-indicator.active {
+  background-color: red;
+  width: 40px;
+  height: 16px;
+}
+
+.talent-slide-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.talent-nav-button {
+  background-color:#292D321A;
+  border: none;
+  color: #000;
+  font-size: 18px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.talent-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.talent-nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.personal-profile-wrapper {
+  width: 100%;
+  background-color: #f9f9f9; /* Adjust the background color as needed */
+  padding: 20px 0; /* Adjust padding as needed */
+}
+
+.personal-profile-container {
+  max-width: 1200px; /* or the desired maximum width */
+  margin: 0 auto;
+}
+.next-page{
+  background-color: #000;
+  width: 100%;
 }

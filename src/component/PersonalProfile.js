@@ -18,20 +18,28 @@ const PersonalProfile = () => {
       instagram: "nazlaalifa",
       tiktok: "nazlaalifa",
       stats: { followers: "100K", impressions: "500K", likes: "200K" },
-      description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends...`,
+      description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
+
+Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her adventures through her social media, especially her passion for travel, fashion, and food.`,
       articles: [
         { title: "Article 1", content: "Lorem ipsum dolor sit amet..." },
+        { title: "Article 2", content: "Sed nisi. Nulla quis sem at nibh elementum..." },
+        { title: "Article 2", content: "Sed nisi. Nulla quis sem at nibh elementum..." },
+        { title: "Article 2", content: "Sed nisi. Nulla quis sem at nibh elementum..." },
+        { title: "Article 2", content: "Sed nisi. Nulla quis sem at nibh elementum..." },
         { title: "Article 2", content: "Sed nisi. Nulla quis sem at nibh elementum..." },
         // more articles
       ],
     },
     Aaliyah: {
       name: "Aaliyah",
-      image: require('../img/profile/nazla-profile.png'),
+      image: require('../img/profile/aaliyah-profile.png'),
       instagram: "aaliyah",
       tiktok: "aaliyah",
       stats: { followers: "150K", impressions: "600K", likes: "250K" },
-      description: `Aaliyah is a model and influencer...`,
+      description: `Aaliyah Massaid is a Content Creator which focused on Lifestyle, Fashion, Sports and Beauty. Aaliyah also known for her amazing voice as she has a remarkable contribution on the music industry.
+
+With her limitless energy towards people, she could light up the room she enters. Aaliyah is a passionate individual and always eager to achieve what she intended to.`,
       articles: [
         { title: "Article 1", content: "Aaliyah's impact on fashion..." },
         { title: "Article 2", content: "Her journey through the industry..." },
@@ -40,11 +48,13 @@ const PersonalProfile = () => {
     },
     Rachel: {
       name: "Aaliyah",
-      image: require('../img/profile/nazla-profile.png'),
+      image: require('../img/profile/rachel-profile.png'),
       instagram: "aaliyah",
       tiktok: "aaliyah",
       stats: { followers: "150K", impressions: "600K", likes: "250K" },
-      description: `Aaliyah is a model and influencer...`,
+      description: `Aaliyah Massaid is a Content Creator which focused on Lifestyle, Fashion, Sports and Beauty. Aaliyah also known for her amazing voice as she has a remarkable contribution on the music industry.
+
+With her limitless energy towards people, she could light up the room she enters. Aaliyah is a passionate individual and always eager to achieve what she intended to.`,
       articles: [
         { title: "Article 1", content: "Aaliyah's impact on fashion..." },
         { title: "Article 2", content: "Her journey through the industry..." },
@@ -53,11 +63,13 @@ const PersonalProfile = () => {
     },
     Aqsa: {
       name: "Aaliyah",
-      image: require('../img/profile/nazla-profile.png'),
+      image: require('../img/profile/aqsa-profile.png'),
       instagram: "aaliyah",
       tiktok: "aaliyah",
       stats: { followers: "150K", impressions: "600K", likes: "250K" },
-      description: `Aaliyah is a model and influencer...`,
+      description: `Aaliyah Massaid is a Content Creator which focused on Lifestyle, Fashion, Sports and Beauty. Aaliyah also known for her amazing voice as she has a remarkable contribution on the music industry.
+
+With her limitless energy towards people, she could light up the room she enters. Aaliyah is a passionate individual and always eager to achieve what she intended to.`,
       articles: [
         { title: "Article 1", content: "Aaliyah's impact on fashion..." },
         { title: "Article 2", content: "Her journey through the industry..." },
@@ -66,11 +78,13 @@ const PersonalProfile = () => {
     },
     Agatha: {
       name: "Aaliyah",
-      image: require('../img/profile/nazla-profile.png'),
+      image: require('../img/profile/agatha-profile.png'),
       instagram: "aaliyah",
       tiktok: "aaliyah",
       stats: { followers: "150K", impressions: "600K", likes: "250K" },
-      description: `Aaliyah is a model and influencer...`,
+      description: `Aaliyah Massaid is a Content Creator which focused on Lifestyle, Fashion, Sports and Beauty. Aaliyah also known for her amazing voice as she has a remarkable contribution on the music industry.
+
+With her limitless energy towards people, she could light up the room she enters. Aaliyah is a passionate individual and always eager to achieve what she intended to.`,
       articles: [
         { title: "Article 1", content: "Aaliyah's impact on fashion..." },
         { title: "Article 2", content: "Her journey through the industry..." },

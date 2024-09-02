@@ -97,12 +97,12 @@
   margin-bottom: 30px;
 }
 
-.project-gallery {
+/* .project-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
-}
+} */
 
 .project-card {
   width: calc(33.33% - 20px);

@@ -11,8 +11,10 @@ const ProjectCard = ({ id, title, image, description }) => {
   return (
     <div className="project-card" onClick={handleClick}>
       <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <div className="project-overlay">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };

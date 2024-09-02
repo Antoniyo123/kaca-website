@@ -1,8 +1,10 @@
 /* Container for the entire section */
 .project-content-container {
+  margin-top: 100px;
   padding: 20px;
   background-color: #212322;
   width: 100%;
+  margin: 0 auto;
 }
 
 /* Main container for the project section */
@@ -28,7 +30,7 @@
   padding-bottom: 20px; /* Space below the gallery */
 }
 
-.project-card {
+.project-card-view {
   width: 320px; /* Width of each card */
   height: 400px; /* Height of each card */
   flex-shrink: 0; /* Prevent shrinking */
@@ -39,7 +41,7 @@
   transition: transform 0.3s ease;
 }
 
-.project-card:hover {
+.project-card-view:hover {
   transform: translateY(-10px); /* Lift the card slightly on hover */
 }
 
@@ -63,9 +65,10 @@
   transition: transform 0.3s ease;
 }
 
-.project-card:hover .card-hover {
+.project-card-view:hover .card-hover {
   transform: translateY(0); /* Slide the hover content up on hover */
 }
+
 .project-title-text-video {
   font-weight: 500;
   font-size: 45px;

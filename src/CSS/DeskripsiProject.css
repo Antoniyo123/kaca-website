@@ -1,18 +1,17 @@
 /* DeskripsiProject.css */
 .home-container-project{
 width: 100%;
+height: 100%;
+margin: 0 auto;
 
 }
 .project-grid-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
     padding-top: 120px;
     padding-bottom: 120px;
-    height: 100%;
-    max-height: 611px;
-    
+    height: 400px;
   }
   
   h2 {
@@ -20,10 +19,9 @@ width: 100%;
   }
   
   .project-grid {
-
-    width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 296px 404px 296px;
+    /* grid-template-columns: 296px 404px 296px; */
     grid-template-rows: 370px 185px;
     gap: 20px;
   }
@@ -39,7 +37,12 @@ width: 100%;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease; 
   }
+  .project-card:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
   
   .project-overlay {
     position: absolute;
@@ -54,10 +57,12 @@ width: 100%;
     justify-content: center;
     align-items: center;
     transition: bottom 0.3s ease; /* Smooth transition */
+    opacity: 0; 
   }
   
   .project-card:hover .project-overlay {
-    bottom: 0; /* Move the overlay to cover the image on hover */
+    bottom: 0; /* Slide up the overlay to cover the image on hover */
+    opacity: 1; /* Make the overlay visible */
   }
   
   .project-1 {

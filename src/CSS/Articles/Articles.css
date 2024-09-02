@@ -1,11 +1,23 @@
 .article-page {
-    max-width: 1200px;
+  width: 100vw;
+  /* max-width: 1200px; */
     margin: 0 auto;
     padding: 20px;
     padding-top: 180px;
+    background:radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    ;
   }
-  
+  .article-page-wrapper{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   .featured-articles {
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     /* gap: 20px; */
     margin-bottom: 40px;

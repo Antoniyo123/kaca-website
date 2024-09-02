@@ -5,6 +5,7 @@ import '../CSS/Articles/Articles.css';
 const Articles = () => {
   return (
     <div className="article-page">
+      <div className="article-page-wrapper">
       <div className="featured-articles">
         <div className="main-article">
           <Link to="/article/1">
@@ -56,6 +57,8 @@ const Articles = () => {
           </Link>
         ))}
       </div>
+      </div>
+
     </div>
   );
 };
