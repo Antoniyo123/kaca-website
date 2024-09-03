@@ -1,136 +1,149 @@
 .achievement-section {
   width: 100%;
-    font-family: Arial, sans-serif;
-    /* max-width: 1200px; */
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 120px;
-    padding-bottom: 100px;
-    background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 120px;
+  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  height: 100%;
+}
 
+.content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 40px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.moving-images {
+  display: flex;
+  flex-direction: column;
+  animation: moveImagesUp 60s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  animation-duration: 60s;
+}
+
+.moving-images img {
+  width: 427px;
+  height: 644px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  animation: slideInFromBottom 3s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  animation-duration: 3s;
+  transform-origin: bottom;
+}
+
+@keyframes moveImagesUp {
+  0% {
+    transform: translateY(100%);
   }
-  
-  /* header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-  } */
-  
-  /* .logo {
-    font-size: 24px;
-    font-weight: bold;
-  } */
-  
-  
-  
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.text-content {
+  flex: 1;
+  width: 100%;
+}
+
+.text-content h1 {
+  text-transform: uppercase;
+  font-size: 57px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  line-height: 62.7px;
+  letter-spacing: -0.25px;
+  color: #183028;
+}
+
+.text-content p {
+  line-height: 30px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #183028;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.stat-item h2 {
+  font-size: 45px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  line-height: 49.5px;
+  align-items: right;
+}
+
+.stat-item h2 span {
+  font-size: 42px;
+  line-height: 28.6px;
+  font-weight: 400;
+}
+
+.stat-item p {
+  font-size: 14px;
+  color: #212322;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.1px;
+  align-items: center;
+}
+
+.talents-title {
+  font-size: 24px;
+  border-bottom: 2px solid #f0c000;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
   .content {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    gap: 40px;
-    margin: 0 auto;
+    flex-direction: column;
   }
-  
-  .image-grid {
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    flex: 1;
+  .image-grid {
+    width: 100%;
+    overflow: hidden;
   }
-  
-  .image-grid img {
-    width: 427px;
-    height: 644px;
-    /* width: 100%; */
+
+  .moving-images {
+    width: 200%; /* Untuk memastikan ada cukup ruang untuk animasi */
+  }
+
+  .moving-images img {
+    width: 100%;
     height: auto;
-    border-radius: 10px;
-    object-fit: cover;
   }
-  
-  .main-image {
-    grid-column: 1 / -1;
-  }
-  
-  .text-content {
-    flex: 1;
-  }
-  
-  .text-content h1 {
-    text-transform: uppercase;
-    font-size: 57px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    line-height: 62.7px;
-    letter-spacing: -0.25px;
-    color: #183028;
-  }
-  
-  .text-content p {
-    line-height: 30px;
-    margin-bottom: 30px;
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    color: #183028;
-  }
-  
+
   .stats {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
-  
-  .stat-item h2 {
-    font-size: 45px;
-    margin-bottom: 5px;
-    font-weight: 400;
-    line-height: 49.5px;
-    align-items: right;
-  }
-  
-  .stat-item h2 span {
-    font-size: 42px;
-    line-height: 28.6px;
-    font-weight: 400;
-  }
-  
-  .stat-item p {
-    font-size: 14px;
-    color: #212322;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0.1px;
+    flex-direction: column;
     align-items: center;
   }
-  
-  .talents-title {
-    font-size: 24px;
-    border-bottom: 2px solid #f0c000;
-    padding-bottom: 10px;
-    display: inline-block;
+
+  .stat-item {
+    margin-bottom: 20px;
+    text-align: center;
   }
-  
-  @media (max-width: 768px) {
-    .content {
-      flex-direction: column;
-    }
-  
-    .image-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .stats {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .stat-item {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  }
+}
