@@ -1,18 +1,13 @@
-/* body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-} */
+
 .home-container{
   background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
   radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
   radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
   linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
   ;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
-  height: 0 auto;
+  height: 100%;
 }
 .container {
   max-width: 1200px;
@@ -33,9 +28,10 @@
 }
 
 .text-content {
-  max-width: 733px;
+  margin-top: 5rem;
+  max-width: 600px;
   width:100%; /* Width for the text section */
-  /* padding: 5rem; */
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;/* Optional: Add background color */
@@ -46,24 +42,24 @@
 } */
 .intro-content h2{
   font-weight: 400;
-  font-size: 32px;
+  font-size: Subheadline Large;
   line-height: 40px;
   color: #436548;
  }
  .intro-content p{
   font-weight: 400;
-  font-size: 16px;
+  font-size: Body Large;
   line-height: 24px;
   letter-spacing: 0.5px;
  }
 .right-section {
-  width: 534px; /* Width of the image section */
+  width: 100%; /* Width of the image section */
   height: 100vh; /* Full viewport height */
   position: relative;
 }
 
 .background-image {
-  width: 534px; /* Width of the image section */
+  width: 600px; /* Width of the image section */
   height: 100vh; /* Full viewport height */
   background-image: url('../img/intro2.png'); /* Replace with your image path */
   background-size: cover;
@@ -74,13 +70,38 @@
   top: 0; /* Align with the top of the viewport */
 }
 
+.additional-image img {
+  max-width: 736px;
+  height: auto;
+}
+
+.kaca-pic-container {
+  position: relative;
+  right: 60%;
+  top: 17%; /* Positions the image directly below the text content */
+   /* Add some space if needed */
+  transform: translateY(0);
+}
 
 
-@media (max-width: 768px) {
-  .container {
+
+@media (max-width: 1200px) {
+  .home-container {
     flex-direction: column;
+    margin: 0 auto;
+    /* padding-top: 2px; */
   }
-
+  .background-image {
+    width: 600px; /* Width of the image section */
+    height: 100vh; /* Full viewport height */
+    background-image: url('../img/intro2.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute; /* Position absolutely to ensure it sticks to the right edge */
+    right: -3.5%; /* Align with the right edge of the viewport */
+    top: 0; /* Align with the top of the viewport */
+  }
   .text-content, .right-section {
     width: 100%;
     height: auto;
