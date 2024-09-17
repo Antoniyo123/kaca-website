@@ -1,208 +1,203 @@
-/* For Desktop */
+.talent-container-main {
+  width: 100%;
+  /* max-width: 1200px; */
+  height: 100%;
+  padding: 20px;
+  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+
+  /* padding-bottom: 120px; */
+  /* padding-top: -100px; */
+}
+
 .talent-carousel-container {
   position: relative;
-  width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding-top: 150px;
-  padding-bottom: 170px;
-}
-h1.intro {
-  font-weight: 700;
-  font-size: 50px;
-  line-height: 62.7px;
-  letter-spacing: 0.25px;
-  padding-bottom: 60px;
-}
-.talent-carousel-wrapper {
-  overflow: hidden;
-  padding-bottom: 20px;
-}
-.talent-carousel-track {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
-  width: calc(1200px * 2); /* Adjust this if needed */
-}
-.talent-carousel-item {
-  flex: 0 0 200px; /* Adjust this based on your requirements */
-  height: 276px;
-  position: relative;
-  margin-right: 20px; 
-  transition: transform 0.3s ease-in-out;
-}
-.talent-carousel-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.talent-carousel-item:hover img {
-  transform: scale(1.05);
-}
-.talent-description {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(16, 13, 13, 0.7);
-  color: white;
-  padding: 10px;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-.talent-carousel-item:hover .talent-description {
-  transform: translateY(0);
-  background-color: rgba(241, 236, 236, 0.7);
-  color: rgb(7, 7, 7);
-  padding: 10px;
-  transition: transform 0.3s ease;
-}
-.talent-carousel-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 20px;
-}
-.talent-dot-indicators {
-  display: flex;
-  gap: 8px;
-}
-.talent-indicator {
-  width: 16px;
-  height: 16px;
-  background-color: #A9C47F;
-}
-.talent-indicator.active {
-  background-color: red;
-  width: 40px;
-  height: 16px;
-}
-.talent-slide-buttons {
-  display: flex;
-  gap: 10px;
-}
-.talent-nav-button {
-  background-color: #292D321A;
-  border: none;
-  color: #000;
-  font-size: 18px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.talent-nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-.talent-nav-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.know-more-button {
-  color: #898D8D;
-  font-size: 16px;
-  font-weight: bold;
+  max-width: 1100px;
   margin: 0 auto;
-  cursor: pointer;
+
+}
+
+.intro {
+  /* text-align: center; */
+  padding-bottom: 50px;
+  font-size: 2.5rem;
+}
+
+.talent-carousel-wrapper {
+  width: 1200px; /* Updated width */
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  border: none;
-  background: none;
 }
-.know-more-button:hover {
-  background-color: #0056b3;
-}
-.personal-profile-wrapper {
+
+.talent-carousel-track {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  background-color: #f9f9f9;
-  padding: 20px 0;
+  overflow: hidden;
 }
-.personal-profile-container {
-  max-width: 1200px;
+
+.talent-carousel-item  {
+  flex: 213px;
+  height: 300px;
+  margin-right: 20px;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover ;
+}
+.talent-carousel-item .talent-image {
+  width:213px;
+  height: 300px;
+  /* margin-right: 20px; */
+  position: relative;
+  overflow: hidden;
+  object-fit: cover ;
+}
+
+
+.talent-carousel-item:last-child {
+  margin-right: 0;
+}
+
+.talent-image, .talent-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.talent-gif {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.talent-gif.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.talent-image {
+  z-index: 1;
+}
+
+.talent-image.lifted {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.talent-description {
+  
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.talent-carousel-item:hover .talent-description {
+  opacity: 1;
+  bottom: 0;
+}
+
+/* New styling for navigation buttons below the carousel */
+.talent-nav-buttons {
+  width: 1100px;
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+  pointer-events: none; /* Ensures the buttons don't block clicks on the carousel */
+}
+
+.talent-nav-button {
+  background-color:#292D321A;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  pointer-events: auto; /* Enable button clicks */
+}
+
+.talent-nav-button.prev {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  margin-left: 10px; /* Add some margin to move it slightly inside the container */
+}
+
+.talent-nav-button.next {
+  position: absolute;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-right: 10px; /* Add some margin to move it slightly inside the container */
+}
+
+.talent-nav-button:hover {
+  background-color:#4E6548;
+}
+.know-more-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.know-more-button {
+  bottom: 10%;
+  color: #898D8D;
+  border: none;
+  /* padding: 10px 20px; */
+  font-size: 20px;
+  cursor: pointer;
   margin: 0 auto;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 24px;
+  background-color: none; 
 }
 
-/* Responsive - Tablet */
-@media (max-width: 1024px) {
-  .talent-carousel-container {
-    width: 90%;
-    /* padding-top: 100px; */
-    padding-bottom: 120px;
-  }
-  h1.intro {
-    font-size: 40px;
-    line-height: 50px;
-  }
-  .talent-carousel-item {
-    flex: 0 0 180px; /* Adjust this to fit fewer items in smaller view */
-    height: 240px;
-    margin-right: 15px;
-  }
+.know-more-button:hover {
+  background-color: none; /* Tetap sama dengan warna default */
 }
 
-/* Responsive - Mobile */
-@media (max-width: 768px) {
-  .talent-carousel-container {
-    width: 100%;
-    /* padding-top: 80px; */
-    /* padding-bottom: 100px; */
-  }
-  h1.intro {
-    font-size: 70px;
-    line-height: 40px;
-    padding-bottom: 40px;
-  }
-  .talent-carousel-item {
-    flex: 0 0 160px;
-    height: 200px;
-    margin-right: 10px;
-  }
-  .talent-description {
-    font-size: 12px;
-    padding: 8px;
-  }
-  .talent-dot-indicators {
-    gap: 6px;
-  }
-  .talent-indicator {
-    width: 12px;
-    height: 12px;
-  }
-  .talent-indicator.active {
-    width: 30px;
-    height: 12px;
-  }
-  .talent-nav-button {
-    font-size: 16px;
-    padding: 8px 12px;
-  }
+
+.personal-profile-wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 50px;
+  /* opacity: 0;s */
+  transition: opacity 0.5s ease;
+  background-color: black;
 }
 
-/* Responsive - Small Mobile */
-@media (max-width: 480px) {
-  /* .talent-carousel-container {
-    padding-top: 60px;
-    padding-bottom: 80px;
-  } */
-  h1.intro {
-    font-size: 50px;
-    line-height: 40px;
-    padding-bottom: 30px;
-    font-weight: 500;
-    letter-spacing: -0.35px;
-  }
-  .talent-carousel-item {
-    flex: 0 0 140px;
-    height: 180px;
-    margin-right: 8px;
-  }
-  .talent-description {
-    font-size: 10px;
-    padding: 6px;
-  }
-  .talent-nav-button {
-    font-size: 14px;
-    padding: 6px 10px;
-  }
+.personal-profile-wrapper.active {
+  opacity: 1;
+}
+.background-photo-talent {
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  width: 450px; /* Adjust size for desktop */
+  height: 300px;
+  background-image: url('../img/bg/bg-1.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
 }

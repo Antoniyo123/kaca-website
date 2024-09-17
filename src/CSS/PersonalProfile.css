@@ -5,7 +5,7 @@
   width: 100%;
   padding: 20px;
   padding-top: 100px;
-  padding-bottom: 120px;
+  /* padding-bottom: 120px; */
 }
 
 .profile-content {
@@ -263,7 +263,7 @@ button {
 
 .know-more-button:hover,
 .back-to-talent-button:hover {
-  background-color: #0056b3;
+  /* background-color: #0056b3; */
 }
 /* Tablet Styles */
 @media (min-width: 768px) {
