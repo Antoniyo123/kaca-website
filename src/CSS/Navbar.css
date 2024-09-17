@@ -7,10 +7,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 1000;
-
 }
+
 .navbar-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -18,20 +18,33 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-}
-.navbar.scrolled{
-  background-color: rgba(255, 255, 255, 0.8); 
-}
-/* Styles for scrolled state */
-.navbar.scrolled .logo-image {
-  margin-top: 2rem;
-  width: 108px; /* Ubah ukuran logo saat di-scroll */
-  height: 42px;
-  transform: translateY(-10px);
   transition: all 0.3s ease;
 }
 
-/* Hamburger menu general styles */
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Logo image styles */
+.logo-image {
+  width: 320px;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.2);
+}
+
+/* Scrolled state for logo */
+.navbar.scrolled .logo-image {
+  width: 108px;
+  height: 42px;
+  transform: translateY(-10px);
+}
+
+/* Hamburger menu styles */
 .hamburger-menu {
   cursor: pointer;
   z-index: 1000;
@@ -43,7 +56,6 @@
   transition: all 0.3s ease;
 }
 
-/* Default hamburger menu state */
 .hamburger-menu div {
   width: 64px;
   height: 5px;
@@ -51,29 +63,29 @@
   margin: 8px 0;
   transition: all 0.3s ease;
 }
-.hamburger-menu .hamburger-menu.scrolled div {
-  width: 40px;
-  height: 5px;
-  background-color: black;
-  margin: 8px 0;
-  transition: all 0.3s ease;
-}
 
-/* Red color for the middle bar */
 .hamburger-menu .red-color {
   background-color: #AB2328;
   margin: 6px 0;
-  transition: all 0.3s ease;
 }
 
-/* When the menu is opened */
+/* Scrolled state for hamburger menu */
+.navbar.scrolled .hamburger-menu div {
+  width: 40px;
+  height: 4px;
+}
+
+.navbar.scrolled .hamburger-menu {
+  transform: translateY(-10px);
+}
+
+/* Open state for hamburger menu */
 .hamburger-menu.open {
   position: fixed;
   top: 60px;
   right: 20px;
 }
 
-/* Transformations for the "X" icon */
 .hamburger-menu.open div:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 5px);
   background-color: #AB2328;
@@ -89,27 +101,7 @@
   background-color: black;
 }
 
-/* Scrolled state for the hamburger menu */
-.hamburger-menu.scrolled div {
-  width: 40px; /* Lebar baru saat di-scroll */
-  height: 4px; /* Tinggi baru saat di-scroll */
-  transform: translateY(-10px); /* Efek animasi Move in top */
-}
-
-/* Logo image default state */
-.logo-image {
-  width: 320px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* Hover effect for the logo */
-.logo-image:hover {
-  transform: scale(1.2);
-}
-
-
+/* Menu overlay styles */
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -125,8 +117,7 @@
 
 .menu-overlay.open {
   transform: scaleX(1);
-  background-color: rgba(255, 255, 255, 0.9); 
-  
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .menu-items {
@@ -136,7 +127,6 @@
   top: 99px;
   left: 105px;
   gap: 40px;
-  
 }
 
 .menu-items li {
@@ -147,28 +137,19 @@
   margin: 20px 0;
   cursor: pointer;
   text-transform: uppercase;
-  text-decoration: none;
-
 }
+
 .menu-items li a {
   text-decoration: none;
   color: black;
 }
+
 .menu-items li.active a {
-  font-weight: bold; /* Highlight the active link */
-  color: #AB2328; /* Or any other color you prefer */
+  font-weight: bold;
+  color: #AB2328;
 }
 
-.close-menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 30px;
-  cursor: pointer;
-}
-
+/* Animation for menu items */
 @keyframes menuItemFadeIn {
   from { opacity: 0; transform: translateX(50px); }
   to { opacity: 1; transform: translateX(0); }
@@ -182,4 +163,19 @@
 .menu-overlay.open .menu-items li:nth-child(1) { animation-delay: 0.2s; }
 .menu-overlay.open .menu-items li:nth-child(2) { animation-delay: 0.3s; }
 .menu-overlay.open .menu-items li:nth-child(3) { animation-delay: 0.4s; }
-.menu-overlay.open .menu-items li:nth-child(4) { animation-delay: 0.4s; }
+.menu-overlay.open .menu-items li:nth-child(4) { animation-delay: 0.5s; }
+@media (max-width: 480px){
+  .logo-image {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .hamburger-menu div {
+    width: 60px;
+    height: 5px;
+    background-color: black;
+    /* margin: 8px 0; */
+    transition: all 0.3s ease;
+  }
+}

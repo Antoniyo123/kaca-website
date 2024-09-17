@@ -1,8 +1,7 @@
 .talent-container {
     width: 100%;
     margin: 0 auto;
-    height: auto;
-    background-color: #f0f0f0; /* Change this to your desired color for the first section */
+    height: auto; /* Change this to your desired color for the first section */
 }
 
 .talent-next-description {

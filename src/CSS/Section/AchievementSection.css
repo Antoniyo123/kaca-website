@@ -11,59 +11,78 @@
   height: 100%;
 }
 
+.background-photo-achievemnt {
+  position: absolute;
+  bottom: 0;
+  left: 75%;
+  width: 450px; /* Adjust size for desktop */
+  height: 300px;
+  background-image: url('../../img/bg/bg-1.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
 .content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   display: flex;
   gap: 40px;
   margin: 0 auto;
   height: 100%;
 }
 
+.image-grid {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .moving-images {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  animation: moveImagesUp 60s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-  animation-duration: 60s;
+  animation: moveImagesUp 20s linear infinite;
 }
 
 .moving-images img {
   width: 427px;
-  height: 644px;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-bottom: 20px;
-  animation: slideInFromBottom 3s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-  animation-duration: 3s;
-  transform-origin: bottom;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: fadeInUp 3s ease forwards;
 }
 
 @keyframes moveImagesUp {
   0% {
-    transform: translateY(100%);
-  }
-  50% {
-    transform: translateY(-100%);
+    transform: translateY(0);
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
 }
 
-@keyframes slideInFromBottom {
+@keyframes fadeInUp {
   0% {
+    opacity: 0;
     transform: translateY(100%);
   }
   100% {
+    opacity: 1;
     transform: translateY(0);
   }
 }
+
 .text-content {
-  flex: 1;
-  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-left: 3rem;
 }
 
 .text-content h1 {
+  font-weight: 400;
+  max-width: 1200px;
   text-transform: uppercase;
   font-size: 57px;
   margin-bottom: 20px;
@@ -74,6 +93,7 @@
 }
 
 .text-content p {
+  max-width: 1200px;
   line-height: 30px;
   margin-bottom: 30px;
   font-weight: 400;
@@ -83,67 +103,111 @@
 }
 
 .stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rem;
+  margin-top: 20px;
   justify-content: space-between;
-  margin-bottom: 40px;
 }
 
 .stat-item h2 {
-  font-size: 45px;
-  margin-bottom: 5px;
-  font-weight: 400;
-  line-height: 49.5px;
-  align-items: right;
-}
-
-.stat-item h2 span {
-  font-size: 42px;
-  line-height: 28.6px;
-  font-weight: 400;
+  font-size: 2.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .stat-item p {
-  font-size: 14px;
-  color: #212322;
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+  text-align: center;
   font-weight: 500;
   line-height: 21px;
-  letter-spacing: 0.1px;
-  align-items: center;
-}
-
-.talents-title {
-  font-size: 24px;
-  border-bottom: 2px solid #f0c000;
-  padding-bottom: 10px;
-  display: inline-block;
 }
 
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .text-content {
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+
+  .text-content h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .text-content p {
+    font-size: 14px;
+    line-height: 24px;
   }
 
   .image-grid {
-    width: 100%;
-    overflow: hidden;
+    height: auto;
   }
-
   .moving-images {
-    width: 200%; /* Untuk memastikan ada cukup ruang untuk animasi */
+    display: none; /* Hide moving images on mobile */
   }
 
   .moving-images img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    margin-bottom: 5px;
+  }
+
+  .background-photo-achievemnt {
+    width: 250px;
+    height: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
   }
 
   .stats {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .stat-item {
-    margin-bottom: 20px;
-    text-align: center;
+  .stat-item h2 {
+    font-size: 2rem;
+  }
+
+  .stat-item p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-content h1 {
+    font-size: 24px;
+  }
+
+  .text-content p {
+    font-size: 12px;
+  }
+
+  .moving-images img {
+    width: 150px;
+  }
+
+  .background-photo-achievemnt {
+    width: 200px;
+    height: 120px;
+  }
+
+  .stats {
+    gap: 10px;
+  }
+
+  .stat-item h2 {
+    font-size: 1.5rem;
+  }
+
+  .stat-item p {
+    font-size: 0.9rem;
   }
 }

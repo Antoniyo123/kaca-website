@@ -27,6 +27,7 @@ const KacaActivity = () => {
 
   return (
     <div className="services-section">
+      <div className="background-photo"></div>
       <h1>We Can Help You to</h1>
       <div className="services-container">
         <div className="services-list">

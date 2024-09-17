@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import '../CSS/Section/Section.css';
 import { Link } from 'react-router-dom';
 
 const NewSection = () => {
     const galleryRef = useRef(null);
+    const [touchStartX, setTouchStartX] = useState(0);
+    const [touchEndX, setTouchEndX] = useState(0);
 
     const scrollLeft = () => {
         galleryRef.current.scrollBy({ left: -200, behavior: 'smooth' });
@@ -11,6 +13,27 @@ const NewSection = () => {
 
     const scrollRight = () => {
         galleryRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+    };
+
+    // Event when touch starts
+    const handleTouchStart = (e) => {
+        setTouchStartX(e.touches[0].clientX);
+    };
+
+    // Event when touch moves
+    const handleTouchMove = (e) => {
+        setTouchEndX(e.touches[0].clientX);
+    };
+
+    // Event when touch ends (detect swipe)
+    const handleTouchEnd = () => {
+        if (touchStartX - touchEndX > 50) {
+            // Swiped left
+            scrollRight();
+        } else if (touchStartX - touchEndX < -50) {
+            // Swiped right
+            scrollLeft();
+        }
     };
 
     return (
@@ -28,7 +51,6 @@ const NewSection = () => {
                                 <span className="arrow-icon">→</span>
                             </Link>
                         </div>
-
                     </div>
                     <div className="photo-gallery">
                         <img src={require('../img/talent/nazla-talent.png')} alt="Photo 1" className="wide-photo-talent" />
@@ -46,29 +68,29 @@ const NewSection = () => {
                             In addition to our exceptional talent pool, we also offer access to the extensive resources of the KACA Network, providing you with a diverse range of talent options to fulfill any needs for your campaign.
                         </p>
                     </div>
-                    <div className="horizontal-gallery-wrapper">
+                    <div className="horizontal-gallery-wrapper"
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}>
                         <div className="horizontal-gallery" ref={galleryRef}>
                             <img src={require('../img/talent/jerome.png')} alt="Photo 6" className="horizontal-photo" />
                             <img src={require('../img/talent/aero.png')} alt="Photo 7" className="horizontal-photo" />
                             <img src={require('../img/talent/artis2.png')} alt="Photo 8" className="horizontal-photo" />
                             <img src={require('../img/talent/artis3.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/randy.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/gamers.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/jeje.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/jerome.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/randy.png')} alt="Photo 9" className="horizontal-photo" />
+                            <img src={require('../img/talent/randy.png')} alt="Photo 10" className="horizontal-photo" />
+                            <img src={require('../img/talent/gamers.png')} alt="Photo 11" className="horizontal-photo" />
+                            <img src={require('../img/talent/jeje.png')} alt="Photo 12" className="horizontal-photo" />
                         </div>
                         <div className="gallery-controls">
-                        <div className="dots-container">
-                            <span className="dot active"></span>
-                            <span className="dot"></span>
-                            <span className="dot"></span>
-                            <span className="dot"></span>
+                            <div className="dots-container">
+                                <span className="dot active"></span>
+                                <span className="dot"></span>
+                                <span className="dot"></span>
+                                <span className="dot"></span>
+                            </div>
+                            <button className="slider-arrow left-slide" onClick={scrollLeft}>←</button>
+                            <button className="slider-arrow right-slide" onClick={scrollRight}>→</button>
                         </div>
-                        <button className="slider-arrow left-slide" onClick={scrollLeft}>←</button>
-                        <button className="slider-arrow right-slide" onClick={scrollRight}>→</button>
-                    </div>
-
                     </div>
                 </div>
             </div>

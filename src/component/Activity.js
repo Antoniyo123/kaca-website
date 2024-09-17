@@ -40,9 +40,10 @@ const Activity = () => {
 
     return (
         <div className="container">
+            
             <div className="introduction">
           <p>We Can Help You to,</p>
-
+          <div className="background-photo"></div>
       </div>
 
         </div>

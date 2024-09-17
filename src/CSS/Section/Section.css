@@ -215,4 +215,197 @@
   margin-left: 0; /* Menempel langsung ke tombol left */
   margin-right: 0; /* Menempel ke tepi kanan kontainer */
 }
+@media (max-width: 1024px) {
+  .content-container {
+    padding-top: 100px;
+    padding: 15px;
+  }
 
+  .new-section {
+    max-width: 100%;
+    padding-top: 80px;
+    margin: 0 20px;
+  }
+
+  .photo-gallery-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title-text-video {
+    font-size: 35px;
+  }
+
+  .see-more-button-container {
+    margin-top: 10px;
+  }
+
+  .photo-gallery {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .wide-photo-talent {
+    width: 180px;
+    height: 250px;
+  }
+
+  .new-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .new-content-text {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .horizontal-gallery-wrapper {
+    width: 100%;
+  }
+
+  .horizontal-photo {
+    width: 100px;
+    height: 140px;
+  }
+
+  .slider-arrow {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 768px) {
+  .content-container {
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+
+  .new-section {
+    padding-top: 60px;
+    margin: 0 10px;
+  }
+
+  .title-text-video {
+    font-size: 28px;
+  }
+
+  .see-more-button {
+    font-size: 20px;
+    padding: 8px 15px;
+  }
+
+  .photo-gallery {
+    gap: 8px;
+  }
+
+  .wide-photo-talent {
+    width: 150px;
+    height: 200px;
+  }
+
+  .new-content {
+    gap: 10px;
+  }
+
+  .horizontal-photo {
+    width: 90px;
+    height: 120px;
+  }
+
+  .gallery-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .slider-arrow {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .dots-container {
+    margin-bottom: 10px;
+  }
+}
+
+/* For extra small screens (very small mobile devices) */
+@media (max-width: 480px) {
+  .title-text-video {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 35.2px;
+    letter-spacing: -0.25px;
+    margin-bottom: -2rem;
+  }
+
+  .see-more-button {
+    display: none;
+  }
+
+  .wide-photo-talent {
+    width: 200px;
+    height: 300px;
+  }
+
+  .horizontal-photo {
+    width: 200px;
+    height: 100px;
+  }
+
+  .dots-container {
+    gap: 3px;
+    display: none;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    display: none;
+  }
+
+  .slider-arrow {
+    font-size: 14px;
+    display: none;
+  }
+
+  .new-content-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .photo-gallery-container {
+    margin-bottom: 30px;
+  }
+  .new-content-text p{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+  }
+  .content-container {
+    padding-top: 120px;
+    padding: 20px;
+    background-color: #212322;
+    width: 100%;
+    padding-bottom: 120px;
+    height: 100%;
+  }
+  .horizontal-gallery-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .horizontal-photo {
+    width: 150px;
+    height: 100px;
+  }
+
+  .gallery-controls {
+    display: none; /* Sembunyikan tombol dan dot indicator pada mobile */
+  }
+
+}

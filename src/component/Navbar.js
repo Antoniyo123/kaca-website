@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 import { Link, useLocation } from 'react-router-dom'; 
 import '../CSS/Navbar.css';
 
@@ -8,7 +7,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
   const location = useLocation();
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,15 +19,15 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   useEffect(() => {
-    // Update active link on route change and close menu
     setActiveLink(location.pathname);
     setIsMenuOpen(false);
   }, [location]);
 
   const handleMenuItemClick = (path) => {
     setActiveLink(path);
-    setIsMenuOpen(false); // Close the menu after clicking
+    setIsMenuOpen(false);
   };
 
   return (
@@ -38,10 +36,17 @@ const Navbar = () => {
         <div className="navbar-content">
           {!isMenuOpen && (
             <Link to="/">
-              <img src={require('../img/kaca-logo.png')} alt="Logo" className={`logo-image ${isScrolled ? 'scrolled' : ''}`} />
+              <img 
+                src={require('../img/kaca-logo.png')} 
+                alt="Logo" 
+                className={`logo-image ${isScrolled ? 'scrolled' : ''}`} 
+              />
             </Link>
           )}
-          <div className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div 
+            className={`hamburger-menu ${isMenuOpen ? 'open' : ''} ${isScrolled ? 'scrolled' : ''}`} 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <div className="red-color"></div>
             <div></div>
             <div></div>

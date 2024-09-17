@@ -91,7 +91,7 @@ With her limitless energy towards people, she could light up the room she enters
         // more articles
       ],
     },
-    '.KACA Network >>': {
+    'More Talent': {
       component: <KacaNetwork />, // Render the KacaNetwork component directly
     },
 
@@ -102,8 +102,22 @@ With her limitless energy towards people, she could light up the room she enters
 
   return (
 <div className="personal-profile-container">
+      <div className="tab-container">
+        <div className="tab-container-inner">
+          {Object.keys(profiles).map((profile) => (
+            <div
+              key={profile}
+              className={`tab ${activeTab === profile ? 'active' : ''} ${profile === '.KACA Network >>' ? 'kaca-network-tab' : ''}`}
+              onClick={() => setActiveTab(profile)}
+            >
+              {profile}
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="profile-content">
-        {activeTab === '.KACA Network >>' ? (
+      
+        {activeTab === 'More Talent' ? (
           currentProfile.component
         ) : (
           <>
@@ -128,8 +142,8 @@ With her limitless energy towards people, she could light up the room she enters
                   TikTok: @{currentProfile.tiktok}
                 </a>
               </div>
-              <div className="stats">
-                <div className="stat">
+              <div className="statistic">
+                <div className="stat-talent">
                   <p className="stat-label">Followers</p>
                   <p className="stat-value">{currentProfile.stats.followers}</p>
                 </div>
@@ -163,19 +177,7 @@ With her limitless energy towards people, she could light up the room she enters
           </>
         )}
       </div>
-      <div className="tab-container">
-  <div className="tab-container-inner">
-    {Object.keys(profiles).map((profile) => (
-      <div
-        key={profile}
-        className={`tab ${activeTab === profile ? 'active' : ''} ${profile === '.KACA Network >>' ? 'kaca-network-tab' : ''}`}
-        onClick={() => setActiveTab(profile)}
-      >
-        {profile}
-      </div>
-    ))}
-  </div>
-</div>
+      
 
     </div>
   );

@@ -19,15 +19,6 @@ const LastProjects = () => {
               </Link>
             </div>
           </div>
-          <div className="brand-scroller">
-            <div className="scrolling-images">
-              <img className='lv' src={require('../img/brandimg/lv.png')} alt="Brand 1" />
-              <img src={require('../img/brandimg/lazada.png')} alt="Brand 2" />
-              <img src={require('../img/brandimg/pepsodent.png')} alt="Brand 3" />
-              <img src={require('../img/brandimg/UOB.png')} alt="Brand 4" />
-              <img src={require('../img/brandimg/bukalapak.png')} alt="Brand 5" />
-            </div>
-          </div>
           {/* Project Cards */}
           <div className="project-gallery">
             <div className="project-card-view">

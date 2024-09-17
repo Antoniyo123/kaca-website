@@ -1,7 +1,7 @@
 import React from 'react';
 import '../CSS/TalentPage.css';
 import Talent from './Talent';
-import PersonalProfile from './PersonalProfile';
+// import PersonalProfile from './PersonalProfile';
 
 const TalentPage = () => {
   return (
@@ -9,9 +9,9 @@ const TalentPage = () => {
       <section id="hero" className="talent-container">
         <Talent />
       </section>
-      <section id="next-page" className='talent-next-description'>
+      {/* <section id="next-page" className='talent-next-description'>
         <PersonalProfile/>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -1,113 +1,175 @@
-
-.home-container{
-  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-  radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-  radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-  linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-  ;
+.home-container {
+  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
   width: 100%;
   margin: 0 auto;
   height: 100%;
 }
+
 .container {
   max-width: 1200px;
-
-  display: flex;
-  width: 100%; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  max-width: 1096px; /* Total width of the container */
-  margin: 0 auto; /* Center the container */
-  
-}
-
-.content-wrapper {
   display: flex;
   width: 100%;
-  height: 100%;
-  max-width: 533px;
+  height: 100vh;
+  margin: 0 auto;
 }
 
-.text-content {
+.text-content-home {
   margin-top: 5rem;
   max-width: 600px;
-  width:100%; /* Width for the text section */
+  width: 100%;
   padding: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;/* Optional: Add background color */
+  justify-content: center;
+  z-index: 2; /* Ensure text appears above background */
 }
 
-/* .intro-content{
-  padding-left: 100px;
-} */
-.intro-content h2{
+.intro-content h2 {
   font-weight: 400;
-  font-size: Subheadline Large;
+  font-size: 2rem;
   line-height: 40px;
   color: #436548;
- }
- .intro-content p{
+}
+
+.intro-content p {
   font-weight: 400;
-  font-size: Body Large;
+  font-size: 1.125rem;
   line-height: 24px;
   letter-spacing: 0.5px;
- }
-.right-section {
-  width: 100%; /* Width of the image section */
-  height: 100vh; /* Full viewport height */
-  position: relative;
-}
-
-.background-image {
-  width: 600px; /* Width of the image section */
-  height: 100vh; /* Full viewport height */
-  background-image: url('../img/intro2.png'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute; /* Position absolutely to ensure it sticks to the right edge */
-  right: 0; /* Align with the right edge of the viewport */
-  top: 0; /* Align with the top of the viewport */
-}
-
-.additional-image img {
-  max-width: 736px;
-  height: auto;
 }
 
 .kaca-pic-container {
   position: relative;
   right: 60%;
-  top: 17%; /* Positions the image directly below the text content */
-   /* Add some space if needed */
-  transform: translateY(0);
+  top: 17%;
 }
 
+.background-image {
+  width: 600px;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
 
+.slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  right: -100%;
+  transition: right 0.5s ease-in-out;
+}
+
+.slideshow:not(.sliding) .slide-image {
+  right: 0;
+}
+
+/* Square Indicator */
+.square-indicators {
+  position: absolute;
+  bottom: 20px;
+  right: 250px;
+  display: flex;
+  z-index: 3;
+}
+
+.square {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.square.active {
+  background-color: #AB2328;
+  width: 50px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 1200px) {
   .home-container {
     flex-direction: column;
     margin: 0 auto;
-    /* padding-top: 2px; */
   }
+
   .background-image {
-    width: 600px; /* Width of the image section */
-    height: 100vh; /* Full viewport height */
-    background-image: url('../img/intro2.png'); /* Replace with your image path */
+    width: 300px;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: absolute; /* Position absolutely to ensure it sticks to the right edge */
-    right: -3.5%; /* Align with the right edge of the viewport */
-    top: 0; /* Align with the top of the viewport */
+    position: absolute;
+    right: -3.5%;
+    top: 0;
   }
-  .text-content, .right-section {
+
+  .text-content-home,
+  .right-section {
     width: 100%;
     height: auto;
   }
 
   .right-section {
-    height: 200px; /* Adjust for smaller screens */
+    height: 200px;
+  }
+}
+/* Mobile styles (for screens less than 768px wide) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack content vertically */
+    height: auto;
+  }
+
+  .text-content-home {
+    margin-top: 2rem;
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .background-image {
+    position: relative; /* Make it part of the document flow */
+    width: 100%; /* Make sure it spans the full width on mobile */
+    height: auto; /* Let it adjust according to its aspect ratio */
+    margin-top: 2rem;
+    max-width: 500px;
+
+  }
+
+  .slideshow {
+    width: 100%;
+    height: auto; /* Ensure it adapts to content on mobile */
+    position: relative;
+  }
+
+  .slide-image {
+    width: 100%;
+    height: 340px; /* Let the image maintain its aspect ratio */
+    object-fit: contain;
+    position: relative;
+    right: 0; /* Ensure image is positioned correctly */
+    transition: none; /* Disable transition for mobile */
+    padding-bottom: 120px;
+    margin: 0 auto;
+  }
+
+  .square-indicators {
+    position: relative;
+    bottom: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
   }
 }
