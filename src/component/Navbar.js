@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom'; 
+import { Link, useLocation } from 'react-router-dom';
 import '../CSS/Navbar.css';
 
 const Navbar = () => {
@@ -12,9 +12,9 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -30,21 +30,24 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <div className="kaca-landing-page">
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="navbar-content">
           {!isMenuOpen && (
             <Link to="/">
-              <img 
-                src={require('../img/kaca-logo.png')} 
-                alt="Logo" 
-                className={`logo-image ${isScrolled ? 'scrolled' : ''}`} 
+              <img
+                src={require('../img/kaca-logo.png')}
+                alt="Logo"
+                className={`logo-image ${isScrolled ? 'scrolled' : ''} ${isHomePage ? '' : 'other-page'}`}
+                style={{ width: isHomePage ? '310px' : '108px' }}
               />
             </Link>
           )}
-          <div 
-            className={`hamburger-menu ${isMenuOpen ? 'open' : ''} ${isScrolled ? 'scrolled' : ''}`} 
+          <div
+            className={`hamburger-menu ${isMenuOpen ? 'open' : ''} ${isScrolled ? 'scrolled' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <div className="red-color"></div>

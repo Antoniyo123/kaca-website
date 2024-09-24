@@ -53,8 +53,8 @@
 
 .see-more-button {
   text-decoration: none;
-  background-color: #FFFFFFCC;
-  color: #AB2328;
+  background-color: #CFCDC9;
+  color: #183028;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -66,12 +66,13 @@
 
 }
 .see-more-button:hover{
-  background: #121211;
+  background: #AB2328;
   transform: translateY(-5px); 
 }
 
 .arrow-icon {
-  margin-left: 5px;
+  margin-left: 10px;
+  font-size: 2rem;
 }
 
 /* Photo gallery styles */
@@ -177,43 +178,24 @@
   justify-content: space-between; /* Dots di kiri, arrows di kanan */
   align-items: center;
   width: 100%;
+  gap: 45rem;
   margin-top: 22px; /* Space between gallery and controls */
 }
 
-.dots-container {
-  display: flex;
-  gap: 5px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #AB2328;
-}
-
-.dot.active {
-  background-color: #FFF;
-}
 
 .slider-arrow {
-  background-color: #FFFFFFCC;
+  background-color: none;
   border: none;
   padding: 10px;
   cursor: pointer;
   font-size: 20px;
-  color: #AB2328;
+  color: #FFFFFF;
   position: relative;
-  margin-left: 0; /* Menghapus jarak antara tombol left dan right */
+  margin: 0 10px;
+  
 }
-
-.slider-arrow.left-slide {
-  margin-left: auto; /* Menempel ke tepi kanan dots */
-}
-
-.slider-arrow.right-slide {
-  margin-left: 0; /* Menempel langsung ke tombol left */
-  margin-right: 0; /* Menempel ke tepi kanan kontainer */
+.slider-arrow img{
+  filter: invert(1); 
 }
 @media (max-width: 1024px) {
   .content-container {
@@ -355,21 +337,20 @@
     height: 100px;
   }
 
-  .dots-container {
-    gap: 3px;
-    display: none;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    display: none;
-  }
 
   .slider-arrow {
-    font-size: 14px;
-    display: none;
-  }
+    justify-content: space-between;
+    background: transparent; /* Optional: remove button background */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Change cursor to pointer */
+    
+}
+
+.slider-arrow img {
+    width: 24px; /* Set width for SVGs */
+    height: 24px; /* Set height for SVGs */
+}
+
 
   .new-content-text {
     font-size: 14px;

@@ -5,31 +5,41 @@
   width: 100%;
   padding: 20px;
   padding-top: 100px;
+  margin-top: 2rem;
+margin: 0 auto;
   /* padding-bottom: 120px; */
 }
 
 .profile-content {
+  /* justify-content: space-between; */
   display: flex;
-  width: 100%;
   max-width: 1200px;
-  gap: 20px;
-  padding-bottom: 80px;
+  padding: 20px; /* Tambahkan padding jika diperlukan */
+  /* padding-bottom: 80px; */
+  margin-top: 1.5rem;
 }
 
+
 .profile-left, .profile-center, .profile-right {
-  flex: 1;
+  /* flex: 4; */
+  margin-top: 5rem;
+  width: 100%;
+  max-width: 1065px;
 }
 
 .image-container {
   position: relative;
   width: 280px;
   height: 422px;
+  margin-left: 4rem;
+
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
 }
 
 .slide-button {
@@ -112,7 +122,7 @@
 }
 
 .description-text.show-more {
-  max-height: 300px;
+  height: 200px;
 }
 
 button {
@@ -181,15 +191,18 @@ button {
   justify-content: center;
   width: 100%;
   height: 88px;
-  margin-top: 10rem;
+  top: 0;
   position: absolute;
-  bottom: 0;
   background-color: #FFFFFFCC;
-  z-index: 1000;
+  margin-top: 5.5rem;
+  z-index: 1002;
+  margin-bottom: 3rem;
 }
 
 .tab-container-inner {
   display: flex;
+
+
   width: 100%;
   max-width: 1280px;
   text-align: center;
@@ -261,10 +274,7 @@ button {
   transform: translateY(100%);
 }
 
-.know-more-button:hover,
-.back-to-talent-button:hover {
-  /* background-color: #0056b3; */
-}
+
 /* Tablet Styles */
 @media (min-width: 768px) {
   .profile-content {

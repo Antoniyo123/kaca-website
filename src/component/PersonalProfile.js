@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../CSS/PersonalProfile.css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import arrowRightButton from '../img/svg-assets/arrow-right-button.svg';
+import arrowLeftButton from '../img/svg-assets/arrow-left-button.svg';
 import KacaNetwork from './KacaNetwork';
 
 const PersonalProfile = () => {
@@ -117,7 +118,7 @@ With her limitless energy towards people, she could light up the room she enters
       </div>
       <div className="profile-content">
       
-        {activeTab === 'More Talent' ? (
+        {activeTab === 'More Talent'  ? (
           currentProfile.component
         ) : (
           <>
@@ -125,10 +126,12 @@ With her limitless energy towards people, she could light up the room she enters
               <div className="image-container">
                 <img src={currentProfile.image} alt={currentProfile.name} />
                 <button className="slide-button left">
-                  <FaArrowLeft />
+                <img src={arrowLeftButton} alt="Arrow Left Button" width={24} height={24} />
+
                 </button>
                 <button className="slide-button right">
-                  <FaArrowRight />
+                <img src={arrowRightButton} alt="Arrow Right Button" width={24} height={24} />
+
                 </button>
               </div>
             </div>

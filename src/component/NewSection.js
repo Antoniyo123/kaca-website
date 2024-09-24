@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import '../CSS/Section/Section.css';
 import { Link } from 'react-router-dom';
+import arrowLeft from '../img/svg-assets/arrow-left.svg';
+import arrowRight from '../img/svg-assets/arrow-right.svg';
+
 
 const NewSection = () => {
     const galleryRef = useRef(null);
@@ -82,15 +85,15 @@ const NewSection = () => {
                             <img src={require('../img/talent/jeje.png')} alt="Photo 12" className="horizontal-photo" />
                         </div>
                         <div className="gallery-controls">
-                            <div className="dots-container">
-                                <span className="dot active"></span>
-                                <span className="dot"></span>
-                                <span className="dot"></span>
-                                <span className="dot"></span>
-                            </div>
-                            <button className="slider-arrow left-slide" onClick={scrollLeft}>←</button>
-                            <button className="slider-arrow right-slide" onClick={scrollRight}>→</button>
-                        </div>
+    
+    <button className="slider-arrow left-slide" onClick={scrollLeft}>
+        <img src={arrowLeft} alt="Scroll Left" width={24} height={24} />
+    </button>
+    <button className="slider-arrow right-slide" onClick={scrollRight}>
+        <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
+    </button>
+</div>
+
                     </div>
                 </div>
             </div>

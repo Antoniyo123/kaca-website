@@ -11,6 +11,7 @@
   }
   
   .carousel-track {
+    margin-top: 5rem;
     display: flex;
     transition: transform 0.3s ease-in-out;
     width: calc(1200px * 2); /* Adjust this if needed */
@@ -101,9 +102,9 @@
     transition: background-color 0.3s ease;
   }
   
-  .nav-button:hover {
+  /* .nav-button:hover {
     background-color: rgba(255, 255, 255, 0.8);
-  }
+  } */
   
   .nav-button:disabled {
     opacity: 0.5;

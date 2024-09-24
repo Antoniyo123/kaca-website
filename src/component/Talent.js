@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../CSS/Talent.css';
-import PersonalProfile from './PersonalProfile';
+import PersonalProfile from '../component/PersonalProfile';
+import arrowRight from '../img/svg-assets/arrow-right.svg'; // Adjust the path as needed
+import arrowLeft from '../img/svg-assets/arrow-left.svg';
+import arrowDown from '../img/svg-assets/arrow-down.svg';
 
 const talents = [
   { id: 1, name: "Talent 1", image: require('../img/talent/nazla-talent.png'), desc: "Ini adalah deskripsi Talent 1.", gif: require('../img/bg/bg-1.png') },
@@ -12,39 +15,53 @@ const talents = [
 
 const Talent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showPersonalProfile, setShowPersonalProfile] = useState(false);
-  const [hoveredTalent, setHoveredTalent] = useState(null);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
-  const talentsToShow = 4;
-  const totalTalents = talents.length;
+  const [talentsToShow, setTalentsToShow] = useState(4);
+  const [itemWidth, setItemWidth] = useState(300);
   const personalProfileRef = useRef(null);
   const talentSectionRef = useRef(null);
-  const carouselRef = useRef(null);
+  const [showPersonalProfile, setShowPersonalProfile] = useState(false);
 
   const nextTalent = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalTalents);
+    setCurrentIndex((prevIndex) => 
+      Math.min(prevIndex + 1, talents.length - talentsToShow)
+    );
   };
 
   const prevTalent = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalTalents) % totalTalents);
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!talentSectionRef.current || !personalProfileRef.current) return;
-
-      const talentRect = talentSectionRef.current.getBoundingClientRect();
-      const profileRect = personalProfileRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (talentRect.bottom <= windowHeight / 2) {
-        setShowPersonalProfile(true);
-      } else if (profileRect.top >= windowHeight / 2) {
-        setShowPersonalProfile(false);
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setTalentsToShow(1);
+        setItemWidth(window.innerWidth - 40);
+      } else if (window.innerWidth <= 768) {
+        setTalentsToShow(2);
+        setItemWidth((window.innerWidth - 60) / 2);
+      } else {
+        setTalentsToShow(4);
+        setItemWidth(300);
       }
     };
 
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const talentRect = talentSectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+  
+      if (talentRect.bottom <= windowHeight / 2) {
+        setShowPersonalProfile(true);
+      } else {
+        setShowPersonalProfile(false);
+      }
+    };
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -55,92 +72,61 @@ const Talent = () => {
     }
   };
 
-  const getVisibleTalents = () => {
-    const visibleTalents = [];
-    for (let i = 0; i < talentsToShow; i++) {
-      const index = (currentIndex + i) % totalTalents;
-      visibleTalents.push(talents[index]);
-    }
-    return visibleTalents;
-  };
-
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 75) {
-      nextTalent();
-    }
-
-    if (touchStart - touchEnd < -75) {
-      prevTalent();
-    }
-  };
-
   return (
-<div className="talent-container-main">
-  <div ref={talentSectionRef} className="talent-carousel-container">
-    <h1 className='intro'>SAY HELLO TO OUR TALENT</h1>
-    <div className="talent-carousel-wrapper">
-      <div 
-        className="talent-carousel-track" 
-        ref={carouselRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {getVisibleTalents().map((talent, index) => (
+    <div className="talent-showcase">
+      <div className="talent-showcase-wrapper" ref={talentSectionRef}>
+        <h1 className="talent-title">SAY HELLO TO OUR TALENT</h1>
+  
+        <div className="talent-carousel-wrapper">
           <div 
-            key={index} 
-            className="talent-carousel-item"
-            onMouseEnter={() => setHoveredTalent(talent)}
-            onMouseLeave={() => setHoveredTalent(null)}
+            className="talent-carousel" 
+            style={{ 
+              transform: `translateX(-${currentIndex * itemWidth}px)`,
+              width: `${talents.length * itemWidth}px`
+            }}
           >
-            <div 
-              className={`talent-gif ${hoveredTalent === talent ? 'active' : ''}`}
-              style={{ backgroundImage: `url(${talent.gif})` }}
-            ></div>
-            <div 
-              className={`talent-image ${hoveredTalent === talent ? 'lifted' : ''}`}
-              style={{ backgroundImage: `url(${talent.image})` }}
-            ></div>
-            {hoveredTalent === talent && (
-              <div className="talent-description">
-                <p>{talent.name}</p>
-                <p>{talent.desc}</p>
+            {talents.map((talent) => (
+              <div key={talent.id} className="talent-item" style={{ width: itemWidth }}>
+                <img src={talent.image} alt={`Talent ${talent.name}`} />
+                <div className="talent-description">
+                  <p>{talent.desc}</p>
+                </div>
               </div>
-            )}
+            ))}
           </div>
-        ))}
+        </div>
+  
+        <div className="nav-buttons">
+          <button 
+            onClick={prevTalent} 
+            className="nav-button-talent prev"
+            disabled={currentIndex === 0}
+          >
+    <img src={arrowLeft} alt="Arrow Left" width={24} height={24} />
+
+          </button>
+          <button 
+            onClick={nextTalent} 
+            className="nav-button-talent next"
+            disabled={currentIndex === talents.length - talentsToShow}
+          >
+    <img src={arrowRight} alt="Arrow Right" width={24} height={24} />
+
+          </button>
+        </div>
+      </div>
+  
+      <div className="scroll-indicator" onClick={scrollToProfile}>
+        <span>Scroll to know more about our talent</span>
+        <img src={arrowDown} alt="Arrow Down" width={24} height={24} />
+
+
+      </div>
+  
+      <div ref={personalProfileRef} className={`personal-profile-wrapper ${showPersonalProfile ? 'active' : ''}`}>
+        <PersonalProfile />
       </div>
     </div>
-    
-    {/* Moved buttons below the carousel wrapper */}
-    <div className="talent-nav-buttons">
-      <button onClick={prevTalent} className="talent-nav-button prev">&lt;</button>
-      <button onClick={nextTalent} className="talent-nav-button next">&gt;</button>
-    </div>
-  </div>
-
-  <div className="know-more-section">
-    <div onClick={scrollToProfile} className="know-more-button">
-     Scroll To  Know More About Our Talent
-    </div>
-  </div>
-  <div className="background-photo-talent"></div>
-
-
-
-  <div ref={personalProfileRef} className={`personal-profile-wrapper ${showPersonalProfile ? 'active' : ''}`}>
-    <PersonalProfile />
-  </div>
-</div>
-
   );
 };
 

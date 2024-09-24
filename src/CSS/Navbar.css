@@ -7,7 +7,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
+
   z-index: 1000;
 }
 
@@ -20,29 +21,50 @@
   padding: 1rem;
   transition: all 0.3s ease;
 }
+/* Logo di halaman lain */
+.logo-image.other-page {
+  width: 108px;
+}
 
 .navbar.scrolled {
   background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* Logo image styles */
-.logo-image {
-  width: 320px;
+.navbar.logo-image {
+  width: 100px;
   height: auto;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: width 0.3s ease-in-out;
+
 }
 
-.logo-image:hover {
-  transform: scale(1.2);
+.logo-image {
+  transition: all 0.3s ease-in-out;
+  object-fit: contain;
 }
+
+.logo-image.scrolled,
+.logo-image:not(.home) {
+  width: 108px;
+  height: auto;
+}
+/* .logo-image.home:not(.scrolled) {
+  width: 307px;
+  height: 120px;
+} */
+
+/* .logo-image:hover {
+  transform: scale(1.2);
+} */
 
 /* Scrolled state for logo */
-.navbar.scrolled .logo-image {
+/* .navbar.scrolled .logo-image {
   width: 108px;
   height: 42px;
   transform: translateY(-10px);
-}
+} */
 
 /* Hamburger menu styles */
 .hamburger-menu {
