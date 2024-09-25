@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../CSS/Navbar.css';
+import { Link } from 'react-router-dom';
 
 const NavItem = ({ label, isActive, onClick }) => (
   <div className={`nav-item ${isActive ? 'active' : ''}`} onClick={onClick}>
@@ -39,33 +40,45 @@ const Navbar = () => {
       : 'navbar-logo navbar-logo-large'
     : 'navbar-logo navbar-logo-small';
 
-  return (
-    <>
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home' : ''}`}>
-        <div className="navbar-container">
-          <div className="navbar-top">
-            <div className="navbar-brand">
-              <img 
-                src={require('../img/kaca-logo.png')} 
-                alt="KACA Logo" 
-                className={logoClass}
-              />
+    return (
+      <>
+        <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home' : ''}`}>
+          <div className="navbar-container">
+            <div className="navbar-top">
+              <div className="navbar-brand">
+                <img 
+                  src={require('../img/kaca-logo.png')} 
+                  alt="KACA Logo" 
+                  className={logoClass}
+                />
+              </div>
             </div>
           </div>
+        </nav>
+        <div className="menu-toggle" onClick={toggleMenu}>
+          {isMenuOpen ? 'CLOSE' : 'MENU'}
         </div>
-      </nav>
-      <div className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? 'CLOSE' : 'MENU'}
-      </div>
-      <div className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
-        <NavItem label="HOME" isActive={activeItem === 'HOME'} onClick={() => handleItemClick('HOME')} />
-        <NavItem label="TALENT" isActive={activeItem === 'TALENT'} onClick={() => handleItemClick('TALENT')} />
-        <NavItem label="PROJECTS" isActive={activeItem === 'PROJECTS'} onClick={() => handleItemClick('PROJECTS')} />
-        <NavItem label="ARTICLES" isActive={activeItem === 'ARTICLES'} onClick={() => handleItemClick('ARTICLES')} />
-        <NavItem label="CONTACT" isActive={activeItem === 'CONTACT'} onClick={() => handleItemClick('CONTACT')} />
-      </div>
-    </>
-  );
+  
+        {/* Navbar Menu */}
+        <div className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
+          <Link to="/" onClick={() => handleItemClick('HOME')}>
+            <NavItem label="HOME" isActive={activeItem === 'HOME'} />
+          </Link>
+          <Link to="/talent" onClick={() => handleItemClick('TALENT')}>
+            <NavItem label="TALENT" isActive={activeItem === 'TALENT'} />
+          </Link>
+          <Link to="/projects" onClick={() => handleItemClick('PROJECTS')}>
+            <NavItem label="PROJECTS" isActive={activeItem === 'PROJECTS'} />
+          </Link>
+          <Link to="/articles" onClick={() => handleItemClick('ARTICLES')}>
+            <NavItem label="ARTICLES" isActive={activeItem === 'ARTICLES'} />
+          </Link>
+          <Link to="/contact" onClick={() => handleItemClick('CONTACT')}>
+            <NavItem label="CONTACT" isActive={activeItem === 'CONTACT'} />
+          </Link>
+        </div>
+      </>
+    );
 };
 
 export default Navbar;
