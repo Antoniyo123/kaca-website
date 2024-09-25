@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import '../CSS/Navbar.css';
+
+const NavItem = ({ label, isActive, onClick }) => (
+  <div className={`nav-item ${isActive ? 'active' : ''}`} onClick={onClick}>
+    <span>{label}</span>
+  </div>
+);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState('HOME');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState(null);
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,65 +21,50 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setActiveLink(location.pathname);
-    setIsMenuOpen(false);
-  }, [location]);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  const handleMenuItemClick = (path) => {
-    setActiveLink(path);
+  const handleItemClick = (label) => {
+    setActiveItem(label);
     setIsMenuOpen(false);
   };
 
-  const isHomePage = location.pathname === '/';
+  const logoClass = isHomePage
+    ? isScrolled
+      ? 'navbar-logo navbar-logo-small'
+      : 'navbar-logo navbar-logo-large'
+    : 'navbar-logo navbar-logo-small';
 
   return (
-    <div className="kaca-landing-page">
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="navbar-content">
-          {!isMenuOpen && (
-            <Link to="/">
-              <img
-                src={require('../img/kaca-logo.png')}
-                alt="Logo"
-                className={`logo-image ${isScrolled ? 'scrolled' : ''} ${isHomePage ? '' : 'other-page'}`}
-                style={{ width: isHomePage ? '310px' : '108px' }}
+    <>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home' : ''}`}>
+        <div className="navbar-container">
+          <div className="navbar-top">
+            <div className="navbar-brand">
+              <img 
+                src={require('../img/kaca-logo.png')} 
+                alt="KACA Logo" 
+                className={logoClass}
               />
-            </Link>
-          )}
-          <div
-            className={`hamburger-menu ${isMenuOpen ? 'open' : ''} ${isScrolled ? 'scrolled' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <div className="red-color"></div>
-            <div></div>
-            <div></div>
+            </div>
           </div>
         </div>
       </nav>
-      <div className={`menu-overlay ${isMenuOpen ? 'open' : ''}`}>
-        <ul className="menu-items">
-          <li className={activeLink === '/talent' ? 'active' : ''}>
-            <Link to="/talent" onClick={() => handleMenuItemClick('/talent')}>Talents</Link>
-          </li>
-          <li className={activeLink === '/projects' ? 'active' : ''}>
-            <Link to="/deskripsiproject" onClick={() => handleMenuItemClick('/deskripsiproject')}>Projects</Link>
-          </li>
-          <li className={activeLink === '/articles' ? 'active' : ''}>
-            <Link to="/articles" onClick={() => handleMenuItemClick('/articles')}>Articles</Link>
-          </li>
-          <li className={activeLink === '/contact-us' ? 'active' : ''}>
-            <Link to="/contact-us" onClick={() => handleMenuItemClick('/contact-us')}>Contact Us</Link>
-          </li>
-        </ul>
+      <div className="menu-toggle" onClick={toggleMenu}>
+        {isMenuOpen ? 'CLOSE' : 'MENU'}
       </div>
-    </div>
+      <div className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
+        <NavItem label="HOME" isActive={activeItem === 'HOME'} onClick={() => handleItemClick('HOME')} />
+        <NavItem label="TALENT" isActive={activeItem === 'TALENT'} onClick={() => handleItemClick('TALENT')} />
+        <NavItem label="PROJECTS" isActive={activeItem === 'PROJECTS'} onClick={() => handleItemClick('PROJECTS')} />
+        <NavItem label="ARTICLES" isActive={activeItem === 'ARTICLES'} onClick={() => handleItemClick('ARTICLES')} />
+        <NavItem label="CONTACT" isActive={activeItem === 'CONTACT'} onClick={() => handleItemClick('CONTACT')} />
+      </div>
+    </>
   );
 };
 

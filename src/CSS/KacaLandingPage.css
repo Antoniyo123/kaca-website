@@ -55,6 +55,19 @@
   top: 0;
   overflow: hidden;
 }
+.landing-page-background {
+  position: absolute;
+  top: 65%;
+  bottom: 0;
+  left: 8%;
+  width: 100%;
+  max-width: 800px; /* Adjust size for desktop */
+  height: 500px;
+  background-image: url('../img//bg/bg-ring-flower.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
 
 .slideshow {
   width: 100%;

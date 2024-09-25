@@ -1,203 +1,115 @@
-.kaca-landing-page {
-  width: 100%;
-}
-
 .navbar {
+  width: 100%;
+  background: transparent;
+  max-height: 200px;
+  color: white;
+  overflow-x: hidden;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  transition: background-color 0.3s ease-in-out;
-
+  right: 0;
   z-index: 1000;
-}
-
-.navbar-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  transition: all 0.3s ease;
-}
-/* Logo di halaman lain */
-.logo-image.other-page {
-  width: 108px;
+  transition: background 0.3s ease;
 }
 
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.8);
-  transition: background-color 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 1);  /* Fully white when scrolled */
 }
 
-/* Logo image styles */
-.navbar.logo-image {
-  width: 100px;
-  height: auto;
-  cursor: pointer;
-  transition: width 0.3s ease-in-out;
-
+.navbar-logo {
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
-.logo-image {
-  transition: all 0.3s ease-in-out;
-  object-fit: contain;
-}
-
-.logo-image.scrolled,
-.logo-image:not(.home) {
+.navbar-logo-small {
   width: 108px;
   height: auto;
 }
-/* .logo-image.home:not(.scrolled) {
-  width: 307px;
-  height: 120px;
-} */
 
-/* .logo-image:hover {
-  transform: scale(1.2);
-} */
+.navbar-logo-large {
+  width: 200px;  /* or whatever size you want for the larger logo */
+  height: auto;
+}
 
-/* Scrolled state for logo */
-/* .navbar.scrolled .logo-image {
-  width: 108px;
-  height: 42px;
-  transform: translateY(-10px);
-} */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-/* Hamburger menu styles */
-.hamburger-menu {
-  cursor: pointer;
-  z-index: 1000;
-  position: relative;
+.navbar-top {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.navbar-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(360deg, #183028 30%, rgba(24, 48, 40, 0.8) 100%);
+  padding: 50px;
+  transition: bottom 0.3s ease-in-out;
+  bottom: -100%;
+  width: 100%;
+  z-index: 1001;
+}
+
+.navbar-menu.open {
+  bottom: 0;
+}
+
+.nav-item {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
-}
-
-.hamburger-menu div {
-  width: 64px;
-  height: 5px;
-  background-color: black;
-  margin: 8px 0;
-  transition: all 0.3s ease;
-}
-
-.hamburger-menu .red-color {
-  background-color: #AB2328;
-  margin: 6px 0;
-}
-
-/* Scrolled state for hamburger menu */
-.navbar.scrolled .hamburger-menu div {
-  width: 40px;
-  height: 4px;
-}
-
-.navbar.scrolled .hamburger-menu {
-  transform: translateY(-10px);
-}
-
-/* Open state for hamburger menu */
-.hamburger-menu.open {
-  position: fixed;
-  top: 60px;
-  right: 20px;
-}
-
-.hamburger-menu.open div:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 5px);
-  background-color: #AB2328;
-}
-
-.hamburger-menu.open div:nth-child(2) {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.hamburger-menu.open div:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -5px);
-  background-color: black;
-}
-
-/* Menu overlay styles */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 999;
-  display: flex;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.5s ease-in-out;
-}
-
-.menu-overlay.open {
-  transform: scaleX(1);
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.menu-items {
-  list-style-type: none;
-  padding: 0;
-  margin-left: 12rem;
-  top: 99px;
-  left: 105px;
-  gap: 40px;
-}
-
-.menu-items li {
-  font-weight: 400;
-  font-size: 57px;
-  line-height: 62.7px;
-  letter-spacing: -0.25px;
-  margin: 20px 0;
   cursor: pointer;
-  text-transform: uppercase;
+  background-color: #1a1a1a;
+  border: 2px solid #3a3a3a;
+  transition: all 0.3s ease;
 }
 
-.menu-items li a {
-  text-decoration: none;
-  color: black;
-}
-
-.menu-items li.active a {
+.nav-item span {
+  font-size: 16px;
   font-weight: bold;
-  color: #AB2328;
+  color: #fff;
+  text-align: center;
 }
 
-/* Animation for menu items */
-@keyframes menuItemFadeIn {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
+.nav-item:hover {
+  background-color: #3a3a3a;
+  transform: scale(1.05);
 }
 
-.menu-overlay.open .menu-items li {
-  animation: menuItemFadeIn 0.5s ease forwards;
-  opacity: 0;
+.nav-item.active {
+  background-color: #AB2328;
+  border-color: #fff;
 }
 
-.menu-overlay.open .menu-items li:nth-child(1) { animation-delay: 0.2s; }
-.menu-overlay.open .menu-items li:nth-child(2) { animation-delay: 0.3s; }
-.menu-overlay.open .menu-items li:nth-child(3) { animation-delay: 0.4s; }
-.menu-overlay.open .menu-items li:nth-child(4) { animation-delay: 0.5s; }
-@media (max-width: 480px){
-  .logo-image {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .hamburger-menu div {
-    width: 60px;
-    height: 5px;
-    background-color: black;
-    /* margin: 8px 0; */
-    transition: all 0.3s ease;
-  }
+.nav-item.active span {
+  color: white;
 }

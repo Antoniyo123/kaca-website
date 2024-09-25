@@ -65,6 +65,8 @@ const KacaLandingPage = () => {
           </div>
         </div>
       </div>
+      <div className="landing-page-background"></div>
+
     </div>
   );
 };
