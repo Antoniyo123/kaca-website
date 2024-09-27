@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../CSS/Section/KacaActivity.css';
+import Liquid from '../img/svg-assets/liquid.svg'; // Import SVG
 
 const KacaActivity = () => {
   const [activeService, setActiveService] = useState(0);
@@ -7,21 +8,18 @@ const KacaActivity = () => {
   const services = [
     {
       title: "Boost Your Brand Awareness",
-      content: "Advertise your brand to large audience through our talents social media.",
-  image: require('../img/kacaActivity/ring.png')
-
+      content: "Advertise your brand to a large audience through our talents' social media.",
+      image: require('../img/bg/ring.png'),
     },
     {
       title: "Connect with Nationwide Influencer & Content Creators",
       content: "Description for connecting with influencers...",
-  image: require('../img/kacaActivity/ring.png')
-
+      image: require('../img/bg/ring.png'),
     },
     {
       title: "Massive Increase Your Audience",
       content: "Description for increasing your audience...",
-    image: require('../img/kacaActivity/ring.png')
-
+      image: require('../img/bg/ring.png'),
     }
   ];
 
@@ -42,8 +40,19 @@ const KacaActivity = () => {
           ))}
         </div>
         <div className="service-content">
-          <img src={services[activeService].image} alt={services[activeService].title} />
-          <p>{services[activeService].content.split(' ').slice(services[activeService].content.split(' ').length / 2).join(' ')}</p>
+          <div className="image-wrapper">
+            <img 
+              src={services[activeService].image} 
+              alt={services[activeService].title} 
+              className="service-image"
+            />
+            <img 
+              src={Liquid} 
+              alt="Liquid SVG"
+              className="hover-background"
+            />
+          </div>
+          <p>{services[activeService].content}</p>
         </div>
       </div>
     </div>

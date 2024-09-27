@@ -13,7 +13,9 @@
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 1);  /* Fully white when scrolled */
+  background:rgba(255, 255, 255, 0.80);
+  max-height: 150px;
+
 }
 
 .navbar-logo {

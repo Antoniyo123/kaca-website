@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../CSS/Navbar.css';
 import { Link } from 'react-router-dom';
+// import ProjectCard from './ProjectCard';
 
 const NavItem = ({ label, isActive, onClick }) => (
   <div className={`nav-item ${isActive ? 'active' : ''}`} onClick={onClick}>
@@ -42,22 +43,25 @@ const Navbar = () => {
 
     return (
       <>
-        <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home' : ''}`}>
-          <div className="navbar-container">
-            <div className="navbar-top">
-              <div className="navbar-brand">
-                <img 
-                  src={require('../img/kaca-logo.png')} 
-                  alt="KACA Logo" 
-                  className={logoClass}
-                />
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div className="menu-toggle" onClick={toggleMenu}>
-          {isMenuOpen ? 'CLOSE' : 'MENU'}
-        </div>
+<nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home' : ''}`}>
+  <div className="navbar-container">
+    <div className="navbar-top">
+      <div className="navbar-brand">
+        <Link to="/">
+          <img 
+            src={require('../img/kaca-logo.png')} 
+            alt="KACA Logo" 
+            className={logoClass}
+          />
+        </Link>
+      </div>
+    </div>
+  </div>
+</nav>
+<div className="menu-toggle" onClick={toggleMenu}>
+  {isMenuOpen ? 'CLOSE' : 'MENU'}
+</div>
+
   
         {/* Navbar Menu */}
         <div className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
@@ -67,16 +71,17 @@ const Navbar = () => {
           <Link to="/talent" onClick={() => handleItemClick('TALENT')}>
             <NavItem label="TALENT" isActive={activeItem === 'TALENT'} />
           </Link>
-          <Link to="/projects" onClick={() => handleItemClick('PROJECTS')}>
-            <NavItem label="PROJECTS" isActive={activeItem === 'PROJECTS'} />
+          <Link to="/deskripsiproject" onClick={() => handleItemClick('PROJECTCARD')}>
+            <NavItem label="PROJECTS" isActive={activeItem === 'PROJECTCARD'} /> {/* Sesuaikan isActive dengan 'PROJECTCARD' */}
           </Link>
           <Link to="/articles" onClick={() => handleItemClick('ARTICLES')}>
             <NavItem label="ARTICLES" isActive={activeItem === 'ARTICLES'} />
           </Link>
-          <Link to="/contact" onClick={() => handleItemClick('CONTACT')}>
+          <Link to="/contact-us" onClick={() => handleItemClick('CONTACT')}>
             <NavItem label="CONTACT" isActive={activeItem === 'CONTACT'} />
           </Link>
         </div>
+
       </>
     );
 };

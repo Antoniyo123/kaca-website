@@ -1,34 +1,70 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../CSS/KacaLandingPage.css';
 
 const KacaLandingPage = () => {
-  const images = [
-    require('../img/intro.png'),
-    require('../img/intro-background.png'),
-    require('../img/nazla.png'),
-    require('../img/aaliyah.png'),
+  const slides = [
+    { type: 'video', src: require('../video/video-dummy.mp4') },
+    { type: 'image', src: require('../img/intro-background.png') },
+    { type: 'image', src: require('../img/nazla.png') },
+    { type: 'image', src: require('../img/aaliyah.png') },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [sliding, setSliding] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000); // Change image every 5 seconds
+    }, 8000); // Change slide every 8 seconds
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (slides[activeIndex].type === 'video' && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, [activeIndex]);
 
   const nextSlide = () => {
     setSliding(true);
     setTimeout(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
       setSliding(false);
-    }, 500); // This should match the transition duration in CSS
+    }, 3000); // This should match the transition duration in CSS
   };
 
   const goToSlide = (index) => {
     setActiveIndex(index);
+  };
+
+  const renderSlide = (slide, index) => {
+    const isActive = index === activeIndex;
+    if (slide.type === 'video') {
+      return (
+        <video
+          key={index}
+          ref={videoRef}
+          src={slide.src}
+          className={`slide-item ${isActive ? 'active' : ''}`}
+          muted
+          loop
+          playsInline
+        />
+      );
+    } else {
+      return (
+        <img 
+          key={index}
+          src={slide.src} 
+          alt={`Slide ${index + 1}`} 
+          className={`slide-item ${isActive ? 'active' : ''}`}
+        />
+      );
+    }
   };
 
   return (
@@ -47,15 +83,11 @@ const KacaLandingPage = () => {
 
         <div className="background-image">
           <div className={`slideshow ${sliding ? 'sliding' : ''}`}>
-            <img 
-              src={images[activeIndex]} 
-              alt={`Slide ${activeIndex + 1}`} 
-              className="slide-image"
-            />
+            {slides.map((slide, index) => renderSlide(slide, index))}
           </div>
           
           <div className="square-indicators">
-            {images.map((_, index) => (
+            {slides.map((_, index) => (
               <span
                 key={index}
                 className={`square ${index === activeIndex ? 'active' : ''}`}
@@ -66,7 +98,6 @@ const KacaLandingPage = () => {
         </div>
       </div>
       <div className="landing-page-background"></div>
-
     </div>
   );
 };
