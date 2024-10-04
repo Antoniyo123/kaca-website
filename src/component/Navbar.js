@@ -59,7 +59,7 @@ const Navbar = () => {
   </div>
 </nav>
 <div className="menu-toggle" onClick={toggleMenu}>
-  {isMenuOpen ? 'CLOSE' : 'MENU'}
+  {isMenuOpen ? 'Close' : 'Menu'}
 </div>
 
   

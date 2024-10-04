@@ -1,130 +1,134 @@
-/* DeskripsiProject.css */
-.home-container-project{
-width: 100%;
-height: 100%;
-margin: 0 auto;
-    padding-top: 120px;
-
-
+.home-container-project {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 60px;
 }
+
 .project-grid-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 120px;
-    height: 400px;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-  }
-  
+  width: 100%;
+  max-width: 1200px; /* Reduced from 1200px */
+  margin: 0 auto;
+  padding-bottom: 60px;
+  height: 300px; /* Reduced from 400px */
+}
+
+.project-grid-container h2 {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-size: 35px; /* Slightly smaller font */
+  font-weight: 500;
+  line-height: 40px;
+  position: sticky;
+  top: 10px;
+  z-index: 1000; /* Tetap di atas elemen lain */
+  padding: 10px; /* Tambahkan padding untuk ruang */
+}
+.project-grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 200px 10px; /* Reduced from 370px 20px */
+  gap: 20px; /* Reduced from 20px */
+  row-gap: 110px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: bottom 0.3s ease;
+  opacity: 0;
+}
+
+.project-card:hover .project-overlay {
+  bottom: 0;
+  opacity: 1;
+}
+
+.project-1 { grid-column: 1 / 2; grid-row: 1 / 3; }
+.project-2 { grid-column: 1 / 2; grid-row: 3 / 4; }
+.project-3 { grid-column: 2 / 3; grid-row: 1 / 2; }
+.project-4 { grid-column: 2 / 3; grid-row: 2 / 4; }
+.project-5 { grid-column: 3 / 4; grid-row: 1 / 3; }
+.project-6 { grid-column: 3 / 4; grid-row: 3 / 4; }
+
+.see-more-btn {
+  display: block;
+  margin: 15px auto 0;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  color: #212322;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  align-items: center;
+}
+
+.see-more-btn:hover {
+  background-color: none;
+}
+.see-more-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 1rem;
+  align-items: center;
+}
+
+.feather-arrow-down {
+  width: 16px;
+  height: 16px;
+  color: #333;
+}
+
+.see-more-btn:hover .see-more-icon, 
+.see-more-btn:hover .feather-arrow-down {
+  transform: translateY(2px); /* Efek animasi ketika dihover */
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 900px) {
   .project-grid {
-    margin: 0 auto;
-    display: grid;
-    grid-template-rows: 370px 20px;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
   }
-  
-  .project-card {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+
+  .project-1, .project-2, .project-3, .project-4, .project-5, .project-6 {
+    grid-column: auto;
+    grid-row: auto;
   }
-  
-  .project-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease; 
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
   }
-  .project-card:hover img {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
-  
-  
-  .project-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -100%; /* Start the overlay below the image */
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: bottom 0.3s ease; /* Smooth transition */
-    opacity: 0; 
-  }
-  
-  .project-card:hover .project-overlay {
-    bottom: 0; /* Slide up the overlay to cover the image on hover */
-    opacity: 1; /* Make the overlay visible */
-  }
-  
-  .project-1 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-  }
-  
-  .project-2 {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-  }
-  
-  .project-3 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-  }
-  
-  .project-4 {
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
-  }
-  
-  .project-5 {
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
-  }
-  
-  .project-6 {
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
-  }
-  
-  .see-more-btn {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    background: none;
-    border: none;
-    color: #4CAF50;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .see-more-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  @media (max-width: 1000px) {
-    .project-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
-  
-    .project-1, .project-2, .project-3, .project-4, .project-5, .project-6 {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .project-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

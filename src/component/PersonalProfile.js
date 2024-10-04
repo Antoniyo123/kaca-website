@@ -1,15 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../CSS/PersonalProfile.css';
 import arrowRightButton from '../img/svg-assets/arrow-right-button.svg';
 import arrowLeftButton from '../img/svg-assets/arrow-left-button.svg';
 import KacaNetwork from './KacaNetwork';
 
 const PersonalProfile = () => {
-  const [showMore, setShowMore] = useState(false);
   const [activeTab, setActiveTab] = useState('Nazla');
+  const [showMore, setShowMore] = useState(false);
+  const profileRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (profileRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = profileRef.current;
+        const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+        setScrollPosition(scrollPercentage);
+      }
+    };
+
+    const profileElement = profileRef.current;
+    if (profileElement) {
+      profileElement.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (profileElement) {
+        profileElement.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   const handleShowMore = () => {
     setShowMore(!showMore);
+  };
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+    if (profileRef.current) {
+      profileRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const profiles = {
@@ -102,23 +135,41 @@ With her limitless energy towards people, she could light up the room she enters
   const currentProfile = profiles[activeTab];
 
   return (
-<div className="personal-profile-container">
+    <div className="personal-profile-container">
       <div className="tab-container">
         <div className="tab-container-inner">
           {Object.keys(profiles).map((profile) => (
             <div
               key={profile}
-              className={`tab ${activeTab === profile ? 'active' : ''} ${profile === '.KACA Network >>' ? 'kaca-network-tab' : ''}`}
-              onClick={() => setActiveTab(profile)}
+              className={`tab ${activeTab === profile ? 'active' : ''}`}
+              onClick={() => handleTabClick(profile)}
             >
               {profile}
             </div>
           ))}
         </div>
       </div>
-      <div className="profile-content">
-      
-        {activeTab === 'More Talent'  ? (
+
+      <div className="scroll-indicator">
+        {Object.keys(profiles).map((profile, index) => (
+          <div
+            key={profile}
+            className={`scroll-dot ${activeTab === profile ? 'active' : ''}`}
+            style={{
+              top: `${(index / (Object.keys(profiles).length - 1)) * 100}%`
+            }}
+          />
+        ))}
+        <div
+          className="scroll-progress"
+          style={{
+            height: `${scrollPosition}%`
+          }}
+        />
+      </div>
+
+      <div className="profile-content" ref={profileRef}>
+        {activeTab === 'More Talent' ? (
           currentProfile.component
         ) : (
           <>
@@ -126,18 +177,16 @@ With her limitless energy towards people, she could light up the room she enters
               <div className="image-container">
                 <img src={currentProfile.image} alt={currentProfile.name} />
                 <button className="slide-button left">
-                <img src={arrowLeftButton} alt="Arrow Left Button" width={24} height={24} />
-
+                  <img src={arrowLeftButton} alt="Arrow Left Button" width={24} height={24} />
                 </button>
                 <button className="slide-button right">
-                <img src={arrowRightButton} alt="Arrow Right Button" width={24} height={24} />
-
+                  <img src={arrowRightButton} alt="Arrow Right Button" width={24} height={24} />
                 </button>
               </div>
             </div>
             <div className="profile-center">
               <h2>{currentProfile.name}</h2>
-              <div className="social-links">
+              <div className="social-links-talent">
                 <a href={`https://instagram.com/${currentProfile.instagram}`} target="_blank" rel="noopener noreferrer">
                   Instagram: @{currentProfile.instagram}
                 </a>
@@ -145,20 +194,7 @@ With her limitless energy towards people, she could light up the room she enters
                   TikTok: @{currentProfile.tiktok}
                 </a>
               </div>
-              <div className="statistic">
-                <div className="stat-talent">
-                  <p className="stat-label">Followers</p>
-                  <p className="stat-value">{currentProfile.stats.followers}</p>
-                </div>
-                <div className="stat">
-                  <p className="stat-label">Impressions</p>
-                  <p className="stat-value">{currentProfile.stats.impressions}</p>
-                </div>
-                <div className="stat">
-                  <p className="stat-label">Likes</p>
-                  <p className="stat-value">{currentProfile.stats.likes}</p>
-                </div>
-              </div>
+
               <div className={`description-text ${showMore ? 'show-more' : ''}`}>
                 <p>{currentProfile.description}</p>
               </div>
@@ -180,8 +216,6 @@ With her limitless energy towards people, she could light up the room she enters
           </>
         )}
       </div>
-      
-
     </div>
   );
 };

@@ -5,6 +5,7 @@ import LastProjects from './LastProjects';
 import KacaActivity from './KacaActivity';
 import AchievementSection from './AchievementSection';
 import KacaLandingPage from './KacaLandingPage';
+import Footer from './Footer';
 
 const Home = () => {
   const sectionRefs = useRef([]);
@@ -56,7 +57,7 @@ const Home = () => {
 
   return (
     <div className='home'>
-      {[KacaLandingPage, KacaActivity, AchievementSection, NewSection, LastProjects].map((Section, index) => (
+      {[KacaLandingPage, KacaActivity, AchievementSection, NewSection, LastProjects, Footer].map((Section, index) => (
         <section 
           key={index}
           ref={el => sectionRefs.current[index] = el} 
