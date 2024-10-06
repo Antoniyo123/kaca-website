@@ -3,82 +3,198 @@
   position: relative;
   width: 100%;
   overflow: hidden;
- max-height: 100vh;
+  max-height: 100vh;
   margin: 0 auto;
   padding-top: 120px;
+
   padding-bottom: 0;
-
 }
-.talent-container {
 
-  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+.talent-container {
+  background: radial-gradient(64.86% 65.32% at 6.02% 80.11%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(61.36% 61.36% at 39.41% 50%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              radial-gradient(65.58% 53.55% at 85.12% 28.85%, #CCCCCC 0%, rgba(255, 255, 255, 0) 100%),
+              linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
   position: relative;
   width: 100%;
   height: 100%;
   overflow-y: hidden;
 }
 
-.talent-showcase-wrapper{
-  overflow: hidden; /* Ensures only visible items are shown */
+.talent-showcase-wrapper {
+  overflow: hidden;
   position: relative;
-  width: 100%;
-  margin: 0 auto;
   max-width: 1200px;
+
+  margin: 0 auto;
+  
 }
+
 .talent-carousel {
   display: flex;
-  transition: transform 0.5s ease;
-  width: 100%; /* Sesuaikan dengan lebar penuh kontainer */
-  max-width: 1200px; /* Batas maksimal lebar kontainer */
-  gap: 20px; /* Gap antar gambar */
+  transition: transform 0.5s ease-in-out;
+
+  width: 270px;
+  height: auto;
+  gap: 43px;
   padding-bottom: 80px;
-  margin: 0 auto; /* Pusatkan carousel */
-}
 
-.talent-item { 
-   flex: 1 0 213px; /* Set lebar item menjadi 213px */
-  height: 300px;
+  /* margin: 0 auto; */
+}
+.talent-carousel-wrapper{
+  width: 100%;
+  max-width: 1068px;
+
+}
+.talent-item {
+  width: 100%;
+  height: auto;
   flex-shrink: 0;
-  position: relative;
-  box-sizing: border-box; 
 
+  position: relative;
+  /* overflow: visible; */
 }
-.talent-title{
+
+
+/* .talent-item:hover {
+  transform: translateY(-10px);
+} */
+
+
+.talent-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 320px;
+  z-index: 2; /* Gambar di depan GIF */
+}
+
+
+.talent-image {
+  position: relative;
+  /* width: 100%; */
+  height: auto;
+  z-index: 3; /* Gambar talent tetap di depan */
+}
+
+
+.talent-title {
   color: #212322;
   font-size: 57px;
   font-weight: 600;
   line-height: 62.7px;
   letter-spacing: -0.25px;
 }
+
 .talent-item img {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   object-fit: cover;
 }
+
+.hover-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  opacity: 1;
+  transition: transform 1s ease, opacity 1s ease;
+  width: 270px; /* Lebar GIF */
+  height: 300px; /* Tinggi GIF */
+  object-position: 50%;
+}
+
+
+.talent-item:hover .hover-gif {
+  transform: translate(-50%, -50%) scale(1.6); /* GIF membesar di belakang */
+  opacity: 2;
+  z-index: 4;
+}
+
+
 
 .talent-description {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.8);
   padding: 10px;
   box-sizing: border-box;
+  z-index: 4; /* Deskripsi di atas gambar */
+  transition: transform 1s ease, opacity 1s ease;
 
 }
 
+
+
 .talent-item:hover .talent-description {
   opacity: 1;
+  height: 80px;
+  bottom: 0;
+}
+
+.talent-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scroll Indicator */
+.scroll-indicator-talent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.scroll-indicator-talent:hover {
+  transform: translateY(-5px);
+  color: #B9975B;
+}
+
+/* Personal Profile Section */
+.personal-profile-wrapper {
+  overflow-x: hidden;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  position: relative;
+  width: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.personal-profile-wrapper.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) !important;
+}
+
+.talent-showcase-wrapper {
+  transition: transform 0.5s ease-in-out;
+}
+
+.talent-showcase-wrapper.shifted {
+  transform: translateY(-80vh);
 }
 
 .nav-buttons {
@@ -90,12 +206,10 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
   justify-content: space-between;
   transform: translateY(-50%);
   z-index: 10;
-  margin: 0;
 }
 
-
 .nav-button-talent {
-  background-color:#292D321A;
+  background-color: #292D321A;
   color: white;
   border: none;
   cursor: pointer;
@@ -104,138 +218,48 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
 }
 
 .nav-button-talent:hover {
-  background-color: #4E6548; /* Background berubah menjadi hitam */
-  color: #fff; /* Teks tetap putih */
+  background-color: #4E6548;
+  color: #fff;
 }
 
-
-/* Talent.css */
-
-.scroll-indicator-talent {
-  /* bottom: 20px; */
-  /* z-index: 2000; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 7rem;
-  cursor: pointer;
-  background-color: transparent; /* Pastikan tombol transparan */
-  border: none;
-  color: #333; /* Warna teks tombol */
-  font-size: 16px; /* Ukuran teks */
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: 0.5px;
-  font-style: normal;
-  transition: transform 0.3s ease-in-out; /* Animasi */
-}
-
-.scroll-indicator:hover {
-  transform: translateY(-5px); /* Efek hover, naik sedikit */
-  color: #B9975B; /* Warna teks berubah saat hover */
-}
-
-
-/* Mengatur personal profile agar muncul saat active */
-
-.personal-profile-wrapper {
-overflow-x: hidden;
-  left: 0;
-  right: 0;
-  /* height: 100vh; */
-  /* z-index: 10; */
-  transform: translateY(100%);
-  position: relative;
-  width: 100%;
-  transition: transform 0.3s ease-out;
-}
-.personal-profile-wrapper .talent-showcase{
-  min-height: auto;
-}
-.personal-profile-wrapper.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0) !important;
-}
-
-
-/* Adjust the main content when PersonalProfile1 is active */
-.talent-showcase-wrapper {
-  transition: transform 0.5s ease-in-out;
-  
-}
-
-.talent-showcase-wrapper.shifted {
-  transform: translateY(-80vh);
-}
 .nav-button-talent img {
-  transition: filter 0.3s ease; /* Add transition for smooth effect */
+  transition: filter 0.3s ease;
 }
 
 .nav-button-talent:hover img {
-  filter: brightness(10) saturate(80%) invert(28%) sepia(91%) saturate(494%) hue-rotate(-2deg) brightness(95%) contrast(101%); /* Adjust filter to achieve Pantone 2015 C */
+  filter: brightness(10) saturate(80%) invert(28%) sepia(91%) saturate(494%) hue-rotate(-2deg) brightness(95%) contrast(101%);
 }
 
-
-
-/* Responsive Styles */
-
-@media (min-width: 1025px) {
-  .scroll-indicator-talent {
-    margin-top: 5rem;
-  }
-}
-
-/* Versi tablet (max-width: 768px) */
+/* Responsive Styles for Smaller Devices */
 @media (max-width: 768px) {
   .talent-title {
     font-size: 2rem;
   }
 
   .talent-item {
-    width: 50%; /* Show 2 items at once on mobile */
+    width: 50%;
   }
+
+  .nav-buttons {
+    top: 86%;
+  }
+
   .scroll-indicator-talent {
     margin-top: 2.5rem;
     position: relative;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-
-    font-size: 16px;  /* Pastikan berada di atas elemen lain */
-  }
-
-  .nav-buttons {
-    position: absolute;
-    top: 86%;
-    left: 0;
-    right: 0;
-    transform: translateY(-20%);
-  }
-
-  .nav-button {
-    background-color: rgba(255, 255, 255, 0.7);
-    /* border-radius: 50%; */
-    padding: 10px;
-    position: absolute;
-  }
-
-  .nav-button.prev {
-    left: 10px;
-  }
-
-  .nav-button.next {
-    right: 10px;
+    font-size: 16px;
   }
 }
 
-/* Small mobile styles */
 @media (max-width: 480px) {
   .talent-title {
     font-size: 1.5rem;
   }
 
   .talent-item {
-    width: 100%; /* Show 1 item at once on small mobile */
+    width: 100%;
   }
 }

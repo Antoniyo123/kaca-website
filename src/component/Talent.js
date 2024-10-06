@@ -6,20 +6,24 @@ import arrowDown from '../img/svg-assets/arrow-down.svg';
 import PersonalProfile1 from './PersonalProfile1';
 
 const talents = [
-  { id: 1, name: "Talent 1", image: require('../img/talent/nazla-talent.png'), desc: "Ini adalah deskripsi Talent 1.", gif: require('../img/bg/bg-1.png') },
-  { id: 2, name: "Talent 2", image: require('../img/talent/rachel-talent.png'), desc: "Ini adalah deskripsi Talent 2.", gif: require('../img/bg/bg-1.png') },
-  { id: 3, name: "Talent 3", image: require('../img/talent/aqsa-talent.png'), desc: "Ini adalah deskripsi Talent 3.", gif: require('../img/bg/bg-1.png') },
-  { id: 4, name: "Talent 4", image: require('../img/talent/agatha-talent.png'), desc: "Ini adalah deskripsi Talent 4.", gif: require('../img/bg/bg-1.png') },
-  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Ini adalah deskripsi Talent 5.", gif: require('../img/bg/bg-1.png') },
+  { id: 1, name: "Talent 1", image: require('../img/talent/nazla-talent.png'), desc: "Nazla ALifah", gif: require('../img/bg/bg-hover.png') },
+  { id: 2, name: "Talent 2", image: require('../img/talent/rachel-talent.png'), desc: "Rachel", gif: require('../img/bg/bg-hover.png') },
+  { id: 3, name: "Talent 3", image: require('../img/talent/aqsa-talent.png'), desc: "Aqsa Aswar", gif: require('../img/bg/bg-hover.png') },
+  { id: 4, name: "Talent 4", image: require('../img/talent/agatha-talent.png'), desc: "Agatha Priscillia", gif: require('../img/bg/bg-hover.png') },
+  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
+  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
+  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
+
 ];
 
 const Talent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [talentsToShow, setTalentsToShow] = useState(4);
-  const [itemWidth, setItemWidth] = useState(300);
+  const [talentsToShow] = useState(4); // Menampilkan 3 talent sekaligus
+  const itemWidth = 314; // 270px item + 70px gap sesuai CSS
   const personalProfile1Ref = useRef(null);
   const talentShowcaseRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +32,6 @@ const Talent = () => {
         const talentShowcaseBottom = talentShowcaseRef.current.offsetTop + talentShowcaseRef.current.offsetHeight;
         const windowHeight = window.innerHeight;
         
-        // Calculate scroll progress
         const progress = (scrollPosition + windowHeight - talentShowcaseBottom) / windowHeight;
         setScrollProgress(Math.max(0, Math.min(1, progress)));
       }
@@ -69,14 +72,27 @@ const Talent = () => {
               className="talent-carousel" 
               style={{ 
                 transform: `translateX(-${currentIndex * itemWidth}px)`,
-                width: `${talents.length * itemWidth}px`
               }}
             >
-              {talents.map((talent) => (
-                <div key={talent.id} className="talent-item" style={{ width: itemWidth }}>
-                  <img src={talent.image} alt={`Talent ${talent.name}`} />
-                  <div className="talent-description">
-                    <p>{talent.desc}</p>
+              {talents.map((talent, index) => (
+                <div 
+                  className="talent-item"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  key={talent.id}
+                >
+                  <div className="talent-background">
+                    <img 
+                      src={talent.gif} 
+                      alt="Background Hover" 
+                      className={`hover-gif ${hoveredIndex === index ? 'active' : ''}`}
+                    />
+                  </div>
+                  <div className="talent-content">
+                    <img src={talent.image} alt={`Talent ${talent.name}`} className="talent-image" />
+                    <div className="talent-description">
+                      <p>{talent.desc}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -87,14 +103,14 @@ const Talent = () => {
             <button 
               onClick={prevTalent} 
               className="nav-button-talent prev"
-              disabled={currentIndex === 0}
+              disabled={currentIndex === 0} // Disabled jika sudah di awal
             >
               <img src={arrowLeft} alt="Arrow Left" width={24} height={24} />
             </button>
             <button 
               onClick={nextTalent} 
               className="nav-button-talent next"
-              disabled={currentIndex === talents.length - talentsToShow}
+              disabled={currentIndex === talents.length - talentsToShow} // Disabled jika sudah di akhir
             >
               <img src={arrowRight} alt="Arrow Right" width={24} height={24} />
             </button>
