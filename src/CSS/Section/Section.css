@@ -24,15 +24,21 @@
   width: 100%;/* Space below the existing photo gallery */
 }
 
-.photo-gallery-section {
+.photo-gallery-section-talent {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .video-hover {
-  font-size: 24px;
-  font-weight: bold;
+  color: var(--Grayscale-Pantone-White, #FFF);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+  font-size: var(--Headline-Small, 36px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 45px; /* 45px */
 }
 
 .title-text-video{
@@ -88,7 +94,6 @@
   width: 210.5px;
   height: 276px;
   object-fit: cover;
-  border-radius: 5px;
 }
 
 /* Wrapper for new content and horizontal gallery */
@@ -121,6 +126,7 @@
   line-height: 24px;
   letter-spacing: 0.5px;
   color: #FFFFFF;
+  text-wrap: wrap;
 }
 .horizontal-gallery-wrapper {
   width: 827px;
@@ -145,7 +151,6 @@
   width: 114px;
   height: 150px;
   object-fit: cover;
-  border-radius: 5px;
 }
 
 /* Controls for the gallery */
@@ -157,34 +162,19 @@
   margin-top: 10px; /* Space between gallery and controls */
 }
 
-.dots-container {
-  display: flex;
-  gap: 5px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  /* background-color: #A9C47F; */
-}
-
-.dot.active {
-  background-color: #A9C47F;
-}
 
 .gallery-controls {
   display: flex;
   justify-content: space-between; /* Dots di kiri, arrows di kanan */
   align-items: center;
   width: 100%;
-  gap: 45rem;
+  gap: 42rem;
   margin-top: 22px; /* Space between gallery and controls */
 }
 
 
 .slider-arrow {
-  background-color: none;
+  background-color: #212322;
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -192,10 +182,15 @@
   color: #FFFFFF;
   position: relative;
   margin: 0 10px;
+  /* z-index: 2; */
   
 }
 .slider-arrow img{
   filter: invert(1); 
+}
+.slider-arrow:hover{
+  background: #AB2328;
+  transform: translateY(-5px); 
 }
 @media (max-width: 1024px) {
   .content-container {

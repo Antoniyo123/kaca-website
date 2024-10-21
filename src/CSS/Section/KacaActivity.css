@@ -9,14 +9,21 @@
   position: relative;
 }
 .services-section h1 {
-  font-weight: 500;
-  font-size: 57px;
-  line-height: 62.7px;
+  color: #212322;
+
+  /* Headline/Large */
+  font-family: 'Montserrat', sans-serif;
+  font-size:57px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%; /* 62.7px */
   letter-spacing: -0.25px;
-  text-transform: uppercase;
+  margin-bottom: 7rem;
  /* Center the heading on smaller screens */
 }
 .services-container {
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   gap: 40px;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
@@ -38,7 +45,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  border-bottom: 1px solid #99CCBB;
+  border-bottom: 1px solid #CFCDC9;
 }
 
 .service-item::after {
@@ -78,7 +85,8 @@
 }
 
 .service-content {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   height: 409px;
   display: flex;
   flex-direction: column;
@@ -88,9 +96,10 @@
   line-height: 30px;
   margin-bottom: 2rem;
   padding: 16px;
-  border-left: 1px solid #99CCBB;
+  border-left: 1px solid #CFCDC9;
   position: relative;
   z-index: 2;
+
 }
 .service-content p{
   text-align: center;

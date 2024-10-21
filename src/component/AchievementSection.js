@@ -27,7 +27,7 @@ const AchievementSection = () => {
     };
 
     // Apply count-up animation to each stat-item
-    const stats = document.querySelectorAll(".stat-item h2");
+    const stats = document.querySelectorAll(".stat-item-achievement h2");
     stats.forEach(stat => {
       const endValue = parseInt(stat.getAttribute("data-target"));
       countUp(stat, 0, endValue, 2000); // 2 seconds for the animation
@@ -50,7 +50,7 @@ const AchievementSection = () => {
         </div>
         
         <div className="text-content">
-          <h1>What we already achieve,</h1>
+          <h1>What we already achieve</h1>
           <p>
             KACA Kreatif has partnered with other companies and individuals from multiple 
             industries to ensure that our services are not limited but growing. By helping 
@@ -58,16 +58,16 @@ const AchievementSection = () => {
             heard, we aim to create a solid digital communication that matters.
           </p>
           
-          <div className="stats">
-            <div className="stat-item">
+          <div className="stats-achievement">
+            <div className="stat-item-achievement">
               <h2 data-target="50" data-suffix="m">0<span>m</span></h2>
               <p>Views</p>
             </div>
-            <div className="stat-item">
+            <div className="stat-item-achievement">
               <h2 data-target="100" data-suffix="+">0<span>+</span></h2>
               <p>Creative Talents</p>
             </div>
-            <div className="stat-item">
+            <div className="stat-item-achievement">
               <h2 data-target="75" data-suffix="+">0<span>+</span></h2>
               <p>Brand Collaboration</p>
             </div>

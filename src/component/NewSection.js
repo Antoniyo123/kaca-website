@@ -44,23 +44,26 @@ const NewSection = () => {
             <div className="new-section">
                 {/* Existing Photo Gallery */}
                 <div className="photo-gallery-container">
-                    <div className="photo-gallery-section">
+                    <div className="photo-gallery-section-talent">
                         <div className="video-hover">
                             <p className="title-text-video">Our Talents</p>
                         </div>
                         <div className="see-more-button-container">
                             <Link to="/talent" className="see-more-button">
                                 See More 
-                                <span className="arrow-icon">→</span>
+                            <span className="arrow-icon">
+                                <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
+
+                            </span>
                             </Link>
                         </div>
                     </div>
                     <div className="photo-gallery">
-                        <img src={require('../img/talent/nazla-talent.png')} alt="Photo 1" className="wide-photo-talent" />
-                        <img src={require('../img/talent/aqsa-talent.png')} alt="Photo 2" className="wide-photo-talent" />
-                        <img src={require('../img/talent/agatha-talent.png')} alt="Photo 3" className="wide-photo-talent" />
-                        <img src={require('../img/talent/aalyah-talent.png')} alt="Photo 4" className="wide-photo-talent" />
-                        <img src={require('../img/talent/rachel-talent.png')} alt="Photo 5" className="wide-photo-talent" />
+                        <img src={require('../img/our-talent/nazla1.png')} alt="Photo 1" className="wide-photo-talent" />
+                        <img src={require('../img/our-talent/aaliyah1.png')} alt="Photo 2" className="wide-photo-talent" />
+                        <img src={require('../img/our-talent/aqsa1.png')} alt="Photo 3" className="wide-photo-talent" />
+                        <img src={require('../img/our-talent/agatha1.png')} alt="Photo 4" className="wide-photo-talent" />
+                        <img src={require('../img/our-talent/rachel1.png')} alt="Photo 5" className="wide-photo-talent" />
                     </div>
                 </div>
 
@@ -68,7 +71,7 @@ const NewSection = () => {
                 <div className="new-content">
                     <div className="new-content-text">
                         <p>
-                            In addition to our exceptional talent pool, we also offer access to the extensive resources of the KACA Network, providing you with a diverse range of talent options to fulfill any needs for your campaign.
+                        In addition to our exceptional talent pool, we also offer access to the extensive resources of the KACA Network talents.
                         </p>
                     </div>
                     <div className="horizontal-gallery-wrapper"
@@ -76,13 +79,14 @@ const NewSection = () => {
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}>
                         <div className="horizontal-gallery" ref={galleryRef}>
-                            <img src={require('../img/talent/jerome.png')} alt="Photo 6" className="horizontal-photo" />
-                            <img src={require('../img/talent/aero.png')} alt="Photo 7" className="horizontal-photo" />
-                            <img src={require('../img/talent/artis2.png')} alt="Photo 8" className="horizontal-photo" />
-                            <img src={require('../img/talent/artis3.png')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/talent/randy.png')} alt="Photo 10" className="horizontal-photo" />
-                            <img src={require('../img/talent/gamers.png')} alt="Photo 11" className="horizontal-photo" />
-                            <img src={require('../img/talent/jeje.png')} alt="Photo 12" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/AERO.jpg')} alt="Photo 6" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/ANGIE.jpg')} alt="Photo 7" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/DAFFA.jpg')} alt="Photo 8" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/DINDRA.jpg')} alt="Photo 9" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Photo 10" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Photo 11" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" />
                         </div>
                         <div className="gallery-controls">
     

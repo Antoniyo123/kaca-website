@@ -158,7 +158,7 @@ Over the past six years, she has cultivated a personal style that is both sophis
     return (
       <div className='talent__card__wrapper'>
       <div id={talent.name} className="talent-card">
-        <div className="talent-image">
+        <div className="talent-image-personal">
           <img src={talent.image} alt={talent.fullName} />
           <button className="arrow-button left">&lt;</button>
           <button className="arrow-button right">&gt;</button>

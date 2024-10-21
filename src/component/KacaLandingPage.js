@@ -72,8 +72,11 @@ const KacaLandingPage = () => {
       <div className="container">
         <div className="text-content-home">
           <div className="intro-content">
+            <h1>
+              Your one stop creative solution,
+            </h1>
             <h2>
-              Your one stop creative solution providing top leading talents and digital marketing needs.
+            providing top leading talents and digital marketing needs.
             </h2>
             <p>
               We are a talent management and influencer marketing agency that has set an exemplary standard for delivering astute, sharp-focused, and individualized representation that ensures success at all stages of its collaborators. Our goal is to build solid and lasting relationships between talented people and the creative industries to create impactful stories in this digital age.

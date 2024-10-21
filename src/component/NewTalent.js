@@ -67,14 +67,6 @@ const NewTalent = ({ talents }) => {
           background-position: center;
           opacity: 0.7;
         }
-        .talent-image {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
         .talent-info {
           position: absolute;
           bottom: 10px;

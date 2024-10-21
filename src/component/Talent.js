@@ -6,11 +6,11 @@ import arrowDown from '../img/svg-assets/arrow-down.svg';
 import PersonalProfile1 from './PersonalProfile1';
 
 const talents = [
-  { id: 1, name: "Talent 1", image: require('../img/talent/nazla-talent.png'), desc: "Nazla ALifah", gif: require('../img/bg/bg-hover.png') },
-  { id: 2, name: "Talent 2", image: require('../img/talent/rachel-talent.png'), desc: "Rachel", gif: require('../img/bg/bg-hover.png') },
-  { id: 3, name: "Talent 3", image: require('../img/talent/aqsa-talent.png'), desc: "Aqsa Aswar", gif: require('../img/bg/bg-hover.png') },
-  { id: 4, name: "Talent 4", image: require('../img/talent/agatha-talent.png'), desc: "Agatha Priscillia", gif: require('../img/bg/bg-hover.png') },
-  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
+  { id: 1, name: "Talent 1", image: require('../img/our-talent/nazla1.png'), desc: "Nazla ALifah", gif: require('../img/bg/bg-hover.png') },
+  { id: 2, name: "Talent 2", image: require('../img/our-talent/aaliyah1.png'), desc: "Rachel", gif: require('../img/bg/bg-hover.png') },
+  { id: 3, name: "Talent 3", image: require('../img/our-talent/aqsa1.png'), desc: "Aqsa Aswar", gif: require('../img/bg/bg-hover.png') },
+  { id: 4, name: "Talent 4", image: require('../img/our-talent/agatha1.png'), desc: "Agatha Priscillia", gif: require('../img/bg/bg-hover.png') },
+  { id: 5, name: "Talent 5", image: require('../img/our-talent/rachel1.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
   { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
   { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
 
@@ -19,7 +19,7 @@ const talents = [
 const Talent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [talentsToShow] = useState(4); // Menampilkan 3 talent sekaligus
-  const itemWidth = 314; // 270px item + 70px gap sesuai CSS
+  const itemWidth = 320; // 270px item + 70px gap sesuai CSS
   const personalProfile1Ref = useRef(null);
   const talentShowcaseRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -121,7 +121,11 @@ const Talent = () => {
           <span>Scroll to know more about our talent</span>
           <img src={arrowDown} alt="Arrow Down" width={24} height={24} />
         </div>
+        
       </div>
+
+      <div className="background-photo-talent"></div>
+      
 
       <div 
         ref={personalProfile1Ref} 

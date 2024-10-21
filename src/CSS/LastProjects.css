@@ -1,73 +1,119 @@
 /* Container for the entire section */
 .project-content-container {
-  margin-top: 100px;
   padding: 20px;
   background-color: #212322;
   width: 100%;
   margin: 0 auto;
   padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 /* Main container for the project section */
 .project-section {
+
   display: flex;
   width: 100%;
   flex-direction: column;
   max-width: 1116px;
   margin: 0 auto;
 }
-
+.photo-gallery-section{
+margin-top: 10rem;
+}
 /* Existing photo gallery container */
-.project-gallery-container {
-  margin-bottom: 40px;
-  width: 100%; /* Space below the existing photo gallery */
+.project-gallery-scroll {
+  
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  padding: 20px 0;
 }
 
-.project-gallery {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  scroll-snap-type: x mandatory; /* Ensure smooth snapping to cards */
-  padding-bottom: 20px; /* Space below the gallery */
+.project-gallery-scroll::-webkit-scrollbar { 
+  display: none;  /* WebKit */
 }
 
 .project-card-view {
-  width: 320px; /* Width of each card */
-  height: 400px; /* Height of each card */
-  flex-shrink: 0; /* Prevent shrinking */
+  flex: 0 0 320px;
+  width: 320px;
+  height: 400px;
+  margin-right: 20px;
+  scroll-snap-align: start;
   position: relative;
-  scroll-snap-align: start; /* Snap to start of each card */
   overflow: hidden;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.project-card-view:hover {
-  transform: translateY(-10px); /* Lift the card slightly on hover */
 }
 
 .project-card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire card */
-  border-radius: 5px;
+  object-fit: cover;
 }
 
-.card-hover {
+.card-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
+  background: rgba(242, 240, 240, 0.7);
+  color: white;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
-  color: #fff;
-  padding: 10px;
-  box-sizing: border-box;
-  transform: translateY(100%); /* Hide the hover content initially */
-  transition: transform 0.3s ease;
+  height: 70px; /* Initial height to show brand info */
+  transition: .5s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.project-card-view:hover .card-hover {
-  transform: translateY(0); /* Slide the hover content up on hover */
+
+.project-card-view:hover .card-overlay {
+  height: 60%;
+  max-height: auto;
+}
+.card-info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: .5s ease;
+}
+
+.brand-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.brand-logo {
+  height: 30px;
+  width: auto;
+}
+
+.card-description {
+  height: 400px;
+  padding: 10px;
+  transition: .5s ease;
+  opacity: 0;
+  max-height: 0;
+}
+
+.project-card-view:hover .card-info {
+  transform: translateY(-10%);
+}
+
+.project-card-view:hover .card-description {
+  opacity: 1;
+  max-height: calc(60% - 80px); /* Subtracting the height of card-info */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-card-view {
+    flex: 0 0 280px;
+    width: 280px;
+    height: 350px;
+  }
 }
 
 .project-title-text-video {
@@ -109,77 +155,22 @@
   margin-left: 5px;
 }
 
-/* Photo gallery styles */
-.project-photo-gallery {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-}
-
-.project-photo-card {
-  width: 320px; /* Adjusted width */
-  height: 400px; /* Adjusted height */
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.project-photo-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.project-photo-card:hover img {
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.project-photo-hover {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-
-.project-photo-card:hover .project-photo-hover {
-  transform: translateY(0); /* Slide up effect */
-}
-
-.project-wide-photo-talent {
-  width: 320px; /* Adjusted width */
-  height: 200px; /* Adjusted height */
-}
 .brand-scroller {
   width: 100%;
   overflow: hidden;
-  margin-top: 40px;
 }
 
 .scrolling-images {
   display: flex;
+  gap: 5rem;
   animation: scroll 10s linear infinite;
 }
-.scrolling-images .lv {
-  width: 50px;
-  height: 50px;
-  margin-right: 30px; /* Adjusted value for more space between images */
-  object-fit: contain;
-}
+
+
 .scrolling-images img {
   width: 80px;
   height: 100px;
-  margin-right: 30px; /* Adjusted value for more space between images */
+  margin-right: 30px;
   object-fit: contain;
 }
 

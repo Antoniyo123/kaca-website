@@ -14,12 +14,12 @@ const KacaActivity = () => {
     {
       title: "Connect with Nationwide Influencer & Content Creators",
       content: "Description for connecting with influencers...",
-      image: require('../img/bg/ring.png'),
+      image: require('../img/kacaActivity/round.png'),
     },
     {
       title: "Massive Increase Your Audience",
       content: "Description for increasing your audience...",
-      image: require('../img/bg/ring.png'),
+      image: require('../img/kacaActivity/spiral.png'),
     }
   ];
 
