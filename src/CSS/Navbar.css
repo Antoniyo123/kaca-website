@@ -79,6 +79,8 @@
   width: 100%;
   z-index: 1001;
   color: #212322;
+  text-decoration-line:none;
+
 }
 
 .navbar-menu.open {
@@ -105,7 +107,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 110%; /* 49.5px */
-  text-decoration: none;  
+
 }
 
 .nav-item:hover {
