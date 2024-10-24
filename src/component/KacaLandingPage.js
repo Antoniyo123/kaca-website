@@ -3,9 +3,9 @@ import '../CSS/KacaLandingPage.css';
 
 const KacaLandingPage = () => {
   const slides = [
-    { type: 'video', src: require('../video/video-dummy.mp4') },
-    { type: 'image', src: require('../img/intro-background.png') },
-    { type: 'image', src: require('../img/nazla.png') },
+    { type: 'video', src: require('../video/SECTION1.mp4') },
+    { type: 'video', src: require('../video/SECTION2.mp4') },
+    { type: 'video', src: require('../video/SECTION3.mp4') },
     { type: 'image', src: require('../img/aaliyah.png') },
   ];
 
@@ -16,7 +16,7 @@ const KacaLandingPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 8000); // Change slide every 8 seconds
+    }, 14000); // Change slide every 8 seconds
     return () => clearInterval(interval);
   }, []);
 
