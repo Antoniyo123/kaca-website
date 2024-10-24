@@ -13,7 +13,7 @@
 }
 
 .navbar.scrolled {
-  background:rgba(255, 255, 255, 0.80);
+  background:rgba(255, 255, 255, 0.8);
   max-height: 100px;
 
 }
@@ -53,7 +53,7 @@
 }
 
 .navbar-logo-large {
-  width: 200px;  /* or whatever size you want for the larger logo */
+  width: 307.5px;  /* or whatever size you want for the larger logo */
   height: auto;
 }
 
