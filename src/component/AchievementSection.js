@@ -3,12 +3,13 @@ import '../CSS/Section/AchievementSection.css';
 
 const AchievementSection = () => {
   const images = [
-    require('../img/achivement/image-2.png'),
-    require('../img/achivement/image-3.png'),
-    require('../img/achivement/image-4.png'),
-    require('../img/achivement/image-5.png'),
-    require('../img/achivement/image-8.png'),
-    require('../img/achivement/image-7.png'),
+    require('../img/achivement/nazla-ach.png'),
+    require('../img/achivement/aqsa-nazla.png'),
+    require('../img/achivement/aaliyahbaju.png'),
+    require('../img/achivement/agathagiorgio.png'),
+    require('../img/achivement/rachel-nazla.png'),
+    // require('../img/achivement/nazla-gucci.png'),
+    // require('../img/achivement/agathamake.png'),
   ];
 
   useEffect(() => {
