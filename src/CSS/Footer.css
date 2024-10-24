@@ -1,7 +1,6 @@
 .footer {
+  padding-top: -120px;
   background-color: #fff;
-  padding-bottom: 120px;
-
   padding: 40px 60px;
   font-family: Arial, sans-serif;
   width: 100%;
@@ -10,7 +9,6 @@
 }
 
 .footer-content {
-  padding-top: 120px;
   width: 100%;
   max-width: 1086px;
   display: flex;

@@ -1,42 +1,51 @@
 .project-card {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100%;
     cursor: pointer;
     margin: 0 auto;
   }
   
-  .project-card img {
-    max-width: 800px;
-    
-  }
   
   .project-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50%; /* Menutupi 1/4 bagian bawah gambar */
-    background: rgba(216, 211, 211, 0.6); /* Latar belakang semi-transparan agar teks jelas */
+    height: 10%; /* Menutupi 1/4 bagian bawah gambar */
+    background:#FFFFFFCC; /* Latar belakang semi-transparan agar teks jelas */
     color: black;
-    padding: 50px;
+    padding: 40px;
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Menempatkan teks di tengah vertikal */
+    flex-direction: row;
+    justify-content: space-between; /* Menempatkan teks di tengah vertikal */
     align-items: center;
     opacity: 1; /* Opacity penuh untuk selalu terlihat */
     transition: opacity 0.3s ease; /* Efek transisi (tidak harus digunakan) */
   }
   
   .project-title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
     text-align: center;
+    font-size: 22px;
+font-weight: 400;
+line-height: 28.6px; /* 28.6px */
   }
   
   .project-description {
     font-size: 14px;
     text-align: center;
   }
+  .project-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .brand-logo-project {
+    height: auto;
+    width: 80px;
+  }
+
   
+  /* .project-overlay img{
+    width: 20px;
+  } */

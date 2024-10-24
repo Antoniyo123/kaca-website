@@ -4,8 +4,7 @@
   background-color: #212322;
   width: 100%;
   margin: 0 auto;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-bottom: 80px;
 }
 
 /* Main container for the project section */
@@ -18,8 +17,13 @@
   margin: 0 auto;
 }
 .photo-gallery-section{
-margin-top: 10rem;
+margin-top: 5rem;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
 }
+
 /* Existing photo gallery container */
 .project-gallery-scroll {
   

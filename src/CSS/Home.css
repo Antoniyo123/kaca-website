@@ -1,14 +1,20 @@
 .home {
-  height: 100vh;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
 }
 
 .section {
-  height: 100vh;
-  scroll-snap-align: start;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
+  min-width: 100%;
+}
+
+/* Section dengan snap */
+.section:not(.scrollable-section) {
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
 .section-content {
@@ -20,31 +26,89 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.section:not(.active) .section-content {
+/* Scrollable sections */
+.scrollable-section {
+  scroll-snap-align: none;
+  height: auto;
+  display: block;
+}
+
+.scrollable-section .section-content {
+  position: static;
+  height: auto;
+  /* min-height: 100vh; */
+  opacity: 1 !important;
+}
+
+/* Regular sections */
+.section:not(.scrollable-section):not(.active) .section-content {
   opacity: 0;
 }
 
-.section.down:not(.active) .section-content {
-  transform: translateY(20%) scale(0.8);
+/* Default transitions */
+.section:not(.scrollable-section).down:not(.active) .section-content {
+  transform: translateY(10%) scale(0.95);
 }
 
-.section.up:not(.active) .section-content {
-  transform: translateY(-20%) scale(0.8);
+.section:not(.scrollable-section).up:not(.active) .section-content {
+  transform: translateY(-10%) scale(0.95);
 }
 
-.section.active .section-content {
+/* KacaLandingPage to KacaActivity */
+.section:nth-child(1).active .section-content,
+.section:nth-child(2).active .section-content {
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section:nth-child(1).down:not(.active) .section-content {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.section:nth-child(2).up:not(.active) .section-content {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Achievement to NewSection - Modified for smooth transition */
+.section:nth-child(3).active .section-content {
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section:nth-child(3).down:not(.active) .section-content {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Special handling for achievement to new section transition */
+.achievement-section {
+  scroll-snap-stop: always;
+}
+
+.new-section {
+  scroll-margin-top: 0;
+}
+
+/* Override scroll snap during transition */
+.home[style*="scroll-snap-type: none"] .achievement-section,
+.home[style*="scroll-snap-type: none"] .new-section {
+  scroll-snap-align: none;
+}
+
+/* Active state */
+.section:not(.scrollable-section).active .section-content {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* Styles for KacaLandingPage */
+/* Kaca Landing Page animations */
 .kaca-landing-page-element {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .active .kaca-landing-page-element {
@@ -52,9 +116,15 @@
   transform: translateY(0);
 }
 
-.active .kaca-landing-page-element:nth-child(1) { transition-delay: 0.1s; }
-.active .kaca-landing-page-element:nth-child(2) { transition-delay: 0.2s; }
-.active .kaca-landing-page-element:nth-child(3) { transition-delay: 0.3s; }
-/* Add more if needed */
+.active .kaca-landing-page-element:nth-child(1) { transition-delay: 0.2s; }
+.active .kaca-landing-page-element:nth-child(2) { transition-delay: 0.3s; }
+.active .kaca-landing-page-element:nth-child(3) { transition-delay: 0.4s; }
 
-/* Add any additional styles for your specific sections here */
+/* Additional fixes for achievement to new section transition */
+.achievement-section + .new-section {
+  margin-top: -1px; /* Prevents gap during transition */
+}
+
+.home[style*="scroll-snap-type: none"] .scrollable-section {
+  transform: translate3d(0, 0, 0); /* Forces GPU acceleration */
+}

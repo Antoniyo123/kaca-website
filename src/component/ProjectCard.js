@@ -11,10 +11,14 @@ const ProjectCard = ({ id, title, image, description }) => {
 
   return (
     <div className="project-card" onClick={handleClick}>
-      <img src={image} alt={title} />
+      <img src={image} alt={title} className="project-main-image" />
       <div className="project-overlay">
         <h3 className="project-title">{title}</h3>
-        <p className="project-description">{description}</p>
+        <img 
+          src={description} 
+          alt="Brand Logo" 
+          className="brand-logo-project"
+        />
       </div>
     </div>
   );

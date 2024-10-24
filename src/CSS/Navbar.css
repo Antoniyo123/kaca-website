@@ -17,11 +17,36 @@
   max-height: 100px;
 
 }
-
-.navbar-logo {
-  transition: width 0.3s ease, height 0.3s ease;
+/* Add specific style for dark pages */
+.navbar.dark {
+  background: transparent; /* atau warna background yang sesuai untuk halaman gelap */
 }
 
+.navbar.dark.scrolled {
+  background: rgba(24, 48, 40, 0.8); /* atau warna yang sesuai saat di-scroll di halaman gelap */
+}
+
+/* Logo styles */
+.navbar-logo {
+  transition: width 0.3s ease, height 0.3s ease, filter 0.3s ease;
+}
+
+/* Default logo (hitam) */
+.navbar-logo {
+  filter: none;
+}
+
+/* Logo putih untuk halaman gelap */
+.navbar.dark .navbar-logo {
+  filter: brightness(0) invert(1) !important; /* Memastikan logo selalu putih di halaman gelap */
+}
+.navbar-brand {
+  transition: color 0.3s ease;
+}
+
+.navbar-brand.text-white {
+  color: white;
+}
 .navbar-logo-small {
   width: 108px;
   height: auto;

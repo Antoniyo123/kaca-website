@@ -8,7 +8,7 @@ const ProjectDetails = () => {
   // Dummy data object with more detailed information
   const projectDetails = {
     1: {
-      title: "Project's Title",
+      title: "Project's Title" ,
       focus: "Project Launching",
       projectTime: "2023",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non porttitor ante. Mauris nec dictum risus, sed placerat arcu. Vivamus tellus odio, vulputate vel ante eget, cursus pharetra turpis. Fusce vel elit auctor, pellentesque erat nec, venenatis dui. Integer a quam vitae lacus placerat laoreet. Aenean iaculis lectus a molestie luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent et nulla facilisis, varius nunc in, scelerisque urna. Donec bibendum pretium elit interdum luctus. Praesent vitae enim ut nulla pulvinar tincidunt sed nec dui. In gravida sem lorem, eu sagittis lacus sagittis et. Ut mollis sollicitudin cursus. Praesent faucibus nibh vitae condimentum pretium. Etiam gravida efficitur lacus, eu efficitur est eleifend in.",

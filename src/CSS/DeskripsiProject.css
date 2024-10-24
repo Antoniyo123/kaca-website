@@ -29,10 +29,9 @@
   padding-top: 120px;
   margin: 0 auto;
   display: grid;
-  /* grid-template-rows: 200px 10px; */
+  grid-template-rows: 300px px;
   gap: 20px; /* Reduced from 20px */
-  row-gap: 0px;
-  align-items:end;
+
 }
 
 .project-card {
@@ -42,18 +41,12 @@
   height: 100%;
 }
 
-.project-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
 
 .project-card:hover img {
   transform: scale(1.1);
 }
 
-.project-overlay {
+/* .project-overlay {
   position: absolute;
   left: 0;
   right: 0;
@@ -67,7 +60,7 @@
   align-items: center;
   transition: bottom 0.3s ease;
   opacity: 0;
-}
+} */
 
 .project-card:hover .project-overlay {
   bottom: 0;

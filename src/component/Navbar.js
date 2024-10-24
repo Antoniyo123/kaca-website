@@ -16,6 +16,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const isDarkPage = location.pathname.startsWith('/project/');
+  const isTransparentNav = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +45,10 @@ const Navbar = () => {
 
     return (
       <>
-<nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'home' : ''}`}>
+<nav className={`navbar 
+      ${isScrolled ? 'scrolled' : ''} 
+      ${isHomePage ? 'home' : ''} 
+      ${isDarkPage ? 'dark' : ''}`}>
   <div className="navbar-container">
     <div className="navbar-top">
       <div className="navbar-brand">

@@ -79,10 +79,10 @@ const NewSection = () => {
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}>
                         <div className="horizontal-gallery" ref={galleryRef}>
-                            <img src={require('../img/our-talent/KacaNetwork/AERO.jpg')} alt="Photo 6" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/ANGIE.jpg')} alt="Photo 7" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/DAFFA.jpg')} alt="Photo 8" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/DINDRA.jpg')} alt="Photo 9" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_aero.jpg')} alt="Photo 6" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_angie.jpg')} alt="Photo 7" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_daffa.jpg')} alt="Photo 8" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_dindra.jpg')} alt="Photo 9" className="horizontal-photo" />
                             <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Photo 10" className="horizontal-photo" />
                             <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Photo 11" className="horizontal-photo" />
                             <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" />
