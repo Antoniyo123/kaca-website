@@ -270,7 +270,7 @@ justify-content: space-between;
     font-size: 0.9rem;
     color: #fff;
   }
-  .article-list {
+  .article-list-profile {
     display: flex;
     flex-direction: column; /* Menyusun artikel ke bawah */
     gap: 10px; /* Jarak antar artikel */

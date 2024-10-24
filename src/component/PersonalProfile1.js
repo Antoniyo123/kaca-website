@@ -13,13 +13,13 @@ const PersonalProfile1 = () => {
       fullName: 'NAZLA ALIFA',
       instagram: 'nazlaalifa',
       tiktok: 'nazlaalifas',
-      instagramFollowers: '1.9 m',
-      instagramImpressions: '5.21 m',
-      tiktokFollowers: '500K',
-      tiktokLikes: '4.3 m',
+      instagramFollowers: '364K',
+      instagramImpressions: '12.1m',
+      tiktokFollowers: '148.9K',
+      tiktokLikes: '3.9m',
       description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
 
-Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her...`,
+Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her adventures through her social media, especially her passion for travel, fashion, and food. `,
       images: [
         require('../img/our-talent/nazla1.png'),
         require('../img/talent/aero.png'),
@@ -38,13 +38,11 @@ Over the past six years, she has cultivated a personal style that is both sophis
       fullName: 'AALIYAH MASSAID',
       instagram: 'aaliyah.massaid',
       tiktok: 'aalmassaid',
-      instagramFollowers: '1.9 m',
-      instagramImpressions: '5.21 m',
-      tiktokFollowers: '500K',
-      tiktokLikes: '4.3 m',
-      description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
-
-Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her...`,
+      instagramFollowers: '970K',
+      instagramImpressions: '9.3 m',
+      tiktokFollowers: '223.4K',
+      tiktokLikes: '2.5 m',
+      description: `Aaliyah Massaid is a Content Creator which focused on Lifestyle, Fashion, Sports and Beauty. Aaliyah also known for her amazing voice as she has a remarkable contribution on the music industry. With her limitless energy towards people, she could light up the room she enters. Aaliyah is a passionate individual and always eager to achieve what she intended to. `,
       images: [
         require('../img/our-talent/aaliyah1.png'),
         require('../img/talent/aero.png'),
@@ -63,13 +61,24 @@ Over the past six years, she has cultivated a personal style that is both sophis
       fullName: 'AQSA ASWAR',
       instagram: 'aqsaaswar',
       tiktok: 'aqsaaswar',
-      instagramFollowers: '1.9 m',
-      instagramImpressions: '5.21 m',
-      tiktokFollowers: '500K',
-      tiktokLikes: '4.3 m',
-      description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
-
-Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her...`,
+      instagramFollowers: '172K',
+      instagramImpressions: '1.4m',
+      tiktokFollowers: '42.4K',
+      tiktokLikes: '180K',
+      description: `Aqsa Aswar is a Jet-Ski Athlete and a
+World Champion that has won a Gold
+Medal in the ASEAN GAMES 2018,
+located in Ancol, Jakarta, Indonesia.
+Aqsa has been active on Jet-Ski
+Racing since he was 6 years old.
+Aqsa is also the founder of Kopi
+Botol Kaca, which was established
+in 2020 during the pandemic. Aqsa is
+fun, energetic, easy-going, and an
+active individual. His active lifestyle
+has always been interpreted in his
+daily life since the beginning of his
+Jet-ski career. `,
       images: [
         require('../img/our-talent/aqsa1.png'),
         require('../img/talent/aero.png'),
@@ -88,13 +97,27 @@ Over the past six years, she has cultivated a personal style that is both sophis
       fullName: 'RACHEL TERESIA',
       instagram: 'racheltheresia',
       tiktok: 'rachel.theresia',
-      instagramFollowers: '1.9 m',
-      instagramImpressions: '5.21 m',
-      tiktokFollowers: '500K',
-      tiktokLikes: '4.3 m',
-      description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
-
-Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her...`,
+      instagramFollowers: '237K',
+      instagramImpressions: '2.4m',
+      tiktokFollowers: '1.328',
+      tiktokLikes: '40K',
+      description: `Rachel Theresia is a content creator
+who specializes in beauty and
+fashion. She is known for her
+unbiased product reviews, style
+choices, and beauty tips. Her
+fashion interest led her to take
+fashion as her major in one of the
+private universities in Jakarta.
+As a content creator, she has worked
+with many big brands like Louis
+Vuitton, Dior, Hermes, Samsung,
+Bobbi Brown, Jo Malone, etc.
+Besides beauty and fashion, she
+loves to travel. She likes to share
+her experience through social media
+and documentation her travel with
+good videos and photos. `,
       images: [
         require('../img/our-talent/rachel.jpg'),
         require('../img/talent/aero.png'),
@@ -117,9 +140,7 @@ Over the past six years, she has cultivated a personal style that is both sophis
       instagramImpressions: '5.21 m',
       tiktokFollowers: '500K',
       tiktokLikes: '4.3 m',
-      description: `Born In Jakarta, Nazla Alifa has always had an eye for fashion trends since she was younger. She is an early adopter of the lifestyle content creator movement, covering her daily travel and fashion inspirations.
-
-Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her...`,
+      description: `Agatha Pricilla has been popularly known when she was very young. After spending seven years together in an all-girls vocal group, now Agatha Pricilla starts a new chapter of her musical journey with her own name and story. Not just a singer, Agatha Pricilla is also Known as an actress and content creator. She has been involved in a movie called 'Bebas' and several movies & series. She has also involved in Disney's Mulan for their soundtrack. She has been collaborate with reputable brands in the past few years. `,
       images: [
         require('../img/our-talent/agatha1.png'),
         require('../img/talent/aero.png'),
@@ -309,7 +330,7 @@ Over the past six years, she has cultivated a personal style that is both sophis
           {/* Articles Section */}
           <div className="talent-articles">
             <h3 className="articles-title">Articles</h3>
-            <div className="article-list">
+            <div className="article-list-profile">
               {talent.articles.map((article, index) => (
                 <div key={index} className="article">
                   <h4 className="article-title">{article.title}</h4>
