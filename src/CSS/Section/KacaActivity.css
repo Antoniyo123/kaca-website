@@ -4,13 +4,19 @@
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  padding-top: 200px;
-  padding-bottom: 120px;
+  padding-top: 110px;
+  padding-bottom: 200px;
   position: relative;
 }
 @font-face {
   font-family: 'CustomFont';
   src: url('../../fonts/rotunda-custom.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CustomFont1';
+  src: url('../../fonts/RotundaVariable-Regular.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -34,6 +40,7 @@
 }
 
 .services-list {
+  font-family: 'CustomFont1';
   width: 531px;
   height: 409px;
   font-weight: 400;
@@ -49,7 +56,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  border-bottom: 1px solid #CFCDC9;
+  border-bottom: 1px solid #23222276;
 }
 
 .service-item::after {
@@ -60,7 +67,7 @@
   bottom: 0;
   left: 0;
   background-color: #4E6548;
-  transition: width 0.3s ease;
+  transition: width 1.5s ease;
 }
 .service-item.active + .service-content .service-svg-image {
   width: 240px;
@@ -100,19 +107,21 @@
   line-height: 30px;
   margin-bottom: 2rem;
   padding: 16px;
-  border-left: 1px solid #CFCDC9;
+  border-left: 1px solid #6766656f;
   position: relative;
   z-index: 2;
 
 }
 .service-content p{
   text-align: center;
+  margin-top: 40px;
 }
 .service-content img {
   width: 240px;
   height: 240px;
   object-fit: cover;
-  margin: 20px 0;
+  margin-bottom: 40px;
+  /* margin: 20px 0; */
 }
 .service-image {
   width: 100%;
