@@ -7,7 +7,12 @@
   margin: 0 auto;
   height: 100%;
 }
-
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../fonts/rotunda-custom.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 .container {
   max-width: 1290px;
   display: flex;
@@ -33,7 +38,7 @@
   line-height: 62.7px;
   color: #436548;
   letter-spacing: -0.25px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'CustomFont', sans-serif;
   /* font-weight: 500; */
 }
 .intro-content h2 {
@@ -41,7 +46,7 @@
   font-size: 32px;
   line-height: 48px;
   color: #436548;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'CustomFont', sans-serif;
 
 }
 

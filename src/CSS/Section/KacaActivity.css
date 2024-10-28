@@ -8,18 +8,22 @@
   padding-bottom: 120px;
   position: relative;
 }
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../../fonts/rotunda-custom.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 .services-section h1 {
   color: #212322;
 
-  /* Headline/Large */
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'CustomFont';
   font-size:57px;
   font-style: normal;
   font-weight: 600;
   line-height: 110%; /* 62.7px */
   letter-spacing: -0.25px;
   margin-bottom: 7rem;
- /* Center the heading on smaller screens */
 }
 .services-container {
   max-width: 1200px;

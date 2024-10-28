@@ -5,6 +5,12 @@
     padding-top: 180px;
     background:#FFFFFF;
   }
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('../../fonts/rotunda-custom.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
   .article-page-wrapper{
     width: 100%;
     max-width: 1200px;
@@ -66,6 +72,9 @@
   .article-info h2 {
     margin: 0;
     font-size: 1.2rem;
+    color: black;
+    font-weight: 600;
+    font-family: 'CustomFont';
   }
   
   .article-info p {

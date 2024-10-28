@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import '../CSS/KacaNetwork.css'; // Make sure to include your CSS file
+import '../CSS/KacaNetwork.css';
+import arrowLeft from '../img/svg-assets/arrow-left.svg';
+import arrowRight from '../img/svg-assets/arrow-right.svg';
+import backgroundGif from '../img/bg/bg-hover.png';
 
 const images = [
   { src: require('../img/our-talent/KacaNetwork/rsz_aero.jpg'), desc: 'Image 1' },
@@ -10,81 +13,94 @@ const images = [
   { src: require('../img/our-talent/KacaNetwork/JEHIAN.jpg'), desc: 'Image 6' },
   { src: require('../img/our-talent/KacaNetwork/JEROME.jpg'), desc: 'Image 7' },
   { src: require('../img/our-talent/KacaNetwork/KEZIV.jpg'), desc: 'Image 8' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 4' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 5' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 6' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 7' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 8' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 8' },
-  // { src: require('../img/talent/jerome.png'), desc: 'Image 8' },
-
 ];
 
 const ImageCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const imagesToShow = 6; // Number of images to show at once
-  const totalImages = images.length;
-  const dotCount = Math.ceil(totalImages / imagesToShow); // Number of dots based on the total images
-  const carouselRef = useRef(null);
+  const galleryRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
 
-  const nextImage = () => {
-    if (currentIndex < totalImages - imagesToShow) {
-      setCurrentIndex(currentIndex + 1);
+  useEffect(() => {
+    if (galleryRef.current) {
+      setMaxScroll(galleryRef.current.scrollWidth - galleryRef.current.clientWidth);
+    }
+  }, []);
+
+  const scrollLeft = () => {
+    if (galleryRef.current && scrollPosition > 0) {
+      const newPosition = Math.max(scrollPosition - 220, 0);
+      galleryRef.current.scrollTo({
+        left: newPosition,
+        behavior: 'smooth'
+      });
+      setScrollPosition(newPosition);
     }
   };
 
-  const prevImage = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+  const scrollRight = () => {
+    if (galleryRef.current && scrollPosition < maxScroll) {
+      const newPosition = Math.min(scrollPosition + 400, maxScroll);
+      galleryRef.current.scrollTo({
+        left: newPosition,
+        behavior: 'smooth'
+      });
+      setScrollPosition(newPosition);
+    }
+  };
+
+  const handleScroll = () => {
+    if (galleryRef.current) {
+      setScrollPosition(galleryRef.current.scrollLeft);
     }
   };
 
   useEffect(() => {
-    if (carouselRef.current) {
-      carouselRef.current.style.transform = `translateX(-${currentIndex * (1200 / imagesToShow)}px)`;
+    const gallery = galleryRef.current;
+    if (gallery) {
+      gallery.addEventListener('scroll', handleScroll);
     }
-  }, [currentIndex]);
+    return () => {
+      if (gallery) {
+        gallery.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className="carousel-container">
       <div className="carousel-wrapper">
-        <div
-          ref={carouselRef}
-          className="carousel-track"
-        >
+        <div ref={galleryRef} className="carousel-track">
           {images.map((image, index) => (
             <div key={index} className="carousel-item">
-              <img src={image.src} alt={`Image ${index + 1}`} />
-              <div className="image-description">
-                <p>{image.desc}</p>
+              <div className="carousel-item-inner">
+                <div 
+                  className="gif-background" 
+                  style={{ backgroundImage: `url(${backgroundGif})` }}
+                />
+                <img src={image.src} alt={`Image ${index + 1}`} />
+                <div className="image-description">
+                  <p>{image.desc}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
       <div className="carousel-controls">
-        <div className="dot-indicators">
-          {Array.from({ length: dotCount }).map((_, index) => (
-            <div
-              key={index}
-              className={`indicator ${index === Math.floor(currentIndex / (totalImages / dotCount)) ? 'active' : ''}`}
-            ></div>
-          ))}
-        </div>
-        <div className="slide-buttons">
-          <button
-            onClick={prevImage}
-            className="nav-button prev"
-            disabled={currentIndex === 0}
+        <div className="gallery-controls">
+          <button 
+            className="slider-arrow left-slide" 
+            onClick={scrollLeft}
+            disabled={scrollPosition <= 0}
           >
-            &lt;
+            <img src={arrowLeft} alt="Scroll Left" width={24} height={24} />
           </button>
-          <button
-            onClick={nextImage}
-            className="nav-button next"
-            disabled={currentIndex >= totalImages - imagesToShow}
+          <button 
+            className="slider-arrow right-slide" 
+            onClick={scrollRight}
+            disabled={scrollPosition >= maxScroll}
           >
-            &gt;
+            <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
           </button>
         </div>
       </div>

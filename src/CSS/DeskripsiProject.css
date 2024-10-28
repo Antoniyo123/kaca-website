@@ -12,8 +12,15 @@
   padding-bottom: 60px;
   height: 300px; /* Reduced from 400px */
 }
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../fonts/rotunda-custom.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .project-grid-container h2 {
+  font-family: 'CustomFont';
   margin-top: 5rem;
   margin-bottom: 3rem;
   font-size: 35px; /* Slightly smaller font */

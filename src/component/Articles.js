@@ -11,7 +11,7 @@ const Articles = () => {
           <Link to="/article/1">
             <img src={require('../img/projectdetail/project5.png')} alt="Main article" />
             <div className="article-info">
-              <h2>Headline Title</h2>
+              <h2>⁠Intro to kaca kreatif</h2>
               <p>August, 2024</p>
             </div>
           </Link>
@@ -21,7 +21,7 @@ const Articles = () => {
             <Link to="/article/2">
               <img src={require('../img/projectdetail/project2.png')} alt="Secondary article 1" />
               <div className="article-info">
-                <h2>Headline Title 2</h2>
+                <h2>⁠⁠Intro to kaca network</h2>
                 <p>August, 2024</p>
               </div>
             </Link>
@@ -30,7 +30,7 @@ const Articles = () => {
             <Link to="/article/3">
               <img src={require('../img/projectdetail/project1.png')} alt="Secondary article 2" />
               <div className="article-info">
-                <h2>Headline Title 3</h2>
+                <h2>⁠⁠Indonesia Kaya With Rachel</h2>
                 <p>August, 2024</p>
               </div>
             </Link>
@@ -39,7 +39,7 @@ const Articles = () => {
             <Link to="/article/4">
               <img src={require('../img/projectdetail/project3.png')} alt="Secondary article 3" />
               <div className="article-info">
-                <h2>Headline Title 4</h2>
+                <h2>⁠Influencer marketing</h2>
                 <p>August, 2024</p>
               </div>
             </Link>

@@ -1,113 +1,132 @@
 .carousel-container {
-    position: relative;
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  
-  .carousel-wrapper {
-    overflow: hidden;
-    padding-bottom: 200px;
-  }
-  
-  .carousel-track {
-    margin-top: 5rem;
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-    width: calc(1200px * 2); /* Adjust this if needed */
-  }
-  
-  .carousel-item {
-    flex: 0 0 200px; /* Adjust this based on your requirements */
-    height: 276px;
-    position: relative;
-    margin-right: 20px; 
-    transition: transform 0.3s ease-in-out;
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-  }
-  .carousel-item:hover img {
-    transform: scale(1.05);
-  }
-  
-  .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.carousel-wrapper {
+  overflow: hidden;
+  padding-bottom: 160px;
+}
 
-  }
-  
-  .image-description {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(16, 13, 13, 0.7);
-    color: white;
-    padding: 10px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-  }
-  
-  .carousel-item:hover .image-description {
-    transform: translateY(0);
-    background-color: rgba(241, 236, 236, 0.7);
-    color: rgb(7, 7, 7);
-    padding: 10px;
-    /* transform: translateY(100%); */
-    transition: transform 0.3s ease;
-  }
-  
-  .carousel-controls {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-  }
-  
-  .dot-indicators {
-    display: flex;
-    gap: 8px;
-  }
-  
-  .indicator {
-    width: 16px;
-    height: 16px;
-    /* border-radius: 50%; */
-    background-color: #A9C47F;
-  }
-  
-  .indicator.active {
-    background-color: red;
-    width: 40px;
-    height: 16px;
-  }
-  
-  .slide-buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .nav-button {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    color: #000;
-    font-size: 18px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* .nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-  } */
-  
-  .nav-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
+.carousel-track {
+  margin-top: 5rem;
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 20px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  flex: 0 0 200px;
+  height: 276px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gif-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: url('../img/bg/bg-hover.png') center/cover;
+  opacity: 0;
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.3s ease;
+}
+
+.carousel-item:hover .gif-background {
+  opacity: 0.5;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.carousel-item img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  /* z-index: 2; */
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+.image-description {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(16, 13, 13, 0.7);
+  color: white;
+  padding: 10px;
+  transition: bottom 0.3s ease;
+  z-index: 3;
+}
+
+.carousel-item:hover .image-description {
+  bottom: 0;
+  background-color: rgba(241, 236, 236, 0.7);
+  color: rgb(7, 7, 7);
+}
+
+.carousel-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.gallery-controls {
+  display: flex;
+  gap: 20px;
+}
+
+.slider-arrow {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  /* border-radius: 50%; */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background: rgb(40, 63, 50);
+}
+
+.slider-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider-arrow img {
+  width: 24px;
+  height: 24px;
+}

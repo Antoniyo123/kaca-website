@@ -3,13 +3,17 @@ import '../CSS/Section/AchievementSection.css';
 
 const AchievementSection = () => {
   const images = [
-    require('../img/achivement/nazla-ach.png'),
+    require('../img/achivement/agathamake.png'),
+    require('../img/achivement/agathagiorgio.png'),
+    require('../img/achivement/nazla-gucci.png'),
     require('../img/achivement/aqsa-nazla.png'),
     require('../img/achivement/aaliyahbaju.png'),
-    require('../img/achivement/agathagiorgio.png'),
+    require('../img/achivement/aqsa.png'),
     require('../img/achivement/rachel-nazla.png'),
-    // require('../img/achivement/nazla-gucci.png'),
-    // require('../img/achivement/agathamake.png'),
+    require('../img/achivement/agatha-nazla.png'),
+
+    // require('../img/achivement/nazla-ach.png'),
+
   ];
 
   useEffect(() => {

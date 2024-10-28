@@ -1,6 +1,8 @@
 import React from 'react';
 import '../CSS/LastProjects.css';
 import { Link } from 'react-router-dom';
+import arrowRight from '../img/svg-assets/arrow-right.svg';
+
 
 const LastProjects = () => {
   const projects = [
@@ -52,7 +54,10 @@ const LastProjects = () => {
             <div className="see-more-button-container">
               <Link to="/deskripsiproject" className="see-more-button">
                 See More 
-                <span className="arrow-icon">→</span>
+                <span className="arrow-icon">
+                <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
+
+                </span>
               </Link>
             </div>
           </div>
