@@ -71,7 +71,15 @@ const Navbar = () => {
       </nav>
       
       <div className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? 'Close' : 'Menu'}
+      {isMenuOpen ? (
+          <img 
+            src={require('../img/bg/x-toogle.png')} 
+            alt="Close Menu" 
+            className="menu-icon close-icon"
+          />
+        ) : (
+          'Menu'
+        )}
       </div>
 
       <div className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>

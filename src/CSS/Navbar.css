@@ -130,6 +130,14 @@ a, .navbar-menu a {
   margin: 0 auto;
 }
 
+.close-icon:hover {
+  transform: rotate(90deg);
+}
+.menu-icon {
+  width: 32px; /* Sesuaikan dengan ukuran yang diinginkan */
+  height: 32px;
+  transition: transform 0.3s ease;
+}
 .nav-item span {
   font-size: 1.5rem;
   font-weight: 700;
