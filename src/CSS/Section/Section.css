@@ -189,7 +189,7 @@
   filter: invert(1); 
 }
 .slider-arrow:hover{
-  background: #AB2328;
+  background: #4E6548;
   transform: translateY(-5px); 
 }
 @media (max-width: 1024px) {

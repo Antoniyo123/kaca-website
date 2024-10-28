@@ -28,7 +28,7 @@ const ImageCarousel = () => {
 
   const scrollLeft = () => {
     if (galleryRef.current && scrollPosition > 0) {
-      const newPosition = Math.max(scrollPosition - 220, 0);
+      const newPosition = Math.max(scrollPosition - 400, 0);
       galleryRef.current.scrollTo({
         left: newPosition,
         behavior: 'smooth'
@@ -89,14 +89,14 @@ const ImageCarousel = () => {
       <div className="carousel-controls">
         <div className="gallery-controls">
           <button 
-            className="slider-arrow left-slide" 
+            className="slider-arrow-kaca " 
             onClick={scrollLeft}
             disabled={scrollPosition <= 0}
           >
             <img src={arrowLeft} alt="Scroll Left" width={24} height={24} />
           </button>
           <button 
-            className="slider-arrow right-slide" 
+            className="slider-arrow-kaca " 
             onClick={scrollRight}
             disabled={scrollPosition >= maxScroll}
           >
