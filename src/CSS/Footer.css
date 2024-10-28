@@ -10,18 +10,24 @@
 
 .footer-content {
   width: 100%;
-  max-width: 1086px;
+  max-width: 1200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
 }
-
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../fonts/rotunda-custom.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 h2 {
+  font-family: 'CustomFont';
   color: var(--Caption-text, #898D8D);
   font-size: var(--Headline-Small, 36px);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 125%; /* 45px */
 }
 
@@ -88,9 +94,30 @@ p {
   width: 100%;
   height: 100%;
   text-align: center;
-  padding-top: 250px;
+  padding-top: 100px;
 }
-
+.background-photo-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 400px; /* Adjust size for desktop */
+  height: 300px;
+  background-image: url('../img/bg/beling-cincin.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+.background-photo-footer-top {
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 270px; /* Adjust size for desktop */
+  height: 300px;
+  background-image: url('../img/bg/beling.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
 .copyright {
   color: var(--Body-text, #183028);
   font-size: var(--Body-Large, 16px);

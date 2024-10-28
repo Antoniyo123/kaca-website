@@ -114,8 +114,6 @@ const Navbar = () => {
             label="CONTACT" 
             imageSrc={require('../img/navbar/rantai.png')} 
             isActive={activeItem === 'CONTACT'} 
-
-
           />
         </Link>
       </div>

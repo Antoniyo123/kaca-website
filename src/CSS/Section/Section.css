@@ -6,10 +6,14 @@
   padding-bottom: 100px;
   height: 100%;
 }
-
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../../fonts/Rotunda-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 /* Main container for new section */
 .new-section {
-  /* padding-top: 120px; */
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -32,17 +36,18 @@
 }
 
 .video-hover {
+  font-family: 'CustomFont';
   color: var(--Grayscale-Pantone-White, #FFF);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   
-  font-size: var(--Headline-Small, 36px);
+  /* font-size: var(--Headline-Small, 36px); */
   font-style: normal;
   font-weight: 600;
   line-height: 45px; /* 45px */
 }
 
 .title-text-video{
-  font-weight: 500;
+  font-weight: 600;
   font-size: 45px;
   line-height: 49.5px;
   color: #FFFFFF;
@@ -58,13 +63,15 @@
 }
 
 .see-more-button {
+  display: flex;
+  flex-direction: row;
   text-decoration: none;
   background-color: #CFCDC9;
   color: #183028;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 30px;
   align-items: center;

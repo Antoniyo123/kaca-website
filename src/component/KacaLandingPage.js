@@ -166,7 +166,7 @@ const KacaLandingPage = () => {
             {slides.map((slide, index) => renderSlide(slide, index))}
           </div>
           
-          <div className="square-indicators">
+          {/* <div className="square-indicators">
             {slides.map((_, index) => (
               <span
                 key={index}
@@ -174,7 +174,7 @@ const KacaLandingPage = () => {
                 onClick={() => goToSlide(index)}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="landing-page-background">

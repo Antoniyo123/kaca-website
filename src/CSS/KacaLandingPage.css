@@ -33,6 +33,7 @@
 }
 
 .intro-content h1 {
+  margin-bottom: -1rem;
   font-weight: 600;
   font-size: 57px;
   line-height: 62.7px;
@@ -51,14 +52,15 @@
 }
 
 .intro-content p {
-  color: var(--Grayscale-Pantone-5535-C, #183028);
+  color: #183028;
 
-  /* font-family: "Golos Text"; */
-  font-size: var(--Body-Large, 16px);
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 24px */
-  letter-spacing: 0.5px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  text-wrap: wrap;
 }
 
 .kaca-pic-container {
@@ -69,7 +71,7 @@
 
 .background-image {
   
-  width: 810px;
+  width: 815px;
   height: 100vh;
   position: absolute;
   right: 0;
@@ -79,17 +81,17 @@
 
 .landing-page-background {
   position: absolute;
-  top: 60%;
-  bottom: 0;
+  top: 75%;
+  /* bottom: 0;s */
   left: 8%;
   width: 100%;
-  max-width: 700px; /* Adjust size for desktop */
-  height: auto;
+  max-width: 600px; /* Adjust size for desktop */
+  height: 400px;
   background-image: url('../img//bg/bg-ring-flower.png');
   background-size: cover;
   background-position: center;
   z-index: 1;
-  filter: brightness(2) invert(0) opacity(1);
+  filter: brightness(1) invert(0) opacity(1);
 }
 .overlay-landing-page {
   z-index: 2;

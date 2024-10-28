@@ -8,8 +8,12 @@ import LinkedInIcon from '../img/svg-assets/Linkedin.svg';
 const Footer = () => {
   return (
     <footer className="footer">
+
       <div className="footer-content">
+        
         <div className="footer-left">
+      <div className="background-photo-footer-top"></div>
+
           <h2>Address</h2>
           <p>Jl. Cilandak Permai Raya No.15A, Cilandak Baru, Kec. Cilandak,</p>
           <p>Kota Jakarta Selatan</p>
@@ -55,6 +59,8 @@ const Footer = () => {
       <div className="footer-bottom">
         <p className="copyright">©2024 KACA Kreatif. All rights reserved</p>
       </div>
+      <div className="background-photo-footer"></div>
+
     </footer>
   );
 };
