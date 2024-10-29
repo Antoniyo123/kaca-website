@@ -126,7 +126,7 @@ a, .navbar-menu a {
   background-color: #CFCDC9;
   transition: background-color 0.8s ease;
   /* background: transparent; */
-  gap: 1rem;
+  gap: 4rem;
   margin: 0 auto;
 }
 
@@ -160,6 +160,9 @@ a, .navbar-menu a {
 .nav-item.hovered {
   background-color: #898D8D;
   align-items: center;
+  transition: all 0.3s ease;
+  transform: translateY(7%);
+  
 }
 
 .nav-item:hover span,
