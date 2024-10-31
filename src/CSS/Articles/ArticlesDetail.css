@@ -45,6 +45,7 @@
 
 .main-image {
   width: 100%;
+  height: auto;
   margin-bottom: 2rem;
 }
 
@@ -53,6 +54,7 @@
   color: #2d3748;
   padding-bottom: 3rem;
   line-height: 1.6;
+  /* margin-bottom: 5rem; */
 }
 
 .additional-images {

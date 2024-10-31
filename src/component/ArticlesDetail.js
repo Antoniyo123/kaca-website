@@ -12,11 +12,11 @@ const ArticlesDetail = () => {
       title: "About KACA Kreatif",
       date: "24 Agustus 2024",
       shares: 240,
-      image: require('../img/projectdetail/project2.png'),
+      image: require('../img/article/kreatif1.gif'),
       additionalImages: [
-        require('../img/projects/bts2.png'),
-        require('../img/projectdetail/project4.png'),
-        require('../img/projectdetail/project5.png')
+        require('../img/article/kreatif2.jpeg'),
+        require('../img/article/kreatif3.jpeg'),
+        require('../img/article/kreatif4.jpeg')
       ],
       content: {
         paragraph1: "In a world bursting with creativity, one platform just isn't enough for us! We're excited to share our journey and what we can do, both now and in the future, right here on LinkedIn. Our passion for innovation and creative excellence drives everything we do at KACA Kreatif, making us more than just another agency – we're your partners in creative success.",
@@ -25,15 +25,17 @@ const ArticlesDetail = () => {
       },
       tags: ["Nazla Alifa", "Fashion", "Denim", "Outfit Inspiration"]
     },
-    2: {
+    4: {
       title: "Influencer marketing",
       date: "24 Agustus 2024",
       shares: 240,
-      image: require('../img/projectdetail/project2.png'),
+      image: require('../img/article/influencer1.png'),
       additionalImages: [
-        require('../img/projects/bts2.png'),
-        require('../img/projectdetail/project4.png'),
-        require('../img/projectdetail/project5.png')
+        require('../img/article/influencer1.png'),
+        require('../img/article/influencer2.png'),
+        require('../img/article/influencer3.png'),
+        require('../img/article/influencer4.png'),
+        require('../img/article/influencer5.png')
       ],
       content: {
         paragraph1: "Influencer marketing has revolutionized the way brands connect with their target audiences in the digital age. It's like finding that perfect friend who's always up on the coolest trends and knows just what you're into—except this friend has a massive following and can help get your brand noticed in a big way. The authenticity and relatability of influencer partnerships have made them an invaluable tool in modern marketing strategies.",
@@ -60,7 +62,25 @@ const ArticlesDetail = () => {
         paragraph5:"Discover more about Indonesia Kaya on www.indonesiakaya.com"
       },
       tags: ["Nazla Alifa", "Fashion", "Denim", "Outfit Inspiration"]
-    }
+    },
+    2: {
+      title: "⁠Itro to Kaca Network",
+      date: "24 Agustus 2024",
+      shares: 240,
+      image: require('../img/article/intronetwork1.png'),
+      additionalImages: [
+        require('../img/article/intronetwork2.png'),
+        require('../img/article/intronetwork3.png'),
+        require('../img/article/intronetwork4.png'),
+        require('../img/article/intronetwork5.png')
+      ],
+      content: {
+        paragraph1: "Social media is totally the go-to spot for promoting businesses these days, and that’s why influencer marketing is such a big deal! While some people might think running a social media campaign is a piece of cake, we know it actually takes a lot of work. That’s where KACA Network comes in to make things easier for you! ",
+        paragraph2: "Check KACA Network out through this post or go into details in the link bellow; https://lnkd.in/gCS9K3cT",
+        
+      },
+      tags: ["Nazla Alifa", "Fashion", "Denim", "Outfit Inspiration"]
+    },
     
   };
 
@@ -153,6 +173,8 @@ const ArticlesDetail = () => {
             <p>{currentArticle.content.paragraph1}</p>
             <p>{currentArticle.content.paragraph2}</p>
             <p>{currentArticle.content.paragraph3}</p>
+            <p>{currentArticle.content.paragraph4}</p>
+            <p>{currentArticle.content.paragraph5}</p>
           </>
         )}
       </div>

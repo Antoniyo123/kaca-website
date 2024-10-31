@@ -9,8 +9,8 @@ const Articles = () => {
       <div className="featured-articles">
         <div className="main-article">
           <Link to="/article/1">
-            <img src={require('../img/projectdetail/project5.png')} alt="Main article" />
-            <div className="article-info">
+            <img src={require('../img/article/kreatif1.gif')} alt="Main article" />
+            <div className="article-info-main">
               <h2>⁠Intro to kaca kreatif</h2>
               <p>August, 2024</p>
             </div>
@@ -19,7 +19,7 @@ const Articles = () => {
         <div className="secondary-articles">
           <div className="secondary-article large">
             <Link to="/article/2">
-              <img src={require('../img/projectdetail/project2.png')} alt="Secondary article 1" />
+              <img src={require('../img/article/intronetwork1.png')} alt="Secondary article 1" />
               <div className="article-info">
                 <h2>⁠⁠Intro to kaca network</h2>
                 <p>August, 2024</p>
@@ -28,7 +28,7 @@ const Articles = () => {
           </div>
           <div className="secondary-article">
             <Link to="/article/3">
-              <img src={require('../img/projectdetail/project1.png')} alt="Secondary article 2" />
+              <img src={require('../img/article/indonesiakayarachel.png')} alt="Secondary article 2" />
               <div className="article-info">
                 <h2>⁠⁠Indonesia Kaya With Rachel</h2>
                 <p>August, 2024</p>
