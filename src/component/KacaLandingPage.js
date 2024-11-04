@@ -145,6 +145,7 @@ const KacaLandingPage = () => {
   };
 
   return (
+    
     <div className={`home-container ${isSafari ? 'safari' : ''}`}>
       <div className="container">
         <div className="text-content-home">

@@ -22,8 +22,8 @@ const PersonalProfile1 = () => {
 Over the past six years, she has cultivated a personal style that is both sophisticated and versatile in a way where people can relate to her style. She is also a founder of multiple businesses such as Kopi Botol Kaca and Kaca Kreatif. She shares all of her adventures through her social media, especially her passion for travel, fashion, and food. `,
       images: [
         require('../img/our-talent/nazla1.png'),
-        require('../img/talent/aero.png'),
-        require('../img/talent/agatha-talent.png'),
+        require('../img/profile/changeimg/nazlaprofile.jpg'),
+        // require('../img/talent/agatha-talent.png'),
       ],
       articles: [
         { title: 'Inspirasi Kreasi Es Kopi Ala Content Cr...', date: '01 August 2024' },
@@ -45,8 +45,8 @@ Over the past six years, she has cultivated a personal style that is both sophis
       description: `Aaliyah Massaid is a Content Creator which focused on Lifestyle, Fashion, Sports and Beauty. Aaliyah also known for her amazing voice as she has a remarkable contribution on the music industry. With her limitless energy towards people, she could light up the room she enters. Aaliyah is a passionate individual and always eager to achieve what she intended to. `,
       images: [
         require('../img/our-talent/aaliyah1.png'),
-        require('../img/talent/aero.png'),
-        require('../img/talent/agatha-talent.png'),
+        require('../img/profile/Aaliyahprofile.jpg'),
+        // require('../img/talent/agatha-talent.png'),
       ],
       articles: [
         { title: 'Inspirasi Kreasi Es Kopi Ala Content Cr...', date: '01 August 2024' },
@@ -81,8 +81,7 @@ daily life since the beginning of his
 Jet-ski career. `,
       images: [
         require('../img/our-talent/aqsa1.png'),
-        require('../img/talent/aero.png'),
-        require('../img/talent/agatha-talent.png'),
+        require('../img/profile/aqsaprofile.jpg'),
       ],
       articles: [
         { title: 'Inspirasi Kreasi Es Kopi Ala Content Cr...', date: '01 August 2024' },
@@ -120,8 +119,7 @@ and documentation her travel with
 good videos and photos. `,
       images: [
         require('../img/our-talent/rachel.jpg'),
-        require('../img/talent/aero.png'),
-        require('../img/talent/agatha-talent.png'),
+        require('../img/profile/rachelprofile.jpg'),
       ],
       articles: [
         { title: 'Inspirasi Kreasi Es Kopi Ala Content Cr...', date: '01 August 2024' },
@@ -143,8 +141,7 @@ good videos and photos. `,
       description: `Agatha Pricilla has been popularly known when she was very young. After spending seven years together in an all-girls vocal group, now Agatha Pricilla starts a new chapter of her musical journey with her own name and story. Not just a singer, Agatha Pricilla is also Known as an actress and content creator. She has been involved in a movie called 'Bebas' and several movies & series. She has also involved in Disney's Mulan for their soundtrack. She has been collaborate with reputable brands in the past few years. `,
       images: [
         require('../img/our-talent/agatha1.png'),
-        require('../img/talent/aero.png'),
-        require('../img/talent/agatha-talent.png'),
+        require('../img/profile/agathaprofile.jpg'),
       ],
       articles: [
         { title: 'Inspirasi Kreasi Es Kopi Ala Content Cr...', date: '01 August 2024' },

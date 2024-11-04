@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -11,9 +11,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -26,7 +26,7 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +35,88 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Tambahkan ke file CSS Anda */
+
+/* Animasi untuk container utama */
+.main-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.main-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animasi untuk elemen-elemen di dalam halaman */
+.animated-page h1,
+.animated-page h2,
+.animated-page h3,
+.animated-page p,
+.animated-page section
+/* .animated-page div,
+.animated-page img, */
+ {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Menambahkan delay untuk setiap elemen berurutan */
+.animated-page h1 { animation-delay: 0.1s; }
+.animated-page h2 { animation-delay: 0.2s; }
+.animated-page h3 { animation-delay: 0.3s; }
+.animated-page p { animation-delay: 0.4s; }
+.animated-page img { animation-delay: 0.5s; }
+.animated-page button { animation-delay: 0.6s; }
+
+/* Keyframes untuk animasi fadeInUp */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi untuk cards atau items dalam grid/list */
+.animated-page .card,
+.animated-page .item {
+  opacity: 0;
+  animation: fadeInScale 0.5s ease-out forwards;
+}
+
+/* Menambahkan delay untuk setiap card/item berurutan */
+.animated-page .card:nth-child(1),
+.animated-page .item:nth-child(1) { animation-delay: 0.1s; }
+.animated-page .card:nth-child(2),
+.animated-page .item:nth-child(2) { animation-delay: 0.2s; }
+.animated-page .card:nth-child(3),
+.animated-page .item:nth-child(3) { animation-delay: 0.3s; }
+.animated-page .card:nth-child(4),
+.animated-page .item:nth-child(4) { animation-delay: 0.4s; }
+/* Tambahkan lebih banyak jika diperlukan */
+
+/* Keyframes untuk animasi fadeInScale */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Optional: Hover effects untuk interaktivitas */
+.animated-page .card:hover,
+.animated-page .item:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
 }

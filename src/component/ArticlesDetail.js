@@ -139,7 +139,7 @@ const ArticlesDetail = () => {
         Articles » {currentArticle.title}
       </div>
       
-      <h1 className="article-title">
+      <h1 className="article-title-detail">
         {currentArticle.title}
       </h1>
       
