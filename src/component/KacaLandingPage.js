@@ -6,7 +6,7 @@ const KacaLandingPage = () => {
     { type: 'video', src: require('../video/SECTION1.mp4') },
     { type: 'video', src: require('../video/SECTION2.mp4') },
     { type: 'video', src: require('../video/SECTION3.mp4') },
-    { type: 'image', src: require('../img/aaliyah.png') },
+    // { type: 'image', src: require('../img/aaliyah.png') },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);

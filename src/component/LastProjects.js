@@ -10,35 +10,35 @@ const LastProjects = () => {
       id: 1,
       image: require('../img/projects/aqsavivo.png'),
       brandName: 'VIVO',
-      brandLogo: require('../img/brand/lamer.png'),
+      brandLogo: require('../img/brand/vivo.png'),
       description: 'Additional description for VIVO project, These changes will make the brand logo and name always visible at the bottom of each card. When hovering, the description will appear below them as both the logo and name move up'
     },
     {
       id: 2,
-      image: require('../img/projects/bts2.png'),
-      brandName: 'BTS',
-      brandLogo: require('../img/brand/dior.png'),
+      image: require('../img/fibemini/fibemini1.png'),
+      brandName: 'FibeMini',
+      brandLogo: require('../img/brandimg/fibemini-removebg-preview.png'),
       description: 'Additional description for BTS project'
     },
     {
       id: 3,
-      image: require('../img/projects/disney.png'),
+      image: require('../img/projects/disney1.png'),
       brandName: 'DISNEY',
-      brandLogo: require('../img/brand/vivo.png'),
+      brandLogo: require('../img/brandimg/disney.png'),
       description: 'Additional description for DISNEY project'
     },
     {
       id: 4,
-      image: require('../img/projects/human.png'),
-      brandName: 'PROJECT 4',
-      brandLogo: require('../img/brand/gucci.png'),
+      image: require('../img/dior/dior1.png'),
+      brandName: 'DIOR',
+      brandLogo: require('../img/brandimg/dior copy.png'),
       description: 'Additional description for Project 4'
     },
     {
       id: 5,
-      image: require('../img/projects/nazlaproject.png'),
-      brandName: 'PROJECT 5',
-      brandLogo: require('../img/brand/puma.png'),
+      image: require('../img/projects/makeover.png'),
+      brandName: 'MAKE OVER',
+      brandLogo: require('../img/brandimg/makeover.png'),
       description: 'Additional description for Project 5'
     }
   ];
