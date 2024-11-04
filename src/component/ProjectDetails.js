@@ -73,7 +73,7 @@ const ProjectDetails = () => {
         description:{
           paragraph1: "Nazla gain a trust from Steve Madden Indonesia to become their mini BA for 3 months. With her astounding taste in fashion as long as her unlimited positive spirit, It successfully attracted Steve Madden to choose her as their BA."
         } ,
-      mainVideo: require('../video/STEVE MADEN NAZLA.mov'),
+      mainVideo: require('../video/STEVE MADEN NAZLA.mp4'),
         mainImage: require('../img/stevemadden/steve1.png'),
         galleryImages: [
           require('../img/stevemadden/Stevemadden1.png'),
