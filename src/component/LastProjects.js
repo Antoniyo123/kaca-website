@@ -18,28 +18,28 @@ const LastProjects = () => {
       image: require('../img/fibemini/fibemini1.png'),
       brandName: 'FibeMini',
       brandLogo: require('../img/brandimg/fibemini-removebg-preview.png'),
-      description: 'Additional description for BTS project'
+      description: 'Amidst the electrifying Lazada Fest 12.12 event, Agatha was honored to join forces with For Skin s Sake, while Aaliyah teamed up with Dear Me Beauty for their popular Hypergloss Lip Balm.'
     },
     {
       id: 3,
       image: require('../img/projects/disney1.png'),
       brandName: 'DISNEY',
       brandLogo: require('../img/brandimg/disney.png'),
-      description: 'Additional description for DISNEY project'
+      description: 'For the launch of the new Disney’s movie called ‘Cruella’. Nazla is selected to be one of the KOLs for this campaign.'
     },
     {
       id: 4,
       image: require('../img/dior/dior1.png'),
       brandName: 'DIOR',
       brandLogo: require('../img/brandimg/dior copy.png'),
-      description: 'Additional description for Project 4'
+      description: 'Nazla Alifa embodies the elegance and sophistication synonymous with DIOR, effortlessly reflecting the brand’s essence through her unique sense of style and grace'
     },
     {
       id: 5,
       image: require('../img/projects/makeover.png'),
       brandName: 'MAKE OVER',
       brandLogo: require('../img/brandimg/makeover.png'),
-      description: 'Additional description for Project 5'
+      description: "To commemorate Make Over's anniversary, Agatha and Nazla creatively showcase the brand's best-selling products in a distinctive and visually appealing manner."
     }
   ];
 
