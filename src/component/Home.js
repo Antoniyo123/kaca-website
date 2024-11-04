@@ -7,6 +7,7 @@ import AchievementSection from './AchievementSection';
 import KacaLandingPage from './KacaLandingPage';
 import Footer from './Footer';
 
+
 const Home = () => {
   const sectionRefs = useRef([]);
   const [activeSection, setActiveSection] = useState(0);
@@ -14,7 +15,7 @@ const Home = () => {
   const lastScrollTop = useRef(0);
   const isTransitioning = useRef(false);
   const homeRef = useRef(null);
-  
+  const [isLoading, setIsLoading] = useState(true);
   // Deteksi browser Safari
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
