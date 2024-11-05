@@ -10,10 +10,17 @@ import ArticlesDetail from './component/ArticlesDetail';
 import TalentPage from './component/TalentPage';
 import ProjectCard from './component/ProjectCard';
 import Loading from './component/Loader';
+import SplashScreen from './component/SplashScreen';
 import './index.css';
-import './App.css'
+import './App.css';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onLoadingComplete={() => setShowSplash(false)} />;
+  }
+
   return (
     <Router>
       <AppWithLoading />

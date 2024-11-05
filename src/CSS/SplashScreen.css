@@ -1,0 +1,113 @@
+/* Update SplashScreen.css */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(152.54% 50% at 50% 50%, #AB2328 0%, #450E10 100%), #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .splash-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: fadeInDown 0.8s ease-out;
+  }
+  
+  .logo-image {
+    width: 720px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 48px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 8px;
+  }
+  
+  .loading-bar {
+    width: 500px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  .loading-progress {
+    position: absolute;
+    height: 100%;
+    background: white;
+    border-radius: 3px;
+    transition: width 0.5s ease-in-out;
+  }
+  .header-image {
+    height: auto;
+    margin-bottom: 15px; /* Memberikan jarak antara header dan logo */
+    animation: fadeInDown 0.8s ease-out;
+}
+.logo-with-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.line-image { /* Sesuaikan ukuran gambar garis */
+    height: auto;
+    margin: 10px 10px; /* Memberikan jarak di antara garis dan logo */
+}
+
+.left-line {
+    margin-top: 10rem;
+}
+
+.right-line {
+    margin-top: 10rem;
+
+}
+
+  .copyright {
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-size: 14px;
+
+    opacity: 0.8;
+    font-family: Arial, sans-serif;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
