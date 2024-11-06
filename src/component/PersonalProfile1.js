@@ -229,7 +229,7 @@ good videos and photos. `,
             <img 
               src={talent.images[currentImageIndex]} 
               alt={`${talent.fullName} - Image ${currentImageIndex + 1}`} 
-              className="main-image"
+              className="main-image-profile"
             />
             <button 
               className="arrow-button left"
