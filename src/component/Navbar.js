@@ -78,7 +78,7 @@ const Navbar = () => {
             className="menu-icon close-icon"
           />
         ) : (
-          'Menu'
+          'MENU'
         )}
       </div>
 

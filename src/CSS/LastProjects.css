@@ -84,8 +84,9 @@ align-items: center;
 }
 
 .brand-name {
-  font-size: 18px;
+  font-size: 25px;
   margin: 0;
+  font-weight: 500;
 }
 
 .brand-logo {

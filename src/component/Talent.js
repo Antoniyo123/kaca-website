@@ -1,29 +1,53 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../CSS/Talent.css';
-import arrowRight from '../img/svg-assets/arrow-right.svg';
-import arrowLeft from '../img/svg-assets/arrow-left.svg';
 import arrowDown from '../img/svg-assets/arrow-down.svg';
 import PersonalProfile1 from './PersonalProfile1';
 
 const talents = [
-  { id: 1, name: "Talent 1", image: require('../img/our-talent/nazla1.png'), desc: "Nazla ALifah", gif: require('../img/bg/bg-hover.png') },
-  { id: 2, name: "Talent 2", image: require('../img/our-talent/aaliyah1.png'), desc: "Rachel", gif: require('../img/bg/bg-hover.png') },
-  { id: 3, name: "Talent 3", image: require('../img/our-talent/aqsa1.png'), desc: "Aqsa Aswar", gif: require('../img/bg/bg-hover.png') },
-  { id: 4, name: "Talent 4", image: require('../img/our-talent/agatha1.png'), desc: "Agatha Priscillia", gif: require('../img/bg/bg-hover.png') },
-  { id: 5, name: "Talent 5", image: require('../img/our-talent/rachel1.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
-  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
-  { id: 5, name: "Talent 5", image: require('../img/talent/aalyah-talent.png'), desc: "Aaliyah Masaid", gif: require('../img/bg/bg-hover.png') },
-
+  { 
+    id: 1, 
+    name: "NAZLA",
+    image: require('../img/our-talent/nazla1.png'), 
+    desc: "Nazla Alifa", 
+    gif: require('../img/bg/bg-hover.png') 
+  },
+  { 
+    id: 2, 
+    name: "AALIYAH",
+    image: require('../img/our-talent/aaliyah1.png'), 
+    desc: "Aaliyah Massaid", 
+    gif: require('../img/bg/bg-hover.png') 
+  },
+  { 
+    id: 3, 
+    name: "AQSA",
+    image: require('../img/our-talent/aqsa1.png'), 
+    desc: "Aqsa Aswar", 
+    gif: require('../img/bg/bg-hover.png') 
+  },
+  { 
+    id: 4, 
+    name: "AGATHA",
+    image: require('../img/our-talent/agatha1.png'), 
+    desc: "Agatha Priscillia", 
+    gif: require('../img/bg/bg-hover.png') 
+  },
+  { 
+    id: 5, 
+    name: "RACHEL",
+    image: require('../img/our-talent/rachel1.png'), 
+    desc: "Rachel Theresia", 
+    gif: require('../img/bg/bg-hover.png') 
+  },
 ];
 
 const Talent = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [talentsToShow] = useState(4); // Menampilkan 3 talent sekaligus
-  const itemWidth = 320; // 270px item + 70px gap sesuai CSS
   const personalProfile1Ref = useRef(null);
   const talentShowcaseRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const [selectedTalent, setSelectedTalent] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,24 +65,72 @@ const Talent = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const nextTalent = () => {
-    setCurrentIndex((prevIndex) => 
-      Math.min(prevIndex + 1, talents.length - talentsToShow)
-    );
+  const smoothScrollTo = (element, duration = 1000) => {
+    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // Easing function for smoother animation
+      const ease = t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
+      
+      window.scrollTo(0, startPosition + distance * ease(progress));
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
   };
 
-  const prevTalent = () => {
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  const navigateToTalent = (talentName) => {
+    setIsNavigating(true);
+    setSelectedTalent(talentName);
+
+    // First scroll to PersonalProfile1
+    if (talentShowcaseRef.current) {
+      const talentShowcaseBottom = talentShowcaseRef.current.offsetTop + talentShowcaseRef.current.offsetHeight;
+      smoothScrollTo(personalProfile1Ref.current, 1000);
+
+      // Wait for the first scroll to complete
+      setTimeout(() => {
+        const talentElement = document.getElementById(talentName);
+        if (talentElement) {
+          smoothScrollTo(talentElement, 800);
+        }
+        
+        // Reset navigation state
+        setTimeout(() => {
+          setIsNavigating(false);
+          setSelectedTalent(null);
+        }, 1000);
+      }, 1200);
+    }
   };
 
   const togglePersonalProfile = () => {
     if (talentShowcaseRef.current) {
-      const talentShowcaseBottom = talentShowcaseRef.current.offsetTop + talentShowcaseRef.current.offsetHeight;
-      window.scrollTo({
-        top: talentShowcaseBottom,
-        behavior: 'smooth'
-      });
+      smoothScrollTo(personalProfile1Ref.current, 1000);
     }
+  };
+
+  // Add CSS classes for animations
+  const getTalentItemClass = (talent, index) => {
+    let classes = "talent-item";
+    if (isNavigating) {
+      if (talent.name === selectedTalent) {
+        classes += " talent-selected";
+      } else {
+        classes += " talent-fade-out";
+      }
+    }
+    return classes;
   };
 
   return (
@@ -68,18 +140,15 @@ const Talent = () => {
           <h1 className="talent-title">SAY HELLO TO OUR TALENT</h1>
     
           <div className="talent-carousel-wrapper">
-            <div 
-              className="talent-carousel" 
-              style={{ 
-                transform: `translateX(-${currentIndex * itemWidth}px)`,
-              }}
-            >
-              {talents.map((talent, index) => (
+            <div className="talent-carousel">
+              {talents.slice(0, 5).map((talent, index) => (
                 <div 
-                  className="talent-item"
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  className={getTalentItemClass(talent, index)}
+                  onMouseEnter={() => !isNavigating && setHoveredIndex(index)}
+                  onMouseLeave={() => !isNavigating && setHoveredIndex(null)}
+                  onClick={() => !isNavigating && navigateToTalent(talent.name)}
                   key={talent.id}
+                  style={{ cursor: isNavigating ? 'default' : 'pointer' }}
                 >
                   <div className="talent-background">
                     <img 
@@ -89,7 +158,11 @@ const Talent = () => {
                     />
                   </div>
                   <div className="talent-content">
-                    <img src={talent.image} alt={`Talent ${talent.name}`} className="talent-image" />
+                    <img 
+                      src={talent.image} 
+                      alt={`Talent ${talent.name}`} 
+                      className="talent-image"
+                    />
                     <div className="talent-description">
                       <p>{talent.desc}</p>
                     </div>
@@ -98,41 +171,26 @@ const Talent = () => {
               ))}
             </div>
           </div>
-    
-          <div className="nav-buttons">
-            <button 
-              onClick={prevTalent} 
-              className="nav-button-talent prev"
-              disabled={currentIndex === 0} // Disabled jika sudah di awal
-            >
-              <img src={arrowLeft} alt="Arrow Left" width={24} height={24} />
-            </button>
-            <button 
-              onClick={nextTalent} 
-              className="nav-button-talent next"
-              disabled={currentIndex === talents.length - talentsToShow} // Disabled jika sudah di akhir
-            >
-              <img src={arrowRight} alt="Arrow Right" width={24} height={24} />
-            </button>
-          </div>
         </div>
     
-        <div className="scroll-indicator-talent" onClick={togglePersonalProfile}>
+        <div 
+          className={`scroll-indicator-talent ${isNavigating ? 'fade-out' : ''}`} 
+          onClick={togglePersonalProfile}
+        >
           <span>Scroll to know more about our talent</span>
           <img src={arrowDown} alt="Arrow Down" width={24} height={24} />
         </div>
-        
       </div>
 
       <div className="background-photo-talent"></div>
-      
 
       <div 
         ref={personalProfile1Ref} 
         className="personal-profile-wrapper"
         style={{
           transform: `translateY(${(1 - scrollProgress) * 100}%)`,
-          opacity: scrollProgress
+          opacity: scrollProgress,
+          transition: 'transform 0.6s ease-out, opacity 0.6s ease-out'
         }}
       >
         <PersonalProfile1 />

@@ -33,26 +33,23 @@
 .talent-carousel {
   display: flex;
   transition: transform 0.5s ease-in-out;
-
-  width: 270px;
+  width: 100%; /* Diubah dari 270px menjadi 100% */
   height: auto;
-  gap: 43px;
+  gap: 20px; /* Diubah dari 43px menjadi 20px untuk spacing yang lebih compact */
   padding-bottom: 80px;
-
-  /* margin: 0 auto; */
+  justify-content: center; /* Menambahkan center alignment */
 }
-.talent-carousel-wrapper{
+.talent-carousel-wrapper {
   width: 100%;
-  max-width: 1068px;
-
+  max-width: 1200px; /* Disesuaikan dari 1068px untuk menampung 5 item */
+  margin: 0 auto;
 }
+
 .talent-item {
-  width: 100%;
+  width: calc((100% - 80px) / 5); /* Mengatur lebar untuk 5 item dengan gap */
   height: auto;
   flex-shrink: 0;
-
   position: relative;
-  /* overflow: visible; */
 }
 
 
@@ -73,7 +70,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  height: 390px;
+  height: 310px;
   z-index: 3; /* Gambar talent tetap di depan */
 }
 

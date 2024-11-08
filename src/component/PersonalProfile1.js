@@ -93,7 +93,7 @@ Jet-ski career. `,
     },
     {
       name: 'RACHEL',
-      fullName: 'RACHEL TERESIA',
+      fullName: 'RACHEL THERESIA',
       instagram: 'racheltheresia',
       tiktok: 'rachel.theresia',
       instagramFollowers: '237K',

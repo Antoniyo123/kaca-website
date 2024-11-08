@@ -199,7 +199,7 @@ const ArticlesDetail = () => {
         ))}
       </div>
       
-      <div className="related-articles">
+      {/* <div className="related-articles">
         <h2 className="related-title">More Articles</h2>
         <div className="related-grid">
           {relatedArticles.map((relatedArticle, index) => (
@@ -218,7 +218,7 @@ const ArticlesDetail = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

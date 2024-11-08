@@ -46,7 +46,7 @@ const Articles = () => {
           </div>
         </div>
       </div>
-      <div className="article-list">
+      {/* <div className="article-list">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <Link key={item} to={`/article/${item}`} className="article-item">
             <div className="article-text">
@@ -56,7 +56,7 @@ const Articles = () => {
             <img src={require('../img/projectdetail/project1.png')} alt="Article thumbnail" />
           </Link>
         ))}
-      </div>
+      </div> */}
       </div>
 
     </div>

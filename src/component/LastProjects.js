@@ -15,7 +15,7 @@ const LastProjects = () => {
     },
     {
       id: 2,
-      image: require('../img/fibemini/fibemini1.png'),
+      image: require('../img/fibemini/Rectangle.png'),
       brandName: 'FibeMini',
       brandLogo: require('../img/brandimg/fibemini-removebg-preview.png'),
       description: 'Amidst the electrifying Lazada Fest 12.12 event, Agatha was honored to join forces with For Skin s Sake, while Aaliyah teamed up with Dear Me Beauty for their popular Hypergloss Lip Balm.'
@@ -69,7 +69,7 @@ const LastProjects = () => {
                 <div className="card-overlay">
                   <div className="card-info">
                     <p className="brand-name">{project.brandName}</p>
-                    <img src={project.brandLogo} alt={`${project.brandName} logo`} className="brand-logo" />
+                    {/* <img src={project.brandLogo} alt={`${project.brandName} logo`} className="brand-logo" /> */}
                   </div>
                   <div className="card-description">
                     <p>{project.description}</p>
