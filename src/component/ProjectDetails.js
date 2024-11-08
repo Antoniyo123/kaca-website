@@ -245,13 +245,14 @@ const ProjectDetails = () => {
             </div>
           </div>
           <div className="project-info">
-                        <div className="project-title-image">
+            <h1>{project.title}</h1>
+                        {/* <div className="project-title-image">
               <img 
                 src={project.titleImage} 
                 alt={project.title} 
                 className="title-image"
               />
-            </div>
+            </div> */}
             <div className="project-description">
               <p className="mb-8">{project.description.paragraph1}</p>
               <p>{project.description.paragraph2}</p>
