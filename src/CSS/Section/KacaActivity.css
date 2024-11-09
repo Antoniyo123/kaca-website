@@ -116,7 +116,7 @@
 }
 .service-content p{
   text-align: center;
-  margin-top: 40px;
+  margin-top: 100px;
 }
 .service-content img {
   width: 100%;
@@ -143,9 +143,9 @@
   left: 70%;
   width: 100%; /* Ukuran SVG */
   height: 100%; /* Ukuran SVG */
-  max-height: 600px;
+  /* max-height: 1000px; */
   transform: translate(-50%, -50%);
-  opacity: 1; /* Agar SVG terlihat */
+  opacity: 6; /* Agar SVG terlihat */
   z-index: 1; /* SVG berada di bawah gambar */
   overflow: hidden; /* Menyembunyikan bagian SVG yang keluar dari batas */
 }

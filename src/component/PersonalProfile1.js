@@ -231,20 +231,20 @@ good videos and photos. `,
               alt={`${talent.fullName} - Image ${currentImageIndex + 1}`} 
               className="main-image-profile"
             />
-            <button 
+            {/* <button 
               className="arrow-button left"
               onClick={handlePrevImage}
               aria-label="Previous image"
             >
               &lt;
-            </button>
-            <button 
+            </button> */}
+            {/* <button 
               className="arrow-button right"
               onClick={handleNextImage}
               aria-label="Next image"
             >
               &gt;
-            </button>
+            </button> */}
             <div className="image-indicators">
               {talent.images.map((_, index) => (
                 <span

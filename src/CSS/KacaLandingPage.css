@@ -6,7 +6,9 @@
   width: 100%;
   margin: 0 auto;
   height: 100%;
+  overflow-x: hidden !important;
 }
+
 @font-face {
   font-family: 'CustomFont';
   src: url('../fonts/rotunda-custom.otf') format('opentype');
@@ -25,6 +27,7 @@
   width: 100%;
   height: 100vh;
   margin: 0 auto;
+  overflow-x: hidden !important;
 }
 
 .text-content-home {
@@ -115,6 +118,7 @@
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .slide-item {

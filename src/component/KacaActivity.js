@@ -21,8 +21,8 @@ const KacaActivity = () => {
 
         const scaleX = 1 + Math.sin(timestamp * 0.002) * 0.1;
         const scaleY = 1 + Math.cos(timestamp * 0.002) * 0.1;
-        liquid.style.transform = `translateY(${Math.sin(timestamp * 0.001) * 10}px) scaleX(${scaleX}) scaleY(${scaleY})`;
-        liquid.style.opacity = `${Math.abs(Math.sin(timestamp * 0.002))}`;
+        liquid.style.transform = `translateY(${Math.sin(timestamp * 0.001) * 20}px) scaleX(${scaleX}) scaleY(${scaleY})`;
+        liquid.style.opacity = `${Math.abs(Math.sin(timestamp * 0.005))}`;
 
         requestAnimationFrame(animateLiquid);
       };

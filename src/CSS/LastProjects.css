@@ -163,14 +163,34 @@ align-items: center;
 .brand-scroller {
   width: 100%;
   overflow: hidden;
+  position: relative;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
 }
 
 .scrolling-images {
   display: flex;
-  gap: 5rem;
-  animation: scroll 10s linear infinite;
+  width: max-content;
 }
 
+.scrolling-images-group {
+  display: flex;
+  gap: 5rem;
+  animation: scroll 30s linear infinite;
+  will-change: transform;
+}
 
 .scrolling-images img {
   width: 80px;
@@ -181,9 +201,14 @@ align-items: center;
 
 @keyframes scroll {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% - 5rem));
   }
+}
+
+/* Optional: Pause on hover */
+.scrolling-images:hover .scrolling-images-group {
+  animation-play-state: paused;
 }

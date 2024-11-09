@@ -42,9 +42,25 @@ const LastProjects = () => {
       description: "To commemorate Make Over's anniversary, Agatha and Nazla creatively showcase the brand's best-selling products in a distinctive and visually appealing manner."
     }
   ];
+  const brandImages = [
+    require('../img/brandimg/loreal.png'),
+    require('../img/brandimg/permata.png'),
+    require('../img/brandimg/puma.png'),
+    require('../img/brandimg/samsung.png'),
+    require('../img/brandimg/jenius.png'),
+    require('../img/brandimg/danamon.png'),
+    require('../img/brandimg/netflix.png'),
+    require('../img/brandimg/vespa.png'),
+    require('../img/brandimg/suzuki.png'),
+    require('../img/brandimg/oppo.png'),
+    require('../img/brandimg/grab.png'),
+    require('../img/brandimg/fibemini-removebg-preview.png'),
+    require('../img/brandimg/jw.png'),
+    require('../img/brandimg/vespa.png'),
+  ];
 
   return (
-    <div className="project-content-container">
+<div className="project-content-container">
       <div className="project-section">
         <div className="project-gallery-container">
           <div className="photo-gallery-section">
@@ -55,12 +71,12 @@ const LastProjects = () => {
               <Link to="/deskripsiproject" className="see-more-button">
                 See More 
                 <span className="arrow-icon">
-                <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
-
+                  <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
                 </span>
               </Link>
             </div>
           </div>
+          
           {/* Project Cards */}
           <div className="project-gallery-scroll">
             {projects.map((project) => (
@@ -69,7 +85,6 @@ const LastProjects = () => {
                 <div className="card-overlay">
                   <div className="card-info">
                     <p className="brand-name">{project.brandName}</p>
-                    {/* <img src={project.brandLogo} alt={`${project.brandName} logo`} className="brand-logo" /> */}
                   </div>
                   <div className="card-description">
                     <p>{project.description}</p>
@@ -82,16 +97,16 @@ const LastProjects = () => {
           {/* Scrolling Brands Section */}
           <div className="brand-scroller">
             <div className="scrolling-images">
-              <img src={require('../img/brandimg/loreal.png')} alt="Brand 1" />
-              <img src={require('../img/brandimg/permata.png')} alt="Brand 2" />
-              <img src={require('../img/brandimg/puma.png')} alt="Brand 3" />
-              <img src={require('../img/brandimg/samsung.png')} alt="Brand 4" />
-              <img src={require('../img/brandimg/jenius.png')} alt="Brand 5" />
-              <img src={require('../img/brandimg/danamon.png')} alt="Brand 5" />
-              <img src={require('../img/brandimg/netflix.png')} alt="Brand 5" />
-              <img src={require('../img/brandimg/vespa.png')} alt="Brand 5" />
-              <img src={require('../img/brandimg/suzuki.png')} alt="Brand 5" />
-              <img src={require('../img/brandimg/oppo.png')} alt="Brand 5" />
+              <div className="scrolling-images-group">
+                {brandImages.map((image, index) => (
+                  <img key={`brand-1-${index}`} src={image} alt={`Brand ${index + 1}`} />
+                ))}
+              </div>
+              <div className="scrolling-images-group">
+                {brandImages.map((image, index) => (
+                  <img key={`brand-2-${index}`} src={image} alt={`Brand ${index + 1}`} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
