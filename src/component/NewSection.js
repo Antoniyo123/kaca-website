@@ -86,7 +86,7 @@ const NewSection = () => {
                             <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Photo 10" className="horizontal-photo" />
                             <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Photo 11" className="horizontal-photo" />
                             <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" />
+                            {/* <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" /> */}
                         </div>
                         <div className="gallery-controls">
     

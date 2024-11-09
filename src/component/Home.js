@@ -7,7 +7,6 @@ import AchievementSection from './AchievementSection';
 import KacaLandingPage from './KacaLandingPage';
 import Footer from './Footer';
 
-
 const Home = () => {
   const sectionRefs = useRef([]);
   const [activeSection, setActiveSection] = useState(0);
@@ -16,8 +15,11 @@ const Home = () => {
   const isTransitioning = useRef(false);
   const homeRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
-  // Deteksi browser Safari
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  
+  // Tambahkan ref untuk akumulasi scroll
+  const scrollAccumulator = useRef(0);
+  const SCROLL_THRESHOLD = 100; // Atur threshold sesuai kebutuhan
 
   const scrollToSection = (index) => {
     if (isTransitioning.current || index === activeSection) return;
@@ -26,14 +28,12 @@ const Home = () => {
     isTransitioning.current = true;
     setActiveSection(index);
     
-    // Optimasi scroll untuk Safari
     const scrollOptions = {
       behavior: isSafari ? 'auto' : 'smooth',
       block: 'start',
     };
 
     if (isSafari) {
-      // Gunakan scrollTo untuk Safari dengan animasi manual
       const targetElement = sectionRefs.current[index];
       const start = window.pageYOffset;
       const target = targetElement.offsetTop;
@@ -45,10 +45,7 @@ const Home = () => {
         if (startTime === null) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1);
-        
-        // Fungsi easing
         const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        
         window.scrollTo(0, start + distance * ease(progress));
 
         if (timeElapsed < duration) {
@@ -61,33 +58,31 @@ const Home = () => {
       sectionRefs.current[index].scrollIntoView(scrollOptions);
     }
     
+    // Reset scroll accumulator setelah perpindahan section
+    scrollAccumulator.current = 0;
+    
     setTimeout(() => {
       isTransitioning.current = false;
     }, 1000);
   };
 
   useEffect(() => {
-    // Normalisasi scroll untuk Safari
+    document.body.style.overflowX = 'hidden';
+    
     const normalizeWheel = (e) => {
       const PIXEL_STEP = 10;
       const LINE_HEIGHT = 40;
       const PAGE_HEIGHT = 800;
 
-      let sX = 0, sY = 0;
+      let sY = 0;
       
-      // Normalisasi deltaY
       if ('deltaY' in e) {
         sY = e.deltaY;
         if (e.deltaMode === 1) sY *= LINE_HEIGHT;
         if (e.deltaMode === 2) sY *= PAGE_HEIGHT;
       }
       
-      return {
-        spinX: sX,
-        spinY: sY,
-        pixelX: PIXEL_STEP * sX,
-        pixelY: PIXEL_STEP * sY
-      };
+      return sY;
     };
 
     const handleScroll = (e) => {
@@ -104,24 +99,35 @@ const Home = () => {
       
       if (isTransitioning.current) return;
 
-      const normalized = normalizeWheel(e);
-      const direction = normalized.spinY > 0 ? 1 : -1;
-      const currentSection = sectionRefs.current[activeSection];
+      // Normalisasi nilai scroll
+      const scrollValue = normalizeWheel(e);
       
-      if (!currentSection) return;
+      // Akumulasi scroll
+      scrollAccumulator.current += scrollValue;
 
-      if (currentSection.classList.contains('scrollable-section')) {
-        const { scrollTop, scrollHeight, clientHeight } = currentSection;
-        const isAtTop = scrollTop === 0;
-        const isAtBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+      // Cek apakah scroll sudah mencapai threshold
+      if (Math.abs(scrollAccumulator.current) >= SCROLL_THRESHOLD) {
+        const direction = scrollAccumulator.current > 0 ? 1 : -1;
+        const currentSection = sectionRefs.current[activeSection];
+        
+        if (!currentSection) return;
 
-        if (direction < 0 && isAtTop) {
-          scrollToSection(activeSection - 1);
-        } else if (direction > 0 && isAtBottom) {
-          scrollToSection(activeSection + 1);
+        if (currentSection.classList.contains('scrollable-section')) {
+          const { scrollTop, scrollHeight, clientHeight } = currentSection;
+          const isAtTop = scrollTop === 0;
+          const isAtBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+          if (direction < 0 && isAtTop) {
+            scrollToSection(activeSection - 1);
+          } else if (direction > 0 && isAtBottom) {
+            scrollToSection(activeSection + 1);
+          }
+        } else {
+          scrollToSection(activeSection + direction);
         }
-      } else {
-        scrollToSection(activeSection + direction);
+        
+        // Reset accumulator setelah perpindahan
+        scrollAccumulator.current = 0;
       }
     };
 
@@ -137,8 +143,8 @@ const Home = () => {
       }
     };
 
-    // Touch events untuk mobile Safari
     let touchStartY = 0;
+    const TOUCH_THRESHOLD = 50; // Threshold untuk touch events
     
     const handleTouchStart = (e) => {
       touchStartY = e.touches[0].clientY;
@@ -150,7 +156,7 @@ const Home = () => {
       const touchEndY = e.touches[0].clientY;
       const diff = touchStartY - touchEndY;
       
-      if (Math.abs(diff) > 50) { // threshold
+      if (Math.abs(diff) > TOUCH_THRESHOLD) {
         if (diff > 0) {
           scrollToSection(activeSection + 1);
         } else {
@@ -167,6 +173,7 @@ const Home = () => {
     window.addEventListener('touchmove', handleTouchMove);
 
     return () => {
+      document.body.style.overflowX = '';
       window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('keydown', handleKeyDown);
@@ -185,7 +192,16 @@ const Home = () => {
   ];
 
   return (
-    <div className={`home ${isSafari ? 'safari' : ''}`} ref={homeRef}>
+    <div 
+      className={`home ${isSafari ? 'safari' : ''}`} 
+      ref={homeRef}
+      style={{
+        overflowX: 'hidden',
+        position: 'relative',
+        width: '100vw',
+        // height: '100vh'
+      }}
+    >
       {sections.map(({ Component, type }, index) => (
         <section 
           key={index}
@@ -199,8 +215,9 @@ const Home = () => {
             ${index === 2 ? 'new-section' : ''}
           `}
           style={{
-            WebkitTransform: 'translate3d(0,0,0)', // Safari performance fix
+            WebkitTransform: 'translate3d(0,0,0)',
             transform: 'translate3d(0,0,0)',
+            overflowX: 'hidden'
           }}
         >
           <div className="section-content">

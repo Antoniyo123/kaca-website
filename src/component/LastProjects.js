@@ -1,10 +1,47 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../CSS/LastProjects.css';
 import { Link } from 'react-router-dom';
 import arrowRight from '../img/svg-assets/arrow-right.svg';
 
 
 const LastProjects = () => {
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    const element = scrollRef.current;
+    if (!element) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const handleTouchStart = (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - element.offsetLeft;
+      scrollLeft = element.scrollLeft;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - element.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll-fast
+      element.scrollLeft = scrollLeft - walk;
+    };
+
+    const handleTouchEnd = () => {
+      isDown = false;
+    };
+
+    element.addEventListener('touchstart', handleTouchStart);
+    element.addEventListener('touchmove', handleTouchMove);
+    element.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      element.removeEventListener('touchstart', handleTouchStart);
+      element.removeEventListener('touchmove', handleTouchMove);
+      element.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, []);
   const projects = [
     {
       id: 1,

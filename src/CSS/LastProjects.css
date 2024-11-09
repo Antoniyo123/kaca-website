@@ -26,14 +26,20 @@ align-items: center;
 
 /* Existing photo gallery container */
 .project-gallery-scroll {
-  
   display: flex;
+  gap: 20px;
+  padding: 20px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  padding: 20px 0;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  /* Penting: memastikan konten bisa di-scroll horizontal */
+  width: 100%;
+  position: relative;
+  /* Menghilangkan scrollbar tapi tetap bisa scroll */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .project-gallery-scroll::-webkit-scrollbar { 
@@ -211,4 +217,21 @@ align-items: center;
 /* Optional: Pause on hover */
 .scrolling-images:hover .scrolling-images-group {
   animation-play-state: paused;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Tambahan untuk mendukung touch events dengan lebih baik */
+@supports (-webkit-touch-callout: none) {
+  .project-gallery-scroll {
+    /* Properti khusus untuk iOS */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y pinch-zoom;
+  }
 }
