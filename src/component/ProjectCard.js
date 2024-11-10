@@ -14,11 +14,11 @@ const ProjectCard = ({ id, title, image, description }) => {
       <img src={image} alt={title} className="project-main-image" />
       <div className="project-overlay">
         <h3 className="project-title">{title}</h3>
-        <img 
+        {/* <img 
           src={description} 
           alt="Brand Logo" 
           className="brand-logo-project"
-        />
+        /> */}
       </div>
     </div>
   );

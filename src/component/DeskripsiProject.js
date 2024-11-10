@@ -38,7 +38,7 @@ const DeskripsiProject = () => {
                 id={project.id}
                 title={project.title} 
                 image={project.image}
-                description={project.brand} 
+                // description={project.brand} 
               />
             </div>
           ))}
