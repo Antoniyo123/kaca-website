@@ -186,48 +186,47 @@ const Home = () => {
     { Component: KacaLandingPage, type: 'snap' },
     { Component: KacaActivity, type: 'snap' },
     { Component: AchievementSection, type: 'snap' },
-    { Component: NewSection, type: 'scroll' },
-    { Component: LastProjects, type: 'scroll' },
+    { Component: NewSection, type: 'scroll', className: 'NewSection dark-section' },
+    { Component: LastProjects, type: 'scroll', className: 'lastProjects dark-section' },
     { Component: Footer, type: 'scroll' }
   ];
 
   return (
-    <div 
+<div 
       className={`home ${isSafari ? 'safari' : ''}`} 
       ref={homeRef}
       style={{
         overflowX: 'hidden',
         position: 'relative',
         width: '100vw',
-        // height: '100vh'
       }}
     >
-      {sections.map(({ Component, type }, index) => (
-        <section 
-          key={index}
-          ref={el => sectionRefs.current[index] = el} 
-          className={`
-            section 
-            ${type === 'scroll' ? 'scrollable-section' : ''}
-            ${index === activeSection ? 'active' : ''} 
-            ${scrollDirection}
-            ${index === 1 ? 'achievement-section' : ''}
-            ${index === 2 ? 'new-section' : ''}
-          `}
-          style={{
-            WebkitTransform: 'translate3d(0,0,0)',
-            transform: 'translate3d(0,0,0)',
-            overflowX: 'hidden'
-          }}
-        >
-          <div className="section-content">
-            <Component 
-              scrollDirection={scrollDirection} 
-              isActive={index === activeSection}
-            />
-          </div>
-        </section>
-      ))}
+{sections.map(({ Component, type, className }, index) => (
+  <section 
+    key={index}
+    ref={el => sectionRefs.current[index] = el} 
+    className={`
+      section 
+      ${type === 'scroll' ? 'scrollable-section' : ''}
+      ${index === activeSection ? 'active' : ''} 
+      ${scrollDirection}
+      ${className}
+    `}
+    style={{
+      WebkitOverflowScrolling: 'touch',
+      WebkitTransform: 'translate3d(0,0,0)',
+      transform: 'translate3d(0,0,0)',
+      overflowX: className === 'lastProjects' ? 'visible' : 'hidden' // Allow horizontal scroll for LastProjects
+    }}
+  >
+    <div className="section-content">
+      <Component 
+        scrollDirection={scrollDirection} 
+        isActive={index === activeSection}
+      />
+    </div>
+  </section>
+))}
     </div>
   );
 };

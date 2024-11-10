@@ -47,35 +47,48 @@
   margin-left: 5rem;
 }
 
+.scroll-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: seamlessScroll 20s linear infinite;
+}
+
 .moving-images {
   width: 100%;
   display: flex;
   flex-direction: column;
-  animation: moveImagesUp 20s linear infinite;
 }
 
 .moving-images img {
   max-width: 400px;
-  /* width: 427px; */
   margin-bottom: 10px;
   opacity: 0;
-  transform: translateY(100%);
-  animation: fadeInUp 3s ease forwards;
+  transform: translateY(20px);
+  animation: fadeInUp 0.3s ease forwards;
 }
 
-@keyframes moveImagesUp {
+@keyframes seamlessScroll {
   0% {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(-50%); /* Changed to -50% because we have two sets */
   }
 }
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
@@ -83,6 +96,10 @@
   }
 }
 
+/* Pause animation on hover */
+.scroll-wrapper:hover .scroll-content {
+  animation-play-state: paused;
+}
 .text-content {
   width: 100%;
   max-width: 700px;
@@ -131,7 +148,7 @@
 }
 
 .stat-item-achievement p {
-  text-wrap: nowrap;
+  /* text-wrap: nowrap; */
   color: #212322;
   text-align: center;
   font-size: 14px;

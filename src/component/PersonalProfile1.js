@@ -325,7 +325,7 @@ good videos and photos. `,
           </div>
 
           {/* Articles Section */}
-          <div className="talent-articles">
+          {/* <div className="talent-articles">
             <h3 className="articles-title">Articles</h3>
             <div className="article-list-profile">
               {talent.articles.map((article, index) => (
@@ -335,7 +335,7 @@ good videos and photos. `,
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );

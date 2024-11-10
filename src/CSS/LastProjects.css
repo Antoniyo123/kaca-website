@@ -23,13 +23,44 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 }
+.lastProjects .project-gallery-wrapper {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
 
+.lastProjects .project-gallery-scroll {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.lastProjects .project-card-view {
+  flex: 0 0 320px;
+  min-width: 320px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+.project-gallery-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.project-card-view img,
+.card-overlay,
+.card-info,
+.card-description {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
 /* Existing photo gallery container */
 .project-gallery-scroll {
   display: flex;
   gap: 20px;
   padding: 20px;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
@@ -40,6 +71,7 @@ align-items: center;
   /* Menghilangkan scrollbar tapi tetap bisa scroll */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  touch-action: pan-x;
 }
 
 .project-gallery-scroll::-webkit-scrollbar { 
@@ -78,8 +110,13 @@ align-items: center;
 
 
 .project-card-view:hover .card-overlay {
-  height: 60%;
+  height: 100%;
   max-height: auto;
+  background: #121211ce;
+  color: white;
+}
+.project-card-view:hover .card-overlay p{
+color: #FFFFFF;
 }
 .card-info {
   padding: 10px;

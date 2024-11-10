@@ -18,9 +18,14 @@
   z-index: 1000;
   transition: background 0.3s ease, max-height 0.3s ease;
 }
-
+.navbar-logo.gold-logo {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(18%) saturate(754%) hue-rotate(358deg) brightness(88%) contrast(85%);
+}
+.navbar.in-dark-section .navbar-logo {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(18%) saturate(754%) hue-rotate(358deg) brightness(88%) contrast(85%);
+}
 .navbar.scrolled {
-  background: #ffffff94;
+  /* background: #ffffff94; */
   max-height: 100px;
 }
 

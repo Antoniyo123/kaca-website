@@ -5,43 +5,57 @@ import arrowRight from '../img/svg-assets/arrow-right.svg';
 
 
 const LastProjects = () => {
-  const scrollRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+  
   useEffect(() => {
-    const element = scrollRef.current;
-    if (!element) return;
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
     let isDown = false;
     let startX;
     let scrollLeft;
 
+    const handleWheel = (e) => {
+      // Jika ada scroll horizontal dengan trackpad
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        container.scrollLeft += e.deltaX;
+      }
+    };
+
     const handleTouchStart = (e) => {
       isDown = true;
-      startX = e.touches[0].pageX - element.offsetLeft;
-      scrollLeft = element.scrollLeft;
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
     };
 
     const handleTouchMove = (e) => {
       if (!isDown) return;
       e.preventDefault();
-      const x = e.touches[0].pageX - element.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll-fast
-      element.scrollLeft = scrollLeft - walk;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
     };
 
     const handleTouchEnd = () => {
       isDown = false;
     };
 
-    element.addEventListener('touchstart', handleTouchStart);
-    element.addEventListener('touchmove', handleTouchMove);
-    element.addEventListener('touchend', handleTouchEnd);
+    // Add event listeners
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    container.addEventListener('touchstart', handleTouchStart);
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd);
 
+    // Cleanup
     return () => {
-      element.removeEventListener('touchstart', handleTouchStart);
-      element.removeEventListener('touchmove', handleTouchMove);
-      element.removeEventListener('touchend', handleTouchEnd);
+      container.removeEventListener('wheel', handleWheel);
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
+  
   const projects = [
     {
       id: 1,
@@ -114,21 +128,23 @@ const LastProjects = () => {
             </div>
           </div>
           
-          {/* Project Cards */}
-          <div className="project-gallery-scroll">
-            {projects.map((project) => (
-              <div key={project.id} className="project-card-view">
-                <img src={project.image} alt={project.brandName} className="project-card-image" />
-                <div className="card-overlay">
-                  <div className="card-info">
-                    <p className="brand-name">{project.brandName}</p>
-                  </div>
-                  <div className="card-description">
-                    <p>{project.description}</p>
+          {/* Project Cards dengan horizontal scroll */}
+          <div className="project-gallery-wrapper" ref={scrollContainerRef}>
+            <div className="project-gallery-scroll">
+              {projects.map((project) => (
+                <div key={project.id} className="project-card-view">
+                  <img src={project.image} alt={project.brandName} className="project-card-image" />
+                  <div className="card-overlay">
+                    <div className="card-info">
+                      <p className="brand-name">{project.brandName}</p>
+                    </div>
+                    <div className="card-description">
+                      <p>{project.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           
           {/* Scrolling Brands Section */}

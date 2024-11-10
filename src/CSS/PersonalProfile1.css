@@ -21,6 +21,7 @@ margin: 0 auto;
     position: sticky;
     top: 0;
     z-index: 1000;
+    margin-top: 15px;
   }
   
   .talent-content-wrapper {
@@ -64,7 +65,10 @@ justify-content: space-between;
   }
   .talent__card__wrapper{
     width: 100%;
-    max-width: 1280px;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+
 
   }
   .talent-card {
@@ -80,7 +84,7 @@ justify-content: space-between;
     max-height: 423px;
     position: relative;
     margin-top: 1.5rem;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
   }
   
   .talent-image-personal img {
@@ -114,7 +118,7 @@ justify-content: space-between;
   
   
   .talent-info {
-    width: 40%;
+    width: 100%;
     padding: 0 2rem;
     margin-top: -1rem;
     margin-right: 1rem;

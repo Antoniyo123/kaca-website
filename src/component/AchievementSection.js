@@ -11,13 +11,9 @@ const AchievementSection = () => {
     require('../img/achivement/aqsa.png'),
     require('../img/achivement/rachel-nazla.png'),
     require('../img/achivement/agatha-nazla.png'),
-
-    // require('../img/achivement/nazla-ach.png'),
-
   ];
 
   useEffect(() => {
-    // Count-Up Animation
     const countUp = (element, start, end, duration) => {
       let startTimestamp = null;
       const step = (timestamp) => {
@@ -31,26 +27,35 @@ const AchievementSection = () => {
       window.requestAnimationFrame(step);
     };
 
-    // Apply count-up animation to each stat-item
     const stats = document.querySelectorAll(".stat-item-achievement h2");
     stats.forEach(stat => {
       const endValue = parseInt(stat.getAttribute("data-target"));
-      countUp(stat, 0, endValue, 2000); // 2 seconds for the animation
+      countUp(stat, 0, endValue, 2000);
     });
   }, []);
+
+  const ImageSet = () => (
+    <div className="moving-images">
+      {images.map((img, index) => (
+        <img 
+          key={index} 
+          src={img} 
+          alt={`Achievement ${index + 1}`}
+          style={{ animationDelay: `${index * 0.2}s` }} // Add stagger effect
+        />
+      ))}
+    </div>
+  );
 
   return (
     <div className="achievement-section">
       <div className="content">
         <div className="image-grid">
-          <div className="moving-images">
-            {images.map((img, index) => (
-              <img key={index} src={img} alt={`Achievement ${index + 1}`} />
-            ))}
-            {/* Duplicate images for smooth looping */}
-            {images.map((img, index) => (
-              <img key={`dup-${index}`} src={img} alt={`Achievement ${index + 1}`} />
-            ))}
+          <div className="scroll-wrapper">
+            <div className="scroll-content">
+              <ImageSet />
+              <ImageSet /> {/* Duplicate set for seamless loop */}
+            </div>
           </div>
         </div>
         
@@ -80,7 +85,6 @@ const AchievementSection = () => {
         </div>
       </div>
       <div className="background-photo-achievemnt"></div>
-
     </div>
   );
 };
