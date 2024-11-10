@@ -1,13 +1,36 @@
 import React, { useState } from 'react';
 import '../CSS/ContactUs.css';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted', { email, message });
+
+    emailjs.send(
+      'service_ljght9l',        // Ganti dengan SERVICE ID dari EmailJS
+      'template_kiiul6g',       // Ganti dengan TEMPLATE ID dari EmailJS
+      { email, message, to_email: 'collaboration@kacakreatif.com' },       // Data yang dikirim ke template
+      's0Lyp4fKU7IrI2KkF'       // Ganti dengan USER ID dari EmailJS
+    ).then(
+      (result) => {
+        console.log('Email sent successfully', result.text);
+        setStatus('Email sent successfully!');
+        setShowModal(true);  // Menampilkan modal sukses
+      },
+      (error) => {
+        console.error('Failed to send email', error.text);
+        setStatus('Failed to send email, please try again.');
+      }
+    );
   };
 
   return (
@@ -17,7 +40,7 @@ const ContactUs = () => {
           <div className="contact-form">
             <h1>Drop your email here</h1>
             <p>Whether you have questions, feel free to drop your message here</p>
-            
+            {status && <p>{status}</p>}
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -71,17 +94,26 @@ const ContactUs = () => {
               <span>Youtube</span>
             </p>
             <p className="social-item">
-              <img src={require('../img/icon/linkedin.png')} alt="Youtube" className="social-icon" />
+              <img src={require('../img/icon/linkedin.png')} alt="LinkedIn" className="social-icon" />
               <span>LinkedIn</span>
             </p>
             <p className="social-item">
-              {/* <img src="../img/social/newsletter.png" alt="Newsletter" className="social-icon" /> */}
-              <span>Subscribe News Letter</span>
+              <span>Subscribe Newsletter</span>
             </p>
           </div>
         </div>
         <div className="background-photo-contact"></div>
       </div>
+
+      {showModal && (
+        <div className="modal-overlay" onClick={handleModalClose}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>Success!</h2>
+            <p>Your email has been sent successfully.</p>
+            <button onClick={handleModalClose}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,9 +5,11 @@ const Loading = () => {
   return (
     <div className="loading-wrapper">
       <div className="loading-dots">
-        <div className="dot"></div>
-        <div className="dot"></div>
-        <div className="dot"></div>
+        <img 
+          className='kaca-loader' 
+          src={require('../img/LOGO K.png')} 
+          alt="Kaca Logo"
+        />
       </div>
     </div>
   );

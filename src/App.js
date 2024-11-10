@@ -40,7 +40,7 @@ const AppWithLoading = () => {
     const loadingTimer = setTimeout(() => {
       setLoading(false);
       setShowContent(true);
-    }, 1200);
+    }, 2000);
 
     return () => clearTimeout(loadingTimer);
   }, [location]);
