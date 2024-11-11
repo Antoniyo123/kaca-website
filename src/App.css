@@ -1,8 +1,8 @@
 
 @font-face {
   font-family: 'Rotunda';
-  src: url('../src/fonts/rotunda-custom.otf') format('woff2'),
-       url('../src/fonts/RotundaVariable-Regular.ttf') format('woff');
+  src: url('../src/fonts/RotundaVariable-Regular.ttf') format('woff2');
+       /* url('../src/fonts/Rotunda-Regular.ttf') format('woff'); */
   font-weight: normal;
   font-style: normal;
 }
