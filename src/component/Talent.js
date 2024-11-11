@@ -113,7 +113,7 @@ const Talent = () => {
 
   const togglePersonalProfile = () => {
     if (personalProfile1Ref.current) {
-      smoothScrollTo(personalProfile1Ref.current, 800);
+      smoothScrollTo(personalProfile1Ref.current, 400);
     }
   };
 

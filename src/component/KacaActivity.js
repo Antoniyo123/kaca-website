@@ -3,7 +3,7 @@ import '../CSS/Section/KacaActivity.css';
 import Liquid from '../img/svg-assets/liquid.svg'; // Import SVG
 
 const KacaActivity = () => {
-  const [activeService, setActiveService] = useState(0);
+   const [activeService, setActiveService] = useState(0);
   const liquidRef = useRef(null);
 
   useEffect(() => {
@@ -19,15 +19,18 @@ const KacaActivity = () => {
         const deltaTime = timestamp - previousTimestamp;
         previousTimestamp = timestamp;
 
-        const scaleX = 1 + Math.sin(timestamp * 0.002) * 0.1;
-        const scaleY = 1 + Math.cos(timestamp * 0.002) * 0.1;
-        liquid.style.transform = `translateY(${Math.sin(timestamp * 0.001) * 20}px) scaleX(${scaleX}) scaleY(${scaleY})`;
-        liquid.style.opacity = `${Math.abs(Math.sin(timestamp * 0.005))}`;
-
-        requestAnimationFrame(animateLiquid);
+        const scaleX = 1 + Math.sin(timestamp * 0.001) * 0.04; // Increase the scale factor
+        const scaleY = 0.9 + Math.cos(timestamp * 0.001) * 0.04; // Increase the scale factor
+        liquid.style.transform = `translateY(${Math.sin(timestamp * 0.0004) * 10}px) scaleX(${scaleX}) scaleY(${scaleY})`;
+        liquid.style.opacity = `1`; // Remove the blinking effect
       };
 
-      requestAnimationFrame(animateLiquid);
+      const animationLoop = () => {
+        requestAnimationFrame(animationLoop);
+        animateLiquid(performance.now());
+      };
+
+      animationLoop();
     }
   }, []);
 
@@ -36,16 +39,28 @@ const KacaActivity = () => {
       title: 'Boost Your Brand Awareness',
       content: 'Advertise your brand to a large audience through our talents\' social media.',
       image: require('../img/bg/ring.png'),
+      imageWidth: '135px', // Set the desired width
+      imageHeight: '126px', // Set the desired height
+      svgWidth: '265px',
+      svgHeight: '230px',
     },
     {
       title: 'Connect with Nationwide Influencer & Content Creators',
       content: 'Description for connecting with influencers...',
       image: require('../img/kacaActivity/round.png'),
+      imageWidth: '165px',
+      imageHeight: '150px',
+      svgWidth: '265px',
+      svgHeight: '230px',
     },
     {
       title: 'Massive Increase Your Audience',
       content: 'Description for increasing your audience...',
       image: require('../img/kacaActivity/spiral.png'),
+      imageWidth: '165px',
+      imageHeight: '150px',
+      svgWidth: '265px',
+      svgHeight: '230px',
     },
   ];
 
@@ -67,9 +82,27 @@ const KacaActivity = () => {
         </div>
         <div className="service-content">
           <div className="image-wrapper">
-            <img src={services[activeService].image} alt={services[activeService].title} className="service-image-main" />
+            <img
+              src={services[activeService].image}
+              alt={services[activeService].title}
+              className="service-image-main"
+              style={{
+                width: services[activeService].imageWidth,
+                height: services[activeService].imageHeight,
+              }}
+            />
             <div className="hover-background">
-              <img src={Liquid} alt="Liquid SVG" className="service-svg-image" ref={liquidRef} />
+            <img
+                src={Liquid}
+                alt="Liquid SVG"
+                className="service-svg-image"
+                ref={liquidRef}
+                style={{
+                  width: services[activeService].svgWidth,
+                  height: services[activeService].svgHeight,
+                  filter: 'none', // Remove the white effect
+                }}
+              />
             </div>
           </div>
           <p>{services[activeService].content}</p>

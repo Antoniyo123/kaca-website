@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
 import '../CSS/Section/Section.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import arrowLeft from '../img/svg-assets/arrow-left.svg';
 import arrowRight from '../img/svg-assets/arrow-right.svg';
-
 
 const NewSection = () => {
     const galleryRef = useRef(null);
     const [touchStartX, setTouchStartX] = useState(0);
     const [touchEndX, setTouchEndX] = useState(0);
+    const navigate = useNavigate();
 
     const scrollLeft = () => {
         galleryRef.current.scrollBy({ left: -200, behavior: 'smooth' });
@@ -39,6 +39,10 @@ const NewSection = () => {
         }
     };
 
+    const handleTalentClick = (talentName) => {
+        navigate(`/talent?name=${talentName.toLowerCase()}`);
+    };
+
     return (
         <div className="content-container">
             <div className="new-section">
@@ -53,17 +57,41 @@ const NewSection = () => {
                                 See More 
                             <span className="arrow-icon">
                                 <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
-
                             </span>
                             </Link>
                         </div>
                     </div>
                     <div className="photo-gallery">
-                        <img src={require('../img/our-talent/nazla1.png')} alt="Photo 1" className="wide-photo-talent" />
-                        <img src={require('../img/our-talent/aaliyah1.png')} alt="Photo 2" className="wide-photo-talent" />
-                        <img src={require('../img/our-talent/aqsa1.png')} alt="Photo 3" className="wide-photo-talent" />
-                        <img src={require('../img/our-talent/agatha1.png')} alt="Photo 4" className="wide-photo-talent" />
-                        <img src={require('../img/our-talent/rachel1.png')} alt="Photo 5" className="wide-photo-talent" />
+                        <img
+                            src={require('../img/our-talent/nazla1.png')}
+                            alt="Nazla"
+                            className="wide-photo-talent"
+                            onClick={() => handleTalentClick('nazla')}
+                        />
+                        <img
+                            src={require('../img/our-talent/aaliyah1.png')}
+                            alt="Aaliyah"
+                            className="wide-photo-talent"
+                            onClick={() => handleTalentClick('aaliyah')}
+                        />
+                        <img
+                            src={require('../img/our-talent/aqsa1.png')}
+                            alt="Aqsa"
+                            className="wide-photo-talent"
+                            onClick={() => handleTalentClick('aqsa')}
+                        />
+                        <img
+                            src={require('../img/our-talent/agatha1.png')}
+                            alt="Agatha"
+                            className="wide-photo-talent"
+                            onClick={() => handleTalentClick('agatha')}
+                        />
+                        <img
+                            src={require('../img/our-talent/rachel1.png')}
+                            alt="Rachel"
+                            className="wide-photo-talent"
+                            onClick={() => handleTalentClick('rachel')}
+                        />
                     </div>
                 </div>
 
@@ -79,25 +107,22 @@ const NewSection = () => {
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}>
                         <div className="horizontal-gallery" ref={galleryRef}>
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_aero.jpg')} alt="Photo 6" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_angie.jpg')} alt="Photo 7" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_daffa.jpg')} alt="Photo 8" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_dindra.jpg')} alt="Photo 9" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Photo 10" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Photo 11" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" />
-                            {/* <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Photo 12" className="horizontal-photo" /> */}
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_aero.jpg')} alt="Aero" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_angie.jpg')} alt="Angie" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_daffa.jpg')} alt="Daffa" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/rsz_dindra.jpg')} alt="Dindra" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Genu" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Jehian" className="horizontal-photo" />
+                            <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Jerome" className="horizontal-photo" />
                         </div>
                         <div className="gallery-controls">
-    
-    <button className="slider-arrow left-slide" onClick={scrollLeft}>
-        <img src={arrowLeft} alt="Scroll Left" width={24} height={24} />
-    </button>
-    <button className="slider-arrow right-slide" onClick={scrollRight}>
-        <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
-    </button>
-</div>
-
+                            <button className="slider-arrow left-slide" onClick={scrollLeft}>
+                                <img src={arrowLeft} alt="Scroll Left" width={24} height={24} />
+                            </button>
+                            <button className="slider-arrow right-slide" onClick={scrollRight}>
+                                <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
