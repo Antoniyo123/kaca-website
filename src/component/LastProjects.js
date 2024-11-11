@@ -1,11 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../CSS/LastProjects.css';
 import { Link } from 'react-router-dom';
 import arrowRight from '../img/svg-assets/arrow-right.svg';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 
 const LastProjects = () => {
   const scrollContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState({
+    isAtStart: true,
+    isAtEnd: false
+  });
   
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -16,10 +21,10 @@ const LastProjects = () => {
     let scrollLeft;
 
     const handleWheel = (e) => {
-      // Jika ada scroll horizontal dengan trackpad
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
         e.preventDefault();
         container.scrollLeft += e.deltaX;
+        updateScrollPosition();
       }
     };
 
@@ -35,10 +40,25 @@ const LastProjects = () => {
       const x = e.touches[0].pageX - container.offsetLeft;
       const walk = (x - startX) * 2;
       container.scrollLeft = scrollLeft - walk;
+      updateScrollPosition();
     };
 
     const handleTouchEnd = () => {
       isDown = false;
+    };
+
+    const handleScroll = () => {
+      updateScrollPosition();
+    };
+
+    const updateScrollPosition = () => {
+      if (!container) return;
+      const isAtStart = container.scrollLeft <= 10;
+      const isAtEnd = Math.abs(
+        container.scrollWidth - container.clientWidth - container.scrollLeft
+      ) <= 10;
+
+      setScrollPosition({ isAtStart, isAtEnd });
     };
 
     // Add event listeners
@@ -46,6 +66,10 @@ const LastProjects = () => {
     container.addEventListener('touchstart', handleTouchStart);
     container.addEventListener('touchmove', handleTouchMove, { passive: false });
     container.addEventListener('touchend', handleTouchEnd);
+    container.addEventListener('scroll', handleScroll);
+
+    // Initial check
+    updateScrollPosition();
 
     // Cleanup
     return () => {
@@ -53,6 +77,7 @@ const LastProjects = () => {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchmove', handleTouchMove);
       container.removeEventListener('touchend', handleTouchEnd);
+      container.removeEventListener('scroll', handleScroll);
     };
   }, []);
   
@@ -110,6 +135,45 @@ const LastProjects = () => {
     require('../img/brandimg/vespa.png'),
   ];
 
+  const renderNavButtons = () => {
+    const { isAtStart, isAtEnd } = scrollPosition;
+    
+    return (
+      <>
+        {(!isAtStart || isAtEnd) && (
+          <button 
+            className="nav-button prev"
+            onClick={() => scrollTo('prev')}
+            aria-label="Previous project"
+          >
+            <ChevronLeft size={32} color="black" className="w-6 h-6" />
+          </button>
+        )}
+        
+        {!isAtEnd && (
+          <button 
+            className="nav-button next"
+            onClick={() => scrollTo('next')}
+            aria-label="Next project"
+          >
+            <ChevronRight size={32} color="black" className="w-6 h-6" />
+          </button>
+        )}
+      </>
+    );
+  };
+  const scrollTo = (direction) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    const cardWidth = container.offsetWidth;
+    const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
+    
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  };
   return (
 <div className="project-content-container">
       <div className="project-section">
@@ -129,21 +193,25 @@ const LastProjects = () => {
           </div>
           
           {/* Project Cards dengan horizontal scroll */}
-          <div className="project-gallery-wrapper" ref={scrollContainerRef}>
-            <div className="project-gallery-scroll">
-              {projects.map((project) => (
-                <div key={project.id} className="project-card-view">
-                  <img src={project.image} alt={project.brandName} className="project-card-image" />
-                  <div className="card-overlay">
-                    <div className="card-info">
-                      <p className="brand-name">{project.brandName}</p>
-                    </div>
-                    <div className="card-description">
-                      <p>{project.description}</p>
+          <div className="carousel-container">
+            {renderNavButtons()}
+            
+            <div className="project-gallery-wrapper" ref={scrollContainerRef}>
+              <div className="project-gallery-scroll">
+                {projects.map((project) => (
+                  <div key={project.id} className="project-card-view">
+                    <img src={project.image} alt={project.brandName} className="project-card-image" />
+                    <div className="card-overlay">
+                      <div className="card-info">
+                        <p className="brand-name">{project.brandName}</p>
+                      </div>
+                      <div className="card-description">
+                        <p>{project.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
           

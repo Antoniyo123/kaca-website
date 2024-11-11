@@ -44,24 +44,27 @@ const talents = [
 const Talent = () => {
   const personalProfile1Ref = useRef(null);
   const talentShowcaseRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const [selectedTalent, setSelectedTalent] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (talentShowcaseRef.current && personalProfile1Ref.current) {
-        const scrollPosition = window.scrollY;
-        const talentShowcaseBottom = talentShowcaseRef.current.offsetTop + talentShowcaseRef.current.offsetHeight;
-        const windowHeight = window.innerHeight;
+      if (talentShowcaseRef.current) {
+        const talentShowcaseRect = talentShowcaseRef.current.getBoundingClientRect();
+        const threshold = window.innerHeight * 0.7; // Show when 70% of viewport height is scrolled
         
-        const progress = (scrollPosition + windowHeight - talentShowcaseBottom) / windowHeight;
-        setScrollProgress(Math.max(0, Math.min(1, progress)));
+        // Set visibility based on scroll position
+        setIsVisible(talentShowcaseRect.bottom < threshold);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -75,10 +78,8 @@ const Talent = () => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const progress = Math.min(timeElapsed / duration, 1);
-
-      // Easing function for smoother animation
-      const ease = t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
       
+      const ease = t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
       window.scrollTo(0, startPosition + distance * ease(progress));
 
       if (timeElapsed < duration) {
@@ -93,35 +94,30 @@ const Talent = () => {
     setIsNavigating(true);
     setSelectedTalent(talentName);
 
-    // First scroll to PersonalProfile1
-    if (talentShowcaseRef.current) {
-      const talentShowcaseBottom = talentShowcaseRef.current.offsetTop + talentShowcaseRef.current.offsetHeight;
-      smoothScrollTo(personalProfile1Ref.current, 1000);
-
-      // Wait for the first scroll to complete
+    if (personalProfile1Ref.current) {
+      smoothScrollTo(personalProfile1Ref.current, 800);
+      
       setTimeout(() => {
         const talentElement = document.getElementById(talentName);
         if (talentElement) {
-          smoothScrollTo(talentElement, 800);
+          smoothScrollTo(talentElement, 600);
         }
         
-        // Reset navigation state
         setTimeout(() => {
           setIsNavigating(false);
           setSelectedTalent(null);
-        }, 1000);
-      }, 1200);
+        }, 800);
+      }, 1000);
     }
   };
 
   const togglePersonalProfile = () => {
-    if (talentShowcaseRef.current) {
-      smoothScrollTo(personalProfile1Ref.current, 1000);
+    if (personalProfile1Ref.current) {
+      smoothScrollTo(personalProfile1Ref.current, 800);
     }
   };
 
-  // Add CSS classes for animations
-  const getTalentItemClass = (talent, index) => {
+  const getTalentItemClass = (talent) => {
     let classes = "talent-item";
     if (isNavigating) {
       if (talent.name === selectedTalent) {
@@ -141,9 +137,9 @@ const Talent = () => {
     
           <div className="talent-carousel-wrapper">
             <div className="talent-carousel">
-              {talents.slice(0, 5).map((talent, index) => (
+              {talents.map((talent, index) => (
                 <div 
-                  className={getTalentItemClass(talent, index)}
+                  className={getTalentItemClass(talent)}
                   onMouseEnter={() => !isNavigating && setHoveredIndex(index)}
                   onMouseLeave={() => !isNavigating && setHoveredIndex(null)}
                   onClick={() => !isNavigating && navigateToTalent(talent.name)}
@@ -186,12 +182,7 @@ const Talent = () => {
 
       <div 
         ref={personalProfile1Ref} 
-        className="personal-profile-wrapper"
-        style={{
-          transform: `translateY(${(1 - scrollProgress) * 100}%)`,
-          opacity: scrollProgress,
-          transition: 'transform 0.6s ease-out, opacity 0.6s ease-out'
-        }}
+        className={`personal-profile-wrapper ${isVisible ? 'visible' : ''}`}
       >
         <PersonalProfile1 />
       </div>

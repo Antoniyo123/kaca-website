@@ -99,11 +99,9 @@ align-items: center;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(242, 240, 240, 0.7);
-  color: white;
   width: 100%;
-  height: 70px; /* Initial height to show brand info */
-  transition: .5s ease;
+  height: 70px; /* Height for brand info */
+  transition: background-color 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -111,20 +109,22 @@ align-items: center;
 
 .project-card-view:hover .card-overlay {
   height: 100%;
-  max-height: auto;
-  background: #121211ce;
-  color: white;
+  background: #121211b5;
 }
-.project-card-view:hover .card-overlay p{
-color: #FFFFFF;
+
+.project-card-view:hover .card-overlay p {
+  color: #FFFFFF;
 }
+
 .card-info {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: .5s ease;
+  background: rgba(242, 240, 240, 0.7); /* Background for brand info */
+  transition: background-color 0.3s ease;
 }
+
 
 .brand-name {
   font-size: 25px;
@@ -140,18 +140,20 @@ color: #FFFFFF;
 .card-description {
   height: 400px;
   padding: 10px;
-  transition: .5s ease;
   opacity: 0;
+  transition: opacity 0.3s ease;
   max-height: 0;
 }
 
-.project-card-view:hover .card-info {
-  transform: translateY(-10%);
+.project-card-view:hover .brand-name p {
+  transform: none; /* Remove transform */
+  color: #121211;
 }
 
 .project-card-view:hover .card-description {
   opacity: 1;
-  max-height: calc(60% - 80px); /* Subtracting the height of card-info */
+  height: auto;
+  margin-top: 10px; /* Add some space between brand info and description */
 }
 
 
@@ -242,6 +244,69 @@ color: #FFFFFF;
   object-fit: contain;
 }
 
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 80px;
+  background: rgba(18, 17, 17, 0.15);
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.nav-button.prev {
+  left: 16px;
+}
+
+.nav-button.next {
+  right: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-gallery-scroll {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card-view {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
 @keyframes scroll {
   0% {
     transform: translateX(0);
