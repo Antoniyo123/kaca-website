@@ -62,36 +62,46 @@ const NewSection = () => {
                         </div>
                     </div>
                     <div className="photo-gallery">
-                        <img
-                            src={require('../img/our-talent/nazla1.png')}
-                            alt="Nazla"
-                            className="wide-photo-talent"
-                            onClick={() => handleTalentClick('nazla')}
-                        />
-                        <img
-                            src={require('../img/our-talent/aaliyah1.png')}
-                            alt="Aaliyah"
-                            className="wide-photo-talent"
-                            onClick={() => handleTalentClick('aaliyah')}
-                        />
-                        <img
-                            src={require('../img/our-talent/aqsa1.png')}
-                            alt="Aqsa"
-                            className="wide-photo-talent"
-                            onClick={() => handleTalentClick('aqsa')}
-                        />
-                        <img
-                            src={require('../img/our-talent/agatha1.png')}
-                            alt="Agatha"
-                            className="wide-photo-talent"
-                            onClick={() => handleTalentClick('agatha')}
-                        />
-                        <img
-                            src={require('../img/our-talent/rachel1.png')}
-                            alt="Rachel"
-                            className="wide-photo-talent"
-                            onClick={() => handleTalentClick('rachel')}
-                        />
+                        <div className="photo-wrapper">
+                            <img
+                                src={require('../img/our-talent/nazla1.png')}
+                                alt="Nazla"
+                                className="wide-photo-talent"
+                                onClick={() => handleTalentClick('nazla')}
+                            />
+                        </div>
+                        <div className="photo-wrapper">
+                            <img
+                                src={require('../img/our-talent/aaliyah1.png')}
+                                alt="Aaliyah"
+                                className="wide-photo-talent"
+                                onClick={() => handleTalentClick('aaliyah')}
+                            />
+                        </div>
+                        <div className="photo-wrapper">
+                            <img
+                                src={require('../img/our-talent/aqsa1.png')}
+                                alt="Aqsa"
+                                className="wide-photo-talent"
+                                onClick={() => handleTalentClick('aqsa')}
+                            />
+                        </div>
+                        <div className="photo-wrapper">
+                            <img
+                                src={require('../img/our-talent/agatha1.png')}
+                                alt="Agatha"
+                                className="wide-photo-talent"
+                                onClick={() => handleTalentClick('agatha')}
+                            />
+                        </div>
+                        <div className="photo-wrapper">
+                            <img
+                                src={require('../img/our-talent/rachel1.png')}
+                                alt= "Rachel"
+                                className="wide-photo-talent"
+                                onClick={() => handleTalentClick('rachel')}
+                            />
+                        </div>
                     </div>
                 </div>
 
@@ -107,13 +117,27 @@ const NewSection = () => {
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}>
                         <div className="horizontal-gallery" ref={galleryRef}>
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_aero.jpg')} alt="Aero" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_angie.jpg')} alt="Angie" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_daffa.jpg')} alt="Daffa" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/rsz_dindra.jpg')} alt="Dindra" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Genu" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Jehian" className="horizontal-photo" />
-                            <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Jerome" className="horizontal-photo" />
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/rsz_aero.jpg')} alt="Aero" className="horizontal-photo" />
+                            </div>
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/rsz_angie.jpg')} alt="Angie" className="horizontal-photo" />
+                            </div>
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/rsz_daffa.jpg')} alt="Daffa" className="horizontal-photo" />
+                            </div>
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/rsz_dindra.jpg')} alt="Dindra" className="horizontal-photo" />
+                            </div>
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/GENU.jpg')} alt="Genu" className="horizontal-photo" />
+                            </div>
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/JEHIAN.jpg')} alt="Jehian" className="horizontal-photo" />
+                            </div>
+                            <div className="photo-wrapper">
+                                <img src={require('../img/our-talent/KacaNetwork/JEROME.jpg')} alt="Jerome" className="horizontal-photo" />
+                            </div>
                         </div>
                         <div className="gallery-controls">
                             <button className="slider-arrow left-slide" onClick={scrollLeft}>

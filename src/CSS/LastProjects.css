@@ -109,7 +109,8 @@ align-items: center;
 
 .project-card-view:hover .card-overlay {
   height: 100%;
-  background: #121211b5;
+  background: #121211ba;
+  color: #FFFFFF;
 }
 
 .project-card-view:hover .card-overlay p {
@@ -146,16 +147,33 @@ align-items: center;
 }
 
 .project-card-view:hover .brand-name p {
-  transform: none; /* Remove transform */
-  color: #121211;
+  animation: fade-in 0.3s ease-in-out;
+  color: #FFFFFF;
+}
+.project-card-view:hover .card-info {
+  animation: fade-in 0.3s ease-in-out;
+  color: #FFFFFF;
+  background: none;
+
 }
 
 .project-card-view:hover .card-description {
   opacity: 1;
-  height: auto;
-  margin-top: 10px; /* Add some space between brand info and description */
+  max-height: 400px; /* Adjust this value to the height you want */
+  margin-top: 10px;
+  animation: fade-in 0.3s ease-in-out;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

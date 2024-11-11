@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import arrowRight from '../img/svg-assets/arrow-right.svg';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-
 const LastProjects = () => {
   const scrollContainerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState({
     isAtStart: true,
     isAtEnd: false
   });
-  
+  const [hoveredProject, setHoveredProject] = useState(null);
+
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -80,7 +80,7 @@ const LastProjects = () => {
       container.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
   const projects = [
     {
       id: 1,
@@ -101,14 +101,14 @@ const LastProjects = () => {
       image: require('../img/projects/disney1.png'),
       brandName: 'DISNEY',
       brandLogo: require('../img/brandimg/disney.png'),
-      description: 'For the launch of the new Disney’s movie called ‘Cruella’. Nazla is selected to be one of the KOLs for this campaign.'
+      description: "For the launch of the new Disney's movie called 'Cruella'. Nazla is selected to be one of the KOLs for this campaign."
     },
     {
       id: 4,
       image: require('../img/dior/dior1.png'),
       brandName: 'DIOR',
       brandLogo: require('../img/brandimg/dior copy.png'),
-      description: 'Nazla Alifa embodies the elegance and sophistication synonymous with DIOR, effortlessly reflecting the brand’s essence through her unique sense of style and grace'
+      description: "Nazla Alifa embodies the elegance and sophistication synonymous with DIOR, effortlessly reflecting the brand's essence through her unique sense of style and grace"
     },
     {
       id: 5,
@@ -118,6 +118,7 @@ const LastProjects = () => {
       description: "To commemorate Make Over's anniversary, Agatha and Nazla creatively showcase the brand's best-selling products in a distinctive and visually appealing manner."
     }
   ];
+
   const brandImages = [
     require('../img/brandimg/loreal.png'),
     require('../img/brandimg/permata.png'),
@@ -137,7 +138,7 @@ const LastProjects = () => {
 
   const renderNavButtons = () => {
     const { isAtStart, isAtEnd } = scrollPosition;
-    
+
     return (
       <>
         {(!isAtStart || isAtEnd) && (
@@ -149,7 +150,7 @@ const LastProjects = () => {
             <ChevronLeft size={32} color="black" className="w-6 h-6" />
           </button>
         )}
-        
+
         {!isAtEnd && (
           <button 
             className="nav-button next"
@@ -162,20 +163,22 @@ const LastProjects = () => {
       </>
     );
   };
+
   const scrollTo = (direction) => {
     const container = scrollContainerRef.current;
     if (!container) return;
-    
+
     const cardWidth = container.offsetWidth;
     const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
-    
+
     container.scrollBy({
       left: scrollAmount,
       behavior: 'smooth'
     });
   };
+
   return (
-<div className="project-content-container">
+    <div className="project-content-container">
       <div className="project-section">
         <div className="project-gallery-container">
           <div className="photo-gallery-section">
@@ -191,19 +194,25 @@ const LastProjects = () => {
               </Link>
             </div>
           </div>
-          
+
           {/* Project Cards dengan horizontal scroll */}
           <div className="carousel-container">
             {renderNavButtons()}
-            
+
             <div className="project-gallery-wrapper" ref={scrollContainerRef}>
               <div className="project-gallery-scroll">
                 {projects.map((project) => (
-                  <div key={project.id} className="project-card-view">
+                  <div
+                    key={project.id}
+                    className="project-card-view"
+                    onMouseEnter={() => setHoveredProject(project.id)}
+                    onMouseLeave={() => setHoveredProject(null)}
+                  >
                     <img src={project.image} alt={project.brandName} className="project-card-image" />
-                    <div className="card-overlay">
+                    <div className={`card-overlay ${hoveredProject === project.id ? 'show' : ''}`}>
                       <div className="card-info">
                         <p className="brand-name">{project.brandName}</p>
+                        {/* <img src={project.brandLogo} alt={project.brandName} className="brand-logo" /> */}
                       </div>
                       <div className="card-description">
                         <p>{project.description}</p>
@@ -214,7 +223,7 @@ const LastProjects = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Scrolling Brands Section */}
           <div className="brand-scroller">
             <div className="scrolling-images">

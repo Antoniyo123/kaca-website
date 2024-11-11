@@ -1,5 +1,16 @@
 
+@font-face {
+  font-family: 'Rotunda';
+  src: url('../src/fonts/rotunda-custom.otf') format('woff2'),
+       url('../src/fonts/RotundaVariable-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
+/* Set global font-family */
+body, button, input, textarea, select, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rotunda', sans-serif;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
