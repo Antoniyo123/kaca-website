@@ -8,6 +8,15 @@ const ContactUs = () => {
   const [status, setStatus] = useState('');
   const [showModal, setShowModal] = useState(false);
 
+  // Data social media links
+  const socialMediaLinks = {
+    instagram: "https://instagram.com/youraccount",
+    tiktok: "https://tiktok.com/@youraccount",
+    youtube: "https://youtube.com/@youraccount",
+    linkedin: "https://linkedin.com/company/youraccount",
+    newsletter: "/newsletter" // Atau URL form newsletter Anda
+  };
+
   const handleModalClose = () => {
     setShowModal(false);
   };
@@ -16,21 +25,25 @@ const ContactUs = () => {
     e.preventDefault();
 
     emailjs.send(
-      'service_ljght9l',        // Ganti dengan SERVICE ID dari EmailJS
-      'template_kiiul6g',       // Ganti dengan TEMPLATE ID dari EmailJS
-      { email, message, to_email: 'collaboration@kacakreatif.com' },       // Data yang dikirim ke template
-      's0Lyp4fKU7IrI2KkF'       // Ganti dengan USER ID dari EmailJS
+      'service_ljght9l',
+      'template_kiiul6g',
+      { email, message, to_email: 'collaboration@kacakreatif.com' },
+      's0Lyp4fKU7IrI2KkF'
     ).then(
       (result) => {
         console.log('Email sent successfully', result.text);
-        setStatus('Email sent successfully!');
-        setShowModal(true);  // Menampilkan modal sukses
+        setShowModal(true);
       },
       (error) => {
         console.error('Failed to send email', error.text);
         setStatus('Failed to send email, please try again.');
       }
     );
+  };
+
+  // Handler untuk membuka link dalam tab baru
+  const handleSocialClick = (url) => {
+    window.open(url, '_blank', 'noopener noreferrer');
   };
 
   return (
@@ -81,23 +94,43 @@ const ContactUs = () => {
           </div>
           <div className="address social-media">
             <h2>Connect with us</h2>
-            <p className="social-item">
+            <p 
+              className="social-item" 
+              onClick={() => handleSocialClick(socialMediaLinks.instagram)}
+              style={{ cursor: 'pointer' }}
+            >
               <img src={require('../img/icon/instagram-black.png')} alt="Instagram" className="social-icon" />
               <span>Instagram</span>
             </p>
-            <p className="social-item">
+            <p 
+              className="social-item"
+              onClick={() => handleSocialClick(socialMediaLinks.tiktok)}
+              style={{ cursor: 'pointer' }}
+            >
               <img src={require('../img/icon/tiktok-black.png')} alt="TikTok" className="social-icon" />
               <span>TikTok</span>
             </p>
-            <p className="social-item">
+            <p 
+              className="social-item"
+              onClick={() => handleSocialClick(socialMediaLinks.youtube)}
+              style={{ cursor: 'pointer' }}
+            >
               <img src={require('../img/icon/youtube.png')} alt="Youtube" className="social-icon" />
               <span>Youtube</span>
             </p>
-            <p className="social-item">
+            <p 
+              className="social-item"
+              onClick={() => handleSocialClick(socialMediaLinks.linkedin)}
+              style={{ cursor: 'pointer' }}
+            >
               <img src={require('../img/icon/linkedin.png')} alt="LinkedIn" className="social-icon" />
               <span>LinkedIn</span>
             </p>
-            <p className="social-item">
+            <p 
+              className="social-item"
+              onClick={() => handleSocialClick(socialMediaLinks.newsletter)}
+              style={{ cursor: 'pointer' }}
+            >
               <span>Subscribe Newsletter</span>
             </p>
           </div>
