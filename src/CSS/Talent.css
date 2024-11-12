@@ -115,7 +115,7 @@
 
 .talent-description {
   position: absolute;
-  bottom: 0;
+  bottom: 7px;
   left: 0;
   width: 100%;
   height: 80px;
@@ -132,7 +132,7 @@
 .talent-item:hover .talent-description {
   opacity: 1;
   height: 80px;
-  bottom: 0;
+  bottom: 7px;
 }
 
 .talent-background {
