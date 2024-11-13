@@ -10,10 +10,10 @@ const ContactUs = () => {
 
   // Data social media links
   const socialMediaLinks = {
-    instagram: "https://instagram.com/youraccount",
-    tiktok: "https://tiktok.com/@youraccount",
-    youtube: "https://youtube.com/@youraccount",
-    linkedin: "https://linkedin.com/company/youraccount",
+    instagram: "https://www.instagram.com/kacakreatif/?hl=en",
+    tiktok: "https://www.tiktok.com/@kacakreatif?lang=en",
+    youtube: "https://www.youtube.com/@kacakreatif22",
+    linkedin: "https://www.linkedin.com/company/kaca-kreatif/",
     newsletter: "/newsletter" // Atau URL form newsletter Anda
   };
 
@@ -86,55 +86,70 @@ const ContactUs = () => {
         </div>
 
         <div className="info-container">
-          <div className="address">
-            <h2>Address</h2>
-            <p>Jl. Cilandak Permai Raya No.15A, Cilandak Baru, Kec. Cilandak,</p>
-            <p>Kota Jakarta Selatan</p>
-            <p className='number'>+6281 2320 2367</p>
-          </div>
-          <div className="address social-media">
-            <h2>Connect with us</h2>
-            <p 
-              className="social-item" 
-              onClick={() => handleSocialClick(socialMediaLinks.instagram)}
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={require('../img/icon/instagram-black.png')} alt="Instagram" className="social-icon" />
-              <span>Instagram</span>
-            </p>
-            <p 
-              className="social-item"
-              onClick={() => handleSocialClick(socialMediaLinks.tiktok)}
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={require('../img/icon/tiktok-black.png')} alt="TikTok" className="social-icon" />
-              <span>TikTok</span>
-            </p>
-            <p 
-              className="social-item"
-              onClick={() => handleSocialClick(socialMediaLinks.youtube)}
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={require('../img/icon/youtube.png')} alt="Youtube" className="social-icon" />
-              <span>Youtube</span>
-            </p>
-            <p 
-              className="social-item"
-              onClick={() => handleSocialClick(socialMediaLinks.linkedin)}
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={require('../img/icon/linkedin.png')} alt="LinkedIn" className="social-icon" />
-              <span>LinkedIn</span>
-            </p>
-            <p 
-              className="social-item"
-              onClick={() => handleSocialClick(socialMediaLinks.newsletter)}
-              style={{ cursor: 'pointer' }}
-            >
-              <span>Subscribe Newsletter</span>
-            </p>
-          </div>
-        </div>
+  <div className="address">
+    <h2>Address</h2>
+    <a 
+      href="https://www.google.com/maps/search/?api=1&query=Jl.%20Cilandak%20Permai%20Raya%20No.15A,%20Cilandak%20Baru,%20Kec.%20Cilandak,%20Kota%20Jakarta%20Selatan" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
+      <p>Jl. Cilandak Permai Raya No.15A, Cilandak Baru, Kec. Cilandak,</p>
+      <p>Kota Jakarta Selatan</p>
+    </a>
+    <a 
+  href="tel:+628123202367" 
+  className="number number-link"
+  style={{ textDecoration: 'none', color: 'inherit' }}
+>
+
+      <p>+6281 2320 2367</p>
+    </a>
+  </div>
+  <div className="address social-media">
+    <h2>Connect with us</h2>
+    <p 
+      className="social-item" 
+      onClick={() => handleSocialClick(socialMediaLinks.instagram)}
+      style={{ cursor: 'pointer' }}
+    >
+      <img src={require('../img/icon/instagram-black.png')} alt="Instagram" className="social-icon" />
+      <span>Instagram</span>
+    </p>
+    <p 
+      className="social-item"
+      onClick={() => handleSocialClick(socialMediaLinks.tiktok)}
+      style={{ cursor: 'pointer' }}
+    >
+      <img src={require('../img/icon/tiktok-black.png')} alt="TikTok" className="social-icon" />
+      <span>TikTok</span>
+    </p>
+    <p 
+      className="social-item"
+      onClick={() => handleSocialClick(socialMediaLinks.youtube)}
+      style={{ cursor: 'pointer' }}
+    >
+      <img src={require('../img/icon/youtube.png')} alt="Youtube" className="social-icon" />
+      <span>Youtube</span>
+    </p>
+    <p 
+      className="social-item"
+      onClick={() => handleSocialClick(socialMediaLinks.linkedin)}
+      style={{ cursor: 'pointer' }}
+    >
+      <img src={require('../img/icon/linkedin.png')} alt="LinkedIn" className="social-icon" />
+      <span>LinkedIn</span>
+    </p>
+    <p 
+      className="social-item"
+      onClick={() => handleSocialClick(socialMediaLinks.newsletter)}
+      style={{ cursor: 'pointer' }}
+    >
+      <span>Subscribe Newsletter</span>
+    </p>
+  </div>
+</div>
+
         <div className="background-photo-contact"></div>
       </div>
 

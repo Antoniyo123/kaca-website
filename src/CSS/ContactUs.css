@@ -194,6 +194,16 @@
 .social-media span {
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
+.number-link {
+  color: inherit; /* Gunakan warna default */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Tambahkan animasi untuk efek smooth */
+}
+
+.number-link:hover {
+  color: #3498db; /* Ganti dengan warna yang Anda inginkan saat di-hover */
+  text-decoration: underline; /* Tambahkan underline saat di-hover */
+}
+
 
 /* Tablet Breakpoint */
 @media (max-width: 1024px) {

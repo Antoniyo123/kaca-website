@@ -233,7 +233,7 @@ good videos and photos. `,
             </button>
           ))}
           <button
-            className="tab"
+            className="tab "
             onClick={() => handleTabClick('More Talents')}
           >
             More Talents
