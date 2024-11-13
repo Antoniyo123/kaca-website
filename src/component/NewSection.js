@@ -9,6 +9,8 @@ const NewSection = () => {
     const [touchStartX, setTouchStartX] = useState(0);
     const [touchEndX, setTouchEndX] = useState(0);
     const navigate = useNavigate();
+    const [selectedTalent, setSelectedTalent] = useState(null);
+
 
     const scrollLeft = () => {
         galleryRef.current.scrollBy({ left: -200, behavior: 'smooth' });
@@ -39,14 +41,18 @@ const NewSection = () => {
         }
     };
 
+    // Updated to pass the talent name to PersonalProfile1
     const handleTalentClick = (talentName) => {
-        navigate(`/talent?name=${talentName.toLowerCase()}`);
+        navigate(`/talent/${talentName.toLowerCase()}`, { 
+            state: { fromGallery: true }
+        });
     };
+
 
     return (
         <div className="content-container">
             <div className="new-section">
-                {/* Existing Photo Gallery */}
+                {/* Main Talents Photo Gallery */}
                 <div className="photo-gallery-container">
                     <div className="photo-gallery-section-talent">
                         <div className="video-hover">
@@ -55,61 +61,41 @@ const NewSection = () => {
                         <div className="see-more-button-container">
                             <Link to="/talent" className="see-more-button">
                                 See More 
-                            <span className="arrow-icon">
-                                <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
-                            </span>
+                                <span className="arrow-icon">
+                                    <img src={arrowRight} alt="Scroll Right" width={24} height={24} />
+                                </span>
                             </Link>
                         </div>
                     </div>
                     <div className="photo-gallery">
-                        <div className="photo-wrapper">
-                            <img
-                                src={require('../img/our-talent/NAZLA.png')}
-                                alt="Nazla"
-                                className="wide-photo-talent"
-                                onClick={() => handleTalentClick('nazla')}
-                            />
-                        </div>
-                        <div className="photo-wrapper">
-                            <img
-                                src={require('../img/our-talent/AALIYAH.png')}
-                                alt="Aaliyah"
-                                className="wide-photo-talent"
-                                onClick={() => handleTalentClick('aaliyah')}
-                            />
-                        </div>
-                        <div className="photo-wrapper">
-                            <img
-                                src={require('../img/our-talent/AQSA.png')}
-                                alt="Aqsa"
-                                className="wide-photo-talent"
-                                onClick={() => handleTalentClick('aqsa')}
-                            />
-                        </div>
-                        <div className="photo-wrapper">
-                            <img
-                                src={require('../img/our-talent/AGATHA.png')}
-                                alt="Agatha"
-                                className="wide-photo-talent"
-                                onClick={() => handleTalentClick('agatha')}
-                            />
-                        </div>
-                        <div className="photo-wrapper">
-                            <img
-                                src={require('../img/our-talent/RACHEL.png')}
-                                alt= "Rachel"
-                                className="wide-photo-talent"
-                                onClick={() => handleTalentClick('rachel')}
-                            />
-                        </div>
+                        {[
+                            { name: 'nazla', image: 'NAZLA.png' },
+                            { name: 'aaliyah', image: 'AALIYAH.png' },
+                            { name: 'aqsa', image: 'AQSA.png' },
+                            { name: 'agatha', image: 'AGATHA.png' },
+                            { name: 'rachel', image: 'RACHEL.png' }
+                        ].map((talent) => (
+                            <Link
+                                key={talent.name}
+                                to={`/talent/${talent.name}`}
+                                className="photo-wrapper"
+                                state={{ fromGallery: true }}
+                            >
+                                <img
+                                    src={require(`../img/our-talent/${talent.image}`)}
+                                    alt={talent.name}
+                                    className="wide-photo-talent"
+                                />
+                            </Link>
+                        ))}
                     </div>
                 </div>
 
-                {/* New Content */}
+                {/* KACA Network Section */}
                 <div className="new-content">
                     <div className="new-content-text">
                         <p>
-                        In addition to our exceptional talent pool, we also offer access to the extensive resources of the KACA Network talents.
+                            In addition to our exceptional talent pool, we also offer access to the extensive resources of the KACA Network talents.
                         </p>
                     </div>
                     <div className="horizontal-gallery-wrapper"

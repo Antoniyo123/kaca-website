@@ -1,27 +1,50 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../CSS/PersonalProfile1.css';
-import KacaNetwork from '../component/KacaNetwork'
+import { useParams } from 'react-router-dom';
+import KacaNetwork from '../component/KacaNetwork';
+// import PersonalProfile1 from '../component/PersonalProfile1'
 
 const PersonalProfile1 = ({ initialSelectedTalent = null })  => {
   
-  
+  const { name } = useParams();
   const [activeTab, setActiveTab] = useState(initialSelectedTalent);
   const contentRef = useRef(null);
   const [socialStats, setSocialStats] = useState({});
+  
   useEffect(() => {
     if (initialSelectedTalent && talents.find(t => t.name === initialSelectedTalent)) {
       setActiveTab(initialSelectedTalent);
-      scrollToTalent(initialSelectedTalent);
+      const element = document.getElementById(initialSelectedTalent);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     } else if (talents.length > 0) {
       setActiveTab(talents[0].name); // Default to the first talent
     }
   }, [initialSelectedTalent]);
-  const scrollToTalent = () => {
+  useEffect(() => {
+    if (name) {
+      const formattedName = name.toUpperCase();
+      setActiveTab(formattedName);
+      
+      // Scroll to the selected talent after a short delay
+      setTimeout(() => {
+        const element = document.getElementById(formattedName);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else if (talents.length > 0) {
+      setActiveTab(talents[0].name);
+    }
+  }, [name]);
+
+  
+  
+  const scrollToTalent = (talentName) => {
     // Your scroll logic, for example:
     document.getElementById('talent-section').scrollIntoView({ behavior: 'smooth' });
   };
-  
-  
 
   const talents = [
     {
@@ -244,7 +267,7 @@ good videos and photos. `,
       <div className='talent__card__wrapper'>
         <div id={talent.name} className="talent-card">
           {/* Image Carousel Section */}
-          <div id= "talentSection" className="talent-image-personal">
+          <div className="talent-image-personal">
             <img 
               src={talent.images[currentImageIndex]} 
               alt={`${talent.fullName} - Image ${currentImageIndex + 1}`} 

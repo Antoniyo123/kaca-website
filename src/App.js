@@ -9,6 +9,7 @@ import Articles from './component/Articles';
 import ArticlesDetail from './component/ArticlesDetail';
 import TalentPage from './component/TalentPage';
 import ProjectCard from './component/ProjectCard';
+import PersonalProfile1 from './component/PersonalProfile1';
 import Loading from './component/Loader';
 import SplashScreen from './component/SplashScreen';
 import './index.css';
@@ -45,31 +46,34 @@ const AppWithLoading = () => {
     return () => clearTimeout(loadingTimer);
   }, [location]);
 
-  const renderRoute = (Component) => (
+  const renderRoute = (Component, props = {}) => (
     showContent ? (
       <div className="animated-page">
-        <Component />
+        <Component {...props} />
       </div>
     ) : null
   );
 
   return (
     <div className="App">
-      <Navbar />
-      {loading && <Loading />}
-      <main className={`main-content ${showContent ? 'show' : ''}`}>
-        <Routes>
-          <Route path="/" element={renderRoute(Home)} />
-          <Route path="/talent" element={renderRoute(TalentPage)} />
-          <Route path="/deskripsiproject" element={renderRoute(DeskripsiProject)} />
-          <Route path="/project/:id" element={renderRoute(ProjectDetails)} />
-          <Route path="/contact-us" element={renderRoute(ContactUs)} />
-          <Route path="/articles" element={renderRoute(Articles)} />
-          <Route path="/article/:id" element={renderRoute(ArticlesDetail)} />
-          <Route path="/ProjectCard" element={renderRoute(ProjectCard)} />
-        </Routes>
-      </main>
-    </div>
+            <Navbar />
+            {loading && <Loading />}
+            <main className={`main-content ${showContent ? 'show' : ''}`}>
+                <Routes>
+                    <Route path="/" element={renderRoute(Home)} />
+                    <Route path="/talent">
+                        <Route index element={renderRoute(TalentPage)} />
+                        <Route path=":name" element={renderRoute(PersonalProfile1)} />
+                    </Route>
+                    <Route path="/deskripsiproject" element={renderRoute(DeskripsiProject)} />
+                    <Route path="/project/:id" element={renderRoute(ProjectDetails)} />
+                    <Route path="/contact-us" element={renderRoute(ContactUs)} />
+                    <Route path="/articles" element={renderRoute(Articles)} />
+                    <Route path="/article/:id" element={renderRoute(ArticlesDetail)} />
+                    <Route path="/ProjectCard" element={renderRoute(ProjectCard)} />
+                </Routes>
+            </main>
+        </div>
   );
 };
 

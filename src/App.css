@@ -34,14 +34,15 @@ body, button, input, textarea, select, p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Animasi untuk elemen-elemen di dalam halaman */
-.animated-page h1,
+/* .animated-page h1, */
 .animated-page h2,
 .animated-page h3,
-.animated-page p,
+/* .animated-page p, */
 .animated-page section
 /* .animated-page div,
 .animated-page img, */
  {
+  padding-top: 0;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.3s ease-out forwards;
