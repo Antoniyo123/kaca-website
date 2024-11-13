@@ -64,7 +64,7 @@ const NewSection = () => {
                     <div className="photo-gallery">
                         <div className="photo-wrapper">
                             <img
-                                src={require('../img/our-talent/nazla1.png')}
+                                src={require('../img/our-talent/NAZLA.png')}
                                 alt="Nazla"
                                 className="wide-photo-talent"
                                 onClick={() => handleTalentClick('nazla')}
@@ -72,7 +72,7 @@ const NewSection = () => {
                         </div>
                         <div className="photo-wrapper">
                             <img
-                                src={require('../img/our-talent/aaliyah1.png')}
+                                src={require('../img/our-talent/AALIYAH.png')}
                                 alt="Aaliyah"
                                 className="wide-photo-talent"
                                 onClick={() => handleTalentClick('aaliyah')}
@@ -80,7 +80,7 @@ const NewSection = () => {
                         </div>
                         <div className="photo-wrapper">
                             <img
-                                src={require('../img/our-talent/aqsa1.png')}
+                                src={require('../img/our-talent/AQSA.png')}
                                 alt="Aqsa"
                                 className="wide-photo-talent"
                                 onClick={() => handleTalentClick('aqsa')}
@@ -88,7 +88,7 @@ const NewSection = () => {
                         </div>
                         <div className="photo-wrapper">
                             <img
-                                src={require('../img/our-talent/agatha1.png')}
+                                src={require('../img/our-talent/AGATHA.png')}
                                 alt="Agatha"
                                 className="wide-photo-talent"
                                 onClick={() => handleTalentClick('agatha')}
@@ -96,7 +96,7 @@ const NewSection = () => {
                         </div>
                         <div className="photo-wrapper">
                             <img
-                                src={require('../img/our-talent/rachel1.png')}
+                                src={require('../img/our-talent/RACHEL.png')}
                                 alt= "Rachel"
                                 className="wide-photo-talent"
                                 onClick={() => handleTalentClick('rachel')}

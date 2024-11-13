@@ -46,7 +46,7 @@ const KacaActivity = () => {
     },
     {
       title: 'Connect with Nationwide Influencer & Content Creators',
-      content: 'Description for connecting with influencers...',
+      content: "We have an extensive network of amazing and reputable content creators throughout Indonesia, which spread all over big cities like Jakarta, Bandung, Yogyakarta, Surabaya, Bali, etc.",
       image: require('../img/kacaActivity/round.png'),
       imageWidth: '165px',
       imageHeight: '150px',
@@ -55,7 +55,7 @@ const KacaActivity = () => {
     },
     {
       title: 'Massive Increase Your Audience',
-      content: 'Description for increasing your audience...',
+      content: "Advertise your brand, campaign, and get more than 100.000 views through our talents social media.",
       image: require('../img/kacaActivity/spiral.png'),
       imageWidth: '165px',
       imageHeight: '150px',

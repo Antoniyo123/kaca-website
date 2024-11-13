@@ -1,11 +1,27 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../CSS/PersonalProfile1.css';
 import KacaNetwork from '../component/KacaNetwork'
 
-const PersonalProfile1 = () => {
-  const [activeTab, setActiveTab] = useState(null);
+const PersonalProfile1 = ({ initialSelectedTalent = null })  => {
+  
+  
+  const [activeTab, setActiveTab] = useState(initialSelectedTalent);
   const contentRef = useRef(null);
   const [socialStats, setSocialStats] = useState({});
+  useEffect(() => {
+    if (initialSelectedTalent && talents.find(t => t.name === initialSelectedTalent)) {
+      setActiveTab(initialSelectedTalent);
+      scrollToTalent(initialSelectedTalent);
+    } else if (talents.length > 0) {
+      setActiveTab(talents[0].name); // Default to the first talent
+    }
+  }, [initialSelectedTalent]);
+  const scrollToTalent = () => {
+    // Your scroll logic, for example:
+    document.getElementById('talent-section').scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  
 
   const talents = [
     {
@@ -156,11 +172,14 @@ good videos and photos. `,
 
   const handleTabClick = (talentName) => {
     setActiveTab(talentName);
-    const element = document.getElementById(talentName);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    setTimeout(() => {
+      const element = document.getElementById(talentName);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
+  
   const openSocialMedia = (platform, username) => {
     const urls = {
       instagram: `https://instagram.com/${username}`,
@@ -225,7 +244,7 @@ good videos and photos. `,
       <div className='talent__card__wrapper'>
         <div id={talent.name} className="talent-card">
           {/* Image Carousel Section */}
-          <div className="talent-image-personal">
+          <div id= "talentSection" className="talent-image-personal">
             <img 
               src={talent.images[currentImageIndex]} 
               alt={`${talent.fullName} - Image ${currentImageIndex + 1}`} 

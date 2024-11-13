@@ -5,37 +5,41 @@ import PersonalProfile1 from './PersonalProfile1';
 
 const talents = [
   { 
-    id: 1, 
+    id: 'nazla', 
     name: "NAZLA",
-    image: require('../img/our-talent/nazla1.png'), 
+    fullName: 'NAZLA ALIFA',
+
+    image: require('../img/our-talent/NAZLA.png'), 
     desc: "Nazla Alifa", 
     gif: require('../img/bg/bg-hover.png') 
   },
   { 
-    id: 2, 
-    name: "AALIYAH",
-    image: require('../img/our-talent/aaliyah1.png'), 
+    id: 'aaliyah', 
+    name: 'AALIYAH',
+    fullName: 'AALIYAH MASSAID',
+
+    image: require('../img/our-talent/AALIYAH.png'), 
     desc: "Aaliyah Massaid", 
     gif: require('../img/bg/bg-hover.png') 
   },
   { 
     id: 3, 
-    name: "AQSA",
-    image: require('../img/our-talent/aqsa1.png'), 
+    name: 'aqsa',
+    image: require('../img/our-talent/AQSA.png'), 
     desc: "Aqsa Aswar", 
     gif: require('../img/bg/bg-hover.png') 
   },
   { 
     id: 4, 
     name: "AGATHA",
-    image: require('../img/our-talent/agatha1.png'), 
-    desc: "Agatha Priscillia", 
+    image: require('../img/our-talent/AGATHA.png'), 
+    desc: "Agatha Pricilla", 
     gif: require('../img/bg/bg-hover.png') 
   },
   { 
     id: 5, 
     name: "RACHEL",
-    image: require('../img/our-talent/rachel1.png'), 
+    image: require('../img/our-talent/RACHEL.png'), 
     desc: "Rachel Theresia", 
     gif: require('../img/bg/bg-hover.png') 
   },
@@ -90,26 +94,35 @@ const Talent = () => {
     requestAnimationFrame(animation);
   };
 
-  const navigateToTalent = (talentName) => {
-    setIsNavigating(true);
-    setSelectedTalent(talentName);
 
+  const navigateToTalent = (talentId) => {
+    setIsNavigating(true);
+    setSelectedTalent(talentId);
+  
     if (personalProfile1Ref.current) {
       smoothScrollTo(personalProfile1Ref.current, 800);
-      
+  
       setTimeout(() => {
-        const talentElement = document.getElementById(talentName);
+        const talentElement = document.getElementById(talentId);
         if (talentElement) {
-          smoothScrollTo(talentElement, 600);
+          const headerOffset = 100; // Atur sesuai tinggi header Anda
+          const elementPosition = talentElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
-        
+  
         setTimeout(() => {
           setIsNavigating(false);
           setSelectedTalent(null);
-        }, 800);
-      }, 1000);
+        }, 1000);
+      }, 800);
     }
   };
+  
 
   const togglePersonalProfile = () => {
     if (personalProfile1Ref.current) {

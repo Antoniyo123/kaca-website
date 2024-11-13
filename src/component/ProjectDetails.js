@@ -7,7 +7,7 @@ const ProjectDetails = () => {
 
   // Dummy data object with more detailed information
   const projectDetails = {
-    1: {
+    3: {
       title: "VIVO",
       titleImage: require('../img/brandimg/vivo.png'),
       focus: "Product Launching",
@@ -26,7 +26,7 @@ const ProjectDetails = () => {
 
       ],
     },
-    2: {
+    5: {
         title: "Fibemini",
       titleImage: require('../img/brandimg/fibemini-removebg-preview.png'),
 
@@ -47,7 +47,7 @@ const ProjectDetails = () => {
   
         ],
       },
-      3: {
+      7: {
       titleImage: require('../img/brandimg/lazada.png'),
       title: "LAZADA",
         focus: "Project Launching",
@@ -65,7 +65,7 @@ const ProjectDetails = () => {
   
         ],
       },
-      5: {
+      9: {
       titleImage: require('../img/brandimg/stevemadden.png'),
         title: "SteveMadden",
         focus: "Exclusive Partnership",
@@ -127,7 +127,7 @@ const ProjectDetails = () => {
         ],
         
       },
-      7: {
+      10: {
       titleImage: require('../img/brandimg/toyota.png'),
         title: "Mitsubishi",
         focus: "Product Positioning",
@@ -146,7 +146,7 @@ const ProjectDetails = () => {
         ],
         
       },
-      9: {
+      2: {
       titleImage: require('../img/brandimg/samsung.png'),
       title: "Samsung",
         focus: "Product Launching",
@@ -184,7 +184,7 @@ const ProjectDetails = () => {
         ],
         
       },
-      10: {
+      1: {
       titleImage: require('../img/brandimg/dior copy.png'),
       title: "DIOR",
         focus: "Product Positioning",
