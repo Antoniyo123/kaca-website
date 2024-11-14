@@ -184,68 +184,7 @@
   }
 
 }
-@media not all and (min-resolution:.001dpcm) { 
-  @supports (-webkit-appearance:none) {
-    /* Safari-only CSS */
-    .background-image {
-      width: 700px !important;
-      right: -2% !important;
-      transform: translateZ(0); /* Force GPU acceleration */
-      -webkit-transform: translateZ(0);
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-    
-    .text-content-home {
-      padding-top: 2rem !important;
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-    }
-    
-    .slideshow {
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      -webkit-perspective: 1000;
-      perspective: 1000;
-    }
 
-    /* Fix for Safari's image handling */
-    .slide-image,
-    .slide-video {
-      -webkit-transform: translate3d(0,0,0);
-      transform: translate3d(0,0,0);
-    }
-    
-    /* Additional Safari optimizations */
-    .home-container {
-      -webkit-transform: translate3d(0,0,0);
-      transform: translate3d(0,0,0);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-  }
-}
-
-/* MacBook-specific fixes for both Safari and Chrome */
-@media screen and (min-width: 1512px) and (max-width: 3024px) {
-  .background-image {
-    width: 750px;
-    right: -3%;
-  }
-  
-  .text-content-home {
-    max-width: 550px;
-    padding: 3rem;
-  }
-}
-
-/* High-DPI MacBook displays */
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  .background-image {
-    transform-origin: right center;
-    -webkit-transform-origin: right center;
-  }
-}
 
 
 @media (max-width: 1440px) {
@@ -283,12 +222,12 @@
 /* Styles for MacBook Air M1/M2/M3 */
 @media (max-width: 1280px) {
   .home-container {
-    padding: 3rem;
+    padding: 2rem;
   }
 
   .text-content-home {
-    max-width: 450px;
-    padding: 3rem;
+    max-width: 600px;
+    padding: 2rem;
   }
 
   .intro-content h1 {
@@ -302,12 +241,12 @@
   }
 
   .background-image {
-    width: 600px;
+    width: 770px;
     right: -10%;
   }
 
   .landing-page-background {
-    max-width: 400px;
+    max-width: 450px;
     height: 300px;
   }
 }
