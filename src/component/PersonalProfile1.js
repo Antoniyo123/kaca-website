@@ -232,12 +232,13 @@ good videos and photos. `,
               {talent.name}
             </button>
           ))}
-          <button
-            className="tab "
-            onClick={() => handleTabClick('More Talents')}
-          >
-            More Talents
-          </button>
+        <button
+          className={`tab ${activeTab === 'More Talents' ? 'active' : ''}`}
+          onClick={() => handleTabClick('More Talents')}
+        >
+          More Talents
+        </button>
+
         </div>
       </div>
     </div>

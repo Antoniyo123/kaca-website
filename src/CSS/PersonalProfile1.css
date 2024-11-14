@@ -55,7 +55,8 @@ margin: 0 auto;
   }
   
   .tab.active {
-    color: #bbb464;
+    color: rgb(185, 151, 91);
+    /* color: #bbb464; */
   }
   .tab:hover {
     color: rgb(185, 151, 91);
@@ -322,3 +323,78 @@ margin: 0 auto;
       padding-top: 1rem;
     }
   }
+
+  /* Media Query untuk MacBook Pro 14" (M1, M2, M3) */
+@media screen and (min-width: 1920px) and (max-width: 3024px) {
+  .tab__bar__container {
+    height: 80px;
+    margin-top: 4.8rem;
+  }
+
+  .tab__bar__wrapper {
+    max-width: 1400px; /* Menyesuaikan untuk resolusi yang lebih tinggi */
+  }
+
+  .tab-bar {
+    margin-top: 12px;
+  }
+
+  .tab {
+    width: 190px;
+    padding: 0.9rem 0.9rem;
+    font-size: 20px;
+    margin-right: 0.7rem;
+  }
+
+  .talent-content {
+    max-width: 1400px;
+  }
+
+  .talent__card__wrapper {
+    max-width: 1100px;
+  }
+
+  .talent-image-personal {
+    max-width: 270px;
+    max-height: 410px;
+    margin-top: 1.2rem;
+  }
+
+  .talent-info {
+    padding: 0 1.8rem;
+    margin-top: -0.8rem;
+  }
+
+  .talent-info h2 {
+    font-size: 2.3rem;
+  }
+
+  .social-stats-container {
+    margin: 18px 0;
+  }
+
+  .social-platform {
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .metric-label {
+    font-size: 13.5px;
+  }
+
+  .metric-value {
+    font-size: 15.5px;
+  }
+
+  .talent-articles {
+    width: 28%;
+    max-height: 350px;
+    padding-left: 1.8rem;
+    margin-top: 1.4rem;
+  }
+
+}
