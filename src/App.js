@@ -14,6 +14,7 @@ import Loading from './component/Loader';
 import SplashScreen from './component/SplashScreen';
 import './index.css';
 import './App.css';
+import Talent from './component/Talent';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -63,7 +64,7 @@ const AppWithLoading = () => {
                     <Route path="/" element={renderRoute(Home)} />
                     <Route path="/talent">
                         <Route index element={renderRoute(TalentPage)} />
-                        <Route path=":name" element={renderRoute(PersonalProfile1)} />
+                        <Route path=":name" element={renderRoute(Talent)} />
                     </Route>
                     <Route path="/deskripsiproject" element={renderRoute(DeskripsiProject)} />
                     <Route path="/project/:id" element={renderRoute(ProjectDetails)} />

@@ -222,9 +222,6 @@
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
   will-change: opacity, transform;
-
-
-
 }
 .personal-profile-wrapper.visible {
   opacity: 1;

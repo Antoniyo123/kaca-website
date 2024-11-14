@@ -27,7 +27,7 @@ const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   const isProjectDetail = location.pathname.startsWith('/project/');
-  const isTalentPage = location.pathname === '/talent';
+  const isTalentPage = location.pathname === '/talent' || location.pathname.startsWith('/talent/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,11 +66,11 @@ const Navbar = () => {
           }
         }
       } else if (isTalentPage) {
-        // Check for PersonalProfile section in Talent page
+        // Check specifically for PersonalProfile section in Talent pages
         const personalProfile = document.querySelector('.personal-profile-wrapper');
         if (personalProfile) {
           const profileRect = personalProfile.getBoundingClientRect();
-          const profileTop = personalProfile.offsetTop;
+          const profileTop = window.scrollY + profileRect.top - navbarHeight;
           const profileBottom = profileTop + profileRect.height;
           
           if (scrollPosition >= profileTop && scrollPosition <= profileBottom) {
@@ -90,6 +90,7 @@ const Navbar = () => {
     }
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call immediately to set initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage, isProjectDetail, isTalentPage]);
 

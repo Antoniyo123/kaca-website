@@ -7,10 +7,10 @@ import LinkedInIcon from '../img/svg-assets/Linkedin.svg';
 
 const Footer = () => {
   const socialMediaLinks = {
-    instagram: 'https://www.instagram.com/your_instagram',
-    tiktok: 'https://www.tiktok.com/@your_tiktok',
-    youtube: 'https://www.youtube.com/channel/your_youtube',
-    linkedin: 'https://www.linkedin.com/in/your_linkedin',
+    instagram: "https://www.instagram.com/kacakreatif/?hl=en",
+    tiktok: "https://www.tiktok.com/@kacakreatif?lang=en",
+    youtube: "https://www.youtube.com/@kacakreatif22",
+    linkedin: "https://www.linkedin.com/company/kaca-kreatif/",
   };
 
   // Handle social click event
@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="connect-section">
             <h2>Connect with us</h2>
   <div className="address social-media">
-    <h2>Connect with us</h2>
+    {/* s */}
     <p 
       className="social-item" 
       onClick={() => handleSocialClick(socialMediaLinks.instagram)}
