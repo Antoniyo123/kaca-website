@@ -98,7 +98,7 @@ const LastProjects = () => {
     },
     {
       id: 3,
-      image: require('../img/projects/disney1.png'),
+      image: require('../img/projects/DISNEY HOMEPAGE.jpeg'),
       brandName: 'DISNEY',
       brandLogo: require('../img/brandimg/disney.png'),
       description: "For the launch of the new Disney's movie called 'Cruella'. Nazla is selected to be one of the KOLs for this campaign."
