@@ -47,7 +47,7 @@ const KacaActivity = () => {
     {
       title: 'Connect with Nationwide Influencer & Content Creators',
       content: "We have an extensive network of amazing and reputable content creators throughout Indonesia, which spread all over big cities like Jakarta, Bandung, Yogyakarta, Surabaya, Bali, etc.",
-      image: require('../img/kacaActivity/round.png'),
+      image: require('../img/kacaActivity/section 2 glass.png'),
       imageWidth: '165px',
       imageHeight: '150px',
       svgWidth: '265px',

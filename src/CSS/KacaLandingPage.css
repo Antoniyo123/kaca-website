@@ -199,6 +199,12 @@
   }
 
 }
+@media (min-width: 1920px) and (max-width: 3024px) {
+  .background-image {
+    width: 1160px;
+    right: -5%;
+  }
+}
 
 
 
