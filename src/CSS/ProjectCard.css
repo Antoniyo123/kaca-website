@@ -15,7 +15,7 @@
     height: 10%; /* Menutupi 1/4 bagian bawah gambar */
     background:#FFFFFFCC; /* Latar belakang semi-transparan agar teks jelas */
     color: black;
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between; /* Menempatkan teks di tengah vertikal */
