@@ -131,11 +131,11 @@
 
 
 
-.talent-item:hover .talent-description {
+/* .talent-item:hover .talent-description {
   opacity: 1;
   height: 80px;
   bottom: 7px;
-}
+} */
 
 .talent-background {
   position: absolute;
