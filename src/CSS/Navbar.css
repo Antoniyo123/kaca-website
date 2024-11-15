@@ -106,7 +106,7 @@
   width: 100%;
   z-index: 1001;
   color: #212322;
-  gap: 35px;
+  gap: 1.2rem;
   margin: 0 auto;
   justify-content: center;
 }
@@ -137,12 +137,14 @@ a, .navbar-menu a {
 }
 
 .close-icon:hover {
-  transform: rotate(90deg);
+  transform: rotate(360deg);
 }
 .menu-icon {
   width: 32px; /* Sesuaikan dengan ukuran yang diinginkan */
   height: 32px;
   transition: transform 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(18%) saturate(754%) hue-rotate(358deg) brightness(88%) contrast(85%);
+
 }
 .nav-item span {
   font-size: 1.5rem;
@@ -193,7 +195,7 @@ a, .navbar-menu a {
   top: 65%;
 }
 
-/* @media (min-width: 1920px) and (max-width: 3024px) {
+@media (min-width: 1920px) and (max-width: 3024px) {
   .navbar-menu {
     position: fixed;
     left: 0;
@@ -204,8 +206,8 @@ a, .navbar-menu a {
     width: 100%;
     z-index: 1001;
     color: #212322;
-    gap: 10px;
+    gap: 30px;
     margin: 0 auto;
-    justify-content: space-evenly;
+    justify-content: center;
   }
-} */
+}

@@ -134,7 +134,7 @@ const Navbar = () => {
       <div className="menu-toggle" onClick={toggleMenu}>
       {isMenuOpen ? (
           <img 
-            src={require('../img/bg/x-toogle.png')} 
+            src={require('../img/LOGO K.png')} 
             alt="Close Menu" 
             className="menu-icon close-icon"
           />
