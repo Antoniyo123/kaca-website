@@ -182,7 +182,7 @@
     width: 920px;
     right: -5%;
   }
-  .slide-item {
+  /* .slide-item {
     margin-left: 10rem;
     position: absolute;
     width: 89%;
@@ -191,7 +191,7 @@
     right: -100%;
     transition: right 3s ease-in-out;
   }
-  /* .slideshow {
+  .slideshow {
     width: 89%;
     height: 100%;
     position: relative;
