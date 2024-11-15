@@ -106,8 +106,9 @@
   width: 100%;
   z-index: 1001;
   color: #212322;
-  gap: 1.5rem;
+  gap: 35px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 .navbar-menu.open {
@@ -191,3 +192,20 @@ a, .navbar-menu a {
   transform: translateX(-50%);
   top: 65%;
 }
+
+/* @media (min-width: 1920px) and (max-width: 3024px) {
+  .navbar-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    transition: bottom 0.5s ease-in-out;
+    bottom: -100%;
+    width: 100%;
+    z-index: 1001;
+    color: #212322;
+    gap: 10px;
+    margin: 0 auto;
+    justify-content: space-evenly;
+  }
+} */

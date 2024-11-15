@@ -81,7 +81,7 @@ const Footer = () => {
       onClick={() => handleSocialClick(socialMediaLinks.newsletter)}
       style={{ cursor: 'pointer' }}
     >
-      <span>Subscribe Newsletter</span>
+      {/* <span>Subscribe Newsletter</span> */}
     </p>
   </div>
           </div>
