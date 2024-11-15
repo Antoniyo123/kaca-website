@@ -187,69 +187,6 @@
 
 
 
-@media (max-width: 1440px) {
-  .home-container {
-    padding: 4rem;
-  }
-
-  .text-content-home {
-    max-width: 600px;
-    padding: 4rem;
-    padding-top: 0;
-  }
-
-  .intro-content h1 {
-    font-size: 48px;
-    line-height: 56px;
-  }
-
-  .intro-content h2 {
-    font-size: 28px;
-    line-height: 42px;
-  }
-
-  .background-image {
-    width: 800px;
-    right: -5%;
-  }
-
-  .landing-page-background {
-    max-width: 500px;
-    height: 350px;
-  }
-}
-
-/* Styles for MacBook Air M1/M2/M3 */
-@media (max-width: 1280px) {
-  .home-container {
-    padding: 2rem;
-  }
-
-  .text-content-home {
-    max-width: 600px;
-    padding: 2rem;
-  }
-
-  .intro-content h1 {
-    font-size: 42px;
-    line-height: 50px;
-  }
-
-  .intro-content h2 {
-    font-size: 24px;
-    line-height: 36px;
-  }
-
-  .background-image {
-    width: 770px;
-    right: -10%;
-  }
-
-  .landing-page-background {
-    max-width: 450px;
-    height: 300px;
-  }
-}
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .home-container {
@@ -258,7 +195,7 @@
   }
 
   .background-image {
-    width: 300px;
+    width: 600px;
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -271,57 +208,101 @@
   .text-content-home,
   .right-section {
     width: 100%;
+    max-width: 600px;
     height: auto;
   }
 
   .right-section {
     height: 200px;
   }
+  .landing-page-background{
+    margin-top: 3rem;
+    width: 300px;
+    height: 210px;
+  }
 }
-/* Mobile styles (for screens less than 768px wide) */
-@media (max-width: 768px) {
+
+
+
+/* Mobile Media Query (320px - 767px) */
+@media screen and (max-width: 767px) {
   .container {
-    flex-direction: column; /* Stack content vertically */
-    height: auto;
+    margin-left: -6rem;
+    margin-top: 4rem;
+    display: flex;
+    width: 600px;
+    height: 100vh;
+    /* align-items: flex-start; */
+    padding: 3rem;
+    flex-direction: column;
+    text-align: left;
   }
 
   .text-content-home {
-    margin-top: 2rem;
-    padding: 2rem;
-    max-width: 100%;
+    order: 1;
+    text-align: left;
+  }
+
+
+  .background-image {
+display: none;
+  }
+
+  .intro-content h1 {
+  line-height: 1.7;
+    width: 100%;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .intro-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  /* Adjust padding for safari specific class if needed */
+  .safari .container {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Small Mobile Devices (320px - 375px) */
+@media screen and (max-width: 375px) {
+  .intro-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .intro-content h2 {
+    font-size: 1.3rem;
   }
 
   .background-image {
-    position: relative; /* Make it part of the document flow */
-    width: 100%; /* Make sure it spans the full width on mobile */
-    height: auto; /* Let it adjust according to its aspect ratio */
-    margin-top: 2rem;
-    max-width: 500px;
+    height: 250px;
+  }
+}
 
+/* Handle landscape orientation for mobile */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .container {
+    flex-direction: column; /* Tetap column bahkan dalam landscape */
   }
 
-  .slideshow {
+  .text-content-home {
+    order: 1;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .background-image {
+    order: 2;
     width: 100%;
-    height: auto; /* Ensure it adapts to content on mobile */
-    position: relative;
-  }
-
-  .slide-image {
-    width: 100%;
-    height: 340px; /* Let the image maintain its aspect ratio */
-    object-fit: contain;
-    position: relative;
-    right: 0; /* Ensure image is positioned correctly */
-    transition: none; /* Disable transition for mobile */
-    padding-bottom: 120px;
-    margin: 0 auto;
-  }
-
-  .square-indicators {
-    position: relative;
-    bottom: 0;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
+    height: 200px; /* Lebih pendek untuk landscape */
   }
 }
