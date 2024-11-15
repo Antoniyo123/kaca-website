@@ -22,7 +22,6 @@ const ProjectDetails = () => {
         require('../img/vivo/vivo1.png'),
         require('../img/vivo/vivo2.png'),
         require('../img/vivo/vivo3.png'),
-        require('../img/projectdetail/project1.png'),
 
       ],
     },
