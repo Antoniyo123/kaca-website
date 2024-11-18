@@ -172,14 +172,14 @@
   background-color: #AB2328;
   width: 50px;
 }
-@media (min-width: 1512px) and (max-width: 3024px) and (min-height: 982px) and (max-height: 1964px) {
+@media (min-width: 1512px) and (max-width: 3024px){
   .text-content-home {
     max-width: 600px;
     padding: 4rem;
     padding-top: 0;
   }
   .background-image {
-    width: 920px;
+    width: 835px;
     right: -5%;
   }
   /* .slide-item {
