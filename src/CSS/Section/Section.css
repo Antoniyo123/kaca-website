@@ -328,78 +328,28 @@
 
 /* For extra small screens (very small mobile devices) */
 @media (max-width: 480px) {
-  .title-text-video {
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 35.2px;
-    letter-spacing: -0.25px;
-    margin-bottom: -2rem;
-  }
-
-  .see-more-button {
-    display: none;
-  }
-
-  .wide-photo-talent {
-    width: 200px;
-    height: 300px;
-  }
-
-  .horizontal-photo {
-    width: 200px;
-    height: 100px;
-  }
-
-
-  .slider-arrow {
-    justify-content: space-between;
-    background: transparent; /* Optional: remove button background */
-    border: none; /* Remove default border */
-    cursor: pointer; /* Change cursor to pointer */
-    
-}
-
-.slider-arrow img {
-    width: 24px; /* Set width for SVGs */
-    height: 24px; /* Set height for SVGs */
-}
-
-
-  .new-content-text {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .photo-gallery-container {
-    margin-bottom: 30px;
-  }
-  .new-content-text p{
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 21px;
-    letter-spacing: 0.5px;
-    color: #FFFFFF;
-  }
-  .content-container {
-    padding-top: 120px;
-    padding: 20px;
-    background-color: #212322;
-    width: 100%;
-    padding-bottom: 120px;
-    height: 100%;
-  }
   .horizontal-gallery-wrapper {
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth; 
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  .horizontal-gallery-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+  }
+
+  .horizontal-gallery {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 10px; /* Space between photos */
+    padding: 0 20px; /* Add some padding on sides */
   }
 
   .horizontal-photo {
+    flex-shrink: 0; /* Prevent images from shrinking */
     width: 150px;
-    height: 100px;
+    height: 200px;
+    object-fit: cover;
   }
-
-  .gallery-controls {
-    display: none; /* Sembunyikan tombol dan dot indicator pada mobile */
-  }
-
 }

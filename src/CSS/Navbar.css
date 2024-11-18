@@ -211,3 +211,82 @@ a, .navbar-menu a {
     justify-content: center;
   }
 }
+/* Mobile Navbar Styles */
+@media (max-width: 767px) {
+  .navbar {
+    /* background: #183028; */
+    /* max-height: none; */
+    padding: 16px;
+  }
+
+  .navbar-container {
+    padding: 0;
+  }
+
+  .navbar-top {
+    margin-bottom: 0;
+  }
+
+  .navbar-logo {
+    width: 120px;
+    height: auto;
+  }
+
+  /* .navbar-logo.gold-logo,
+  .navbar.in-dark-section .navbar-logo {
+    filter: none;
+  } */
+
+  .menu-toggle {
+    display: block;
+    bottom: 16px;
+  }
+
+  .navbar-menu {
+    padding: 80px 16px;
+    position: fixed;
+    bottom: -100%;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .navbar-menu.open {
+    bottom: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-item span {
+    font-size: 1.25rem;
+  }
+
+  .nav-item:hover,
+  .nav-item.active,
+  .nav-item.hovered {
+    transform: none;
+  }
+
+  .nav-item:hover span,
+  .nav-item.active span,
+  .nav-item.hovered span {
+    position: static;
+    transform: none;
+  }
+
+  .nav-item:hover .nav-item-image,
+  .nav-item.active .nav-item-image,
+  .nav-item.hovered .nav-item-image {
+    position: static;
+    transform: none;
+  }
+}
