@@ -9,9 +9,24 @@ const NewSection = () => {
     const [touchStartX, setTouchStartX] = useState(0);
     const [touchEndX, setTouchEndX] = useState(0);
     const navigate = useNavigate();
-    const [selectedTalent, setSelectedTalent] = useState(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    // const [selectedTalent, setSelectedTalent] = useState(null);
 
-
+    const handleScroll = () => {
+        if (galleryRef.current) {
+            const scrollPosition = galleryRef.current.scrollLeft;
+            const itemWidth = galleryRef.current.offsetWidth;
+            const newSlide = Math.round(scrollPosition / itemWidth);
+            setCurrentSlide(newSlide);
+        }
+    };
+    const talents = [
+        { name: 'nazla', image: 'NAZLA.png' },
+        { name: 'aaliyah', image: 'AALIYAH.png' },
+        { name: 'aqsa', image: 'AQSA.png' },
+        { name: 'agatha', image: 'AGATHA.png' },
+        { name: 'rachel', image: 'RACHEL.png' }
+    ];
     const scrollLeft = () => {
         galleryRef.current.scrollBy({ left: -200, behavior: 'smooth' });
     };
@@ -67,28 +82,26 @@ const NewSection = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="photo-gallery">
-                        {[
-                            { name: 'nazla', image: 'NAZLA.png' },
-                            { name: 'aaliyah', image: 'AALIYAH.png' },
-                            { name: 'aqsa', image: 'AQSA.png' },
-                            { name: 'agatha', image: 'AGATHA.png' },
-                            { name: 'rachel', image: 'RACHEL.png' }
-                        ].map((talent) => (
-                            <Link
-                                key={talent.name}
-                                to={`/talent/${talent.name}`}
-                                className="photo-wrapper"
-                                state={{ fromGallery: true }}
-                            >
-                                <img
-                                    src={require(`../img/our-talent/${talent.image}`)}
-                                    alt={talent.name}
-                                    className="wide-photo-talent"
-                                />
-                            </Link>
-                        ))}
-                    </div>
+                    <div 
+                    className="photo-gallery" 
+                    ref={galleryRef}
+                    onScroll={handleScroll}
+                >
+                    {talents.map((talent, index) => (
+                        <Link
+                            key={talent.name}
+                            to={`/talent/${talent.name}`}
+                            className="photo-wrapper"
+                            state={{ fromGallery: true }}
+                        >
+                            <img
+                                src={require(`../img/our-talent/${talent.image}`)}
+                                alt={talent.name}
+                                className="wide-photo-talent"
+                            />
+                        </Link>
+                    ))}
+                </div>
                 </div>
 
                 {/* KACA Network Section */}
