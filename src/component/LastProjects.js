@@ -183,10 +183,10 @@ const LastProjects = () => {
         <div className="project-gallery-container">
           <div className="photo-gallery-section">
             <div className="video-hover">
-              <p className="title-text-video">WHAT WE HAVE MANAGED</p>
+              <p className="title-text-video-project">WHAT WE HAVE MANAGED</p>
             </div>
-            <div className="see-more-button-container">
-              <Link to="/deskripsiproject" className="see-more-button">
+            <div className="see-more-button-project-container">
+              <Link to="/deskripsiproject" className="see-more-button-project">
                 See More 
                 <span className="arrow-icon">
                   <img src={arrowRight} alt="Scroll Right" width={24} height={24} />

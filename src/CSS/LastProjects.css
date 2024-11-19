@@ -9,7 +9,6 @@
 
 /* Main container for the project section */
 .project-section {
-
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -163,7 +162,41 @@ align-items: center;
   margin-top: 10px;
   animation: fade-in 0.3s ease-in-out;
 }
+.see-more-button-project-container {
+  display: flex;
+  align-items: center;
+  width: 202px;
+  height: 64px;
+  padding: 16px, 24px, 16px, 24px;
+}
 
+.see-more-button-project {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  background-color: #CFCDC9;
+  color: #183028;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  align-items: center;
+  transition: all 0.3s ease;
+
+}
+.see-more-button-project:hover{
+  background: #AB2328;
+  transform: translateY(-5px); 
+}
+.title-text-video-project{
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 49.5px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -183,8 +216,44 @@ align-items: center;
     height: 350px;
   }
 }
+@media (max-width: 480px){
+  .title-text-video-project{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+  .see-more-button-project {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    background-color: #CFCDC9;
+    color: #183028;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+    align-items: center;
+    transition: all 0.3s ease;
+  
+  }
+  .see-more-button-project:hover{
+    background: #AB2328;
+    transform: translateY(-5px); 
+  }
+  .lastProjects .project-gallery-scroll {
+    margin-top: 1rem;
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    padding: 0 20px;
+  }
+}
 
-.project-title-text-video {
+/* .project-title-text-video {
   font-weight: 500;
   font-size: 45px;
   line-height: 49.5px;
@@ -198,7 +267,7 @@ align-items: center;
   width: 202px;
   height: 64px;
   padding: 16px, 24px, 16px, 24px;
-}
+} */
 
 .project-see-more-button {
   text-decoration: none;

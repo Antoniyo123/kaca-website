@@ -315,7 +315,6 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    display: none;
   }
 
   .slider-arrow {
@@ -336,7 +335,6 @@
   }
 
   .new-section {
-    /* margin: 0; */
     padding: 0;
   }
 
@@ -357,9 +355,6 @@
   }
 
   .see-more-button {
-    /* background: transparent; */
-    /* color: #FFFFFF; */
-    /* padding: 0; */
     font-size: 16px;
   }
 
@@ -389,7 +384,7 @@
   .wide-photo-talent {
     max-width: 200px;
     width: 100%;
-    height: auto;
+    height: 250px;
     /* aspect-ratio: 3/4; */
     object-fit: cover;
   }
@@ -403,7 +398,7 @@
     color: #FFFFFF;
     font-size: 14px;
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin-top: -1.7rem;
   }
 
   /* KACA Network gallery */
@@ -415,7 +410,7 @@
   .horizontal-gallery {
     display: flex;
     gap: 10px;
-    overflow-x: auto;
+    overflow-x: hidden;
     padding-bottom: 20px;
     scroll-snap-type: x mandatory;
   }
@@ -436,16 +431,9 @@
     margin-top: 20px;
   }
 
-  .nav-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #666;
-  }
-
-  .nav-dot.active {
-    background-color: #FFFFFF;
-  }
+.slider-arrow img{
+  display: none;
+}
 
   /* Menu button */
   .menu-button {

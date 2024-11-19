@@ -175,7 +175,7 @@ font-weight: 200;
   .text-content h1 {
     font-size: 32px;
     line-height: 1.2;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
   }
 
   .text-content p {
@@ -219,7 +219,7 @@ font-weight: 200;
 
 @media (max-width: 480px) {
   .text-content h1 {
-    font-size: 24px;
+    font-size: 35px;
   }
 
   .text-content p {
