@@ -112,3 +112,87 @@
       opacity: 1;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .logo-image {
+        width: 380px;
+    }
+
+    .header-image {
+        width: 80px;
+    }
+
+    .line-image {
+        width: 80px;
+        margin: 5px 5px;
+    }
+
+    .left-line, .right-line {
+        margin-top: 6rem;
+    }
+
+    .loading-bar {
+        width: 300px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .logo-image {
+        width: 280px;
+    }
+
+    .header-image {
+        width: 60px;
+    }
+
+    .line-image {
+        width: 60px;
+        margin: 5px 5px;
+    }
+
+    .left-line, .right-line {
+        margin-top: 4rem;
+    }
+
+    .loading-bar {
+        width: 250px;
+    }
+
+    .copyright {
+        font-size: 10px;
+        bottom: 15px;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 320px) {
+    .logo-image {
+        width: 220px;
+    }
+
+    .header-image {
+        width: 50px;
+    }
+
+    .line-image {
+        width: 40px;
+        margin: 3px 3px;
+    }
+
+    .left-line, .right-line {
+        margin-top: 3rem;
+    }
+
+    .loading-bar {
+        width: 200px;
+    }
+
+    .splash-container {
+        padding: 0 10px;
+    }
+}

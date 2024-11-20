@@ -312,7 +312,7 @@ margin: 0 auto;
     }
   
     .talent-image, .talent-info, .talent-articles {
-      width: 100%;
+      /* width: 100%; */
       padding: 1rem 0;
     }
   
@@ -397,4 +397,181 @@ margin: 0 auto;
     margin-top: 1.4rem;
   }
 
+}
+/* Existing styles remain the same until the media queries */
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* .talent-profile {
+    height: auto;
+    min-height: 100vh;
+  } */
+
+  .tab__bar__container {
+    margin-top: 4rem;
+    height: 70px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .tab__bar__container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .tab__bar__wrapper {
+    width: auto;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .tab-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+    width: auto;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 120px;
+    padding: 0.8rem 1rem;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  /* Card Layout */
+  .talent__card__wrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .talent-card {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  /* Image Section */
+  .talent-image-personal {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 3/4;
+    margin: 0 auto;
+  }
+
+  .talent-image-personal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Info Section */
+  .talent-info {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .talent-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Social Stats Section */
+  .social-stats-container {
+    margin: 15px 0;
+  }
+
+  .social-usernames {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .social-metrics {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .instagram-metrics,
+  .tiktok-metrics {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .metric {
+    align-items: flex-start;
+  }
+
+  .metric-label {
+    font-size: 13px;
+  }
+
+  .metric-value {
+    font-size: 15px;
+  }
+
+  /* Description Section */
+  .description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .description.expanded {
+    max-height: none;
+  }
+
+  /* Articles Section */
+  .talent-articles {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0 0 0;
+    margin-top: 1rem;
+    max-height: none;
+  }
+
+  .article {
+    padding: 0.8rem 0;
+  }
+
+  .article h4 {
+    font-size: 15px;
+  }
+
+  .article p {
+    font-size: 13px;
+  }
+
+  /* More Talents Section */
+  .more-talents {
+    height: auto;
+    min-height: 50vh;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 375px) {
+  .tab {
+    min-width: 100px;
+    padding: 0.7rem 0.8rem;
+    font-size: 16px;
+  }
+
+  .talent-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .metric-label {
+    font-size: 12px;
+  }
+
+  .metric-value {
+    font-size: 14px;
+  }
 }

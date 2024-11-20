@@ -5,12 +5,7 @@
     padding-top: 80px;
     background:#FFFFFF;
   }
-  @font-face {
-    font-family: 'CustomFont';
-    src: url('../../fonts/Rotunda-Regular.ttf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
+ 
   .article-page-wrapper{
     width: 100%;
     max-width: 1200px;
@@ -135,3 +130,119 @@ flex-wrap: wrap;
     height: 100px;
     object-fit: cover;
   }
+
+  /* Mobile styles */
+@media screen and (max-width: 768px) {
+  .article-page {
+    
+    padding: 60px 15px 20px;
+  }
+
+  .featured-articles {
+    margin-top: 2rem;
+    
+    flex-direction: column;
+  }
+
+  .main-article {
+    margin-bottom: 15px;
+    height: 300px;
+  }
+
+  .main-article img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .secondary-articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    height: auto;
+    max-height: none;
+  }
+
+  .secondary-article {
+    height: 250px;
+    width: 100%;
+  }
+
+  .secondary-article.large {
+    height: 250px;
+  }
+
+  .secondary-article img {
+    height: 100%;
+    max-height: none;
+  }
+
+  .article-info,
+  .article-info-main {
+    padding: 12px;
+  }
+
+  .article-info h2,
+  .article-info-main h2 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .article-info p,
+  .article-info-main p {
+    font-size: 0.8rem;
+    margin: 4px 0 0;
+  }
+
+  /* Untuk article list yang sedang di-comment */
+  .article-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .article-item {
+    flex-direction: row;
+  }
+
+  .article-text {
+    padding: 12px;
+  }
+
+  .article-text h3 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .article-text p {
+    font-size: 0.75rem;
+  }
+
+  .article-item img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Tablet styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .article-page {
+    padding: 70px 20px 30px;
+  }
+
+  .featured-articles {
+    gap: 15px;
+  }
+
+  .main-article {
+    flex: 1;
+  }
+
+  .secondary-articles {
+    flex: 1;
+    gap: 15px;
+  }
+
+  .article-info h2,
+  .article-info-main h2 {
+    font-size: 1.1rem;
+  }
+}
