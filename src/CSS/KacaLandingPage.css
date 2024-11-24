@@ -260,6 +260,7 @@
   }
 
   .text-content-home {
+    margin-left: -10px;
     order: 1;
     text-align: left;
   }

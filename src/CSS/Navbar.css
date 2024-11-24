@@ -25,6 +25,7 @@
   filter: brightness(0) saturate(100%) invert(67%) sepia(18%) saturate(754%) hue-rotate(358deg) brightness(88%) contrast(85%);
 }
 .navbar.scrolled {
+  overflow: hidden;
   /* background: #ffffff94; */
   max-height: 100px;
 }
@@ -241,8 +242,13 @@ a, .navbar-menu a {
   .menu-toggle {
     display: block;
     bottom: 16px;
-  }
+    padding: 6px 18px;
 
+  }
+  .menu-icon{
+    width: 20px;
+    height: 20px;
+  }
   .navbar-menu {
     padding: 80px 16px;
     position: fixed;
@@ -258,11 +264,11 @@ a, .navbar-menu a {
   }
 
   .nav-item {
-    width: 100%;
+    max-width: 232px;
     height: auto;
     padding: 16px;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 16px;
   }

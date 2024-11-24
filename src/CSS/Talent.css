@@ -374,6 +374,12 @@
 }
 
 @media (max-width: 480px) {
+  .background-photo-talent{
+    bottom: 40%;
+  }
+  .scroll-indicator-talent{
+    margin-top: 3rem;
+  }
   .talent-showcase {
     padding-top: 40px;
   }

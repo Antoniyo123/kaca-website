@@ -49,3 +49,9 @@
     mask-position: 0 0;
   }
 }
+@media screen and (max-width: 768px){
+  .kaca-loader{
+width: 120px;
+height: 120px;
+  }
+}

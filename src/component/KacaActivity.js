@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../CSS/Section/KacaActivity.css';
-import Liquid from '../img/svg-assets/liquid.svg'; // Import SVG
+import Liquid from '../img/svg-assets/liquid.svg';
 
 const KacaActivity = () => {
-   const [activeService, setActiveService] = useState(0);
+  const [activeService, setActiveService] = useState(0);
   const liquidRef = useRef(null);
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const KacaActivity = () => {
         const deltaTime = timestamp - previousTimestamp;
         previousTimestamp = timestamp;
 
-        const scaleX = 1 + Math.sin(timestamp * 0.001) * 0.04; // Increase the scale factor
-        const scaleY = 0.9 + Math.cos(timestamp * 0.001) * 0.04; // Increase the scale factor
+        const scaleX = 1 + Math.sin(timestamp * 0.001) * 0.04;
+        const scaleY = 0.9 + Math.cos(timestamp * 0.001) * 0.04;
         liquid.style.transform = `translateY(${Math.sin(timestamp * 0.0004) * 10}px) scaleX(${scaleX}) scaleY(${scaleY})`;
-        liquid.style.opacity = `1`; // Remove the blinking effect
+        liquid.style.opacity = '1';
       };
 
       const animationLoop = () => {
@@ -39,8 +39,8 @@ const KacaActivity = () => {
       title: 'Boost Your Brand Awareness',
       content: 'Advertise your brand to a large audience through our talents\' social media.',
       image: require('../img/bg/ring.png'),
-      imageWidth: '135px', // Set the desired width
-      imageHeight: '126px', // Set the desired height
+      imageWidth: '135px',
+      imageHeight: '126px',
       svgWidth: '265px',
       svgHeight: '230px',
     },
@@ -92,7 +92,7 @@ const KacaActivity = () => {
               }}
             />
             <div className="hover-background">
-            <img
+              <img
                 src={Liquid}
                 alt="Liquid SVG"
                 className="service-svg-image"
@@ -100,12 +100,14 @@ const KacaActivity = () => {
                 style={{
                   width: services[activeService].svgWidth,
                   height: services[activeService].svgHeight,
-                  filter: 'none', // Remove the white effect
+                  filter: 'none',
                 }}
               />
             </div>
           </div>
-          <p>{services[activeService].content}</p>
+          <div className="content-wrapper">
+            <p>{services[activeService].content}</p>
+          </div>
         </div>
       </div>
     </div>

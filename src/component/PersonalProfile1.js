@@ -10,24 +10,113 @@ const PersonalProfile1 = ({ initialSelectedTalent = null })  => {
   const [activeTab, setActiveTab] = useState(initialSelectedTalent);
   const contentRef = useRef(null);
   const [socialStats, setSocialStats] = useState({});
-  
+  const tabBarRef = useRef(null);
+  const tabsContainerRef = useRef(null);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const fetchInstagramStats = async (username) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'e809321e6fmsh4d603b63cba3417p131caejsne2897adfbe69',
+        'X-RapidAPI-Host': 'instagram-premium-api-2023.p.rapidapi.com'
+      }
+    };
+
+    try {
+      const response = await fetch(
+        `https://instagram-premium-api-2023.p.rapidapi.com/v1/user/followers?amount=100`,
+        options
+      );
+      const data = await response.json();
+      
+      // Update socialStats state with the new data
+      setSocialStats(prevStats => ({
+        ...prevStats,
+        [username]: {
+          followers: data.followers_count,
+          following: data.following_count
+        }
+      }));
+    } catch (error) {
+      console.error('Error fetching Instagram stats:', error);
+    }
+  };
+  const maintainScrollPosition = (tabName) => {
+    const tabElement = tabBarRef.current?.querySelector(`[data-tab="${tabName}"]`);
+    const container = tabsContainerRef.current;
+    
+    if (tabElement && container) {
+      // Hitung posisi tab relatif terhadap container
+      const tabOffset = tabElement.offsetLeft;
+      const containerWidth = container.clientWidth;
+      const tabWidth = tabElement.clientWidth;
+      
+      // Posisikan tab di tengah container
+      const scrollPosition = tabOffset - (containerWidth / 2) + (tabWidth / 2);
+      
+      // Terapkan scroll
+      container.scrollLeft = scrollPosition;
+    }
+  };
+  useEffect(() => {
+    const container = tabsContainerRef.current;
+    if (container) {
+      const handleScroll = () => {
+        setScrollPosition(container.scrollLeft);
+      };
+      
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+  useEffect(() => {
+    if (tabsContainerRef.current) {
+      tabsContainerRef.current.scrollLeft = scrollPosition;
+    }
+  }, [scrollPosition]);
+
   useEffect(() => {
     if (initialSelectedTalent && talents.find(t => t.name === initialSelectedTalent)) {
       setActiveTab(initialSelectedTalent);
-      const element = document.getElementById(initialSelectedTalent);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      setTimeout(() => {
+        maintainScrollPosition(initialSelectedTalent);
+      }, 100);
     } else if (talents.length > 0) {
-      setActiveTab(talents[0].name); // Default to the first talent
+      setActiveTab(talents[0].name);
     }
   }, [initialSelectedTalent]);
+  const handleTabClick = (talentName) => {
+    setActiveTab(talentName);
+
+    // Scroll tab ke posisi yang tepat dengan delay minimal
+    setTimeout(() => {
+      maintainScrollPosition(talentName);
+    }, 10);
+
+    // Scroll konten
+    const element = document.getElementById(talentName);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   useEffect(() => {
     if (name) {
       const formattedName = name.toUpperCase();
       setActiveTab(formattedName);
+      setTimeout(() => {
+        maintainScrollPosition(formattedName);
+      }, 100);
+    } else if (talents.length > 0) {
+      setActiveTab(talents[0].name);
+    }
+  }, [name]);
+  useEffect(() => {
+    if (name) {
+      const formattedName = name.toUpperCase();
+      setActiveTab(formattedName);
+      maintainScrollPosition(formattedName);
       
-      // Scroll to the selected talent after a short delay
       setTimeout(() => {
         const element = document.getElementById(formattedName);
         if (element) {
@@ -193,16 +282,12 @@ good videos and photos. `,
     // Tambahkan talent lain jika diperlukan
   ];
 
-  const handleTabClick = (talentName) => {
-    setActiveTab(talentName);
-    setTimeout(() => {
-      const element = document.getElementById(talentName);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
+
+
+  const stats = socialStats[talents.instagram] || {
+    followers: talents.instagramFollowers, // Fallback to hardcoded value
+    following: '0' // Default value if API fails
   };
-  
   const openSocialMedia = (platform, username) => {
     const urls = {
       instagram: `https://instagram.com/${username}`,
@@ -220,29 +305,63 @@ good videos and photos. `,
   };
 
   const TabBar = () => (
-    <div className='tab__bar__container'>
-      <div className='tab__bar__wrapper'>
-        <div className="tab-bar">
+    <div className='tab__bar__container' style={{ position: 'relative' }}>
+      <div 
+        className='tab__bar__wrapper' 
+        ref={tabsContainerRef}
+        style={{
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          scrollBehavior: 'smooth',
+          msOverflowStyle: 'none',  // IE and Edge
+          scrollbarWidth: 'none',   // Firefox
+          '&::-webkit-scrollbar': { display: 'none' }  // Chrome, Safari, Opera
+        }}
+      >
+        <div 
+          className="tab-bar" 
+          ref={tabBarRef}
+          style={{
+            display: 'inline-flex',
+            whiteSpace: 'nowrap',
+            padding: '0 10px'
+          }}
+        >
           {talents.map((talent) => (
             <button
               key={talent.name}
+              data-tab={talent.name}
               className={`tab ${activeTab === talent.name ? 'active' : ''}`}
               onClick={() => handleTabClick(talent.name)}
+              style={{
+                flex: '0 0 auto',
+                whiteSpace: 'nowrap'
+              }}
             >
               {talent.name}
             </button>
           ))}
-        <button
-          className={`tab ${activeTab === 'More Talents' ? 'active' : ''}`}
-          onClick={() => handleTabClick('More Talents')}
-        >
-          More Talents
-        </button>
-
+          <button
+            data-tab="More Talents"
+            className={`tab ${activeTab === 'More Talents' ? 'active' : ''}`}
+            onClick={() => handleTabClick('More Talents')}
+            style={{
+              flex: '0 0 auto',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            More Talents
+          </button>
         </div>
       </div>
     </div>
   );
+  
+  useEffect(() => {
+    if (activeTab) {
+      maintainScrollPosition(activeTab);
+    }
+  }, [activeTab]);
 
   const TalentCard = ({ talent }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -383,6 +502,7 @@ good videos and photos. `,
       </div>
     );
   };
+
 
   return (
     <div className="talent-profile">
