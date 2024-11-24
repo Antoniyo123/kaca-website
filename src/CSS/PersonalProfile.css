@@ -246,6 +246,7 @@ button {
 
 .talent-container {
   position: relative;
+  
   overflow: hidden;
 }
 

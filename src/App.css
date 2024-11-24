@@ -32,7 +32,12 @@ body, button, input, textarea, select, p, h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   transform: translateY(0);
 }
-
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 /* Animasi untuk elemen-elemen di dalam halaman */
 /* .animated-page h1, */
 .animated-page h2,

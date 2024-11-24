@@ -51,6 +51,35 @@ const Talent = () => {
   const [isNavigating, setIsNavigating] = useState(false);
   const [selectedTalent, setSelectedTalent] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    // Detect real mobile device
+    const checkMobile = () => {
+      setIsMobile(
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      );
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  // Pastikan handling kedua jenis event
+const handleInteraction = (e) => {
+  // Handle touch event
+  if (e.touches) {
+    return e.touches[0].clientX;
+  }
+  // Handle mouse event
+  return e.clientX;
+};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -184,6 +213,22 @@ const Talent = () => {
       }
     }
     return classes;
+  };
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches ? e.touches[0].clientX : e.clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEnd = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const diff = touchStart - touchEnd;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentIndex < talents.length - 1) {
+        setCurrentIndex(prev => prev + 1);
+      } else if (diff < 0 && currentIndex > 0) {
+        setCurrentIndex(prev => prev - 1);
+      }
+    }
   };
 
   return (
