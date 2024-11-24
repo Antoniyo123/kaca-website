@@ -212,6 +212,7 @@
 
 /* Personal Profile Section */
 .personal-profile-wrapper {
+  overflow-y: unset;
   overflow-x: hidden;
   left: 0;
   right: 0;
