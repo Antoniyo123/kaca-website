@@ -419,7 +419,7 @@ padding-bottom: 120px;
     margin-top: 5rem;
     height: 70px;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: unset;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
   }
