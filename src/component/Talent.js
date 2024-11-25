@@ -118,7 +118,7 @@ const Talent = () => {
     setIsNavigating(true);
   
     // Find the PersonalProfile1 section
-    const profileSection = document.querySelector('.tab__bar__container__wraper');
+    const profileSection = document.querySelector('.tab__bar__container');
     if (!profileSection) {
       setIsNavigating(false);
       return;
