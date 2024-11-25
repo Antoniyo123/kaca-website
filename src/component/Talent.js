@@ -51,35 +51,6 @@ const Talent = () => {
   const [isNavigating, setIsNavigating] = useState(false);
   const [selectedTalent, setSelectedTalent] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const [touchStart, setTouchStart] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    // Detect real mobile device
-    const checkMobile = () => {
-      setIsMobile(
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      );
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  // Pastikan handling kedua jenis event
-const handleInteraction = (e) => {
-  // Handle touch event
-  if (e.touches) {
-    return e.touches[0].clientX;
-  }
-  // Handle mouse event
-  return e.clientX;
-};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,7 +59,6 @@ const handleInteraction = (e) => {
         const threshold = window.innerHeight * 0.7;
         setIsVisible(talentShowcaseRect.bottom < threshold);
         
-        // Calculate scroll progress
         const scrollPosition = window.pageYOffset;
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         setScrollProgress(scrollPosition / maxScroll);
@@ -125,7 +95,7 @@ const handleInteraction = (e) => {
 
       window.scrollTo({
         top: currentPosition,
-        behavior: 'auto'
+        behavior: 'smooth'
       });
 
       if (timeElapsed < duration) {
@@ -146,89 +116,58 @@ const handleInteraction = (e) => {
     
     setSelectedTalent(talentName);
     setIsNavigating(true);
-
-    // Add transition class to start fading out other talents
-    const talents = document.querySelectorAll('.talent-item');
-    talents.forEach(talent => {
-      if (!talent.classList.contains(talentName)) {
-        talent.classList.add('talent-fade-out');
-      }
-    });
-
-    // First smooth scroll to PersonalProfile1 section
-    if (personalProfile1Ref.current) {
-      // Initial scroll with longer duration for smoother transition
-      await new Promise(resolve => {
-        smoothScrollTo(personalProfile1Ref.current, 1500, resolve);
-      });
-
-      // Small delay before scrolling to specific talent
-      await new Promise(resolve => setTimeout(resolve, 300));
-
-      const element = document.getElementById(talentName);
-      if (element) {
-        const headerOffset = 100;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        // Scroll to specific talent with dynamic duration based on distance
-        const distance = Math.abs(window.pageYOffset - offsetPosition);
-        const scrollDuration = Math.min(Math.max(800, distance / 2), 1500);
-
-        await new Promise(resolve => {
-          smoothScrollTo(element, scrollDuration, () => {
-            // Add a highlight effect to the target element
-            element.classList.add('talent-highlight');
-            setTimeout(() => {
-              element.classList.remove('talent-highlight');
-              resolve();
-            }, 500);
-          });
-        });
-      }
-
-      // Reset navigation state with fade-in effect
-      setTimeout(() => {
-        talents.forEach(talent => {
-          talent.classList.remove('talent-fade-out');
-        });
-        setIsNavigating(false);
-      }, 500);
+  
+    // Find the PersonalProfile1 section
+    const profileSection = document.querySelector('.personal-profile-wrapper');
+    if (!profileSection) {
+      setIsNavigating(false);
+      return;
     }
+  
+    // First scroll to PersonalProfile1 section
+    const headerOffset = 100;
+    const elementPosition = profileSection.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+    // Perform smooth scroll to the profile section
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  
+    // Wait for the scroll to complete before highlighting the talent content
+    setTimeout(() => {
+      // Find the specific talent's content
+      const talentContent = document.getElementById(talentName);
+      if (talentContent) {
+        // Add highlight effect
+        talentContent.classList.add('talent-highlight');
+        
+        // Scroll the talent content into view within the PersonalProfile1 component
+        talentContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Remove highlight after animation
+        setTimeout(() => {
+          talentContent.classList.remove('talent-highlight');
+        }, 500);
+      }
+      
+      setIsNavigating(false);
+    }, 1000); // Adjust timing based on scroll duration
   };
 
   const togglePersonalProfile = () => {
     if (personalProfile1Ref.current) {
-      smoothScrollTo(personalProfile1Ref.current, 1000);
+      personalProfile1Ref.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const getTalentItemClass = (talent) => {
     let classes = "talent-item";
-    if (isNavigating) {
-      if (talent.name === selectedTalent) {
-        classes += " talent-selected";
-      } else {
-        classes += " talent-fade-out";
-      }
+    if (isNavigating && talent.name === selectedTalent) {
+      classes += " talent-selected";
     }
     return classes;
-  };
-  const handleTouchStart = (e) => {
-    setTouchStart(e.touches ? e.touches[0].clientX : e.clientX);
-  };
-
-  const handleTouchEnd = (e) => {
-    const touchEnd = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-    const diff = touchStart - touchEnd;
-
-    if (Math.abs(diff) > 50) {
-      if (diff > 0 && currentIndex < talents.length - 1) {
-        setCurrentIndex(prev => prev + 1);
-      } else if (diff < 0 && currentIndex > 0) {
-        setCurrentIndex(prev => prev - 1);
-      }
-    }
   };
 
   return (
@@ -246,7 +185,10 @@ const handleInteraction = (e) => {
                   onMouseLeave={() => !isNavigating && setHoveredIndex(null)}
                   onClick={() => !isNavigating && navigateToTalent(talent.name)}
                   key={talent.id}
-                  style={{ cursor: isNavigating ? 'default' : 'pointer' }}
+                  style={{ 
+                    cursor: isNavigating ? 'default' : 'pointer',
+                    transition: 'opacity 0.3s ease-in-out'
+                  }}
                 >
                   <div className="talent-background">
                     <img 
@@ -272,7 +214,7 @@ const handleInteraction = (e) => {
         </div>
     
         <div 
-          className={`scroll-indicator-talent ${isNavigating ? 'fade-out' : ''}`} 
+          className="scroll-indicator-talent"
           onClick={togglePersonalProfile}
         >
           <span>Scroll to know more about our talent</span>

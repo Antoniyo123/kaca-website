@@ -79,11 +79,18 @@ const PersonalProfile1 = ({ initialSelectedTalent = null })  => {
   useEffect(() => {
     if (initialSelectedTalent && talents.find(t => t.name === initialSelectedTalent)) {
       setActiveTab(initialSelectedTalent);
+      
+      // Wait for component to fully render
       setTimeout(() => {
+        // Scroll to the selected talent's content
+        const talentElement = document.getElementById(initialSelectedTalent);
+        if (talentElement) {
+          talentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Update tab bar scroll position
         maintainScrollPosition(initialSelectedTalent);
       }, 100);
-    } else if (talents.length > 0) {
-      setActiveTab(talents[0].name);
     }
   }, [initialSelectedTalent]);
   const handleTabClick = (talentName) => {
@@ -130,7 +137,7 @@ const PersonalProfile1 = ({ initialSelectedTalent = null })  => {
 
   
   
-  const scrollToTalent = (talentName) => {
+  const scrollToTalent = (talentsName) => {
     // Your scroll logic, for example:
     document.getElementById('talent-section').scrollIntoView({ behavior: 'smooth' });
   };

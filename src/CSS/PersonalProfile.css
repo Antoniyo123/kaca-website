@@ -258,7 +258,7 @@ button {
 }
 
 .personal-profile-wrapper {
-  position: relative;
+  /* position: relative; */
   min-height: 100vh;
   background-color: #212322;
   transition: transform 0.3s ease-out;
