@@ -131,7 +131,7 @@ const Talent = () => {
   
     // Perform smooth scroll to the profile section
     window.scrollTo({
-      top: offsetPosition,
+      top: headerOffset,
       behavior: 'smooth'
     });
   
