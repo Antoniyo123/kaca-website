@@ -312,7 +312,18 @@ good videos and photos. `,
   };
 
   const TabBar = () => (
-    <div className='tab__bar__container__wraper' style={{ position: 'relative', marginTop:'3rem'}}>
+    <div 
+    className='tab__bar__container__wraper' 
+    style={{ 
+      position: 'relative', // Change to fixed positioning
+      top: '20px',       // Set exact navbar height (adjust 160 to your actual navbar height)
+      left: '0',
+      right: '0',
+      zIndex: '10',       // Ensure it's above other content
+       // Optional: add background to prevent content from showing through
+      width: '100%'
+    }}
+  >
     <div className='tab__bar__container' style={{ position: 'relative',}}>
       <div 
         className='tab__bar__wrapper' 
