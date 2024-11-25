@@ -430,7 +430,7 @@ padding-top: 120px;
     /* color: #bbb464; */
   }
   .tab:hover {
-display: none;
+    color: rgb(3, 3, 3);
   }
   /* .talent-profile {
     height: auto;
