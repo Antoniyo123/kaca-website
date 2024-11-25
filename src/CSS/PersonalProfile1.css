@@ -425,6 +425,13 @@ padding-top: 120px;
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
+  .tab.active {
+    color: rgb(185, 151, 91);
+    /* color: #bbb464; */
+  }
+  .tab:hover {
+display: none;
+  }
   /* .talent-profile {
     height: auto;
     min-height: 100vh;
