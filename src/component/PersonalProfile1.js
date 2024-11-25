@@ -47,18 +47,19 @@ const PersonalProfile1 = ({ initialSelectedTalent, navbarHeight })  => {
     const container = tabsContainerRef.current;
     
     if (tabElement && container) {
+      // Hitung posisi tab relatif terhadap container
       const tabOffset = tabElement.offsetLeft;
       const containerWidth = container.clientWidth;
       const tabWidth = tabElement.clientWidth;
       
-      // Add a navbar height offset (adjust 160 to match your actual navbar height)
-      const navbarOffset = 80; 
+      // Posisikan tab di tengah container
+      const scrollPosition = tabOffset - (containerWidth / 2) + (tabWidth / 2);
       
-      const scrollPosition = tabOffset - (containerWidth / 2) + (tabWidth / 2) - navbarOffset;
-      
+      // Terapkan scroll
       container.scrollLeft = scrollPosition;
     }
   };
+
   useEffect(() => {
     const container = tabsContainerRef.current;
     if (container) {
