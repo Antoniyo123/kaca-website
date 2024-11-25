@@ -312,7 +312,7 @@ good videos and photos. `,
   };
 
   const TabBar = () => (
-    <div className='tab__bar__container__wraper' style={{ position: 'sticky', marginTop:'2rem'}}>
+    <div className='tab__bar__container__wraper' style={{ position: 'relative', marginTop:'3rem'}}>
     <div className='tab__bar__container' style={{ position: 'relative',}}>
       <div 
         className='tab__bar__wrapper' 
