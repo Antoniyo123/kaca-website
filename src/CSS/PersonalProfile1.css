@@ -430,12 +430,12 @@ padding-top: 120px;
     min-height: 100vh;
   } */
   .tab__bar__container__wraper{
-    margin-top: 3rem;
+    margin-top: 4rem;
 
   }
 
   .tab__bar__container {
-    margin-top: 5rem;
+    margin-top: 1rem;
     height: 70px;
     overflow-x: auto;
     /* overflow-y: hidden; */
