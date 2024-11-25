@@ -429,7 +429,10 @@ padding-top: 120px;
     height: auto;
     min-height: 100vh;
   } */
+  .tab__bar__container__wraper{
+    margin-top: 5rem;
 
+  }
 
   .tab__bar__container {
     margin-top: 5rem;
