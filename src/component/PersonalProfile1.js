@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import KacaNetwork from '../component/KacaNetwork';
 // import PersonalProfile1 from '../component/PersonalProfile1'
 
-const PersonalProfile1 = ({ initialSelectedTalent = null })  => {
+const PersonalProfile1 = ({ initialSelectedTalent, navbarHeight })  => {
   
   const { name } = useParams();
   const [activeTab, setActiveTab] = useState(initialSelectedTalent);
@@ -312,7 +312,8 @@ good videos and photos. `,
   };
 
   const TabBar = () => (
-    <div className='tab__bar__container' style={{ position: 'relative' }}>
+    <div className='tab__bar__container__wraper' style={{ position: 'sticky', marginTop:'2rem'}}>
+    <div className='tab__bar__container' style={{ position: 'relative',}}>
       <div 
         className='tab__bar__wrapper' 
         ref={tabsContainerRef}
@@ -361,6 +362,7 @@ good videos and photos. `,
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
   

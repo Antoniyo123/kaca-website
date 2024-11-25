@@ -125,8 +125,7 @@ const Talent = () => {
     }
   
     // First scroll to PersonalProfile1 section
-    const headerOffset = 150 + 20; // Total: 170px
-
+    const headerOffset = 80;
     const elementPosition = profileSection.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
   
