@@ -70,91 +70,70 @@ const Talent = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const smoothScrollTo = (element, duration = 1200, callback) => {
+  const smoothScrollToElement = (element, duration = 1200, offset = 0, callback) => {
     if (!element) return;
-    
-    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+  
+    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     let startTime = null;
-    let animationFrame = null;
-
+  
     const easeInOutQuart = (t) => {
       return t < 0.5
         ? 8 * t * t * t * t
         : 1 - Math.pow(-2 * t + 2, 4) / 2;
     };
-
+  
     const animation = (currentTime) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const progress = Math.min(timeElapsed / duration, 1);
-
+  
       const easedProgress = easeInOutQuart(progress);
       const currentPosition = startPosition + distance * easedProgress;
-
+  
       window.scrollTo({
         top: currentPosition,
-        behavior: 'smooth'
+        behavior: 'auto', // Disable default smooth behavior
       });
-
+  
       if (timeElapsed < duration) {
-        animationFrame = requestAnimationFrame(animation);
-      } else {
-        if (callback) callback();
-        if (animationFrame) {
-          cancelAnimationFrame(animationFrame);
-        }
+        requestAnimationFrame(animation);
+      } else if (callback) {
+        callback();
       }
     };
-
-    animationFrame = requestAnimationFrame(animation);
+  
+    requestAnimationFrame(animation);
   };
+  
 
-  const navigateToTalent = async (talentName) => {
+  const navigateToTalent = (talentName) => {
     if (isNavigating) return;
-    
+  
     setSelectedTalent(talentName);
     setIsNavigating(true);
   
-    // Find the PersonalProfile1 section
-    const profileSection = document.querySelector('.tab__bar__container__wraper');
-    if (!profileSection) {
-      setIsNavigating(false);
-      return;
-    }
+    // Find the talent section by ID
+    const talentSection = document.getElementById(talentName);
+    const headerOffset = 160; // Adjust as needed for sticky headers or spacing
   
-    // First scroll to PersonalProfile1 section
-    const headerOffset = 160;
-    const elementPosition = profileSection.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-    // Perform smooth scroll to the profile section
-    window.scrollTo({
-      top: headerOffset,
-      behavior: 'smooth'
-    });
-  
-    // Wait for the scroll to complete before highlighting the talent content
-    setTimeout(() => {
-      // Find the specific talent's content
-      const talentContent = document.getElementById(talentName);
-      if (talentContent) {
-        // Add highlight effect
-        talentContent.classList.add('talent-highlight');
-        
-        // Scroll the talent content into view within the PersonalProfile1 component
-        talentContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        
-        // Remove highlight after animation
+    if (talentSection) {
+      smoothScrollToElement(talentSection, 1200, headerOffset, () => {
         setTimeout(() => {
-          talentContent.classList.remove('talent-highlight');
+          // Optional: Highlight effect for the selected element
+          talentSection.classList.add('talent-highlight');
+          setTimeout(() => {
+            talentSection.classList.remove('talent-highlight');
+          }, 500);
+          setIsNavigating(false);
         }, 500);
-      }
-      
+      });
+    } else {
       setIsNavigating(false);
-    }, 1000); // Adjust timing based on scroll duration
+    }
   };
+  
 
   const togglePersonalProfile = () => {
     if (personalProfile1Ref.current) {
