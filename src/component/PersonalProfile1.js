@@ -47,15 +47,15 @@ const PersonalProfile1 = ({ initialSelectedTalent, navbarHeight })  => {
     const container = tabsContainerRef.current;
     
     if (tabElement && container) {
-      // Hitung posisi tab relatif terhadap container
       const tabOffset = tabElement.offsetLeft;
       const containerWidth = container.clientWidth;
       const tabWidth = tabElement.clientWidth;
       
-      // Posisikan tab di tengah container
-      const scrollPosition = tabOffset - (containerWidth / 2) + (tabWidth / 2);
+      // Add a navbar height offset (adjust 160 to match your actual navbar height)
+      const navbarOffset = 160; 
       
-      // Terapkan scroll
+      const scrollPosition = tabOffset - (containerWidth / 2) + (tabWidth / 2) - navbarOffset;
+      
       container.scrollLeft = scrollPosition;
     }
   };
