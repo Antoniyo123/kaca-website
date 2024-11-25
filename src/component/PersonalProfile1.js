@@ -52,7 +52,7 @@ const PersonalProfile1 = ({ initialSelectedTalent, navbarHeight })  => {
       const tabWidth = tabElement.clientWidth;
       
       // Add a navbar height offset (adjust 160 to match your actual navbar height)
-      const navbarOffset = 160; 
+      const navbarOffset = 200; 
       
       const scrollPosition = tabOffset - (containerWidth / 2) + (tabWidth / 2) - navbarOffset;
       
