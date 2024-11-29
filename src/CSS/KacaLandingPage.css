@@ -9,18 +9,6 @@
   overflow-x: hidden !important;
 }
 
-@font-face {
-  font-family: 'CustomFont';
-  src: url('../fonts/rotunda-custom.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'CustomFont1';
-  src: url('../fonts/RotundaVariable-Regular.ttf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
 .container {
   max-width: 1290px;
   display: flex;
@@ -205,7 +193,29 @@
     right: -5%;
   }
 }
+/* 14-inch (3024 x 1964) Retina XDR Display */
+@media only screen and (min-width: 1400px) and (max-width: 3024px) {
+  /* Add your specific styles for this display resolution */
+  .container {
+    max-width: 1290px;
+  }
 
+  .text-content-home {
+    max-width: 680px;
+    padding: 5rem;
+  }
+
+  .background-image {
+    width: 682px;
+    height: 100vh;
+    right: 0;
+  }
+
+  .landing-page-background {
+    max-width: 600px;
+    height: 400px;
+  }
+}
 
 
 /* Responsive adjustments */
