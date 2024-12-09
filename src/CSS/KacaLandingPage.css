@@ -194,7 +194,7 @@
   }
 }
 /* 14-inch (3024 x 1964) Retina XDR Display */
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1440px) {
   /* Add your specific styles for this display resolution */
   .container {
     max-width: 1290px;
@@ -206,7 +206,7 @@
   }
 
   .background-image {
-    width: 682px;
+    width: 720px;
     height: 100vh;
     right: 0;
   }
