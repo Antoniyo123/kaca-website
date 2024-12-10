@@ -217,6 +217,21 @@
   }
 }
 
+/* Menargetkan resolusi perangkat retina */
+@media 
+  only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1728px) {
+    /* CSS khusus untuk Retina Display */
+    .text-content-home {
+      max-width: 680px;
+      padding: 5rem;
+    }
+  
+    .background-image {
+      width: 860px;
+      height: 100vh;
+      right: 0;
+    }
+}
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
