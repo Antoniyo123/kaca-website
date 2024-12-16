@@ -68,7 +68,7 @@ const ImageCarousel = () => {
   }, []);
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container-network">
       <div className='kaca-network-text'>
         <h1>KACA Network</h1>
       </div>

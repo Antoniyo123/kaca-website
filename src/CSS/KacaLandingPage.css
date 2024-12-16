@@ -65,9 +65,7 @@
   right: 60%;
   top: 17%;
 }
-
 .background-image {
-  
   width: 850px;
   height: 100vh;
   position: absolute;
@@ -75,6 +73,15 @@
   top: 0;
   overflow: hidden;
 }
+/* .background-image {
+  
+  width: 850px;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+} */
 
 .landing-page-background {
   position: absolute;

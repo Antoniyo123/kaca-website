@@ -13,6 +13,22 @@ const KacaLandingPage = () => {
   const videoRefs = useRef([]);
   const intervalRef = useRef(null);
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const getVideoClass = () => {
+    if (windowWidth > 1200) return 'full-width-video';
+    if (windowWidth > 768) return 'tablet-video';
+    return 'mobile-video';
+  };
 
   const nextSlide = () => {
     if (sliding) return;
@@ -120,9 +136,17 @@ const KacaLandingPage = () => {
         </div>
 
         <div className="background-image">
-          <div className={`slideshow ${sliding ? 'sliding' : ''}`}>
-            {slides.map(renderSlide)}
-          </div>
+        <div className={`slideshow ${sliding ? 'sliding' : ''}`}>
+        {slides.map((slide, index) => (
+          <video
+            key={index}
+            ref={el => videoRefs.current[index] = el}
+            src={slide.src}
+            className={`slide-item ${getVideoClass()} ${index === activeIndex ? 'active' : ''}`}
+            // ... other existing props
+          />
+        ))}
+      </div>
         </div>
       </div>
       <div className="landing-page-background"></div>
